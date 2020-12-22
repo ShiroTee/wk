@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="27px" viewBox="0 0 30 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>line</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="个人画像-详情默认" transform="translate(-412.000000, -31.000000)" stroke="#90D7FA" stroke-width="2">
+            <g id="line" transform="translate(413.000000, 32.000000)">
+                <path d="M14,9 L14,15" id="Shape"></path>
+                <polyline id="Shape" points="3 15 3 12 25 12 25 15"></polyline>
+                <circle id="Oval" cx="3" cy="22" r="3"></circle>
+                <circle id="Oval" cx="14" cy="22" r="3"></circle>
+                <circle id="Oval" cx="25" cy="22" r="3"></circle>
+                <rect id="Rectangle-path" x="10" y="0" width="8" height="5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="unspace_query_html">
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>法人信息查询</title>
+<link href="../../r/cms/www/red/css/index02.css" rel="stylesheet" type="text/css" />
+<link href="../../r/cms/www/red/css/layout02.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../r/cms/jquery17.js"></script>
+<script type="text/javascript" src="../../r/cms/jquery.colorAnimations.js"></script>
+<script type="text/javascript" src="../js/findFrxx.js"></script>
+</head>
+<body class="unspace_query_body">
+<div class="query_content">
+		<div class="querychannel_title">
+			<span>兰州市法人信息查询</span>
+		</div>
+		<form class="query_form" id="frxx_form">
+			<div>
+				<label style="margin-left:0;">机构名称：</label>
+				<input type="text" name="jgmc" id="jgmc" />
+				<b class="check_tip" title="机构名称格式不正确"></b>
+				<label>机构代码：</label>
+				<input type="text" name="jgdm" id="jgdm" />
+				<b class="check_tip_jgdm" title="机构代码格式不正确"></b>
+			</div>
+			<div style="position:relative;">
+				<input type="submit" name="selectName" value="查询" />
+				<b class="waiting"></b>
+				<input type="reset" name="resetName" value="重置" />
+			</div>
+		</form>
+		<hr />
+		<div class="query_result_div" id="query_result_fr">
+			<div class="result_left f-left">
+				<ul>
+					<li><label>机构名称：</label><span id="jgmcc"></span></li>
+					<li><label>注册或者登记机构名称：</label><span id="zcdjjgmcc"></span></li>
+					<li><label>组织机构代码：</label><span id="zzjgdmc"></span></li>
+					<li><label>注册或登记号：</label><span id="zcdjhc"></span></li>
+					<li><label>成立日期：</label><span id="clrqc"></span></li>
+					<li><label>营业期限：</label><span id="yyqxc"></span></li>
+				</ul>
+			</div>
+			<div class="result_right  f-left">
+				<ul>
+					<li><label>设立方式：</label><span id="slfsc"></span></li>
+					<li><label>隶属单位：</label><span id="lsdwc"></span></li>
+					<li><label>法人类型：</label><span id="frlxc"></span></li>
+					<li><label>机构类型：</label><span id="jglxc"></span></li>
+					<li><label>注销日期：</label><span id="zcrqc"></span></li>
+					<li><label>机构住所：</label><span id="jgzsc"></span></li>
+				</ul>
+			</div>
+		</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+svg path {
+  stroke: #fff;
+  cursor:pointer;
+}
+svg text
+{
+	cursor:pointer;
+	font-size:12px;
+/* 	fill:#ffffff; */
+}
+
+#chartBox
+{
+	height: 560px;
+	margin-bottom: 40px;
+}

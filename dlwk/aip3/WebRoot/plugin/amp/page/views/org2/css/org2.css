@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+#tip {
+	position: absolute;
+/* 	width: 200px; */
+	height: auto;
+	border: 1px solid #00CC66;
+}
+
+.node circle {
+	cursor: pointer;
+	stroke: #A8BCCC;
+	stroke-width: 1.5px;
+}
+
+.node {
+	font: 10px sans-serif;
+}
+
+.link {
+	fill: none;
+	stroke: #99CCFF;
+	stroke-width: 1.5px;
+}
+
+.legend-node{
+	margin-left:20px;	
+}
+
+#orgChart{
+	margin-left:-50px;	
+}
+
+.org-type-tip
+{
+	max-width: 800px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #c5ccd9 !important;
+	background: rgba(255,255,255,0.8);
+}
+.org-type-tip .org-tip-table td
+{
+	min-width: 100px;
+	padding-left: 20px;
+}
+.org-type-tip .org-tip-table tr
+{
+	height: 25px;
+}

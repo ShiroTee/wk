@@ -1,0 +1,24 @@
+html,body{
+	overflow: auto;
+}
+.left_nav{
+	width: 250px;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 20px;
+    min-height: 500px;
+    margin-left: 20px;
+    float: left;
+}
+.left_nav li{
+    width: 100%;
+}
+.left_nav li ul{
+	    text-indent: 30px;
+}
+.main_content{
+    margin-left: 290px;
+    display: table;
+    padding: 25px 0;
+}
+

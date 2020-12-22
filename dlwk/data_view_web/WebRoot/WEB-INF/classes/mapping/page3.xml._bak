@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page3">
+	<!--left -->
+	<select id="getLeft1" resultType="hashmap">
+		select nvl(COUNT(xqxxzybm),0) value from ysxqxx
+		union all
+		select nvl(COUNT(xqxxzybm),0) value from ysxqxx where sfhq='是'
+	</select>
+	<select id="getLeft2" resultType="hashmap" parameterType="java.util.Map">
+		SELECT nvl(COUNT(DISTINCT xqxxzybm),0) count from xxzyxqxx
+		UNION ALL
+		SELECT count(DISTINCT xxzybm) count from xxzy where gxlx in('有条件共享','无条件共享')
+		UNION ALL
+		SELECT count(DISTINCT xqxxzybm) count from xxzyxqxx a,xxzy b WHERE b.xxzybm=a.xqxxzybm AND a.xqxxzymc=b.xxzymc AND b.gxfs=a.qwhqfs 
+	</select>
+	
+	<select id="getLeft3_1" resultType="hashmap">
+		SELECT a.qwsjgxpl name,COUNT(a.xqxxzybm) val FROM ysxqxx a GROUP BY a.qwsjgxpl
+	</select>
+	<select id="getLeft3_2" resultType="hashmap">
+		SELECT gxzq name,COUNT(*) val FROM xxzy GROUP BY gxzq
+	</select>
+
+	<!--right -->
+	<select id="getRight1" resultType="hashmap">
+<!-- 		select infname,depcode,depname,sum  -->
+<!-- 		from (select a.xxzybm infcode,a.xxzymc infname,a.zwbmbm depcode,a.zwbmmc depname,count(a.xxzybm) sum from xxzy a -->
+<!-- 		where a.xxzybm in (select b.orgi_uview_id codes from arch_busi_uview b where b.orgi_uview_id is not null) -->
+<!-- 		group by a.xxzybm,a.xxzymc,a.zwbmbm,a.zwbmmc -->
+<!-- 		order by sum desc) -->
+<!-- 		where rownum &lt; 21 -->
+		SELECT infname,depcode,depname,sum FROM 
+		(SELECT  b.xxzymc infname,b.zwbmmc depname,b.zwbmbm depcode,count(a.xqxxzybm) sum FROM xxzyxqxx a 
+		JOIN xxzy b ON b.xxzybm=a.xqxxzybm
+		GROUP BY  b.xxzymc,b.zwbmmc,b.zwbmbm, a.xqxxzybm ORDER BY sum desc )
+		WHERE rownum &lt; 21
+	</select>
+	<select id="getRight2" resultType="hashmap">
+		select ywsxmc busname,zwbmbm depcode,zwbmmc depname,sum
+		from (SELECT ywsxbm,ywsxmc,zwbmmc,zwbmbm,COUNT(DISTINCT xqxxzybm) sum 
+		FROM xxzyxqxx GROUP BY ywsxbm,ywsxmc,zwbmmc,zwbmbm
+		ORDER BY sum DESC) where rownum &lt; 21
+	</select>
+
+	<!--mid -->
+	<select id="getMid1_1" resultType="hashmap">
+		SELECT a.zwbmmc name1,a.zwbmjc name1_1,b.zwbmmc name2,b.zwbmjc name2_2
+		FROM xxzyxqxx a
+		LEFT JOIN xxzy b on b.xxzybm=a.xqxxzybm
+		GROUP BY a.xqxxzybm,a.zwbmmc,a.zwbmjc,b.zwbmmc,b.zwbmjc
+		<!-- SELECT a.zwbmmc name1,a.zwbmjc name1_1,b.zwbmmc name2,b.zwbmjc name2_2 
+			FROM xxzyxqxx a INNER JOIN xxzy b on b.xxzymc=a.xqxxzymc GROUP BY a.zwbmbm -->
+	</select>
+	<select id="getMid1_2" resultType="hashmap">
+		SELECT zwbmmc name FROM zwbm
+	</select>
+</mapper>

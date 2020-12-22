@@ -1,0 +1,15 @@
+@import url(widgets/Container/style.css);
+@import url(widgets/LeftWrap/Widget1/style.css);
+@import url(widgets/LeftWrap/Widget2/style.css);
+@import url(widgets/LeftWrap/Widget3/style.css);
+@import url(widgets/MiddleWrap/TopRow/Widget4/style.css);
+@import url(widgets/MiddleWrap/MidRow/Widget5/style.css);
+@import url(widgets/MiddleWrap/MidRow/Widget6/style.css);
+@import url(widgets/MiddleWrap/MidRow/Widget7/style.css);
+@import url(widgets/MiddleWrap/BotRow/Widget8/style.css);
+@import url(widgets/MiddleWrap/BotRow/Widget9/style.css);
+@import url(widgets/RightWrap/Widget10/style.css);
+@import url(widgets/RightWrap/Widget11/style.css);
+@import url(widgets/RightWrap/Widget12/style.css);
+html,body{height:100%}
+.economic_container{position:absolute;top:76px;bottom:12px;height:auto;left:12px;right:12px;width:auto}

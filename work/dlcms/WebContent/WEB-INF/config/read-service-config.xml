@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servroot>
+	<!-- 二次开发平台访问域 -->
+	<!-- <domain>http://localhost/rdp</domain> -->
+	<domain>http://10.6.10.38:6565/service/api</domain>
+	
+	
+	<!-- 空间服务目录根节点id(页面初始化时，默认读取根节点下的子节点) -->
+<!--	<space-rootid>004c0acc-3ce5-4f43-82a5-93bd715a7972</space-rootid>-->
+	<!-- 非空间服务目录根节点id(页面初始化时，默认读取根节点下的子节点) -->
+<!--	<unspace-rootid>ecfbff1b-968e-475f-8b38-a637e9059637</unspace-rootid>-->
+	<!-- 服务调用授权KEY -->
+	<authKey>XJUN1VBY</authKey>
+</servroot>

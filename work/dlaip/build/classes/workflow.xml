@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow>
+	<steps>
+		<step id="1" name="提交申请" nextStep="2" assignee="$me" />
+		<step id="2" name="管理员初审" nextStep="3" assignee="_HBNoYOznEeGGd9tXrm-Mbg" />
+		<step id="3" name="委办局审批" nextStep="4" assignee="$provider" /><!-- 
+			$provider 资产是持有者org下的用户 -->
+		<step id="4" name="申请成功" />
+		<step id="5" name="申请失败" />
+	</steps>
+</workflow>
+
+

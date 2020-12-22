@@ -1,0 +1,21 @@
+body,h1,h2,h3,h4,h5,h6,p,input,tr,dl,dt,dd,ul,li,img{margin:0px; padding:0px; list-style:none; border:none;}
+table,th,td,tr{margin:0px; padding:0px; list-style:none;}
+body{ background:url(../Images/body_bg.jpg) repeat-x top center; font-size:12px; color:#464646; font-family:"微软雅黑";}
+a{text-decoration:none; color:#464646;}
+input{cursor:pointer; font-family:"微软雅黑";}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear:both;}
+ .block{display: block;}
+ .none{display: none}
+ .w{width: 100%;}
+ .ml20{margin-left: 20px;}
+ .ml50{margin-left: 50px;}
+ .ml250{margin-left: 250px}
+ .ml300{margin-left: 300px;}
+ .mt20{margin-top: 20px;}
+ .mt30{margin-top: 30px;}
+ .mt50{margin-top: 50px;}
+ .lh{line-height: 20px;}
+/*
+-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;

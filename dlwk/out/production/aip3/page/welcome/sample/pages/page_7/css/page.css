@@ -1,0 +1,404 @@
+/*
+    @page.css
+    @锟斤拷劬锟斤拷梅锟斤拷锟�
+    @2016-12-4
+*/
+.page-head {
+	background-color: #03162b
+}
+
+.page-body {
+	background-color: #02040a
+}
+
+.corporation_left {
+	position: absolute;
+	top: 61px;
+	left: 0;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: -webkit-calc(27%);
+	width: calc(27%)
+}
+
+.corporation_right {
+	position: absolute;
+	top: 61px;
+	right: 0;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: calc(27%);
+	width: -webkit-calc(27%)
+}
+
+.corporation_container {
+	position: absolute;
+	top: 61px;
+	left: 27%;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: calc(46%);
+	width: -webkit-calc(46%)
+}
+
+.corporation_container1 {
+	position: absolute;
+	top: 61px;
+	left: 50%;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: calc(23%);
+	width: -webkit-calc(23%)
+}
+
+.subCorporDiv {
+	position: relative;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDive {
+	position: relative;
+	height: -webkit-calc(50% - 12px);
+	height: calc(50% - 12px);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDive div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_up {
+	position: absolute;
+	left:0;
+	top:33%;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_up div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_up2 {
+	position: absolute;
+	right:0;
+	top:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_up2 div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_left {
+	position: absolute;
+	left:0;
+	top:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_right {
+	position: absolute;
+	right:0;
+	top:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_right div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_right2 {
+	position: absolute;
+	left:0;
+	top:66%;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_right2 div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_left div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_right div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_down {
+	position: absolute;
+	top:66%;
+	left:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_down div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_down_right {
+	position: absolute;
+	top:66%;
+	right:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 10px 5px;
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv_down_right div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.titletop {
+	position: absolute;
+	top: 5px;
+	left: 8px;
+	font-size: 15px;
+	color: #018ccd;
+	width: 150px;
+	z-index: 2;
+	font-weight: normal;
+	font-family: 'Microsoft YaHei'
+}
+
+.midCorporDive {
+	position: relative;
+	margin: 10px 5px;
+	height: -webkit-calc(66.5% - 12px);
+	height: calc(66.5% - 12px);
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv {
+	position: relative;
+	margin: 10px 5px;
+	height: -webkit-calc(50% - 12px);
+	height: calc(50% - 12px);
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv-1 {
+	position: relative;
+	margin: 10px 5px;
+	height: -webkit-calc(50% - 12px);
+	height: calc(50% - 12px);
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv-1 div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv-2 {
+	position: absolute;
+	margin: 10px 5px;
+	right:0;
+	top:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	width: calc(70% - 10px);
+	width: -webkit-calc(70% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv-2 div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_left {
+	position: absolute;
+	left:0;
+	margin: 0px 5px;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_right {
+	position: absolute;
+	right:0;
+	margin: 0px 5px;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_left div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_right_up1 {
+	position: absolute;
+	left:30%;
+	margin: 0px 5px;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	width: calc(35% - 10px);
+	width: -webkit-calc(35% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_right_up1 div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_right div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_right_down {
+	position: absolute;
+	right:0;
+	top:66%;
+	margin: 10px 5px;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	width: calc(70% - 10px);
+	width: -webkit-calc(70% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv_right_down div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDive div, .midCorporDiv div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDive_right {
+	position: absolute;
+	right:0;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(33.3% - 12px);
+	margin: 0px 5px;
+	width: calc(30% - 10px);
+	width: -webkit-calc(35% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.chartBarEx, .chartDieBarEx {
+	position: relative;
+	float: left;
+	width: calc(50%);
+	width: -webkit-calc(50%);
+	height: -webkit-calc(100%);
+	height: calc(100%)
+}
+
+#IndustrySurvialEx {
+	position: relative;
+	margin: 10px auto
+}
+
+#IndustrySurvialEx a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 6px;
+	text-decoration: none
+}
+
+#IndustrySurvialEx a:hover {
+	border: 1px solid #eee;
+	background: #000;
+	border-radius: 5px
+}
+
+#IndustrySurvialEx a:hover span {
+	display: block;
+	visibility: visible
+}

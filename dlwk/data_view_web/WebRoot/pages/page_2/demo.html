@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>3D标签</title>
+
+<style type="text/css">
+body{
+     margin:0; 
+     padding:0;
+     background-color:#03162b !important;
+     }
+     
+     .titletop{
+     	position: relative;
+     }
+
+.tagBall{width:100%;height:100%;margin:10px auto;position:relative;}
+.tag{display:block;position:absolute;left:0px;top:0px;color:#000;text-decoration:none;font-size:12px;font-family:"微软雅黑";font-weight:bold;}
+.tag:hover{border:1px solid #666;}
+</style>
+    <script src="../../libs/common.js"></script>
+</head>
+<body>
+
+<div class="tagBall" style="margin-top: 24%" id="mydiv">
+
+</div>
+
+<script type="text/javascript">
+
+vals();
+
+var tagEle = "querySelectorAll" in document ? document.querySelectorAll(".tag") : getClass("tag"),
+	paper = "querySelectorAll" in document ? document.querySelector(".tagBall") : getClass("tagBall")[0];
+	RADIUS =110,
+	fallLength = 500,
+	tags=[],
+	angleX = Math.PI/500,
+	angleY = Math.PI/500,
+	CX = paper.offsetWidth/2,
+	CY = paper.offsetHeight/2,
+	EX = paper.offsetLeft + document.body.scrollLeft + document.documentElement.scrollLeft,
+	EY = paper.offsetTop + document.body.scrollTop + document.documentElement.scrollTop;
+
+function getClass(className){
+	var ele = document.getElementsByTagName("*");
+	var classEle = [];
+	for(var i=0;i<ele.length;i++){
+		var cn = ele[i].className;
+		if(cn === className){
+			classEle.push(ele[i]);
+		}
+	}
+	return classEle;
+}
+
+function innit(){
+	for(var i=0;i<tagEle.length;i++){
+		var a , b;
+		var k = (2*(i+1)-1)/tagEle.length - 1;
+		var a = Math.acos(k);
+		var b = a*Math.sqrt(tagEle.length*Math.PI);
+		// var a = Math.random()*2*Math.PI;
+		// var b = Math.random()*2*Math.PI;
+		var x = RADIUS * Math.sin(a) * Math.cos(b);
+		var y = RADIUS * Math.sin(a) * Math.sin(b); 
+		var z = RADIUS * Math.cos(a);
+		var t = new tag(tagEle[i] , x , y , z);
+		tagEle[i].style.color = "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+		tags.push(t);
+		t.move();
+	}
+}
+
+Array.prototype.forEach = function(callback){
+	for(var i=0;i<this.length;i++){
+		callback.call(this[i]);
+	}
+}
+
+function animate(){
+	setInterval(function(){
+		rotateX();
+		rotateY();
+		tags.forEach(function(){
+			this.move();
+		})
+	} , 17)
+}
+
+
+if("addEventListener" in window){
+	
+	paper.addEventListener("mousemove" , function(event){
+		
+		var x = event.clientX - EX - CX;
+		var y = event.clientY - EY - CY;
+		//angleY = -x* (Math.sqrt(Math.pow(x , 2) + Math.pow(y , 2)) > RADIUS/4 ? 0.0002 : 0.0001);
+		//angleX = -y* (Math.sqrt(Math.pow(x , 2) + Math.pow(y , 2)) > RADIUS/4 ? 0.0002 : 0.0001);
+		angleY = x*0.0001;
+		angleX = y*0.0001;
+	});
+}
+else {
+	paper.attachEvent("onmousemove" , function(event){
+		var x = event.clientX - EX - CX;
+		var y = event.clientY - EY - CY;
+		angleY = x*0.0001;
+		angleX = y*0.0001;
+	});
+	
+}
+
+function rotateX(){
+	var cos = Math.cos(angleX);
+	var sin = Math.sin(angleX);
+	tags.forEach(function(){
+		var y1 = this.y * cos - this.z * sin;
+		var z1 = this.z * cos + this.y * sin;
+		this.y = y1;
+		this.z = z1;
+	})
+	
+}
+
+function rotateY(){
+	var cos = Math.cos(angleY);
+	var sin = Math.sin(angleY);
+	tags.forEach(function(){
+		var x1 = this.x * cos - this.z * sin;
+		var z1 = this.z * cos + this.x * sin;
+		this.x = x1;
+		this.z = z1;
+	})
+}
+
+var tag = function(ele , x , y , z){
+	this.ele = ele;
+	this.x = x;
+	this.y = y;
+	this.z = z;
+}
+
+tag.prototype = {
+	move:function(){
+		var scale = fallLength/(fallLength-this.z);
+		var alpha = (this.z+RADIUS)/(2*RADIUS);
+		this.ele.style.fontSize = 15 * scale + "px";
+		this.ele.style.opacity = alpha+0.5;
+		this.ele.style.filter = "alpha(opacity = "+(alpha+0.5)*100+")";
+		this.ele.style.zIndex = parseInt(scale*100);
+		this.ele.style.left = this.x + CX - this.ele.offsetWidth/2 +"px";
+		this.ele.style.top = this.y + CY - this.ele.offsetHeight/2 +"px";
+	}
+}
+
+innit();
+animate();
+
+function vals(){
+	var clouds = [{'name':'市发展和改革委员会','val':[136, 1240]},
+	              {'name':'市经济和信息化委员会','val':[ 445, 3469]},
+	              {'name':'市公安局','val':[188, 1905]},
+	              {'name':'市民政局','val':[171, 2052]},
+	              {'name':'市司法局','val':[ 72, 684]},
+	              {'name':'市规划管理局','val':[92, 732]},
+	              {'name':'市交通运输委员会','val':[124, 1179]},
+	              {'name':'市林业和园林管理局','val':[ 105, 828]},
+	              {'name':'市工商局','val':[114, 883]},
+	              {'name':'市旅游局','val':[ 98, 793]},
+	              {'name':'市城市管理委员会','val':[160, 1467]},
+	              {'name':'市城乡房产管理局','val':[79, 598]},
+	              {'name':'市国有资产监督管理委员会','val':[72, 709]},
+	              {'name':'市残疾人联合会','val':[104, 1317]},
+	              {'name':'市防震减灾局','val':[33, 224]},
+	              {'name':'市教育局','val':[142, 1050]},
+	              {'name':'市科学技术局','val':[111, 1149]},
+	              {'name':'市财政局','val':[128, 713]},
+	              {'name':'市国土资源局','val':[126, 933]},
+	              {'name':'市人力资源和社会保障局','val':[229, 1883]},
+	              {'name':'市城乡建设委员会','val':[80, 620]},
+	              {'name':'市水务局','val':[140, 1297]},
+	              {'name':'市商务委','val':[87, 578 ]},
+	              {'name':'市文化广电新闻出版局','val':[144, 1391]},
+	              {'name':'市卫生和计划生育委员会','val':[186, 3653]},
+	              {'name':'市环境保护局','val':[186, 1168]},
+	              {'name':'市统计局','val':[213, 3517]},
+	              {'name':'市食品药品监督管理局','val':[97, 576]},
+	              {'name':'市国税局','val':[49, 377 ]},
+	              {'name':'市地税局','val':[173, 1053]},
+	              {'name':'市安全生产监督管理局','val':[94, 1055]},
+	              {'name':'市住房公积金管理中心','val':[ 85, 590]},
+	              {'name':'市金融工作办公室','val':[ 8, 536]},
+	              {'name':'市应急办','val':[55, 980]},
+	              {'name':'市质监局','val':[67, 406]},
+	              {'name':'市人民政府政务服务中心','val':[7, 34]}
+	              ]
+	var str = '';
+	
+	for(var i=0;i<clouds.length;i++){
+		var title = clouds[i].name+'&#10;信息资源:'+clouds[i].val[0]+'&#10;数据项数:'+clouds[i].val[1];
+		var nameJ = commonClass._jName(clouds[i].name);
+		str += '<a style="cursor: pointer;" class="tag" title="'+title+'">'+nameJ+'</a>';
+	}
+	
+	var newdiv = document.getElementById("mydiv");
+	newdiv.innerHTML = str;
+}
+</script>
+
+</body>
+</html>

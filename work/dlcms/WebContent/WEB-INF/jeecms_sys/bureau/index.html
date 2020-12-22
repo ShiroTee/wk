@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<#include "/jeecms_sys/head.html"/>
+<script>
+	var flag = ${success!"'N'"} ;
+	$(function(){
+		if(flag == "N"){
+			return;
+		}else if(flag){
+			alert("<@s.m "global.success"/>") ;
+		}else{
+			alert("<@s.m "global.failed"/>") ;
+		}
+	})
+</script>
+</head>
+<body>
+<@p.form id="jvForm" action="data_save.do" labelWidth="10">
+<table id="attachTable"  width="70%" class="admin_table_data">
+<tr><td colspan="4" align="center" width="100%"><h1 class="admin_bureau_title" >上月各委办局提交数据详情</h1></td></tr>
+<tr><td colspan="4" align="center" width="100%"><hr class="admin_bureau_hr" /></td></tr>
+<tr>
+	<td width="10%" align="center"><input class="add" type="button" onclick="addAttachLine();" value="<@s.m "content.attachmentAddLine"/>"/></td>
+	<th width="30%" align="center"><@s.m "lzcms.bureaudata.name"/></th>
+	<th width="30%" align="center"><@s.m "lzcms.bureaudata.should"/></th>
+	<th width="30%" align="center"><@s.m "lzcms.bureaudata.actually"/></th>
+</tr>
+
+<#if bureauData??>  <!-- bureauData是否存在 -->
+	<#list bureauData?eval as b>  <!-- 将bureauData转换成json对象 -->
+		<tr id="attachTr${b_index}">
+			<td align="center"><a onclick="$('#attachTr${b_index}').remove();" href="javascript:void(0);" class="pn-opt"><@s.m "content.attachmentDelLine"/></a></td>
+			<td align="center"><input type="text" id="bureauNames${b_index}" name="bureauNames" value="${b.name}"/></td>
+			<td align="center"><input type="text" id="bureauShoulds${b_index}" name="bureauShoulds" value="${b.should}"/></td>
+			<td align="center"><input type="text" id="bureauActuallys${b_index}" name="bureauActuallys" value="${b.actually}"/></td>
+		</tr>
+	</#list>
+<#else>
+	<#list 0..0 as i>
+	<tr id="attachTr${i}">
+		<td align="center"><a onclick="$('#attachTr${i}').remove();" href="javascript:void(0);" class="pn-opt"><@s.m "content.attachmentDelLine"/></a></td>
+		<td align="center"><input type="text" id="bureauNames${i}" name="bureauNames"/></td>
+		<td align="center"><input type="text" id="bureauShoulds${i}" name="bureauShoulds"/></td>
+		<td align="center"><input type="text" id="bureauActuallys${i}" name="bureauActuallys"/></td>
+	</tr>
+	</#list>
+</#if>
+</table>
+<table width="70%" class="admin_table_data">
+	<@p.td colspan="2">
+		<input type="hidden" name="cid" value="${cid!}"/>
+		<@p.submit code="global.submit"/> &nbsp; <@p.reset code="global.reset"/>
+	</@p.td>
+</table>
+<textarea id="attachTr" style="display:none">
+<tr id="attachTr{0}">
+	<td align="center"><a onclick="$('#attachTr{0}').remove();" href="javascript:void(0);" class="pn-opt"><@s.m "content.attachmentDelLine"/></a></td>
+	<td align="center"><input type="text" id="bureauNames{0}" name="bureauNames"/></td>
+	<td align="center"><input type="text" id="bureauShoulds{0}" name="bureauShoulds"/></td>
+	<td align="center"><input type="text" id="bureauActuallys{0}" name="bureauActuallys"/></td>
+</tr>
+</textarea>
+<script type="text/javascript">
+var attachIndex = $("#attachTable > tbody > tr").length - 3;
+var attachTpl = $.format($("#attachTr").val());
+function addAttachLine() {
+	$('#attachTable').append(attachTpl(attachIndex++));
+}
+</script>
+</@p.form>
+</body>
+</html>

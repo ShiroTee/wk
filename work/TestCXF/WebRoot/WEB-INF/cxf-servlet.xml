@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:jaxws="http://cxf.apache.org/jaxws"  
+    xsi:schemaLocation="   
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">   
+    <import resource="classpath:META-INF/cxf/cxf.xml" />    
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />    
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> 
+    
+	<bean id="testService" class="com.db.webservice.impl.TestServiceImpl" /> 
+	<jaxws:endpoint id="myService" implementor="#testService" address="/MyService" >
+		<jaxws:inInterceptors>
+			<bean class="org.apache.cxf.interceptor.LoggingInInterceptor"/> 
+			<bean class="org.apache.cxf.binding.soap.saaj.SAAJInInterceptor"/>
+			<ref bean="wss4jInConfiguration"/>
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			<bean class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
+			<bean class="org.apache.cxf.binding.soap.saaj.SAAJOutInterceptor"/>
+			<ref bean="wss4jOutConfiguration"/>
+		</jaxws:outInterceptors>
+	</jaxws:endpoint> 
+	
+	<!-- -->
+	<bean id="client" class="com.db.webservice.TestService"
+         factory-bean="clientFactory" factory-method="create"/>
+    <bean id="clientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+         <property name="serviceClass" value="com.db.webservice.TestService"/>
+         <property name="address" value="http://localhost:8012/services/MyService"/>
+    </bean>
+    
+    
+    <bean id="wss4jInConfiguration" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+		<property name="properties">
+			<map>
+				<entry key="action" value="Timestamp Encrypt Signature"/>
+				<entry key="decryptionPropFile" value="server_insecurity_enc.properties"/>
+				<entry key="signaturePropFile" value="server_insecurity_sign.properties"/>
+				<entry>
+					<key>
+						<value>passwordCallbackRef</value>
+					</key>
+					<ref bean="passwordCallback"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="wss4jOutConfiguration" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+		<property name="properties">
+			<map>
+				<entry key="action" value="Timestamp Encrypt Signature"/>
+				<entry key="user" value="apmserver" />
+				<entry key="encryptionUser" value="apmclient" />
+				<entry key="encryptionPropFile" value="server_outsecurity_enc.properties"/>
+				<entry key="signaturePropFile" value="server_insecurity_sign.properties"/>
+				<entry>
+					<key>
+						<value>passwordCallbackRef</value>
+					</key>
+					<ref bean="passwordCallback"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+     
+    <bean id="passwordCallback" class="com.db.webservice.security.PasswordHandler"/> 
+</beans>

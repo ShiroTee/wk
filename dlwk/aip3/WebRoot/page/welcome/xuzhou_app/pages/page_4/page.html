@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>徐州信息资源枢纽工程数据分析系统</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/animate.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="css/page.css">
+
+    <script src="../../libs/echarts.js"></script>
+    <script src="../../libs/jquery-3.1.0.min.js"></script>
+    <script src="../../libs/bootstrap/js/bootstrap.js"></script>
+    <script src="../../libs/JNumber.min.js"></script>
+    <script src="../../libs/common.js"></script>
+    <script src="data/corporData.js"></script>
+    <script src="js/echarts-wordcloud.min.js"></script>
+   
+    <script src="js/corporation.js"></script>
+</head>
+
+<body>
+    <!--head-->
+    <div class="common_header">
+        <div class="header_logo"></div>
+        <div class="header_middle">
+            <div class="header_title_page4"></div>
+        </div>
+        <div class="header_date">2016年12月5日</div>
+    </div>
+
+    <div id="corporation_container" class="corporation_container">
+        <div class="midCorporDiv" id="IndustrySurvialEx">
+
+        </div>
+        <div class="midCorporDive" id="IndustryDesIncreEx">
+
+        </div>
+    </div>
+    <div class="corporation_left">
+        <div class="subCorporDiv" >
+            <div class="titletop">新增行业TOP5对比</div>
+            <div class="chartBarEx" id="NewIndustryBarEx1"></div>
+            <div class="chartBarEx" id="NewIndustryBarEx"></div>
+        </div>
+        <div class="subCorporDiv" id="SurvivalTimeBarEx">
+
+        </div>
+        <div class="subCorporDiv">
+            <div class="titletop">消亡行业TOP5对比</div>
+            <div class="chartDieBarEx" id="DieIndustryBarEX"></div>
+            <div class="chartDieBarEx" id="DieIndustryBar"></div>
+        </div>
+    </div>
+    <div class="corporation_right">
+        <div class="subCorporDiv" id="IndustryPercentEx">
+
+        </div>
+        <div class="subCorporDiv" id="IndustryBubbleEx">
+
+        </div>
+        <div class="subCorporDiv" id="IndustryAvearageEx">
+
+        </div>
+    </div>
+
+    <!--页面跳转-->
+    <div class="common_page common_page_bg_page3">
+        <a href="../../index.html" title="首页">1</a>
+        <a href="../page_2/page.html" title="宏观经济分析">2</a>
+        <a class="pageSelect" href="#" title="法人分析">3</a>
+        <a href="../page_3/page.html" title="人口分析">4</a>
+    </div>
+</body>
+</html>

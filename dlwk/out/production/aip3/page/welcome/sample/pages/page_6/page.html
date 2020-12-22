@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>成都政务大数据中心</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../libs/animate.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="css/page.css">
+
+    <script src="../../libs/echarts.js"></script>
+    <script src="../../libs/jquery-3.1.0.min.js"></script>
+    <script src="../../libs/bootstrap/js/bootstrap.js"></script>
+    <script src="../../libs/JNumber.min.js"></script>
+    <script src="../../libs/common.js"></script>
+    <script src="data/corporData.js"></script>
+    <script src="js/echarts-wordcloud.min.js"></script>
+   
+    <script src="js/corporation.js"></script>
+    
+    <script type="text/javascript">
+
+	
+		
+	$(document).ready(function(){ 
+			var thisURL = document.URL;  
+			var showval = null;
+			if(thisURL.indexOf('?') != -1){
+				var  getval =thisURL.split('?')[1];  
+				showval= getval.split("=")[1];  
+			}
+		
+			if(1 == showval){
+				$("#fourRateEx").css("box-shadow","0 0 3px 3px #0CC");
+			}else if(2 == showval){
+				$("#mid_down").css("box-shadow","0 0 3px 3px #0CC");
+			}else if(3 == showval){
+				$("#left").css("box-shadow","0 0 3px 3px #0CC");
+			}else if(4 == showval){
+				$("#ifram_right").css("box-shadow","0 0 3px 3px #0CC");
+			}
+		});
+</script>
+</head>
+
+<body>
+    <!--head-->
+    <div class="common_header">
+        <div class="header_logo"></div>
+        <div class="header_middle">
+            <div class="header_title_page6"></div>
+        </div>
+       
+    </div>
+
+    <div id="corporation_container" class="corporation_container">
+        <div class="midCorporDive" id="fourRateEx" >
+        </div>   
+        <div class="midCorporDiv" id="IndustryDesIncreEx">
+        	
+        </div>
+    </div>
+    <div class="corporation_left">
+        <div class="subCorporDiv_left" id="left">
+           
+        </div>
+    </div>
+    <div class="corporation_right">
+        <div class="subCorporDiv" id="ifram_right">
+        </div>
+        <div class="subCorporDiv" id="IndustryAvearageEx">
+
+        </div>
+    </div>
+
+    <!--页面跳转-->
+    <div class="common_page common_page_bg_page8">
+        <a href="../../index.html">1</a>
+        <a href="../page_2/page.html">2</a>     
+        <a href="../page_3/page.html">3</a>
+        <a href="../page_4/page.html">4</a>
+         <a href="../page_5/page.html">5</a>
+         <a  class="pageSelect" href="#">6</a>
+         <a href="../page_7/page.html">7</a>      
+    </div>
+</body>
+</html>

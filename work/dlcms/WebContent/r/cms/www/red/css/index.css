@@ -1,0 +1,200 @@
+/*zhyg*/
+
+@charset "utf-8";
+
+.gonggao {
+	width: 229px;
+	margin: 2px auto;
+}
+
+/* ranklist */
+.ranklist {
+	width: 216px;
+	height: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.ranklist li {
+	height: 16px;
+	line-height: 16px;
+	overflow: hidden;
+	position: relative;
+	padding: 0 40px 0 30px;
+	margin-bottom: 8px;
+}
+
+.ranklist li em {
+	background: url(../img/mun.gif) no-repeat;
+	background-position: 0 -16px;
+	width: 20px;
+	height: 16px;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+	text-align: center;
+	font-style: normal;
+	color: #333;
+	position: absolute;
+	display: block;
+}
+
+.ranklist li.top em {
+	background-position: 0 0;
+	color: #fff;
+}
+
+.ranklist li .num {
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: #999;
+}
+
+.channeltitlebg{background:url(../img/title_icon1.png) no-repeat left top;}
+.channeltitletxt{margin-left:35px; color: #E9970E; font-size: 16px; font-weight: bold; line-height: 45px;}
+.channeltitletxt a{color: #E9970E;}
+
+.hudong .jiaoliuhd {background:url(../img/hdjl01.png) no-repeat left top;}
+.hudong .changjianwtjd {
+	padding-left:8px;
+}
+
+.vote{}
+
+/* .gongzhong {
+	width: 215px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.gongzhong li {
+	display: inline-block;
+	margin: 4px 20px;
+} */
+
+.dataexchange {
+}
+
+.dataexchange .xxxxxxxx {
+	height: 28px;
+	padding-left: 5px;
+	line-height: 28px;
+	border-bottom: 1px dashed #D7D7D7;
+}
+
+.exchangeresult table{
+	width : 219px;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.exchangeresult table th{
+	text-align: center;
+	font-weight: bold;
+}
+
+.exchangeresult table tr{
+	height: 28px;
+	border-bottom: 1px dashed #D7D7D7;
+}
+
+.udmove{
+	margin-top: 6px;
+}
+
+.udmove input{
+	border: none;
+	cursor: pointer;
+}
+
+.upbutton{
+	height: 20px;
+	background:url(../img/udmove01.png) no-repeat left top;
+}
+
+.downbutton{
+	height: 20px;
+	background:url(../img/udmove01.png) no-repeat right top;
+}
+
+.upbutton span.udhover{
+	height: 20px;
+	width: 108px;
+	display:block;
+	background:url(../img/udmove01.png) no-repeat left bottom;
+}
+
+.downbutton span.udhover{
+	height: 20px;
+	width: 108px;
+	display:block;
+	background:url(../img/udmove01.png) no-repeat right bottom;
+}
+
+/* 返回顶部B */
+p#back-to-top{
+      position:fixed;
+      bottom:30px;
+      right:20px;
+}
+p#back-to-top a{
+     text-align:center;
+     text-decoration:none;
+     color:#d1d1d1;
+     display:block;
+     width:50px;
+     /*使用CSS3中的transition属性给跳转链接中的文字添加渐变效果*/
+     -moz-transition:color 0.5s;
+     -webkit-transition:color 0.5s;
+     -o-transition:color 0.5s;
+}
+p#back-to-top a:hover{
+      color:#979797;
+}
+p#back-to-top a span{
+      background:#d1d1d1 url(../img/arrow-up.png) no-repeat center center;
+      border-radius:5px;
+      display:block;
+      height:45px;
+      width:50px;
+      margin-bottom:5px;
+      /*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
+      -moz-transition:background 0.5s;
+      -webkit-transition:background 0.5s;
+      -o-transition:background 0.5s;
+}
+
+#back-to-top a:hover span{
+      background:#979797 url(../img/arrow-up.png) no-repeat center center;
+}
+
+.oprMap{
+	background: #ffffff url(../img/oprMap001.jpg) no-repeat center center;
+	display:inline-block;
+	position:absolute;
+	right:387px;
+	top:1242px;
+	width:86px;
+	height:19px;
+	opacity: 0.7;
+}
+
+/* 返回顶部E */
+
+/* .bianming dl {
+	display: inline-block;
+	margin: 0px 17px;;
+}
+
+.bianming dt {
+	width: 48px;
+	height: 35px;
+}
+
+.bianming dt img {
+	width: 35px;
+	height: 35px;
+} */

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="155px" height="42px" viewBox="0 0 155 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>footer_knowledge</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="155" height="27" rx="3"></rect>
+    </defs>
+    <g id="升级改造首页-vol.3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-and-more" transform="translate(-255.000000, -616.000000)">
+            <g id="footer_knowledge" transform="translate(255.000000, 616.000000)">
+                <g id="business-color_books-+-business-color_books-copy-+-business-color_books-copy-2-+-business-color_books-copy-3-+-business-color_books-copy-4-Mask" transform="translate(0.000000, 10.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                </g>
+                <text id="知识库与调研平台" opacity="0.699999988" font-family="PingFangSC-Regular, PingFang SC" font-size="12" font-weight="normal" fill="#4A4A4A">
+                    <tspan x="52" y="28">知识库与调研平台</tspan>
+                </text>
+                <g id="files-color_book-08" fill-rule="nonzero">
+                    <g id="Group">
+                        <path d="M44,42 L2,42 C0.895,42 0,41.105 0,40 L0,8 C0,6.895 0.895,6 2,6 L44,6 C45.105,6 46,6.895 46,8 L46,40 C46,41.105 45.105,42 44,42 Z" id="Shape" fill="#444444"></path>
+                        <path d="M39,37 L7,37 C6.448,37 6,36.552 6,36 L6,12 C6,11.448 6.448,11 7,11 L39,11 C39.552,11 40,11.448 40,12 L40,36 C40,36.552 39.552,37 39,37 Z" id="Shape" fill="#848484"></path>
+                        <path d="M41.585,0.189 C41.322,-8.85402862e-15 40.987,-0.05 40.684,0.051 L23,5.946 L23,36 C23.106,36 23.213,35.983 23.316,35.949 L41.316,29.949 C41.725,29.812 42,29.431 42,29 L42,1 C42,0.679 41.846,0.377 41.585,0.189 Z" id="Shape" fill="#C6C6C6"></path>
+                        <path d="M23,5.946 L5.316,0.051 C5.011,-0.05 4.676,-8.83321194e-15 4.415,0.189 C4.154,0.377 4,0.679 4,1 L4,29 C4,29.431 4.275,29.812 4.684,29.949 L22.684,35.949 C22.787,35.983 22.894,36 23,36 L23,5.946 Z" id="Shape" fill="#E6E6E6"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

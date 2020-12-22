@@ -1,0 +1,77 @@
+﻿<configBean host="http://10.6.10.24:6080">
+	<item label="测距测面运算服务" url="arcgis/rest/services/Utilities/Geometry/GeometryServer" interfaceType="WMS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+	
+	<item label="矢量地图服务" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer" interfaceType="WMS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+	
+	<item label="影像地图" url="arcgis/rest/services/LZSJZX/LanZhouImgNew/MapServer" interfaceType="WMS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+	
+	<item label="行政区域查询服务" url="arcgis/rest/services/LZSJZX/LanZhouDynamic/MapServer/0" interfaceType="WMS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="法人查询服务" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/2" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="商业店铺" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/6" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="金融保险" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/9" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="公共服务" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/17" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="居民服务" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/8" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="有名建筑物" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/1" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="休闲娱乐" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/2" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="文化体育" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/3" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="通信" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/4" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="社会福利" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/5" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="企业" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/7" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="教育科研" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/10" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="交通运输设施" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/11" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+	
+	<item label="交通运输仓储" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/12" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+	
+	<item label="纪念地" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/13" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="基本区域限定物名" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/14" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="机关单位" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/15" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="行政区域名" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/16" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="房地产" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/18" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="宾馆酒店住宿" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/19" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+	<item label="餐饮" url="arcgis/rest/services/LZSJZX/LanZhouVector/MapServer/20" interfaceType="WFS" catalogueId="306080f5-30eb-4941-a94e-4adfda416659" serviceProvider="arcgis">
+	</item>
+
+</configBean>

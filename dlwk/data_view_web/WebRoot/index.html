@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+    <title>大理政务大数据中心</title>
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/animate.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="index.css?version=2.0.3">
+
+    <script src="libs/echarts.js"></script>
+    <script src="echarts-wordcloud.min.js"></script>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <script src="libs/echarts-gl.min.js"></script>
+    <script src="libs/guangdong.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.js"></script>
+    <script src="libs/JNumber.min.js"></script>
+    <script src="libs/common.js"></script>
+    <script src="libs/radialIndicator.min.js"></script>
+    <script src="libs/jquery.darktooltip.min.js"></script>
+    <script src="libs/l-by-l.min.js"></script>
+    
+    <script src="animationAfterStill.js"></script>
+    <script src="index.js"></script>
+    <script src="libs/g2.js"></script>
+    <script src="libs/d3.v4.min.js"></script>
+    
+    <style type="text/css">
+    .index_left_top .left_GWBJSYL1:hover:before {
+	width: 100%;
+	left: 0;
+	right: 0
+}
+
+.index_left_top .left_GWBJSYL1 {
+	position: relative !important;
+	cursor: default !important
+}
+
+.index_left_top .left_GWBJSYL1:before
+	{
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -2px;
+	width: 0;
+	height: 2px;
+	background-image: -webkit-linear-gradient(-45deg, #e2fae7, #10e06b);
+	background-image: -moz-linear-gradient(-45deg, #e2fae7, #10e06b);
+	transition: all .3s
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="indexBox">
+        <!--标题头head-->
+        <div class="common_header">
+            <div class="header_logo"></div>
+            <div class="header_middle">
+                <div class="header_title" style="z-index: 1000;">
+	                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#"><font>政务资源总体状况</font></a></li>
+						<li><a href="pages/page_2/page.html">共享开放基础分析</a></li>
+						<li><a href="pages/page_3/page.html">共享开放需求分析</a></li>
+						<li><a href="pages/page_4/page.html">基础性政务信息资源分析</a></li>
+						<li><a href="pages/page_5/page.html">主题性政务信息资源分析</a></li>
+						<li><a href="pages/page_6/page.html">政务部门信息资源比较分析</a></li>
+						<li><a href="pages/page_7/page.html">政务部门信息资源业务分析</a></li>
+					</ul>
+                </div>             
+            </div>
+           <!-- <div class="header_date"></div> --> 
+        </div>
+
+        <!--中间图-->
+        <div id="index_container" class="index_container">
+            <table>
+                <tr height="70%">
+                    <td valign="middle" align="center">
+                        <div class="container_content zoomIn animated">
+							<!-- 图片高:宽=64:49 -->
+							<img src="images/index/map_gd.png" style="height:115.2%;width:88.2%; position: absolute;bottom: -18%;display:block; margin-left:-5%;z-index: -100;">                        
+                            <div style="text-align:center" id="mid1" class="content_lines"></div> 
+                            <div class="totalNum animated">
+                            <table>
+	                            <tr>
+	                            <td class="totalTit">资源目录积累总量:</td>
+	                            </tr>
+	                             <tr>
+	                             <td><div class="total"><label class="total_num" style="display: inline;">0</label><span class="danwei">类</span></div></td>
+	                            </tr>
+	                            <tr>
+	                            <td class="totalTit1">资源项积累总量:</td>
+	                            </tr>
+	                             <tr>
+	                             <td><div class="total1"><label class="total_num1" style="display: inline;">0</label><span class="danwei1">项</span></div></td>
+	                            </tr>
+                            </table>
+                            </div>   
+                                                
+                        </div>
+                    </td>
+                </tr>
+                <tr height="30%">
+                <td>
+                <div class="mid_down" style="cursor:pointer;">
+	                <hr class="titColor" style="width:30%; margin-left:18%;"/>
+	                <span class="titStyle" id="titStyle">
+	            	部门公众服务信息化程度Top10
+	            	</span>
+	            	
+	            	<div id="mid2">
+	            	</div>
+                </div>
+                </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--左侧统计-->
+        <div class="index_left fadeInLeft animated">
+
+            <div class="index_left_top" >
+            <hr class="titColor"/>
+            <span class="titStyle">
+            	信息资源开放共享度
+            </span>
+	            
+                <!--各委办局使用量-->
+                <div id="cuser1">
+                </div>
+                <div id="cuser2">
+                </div>
+            </div>
+
+            <div class="index_left_middle">
+             <hr class="titColor"/>
+            <span class="titStyle">
+            	信息资源电子化存储率
+            </span>
+                <div id="right3">
+                    	
+                </div>          
+            </div>
+        </div>
+
+        <!--右侧图表-->
+        <div class="index_right fadeInRight animated">
+        
+        <div class="div3_up">
+        <div><span class="tits">政务部门数量</span><span class="val"><label class="l1" style="display: inline;">0</label>个</span></div>
+        <div><span class="tits">下设机构数量</span><span class="val"><label class="l2" style="display: inline;">0</label>个</span></div>
+        <div><span class="tits">业务事项数量</span><span class="val"><label class="l3" style="display: inline;">0</label>条</span></div>
+                     
+        </div>
+        <div class="div3" style="height: 50%;">
+        <hr class="titColor"/>
+            <span class="titStyle">
+            	信息资源迫切集中Top10
+            </span>
+<!--             <div class="chartBarEx" id="left4"></div> -->
+            <div class="chartBarEx" id="left3" ></div>
+            
+        </div>   
+        <div class="div3" style="height: 30%;">
+        <hr class="titColor"/>
+            <span class="titStyle">        	
+            	主题化信息资源
+            </span>
+            <div id="right_ringChart"></div>
+        </div>
+        </div>
+
+        <!--页面跳转-->
+        <div class="common_page common_page_bg_index">
+            <a class="pageSelect" href="#">1</a>
+            <a href="pages/page_2/page.html">2</a>
+            <a href="pages/page_3/page.html">3</a>
+            <a href="pages/page_4/page.html">4</a>
+            <a href="pages/page_5/page.html">5</a>
+            <a href="pages/page_6/page.html">6</a>
+             <a href="pages/page_7/page.html">7</a>
+        </div>
+    </div>
+    
+</body>
+</html>

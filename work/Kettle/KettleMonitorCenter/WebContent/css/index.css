@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+
+body, table {
+	font-size: 12px;
+	font-family:Microsoft Yahei;
+}
+
+
+
+
+div#frame {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px black;
+}
+
+div#title {
+	width: 100%;
+	height: 52px;
+	background-image: url(../img/title.jpg);
+	background-repeat: repeat-x;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+label#copyright {
+	margin-left: 72px;
+}
+
+fieldset {
+	padding: 10px;
+	margin: 10px;
+	width: inherit;
+	color: #333;
+	border: #06c dashed 1px;
+}
+
+legend {
+	color: #06c;
+	font-weight: 800;
+	background: #fff;
+}
+
+.buttonLeft {
+	width:72px;
+	background: #f4f4f4;
+	border-radius: 15px;
+}
+
+.buttonRight {
+	width:72px;
+	background: #f4f4f4;
+	border-radius: 15px;
+	float:right;
+	margin-right:5px;
+}
+
+.checkbox{
+	width:100px;
+}
+
+.littleText{
+	width:23px;
+	height:10px;
+	margin-top:2px;
+	readonly:expression(this.readOnly=true);
+}
+
+.infoText{
+	margin-left:24px;
+	text-align:center;
+}
+
+.inputInterval{
+	width:36px;
+	text-align:center;
+	margin-left:auto;
+}
+
+.tdCheckBox{
+	width:48px;
+}
+
+div#infoArea{
+}

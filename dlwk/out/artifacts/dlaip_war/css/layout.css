@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+/* zhyg */
+.indexborder{border:1px solid #C1DDF1;}
+.f-left{float:left;}
+.f-right{float:right;}
+.clear{clear: both;}
+.tipcolor{color:#F18F10}
+.parent-w{width:100%;}
+.parent-h{height:100%;}
+.overh{overflow:hidden;}
+.h50{height:50px;}
+
+/* 信息展示首页顶部 */
+
+.seperator{
+	color:#5FB7E7;
+	position:relative;
+	top:-1px;
+}
+
+.title-oparator{
+	text-align:right;
+	margin-right:12px;
+	margin-top:5px;
+}
+
+.title-oparator a{
+	color:#B3DDF5;
+}
+
+.title-oparator a:hover{
+	color:#FFF;
+}
+
+/* 子系统样式表  */
+.sys-title-top{
+	position:relative;
+	background-color:gray;
+	background: #287BAA url("../images/top_bg.png") no-repeat 0px -1px;
+}
+
+.sys-title-logo{
+	margin: 7px 30px;
+}
+
+.sys-title-title{
+	line-height : 50px;
+	font-size: 23px;
+	font-family: 黑体;
+	font-weight: bold;
+	color: #7AC4E9;
+	text-shadow: 0px 0px 35px #000, 1px 1px 0 #000, -1px -1px 0 #fff;
+}
+
+.sys-title-info{
+	position:absolute;
+	left:460px;
+	bottom:0px;
+}
+
+.sys-title-info .u-info{
+	font-weight:bold; color:#E17B55;
+}
+
+.sys-title-info p{
+	color:#FFF;
+}
+
+a.backindex-a{
+	color:#FC960A; font-weight:bold;
+}
+
+a.backindex-a:hover{
+	color:#FFB515;
+}

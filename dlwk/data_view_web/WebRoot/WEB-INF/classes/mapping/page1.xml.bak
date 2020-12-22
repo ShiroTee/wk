@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page1">
+	<!--left -->
+	<select id="getLeft1" resultType="hashmap">
+		select gxlx type,count(distinct(xxzybm)) count from xxzy group by gxlx
+	</select>
+	<select id="getLeft2" resultType="hashmap">
+		select sfkf type,count(distinct(xxzybm)) count from xxzy group by sfkf
+	</select>
+	<select id="getLeft3" resultType="hashmap">
+		select ccjz name,count(distinct(xxzybm)) value from xxzy WHERE ccjz IS NOT NULL group by
+		ccjz ORDER BY value DESC
+	</select>
+
+	<!--right -->
+	<select id="getRight1" resultType="hashmap">
+		select nvl(sum(xxzysl),0) zy_num,nvl(sum(sjxsl),0)sj_num,COUNT(DISTINCT(zwbmbm)) zw_num,nvl(sum(xsjgsl),0) jg_num,nvl(sum(ywsxsl),0) sx_num from zwbm
+	</select>
+	<select id="getRight2_1" resultType="hashmap">
+		select name,count from (select a.zwbmmc name,count(a.xqxxzybm) count from ysxqxx a group by a.zwbmmc order by count desc) where rownum &lt; 11
+	</select>
+	<select id="getRight2_2" resultType="hashmap">
+		select name,count from (select zwbmmc name,xxzybxqsl count from zwbm  order by xxzybxqsl desc) where rownum&lt;11
+	</select>
+	<select id="getRight3" resultType="hashmap">
+		select ztkmc name,ztkbm code,xxzysl count,sfjck iss from ztxxhz
+	</select>
+
+	<!--mid -->
+	<select id="getMid1" resultType="hashmap">
+<!-- 		select zwbmmc name,zwbmbm code,xxzysl val1,xxzyxqsl val2,xxzybxqsl val3 from zwbm -->
+		select c.zwbmmc name,c.zwbmbm code,b.sum val1,c.xxzyxqsl val2,c.xxzybxqsl val3 
+		from zwbm c
+		left join (select a.zwbmmc,count(distinct(a.xxzybm)) sum from xxzy a group by a.zwbmmc) b
+		on c.zwbmmc = b.zwbmmc 
+	</select>
+	<select id="getMid1_2" resultType="hashmap">
+		select name,code,val1,val2,val3 from (select zwbmmc name,zwbmbm code,xxzysl val1,xxzyxqsl val2,xxzybxqsl val3 from zwbm order by xxzysl desc) where rownum &lt; 12
+	</select>
+
+	<select id="getMid2" resultType="hashmap">
+		SELECT * FROM (SELECT
+	    a.zwbmmc name,
+	    COUNT(a.ywsxbm)-COUNT(CASE WHEN a.fwdx='其它' OR a.fwdx is null THEN a.fwdx END) total,
+	    COUNT(CASE WHEN a.fwdx='行政机关和事业单位' THEN a.fwdx END) val1,
+	    COUNT(CASE WHEN a.fwdx='企业' THEN a.fwdx END) val2,
+	    COUNT(CASE WHEN a.fwdx='事业单位' THEN a.fwdx END) val3,
+	    COUNT(CASE WHEN a.fwdx='个人' THEN a.fwdx END) val4,
+	    COUNT(CASE WHEN a.fwdx='社会组织' THEN a.fwdx END) val5,
+	    COUNT(CASE WHEN a.fwdx='内部管理' THEN a.fwdx END) val6,
+	    COUNT(CASE WHEN a.fwdx='行政机关' THEN a.fwdx END) val7,
+	    COUNT(CASE WHEN a.fwdx='个人和企业' THEN a.fwdx END) val8,
+	    (SELECT COUNT(*) FROM ywxtywsxgxb b WHERE b.zwbmmc=a.zwbmmc) val9
+	    FROM
+	    ywsx a
+	    GROUP BY
+	    a.zwbmmc
+	    ORDER BY
+	    total DESC)WHERE rownum &lt; 11
+
+	</select>
+</mapper>

@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+
+#tip {
+	position: absolute;
+	min-width: 200px;
+	height: auto;
+	border: 1px solid #00CC66;
+}
+
+svg {
+	font-size: 14px;
+}
+
+svg .link {
+	fill: none;
+	stroke: #0000C0;
+	stroke-width: 1.5px;
+	stroke-opacity: 0.4;
+}
+
+svg .node {
+	cursor: pointer;
+}
+
+svg .node.root {
+	cursor: default;
+}
+
+svg .node .text-bg {
+	/*     fill: #ccc; */
+	stroke: #0000C0;
+	stroke-width: 1px;
+	fill-opacity: 1;
+	stroke-opacity: 1;
+}
+
+svg g.selected .text-bg {
+	fill: #FF8040;
+}
+
+svg g.node-over rect {
+	stroke: #FF8000 !important;
+}
+
+svg marker
+{
+	stroke: #0000C0;
+}
+
+.legend-node {
+	margin-left: 20px;
+}
+
+#orgChart {
+	margin-left: -50px;
+}
+
+.org-type-tip {
+	max-width: 800px;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #c5ccd9 !important;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.org-type-tip .org-tip-table td {
+	min-width: 100px;
+	padding-left: 20px;
+}
+
+.org-type-tip .org-tip-table tr {
+	height: 25px;
+}
+
+#fullscreenBu {
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	z-index: 9999;
+	cursor: pointer;
+	font-size: 20px;
+}
+#fullscreenBu:HOVER 
+{
+	font-size: 22px;
+}

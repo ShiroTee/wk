@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>按照姓名和身份证号码验证人口信息</title>
+<link href="../../r/cms/www/red/css/global.css" type="text/css" rel="stylesheet" />
+<link href="../../r/cms/www/red/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="../../r/cms/www/red/css/servol.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../r/cms/jquery.js" ></script>  
+</head>
+<script type="text/javascript">
+	var numflag = false;
+	function checknum(obj) {
+		if (obj.value == '') {
+			obj.value = '' ;
+		}else if (!(/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/).test(obj.value)) {
+			numflag = false;
+			document.getElementById("formmsg").innerHTML = "*输入有误,请输入15或18位身份证号" ;
+		}else{
+			numflag = true;
+			document.getElementById("formmsg").innerHTML = "" ;
+		}
+	}
+	
+	
+	function showrest(){
+		$('#message1').css('display','block') ;
+	}
+</script>
+<body>
+	<div class="main">
+		<div class="page5 box">
+			<div class="font-size1" style="margin-top:30px;">
+				根据姓名及身份证号验证人口信息
+			</div>
+			<div class="checkform">
+					<div class="margin1">
+						<span id="name" class="fontw-bold">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+						<input maxlength=10 type="text" class="inputinfo"></input>
+					</div>
+					<div class="margin1">
+						<span id="name" class="fontw-bold">身份证号：</span>
+						<input maxlength=18 name="q" type="text" id="number" class="inputinfo" 
+							onblur="checknum(this)" maxlength="50" autocomplete="off">
+						</input>
+						<label id="formmsg"></label>
+						<input type="submit" id="querybtn" value="验&nbsp;&nbsp;&nbsp;证" onclick="showrest()"></input>
+					</div>
+					<div id="message1" style="margin-top:20px;padding-left:245px; display:none;">
+						<span id="resmsg">姓名：张萍</br>身份证号：620102197008230325</br>验证结果：不匹配。</span>
+					</div>
+			</div>
+			<div id="checkresinfo" class="">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

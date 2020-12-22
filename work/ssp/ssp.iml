@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://G:/workStudio/SSPDependence/aip_core-0.0.1-20140926.011926-47.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/aip_orm-0.0.1-20140926.011939-27.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/aip_ums-0.0.1-SNAPSHOT.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/antlr-2.7.6.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/aopalliance-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/apache-mime4j-0.6.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/asm-1.5.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/aspectjweaver-1.6.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/backport-util-concurrent-3.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/camel-core-2.12.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/camel-http-2.12.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/camel-jetty-2.12.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/cas-client-core-3.2.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/cglib-nodep-2.1_3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-beanutils-1.8.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-codec-1.8.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-collections-3.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-fileupload-1.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-httpclient-3.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-io-2.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-lang-2.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-logging-1.1.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/commons-net-3.3-3.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/cssparser-0.9.14.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/cxf-2.7.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/dom4j-1.6.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/druid-0.2.25.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/ehcache-core-2.6.6.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/ehcache-web-2.0.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/fastjson-1.1.36.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/freemarker-2.3.16.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/geronimo-servlet_2.5_spec-1.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/hibernate-commons-annotations-3.2.0.Final.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/hibernate-core-3.6.10.Final.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/httpasyncclient-4.0-beta3-beta3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/httpclient-4.0.3.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/httpcore-4.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/httpmime-4.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/http-nio-4.2.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/javassist-3.4.GA.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/javax.servlet-2.5.0.v201103041518.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jbpm-api-4.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jbpm-bpmn-4.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jbpm-db-4.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jbpm-jpdl-4.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jbpm-log-4.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jbpm-pvm-4.4.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-client-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-continuation-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-http-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-io-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-jmx-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-security-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-server-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-servlet-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-servlets-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jetty-util-7.6.9.v20130131.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/json-lib-2.3-jdk15.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/jta-1.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/juel-engine-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/juel-impl-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/livetribe-jsr223-2.0.6.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/log4j-1.2.17.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/mail-1.4.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/mysql-connector-java-5.1.25.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/neethi-3.0.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/ojdbc16-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/poi-3.9.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/poi-ooxml-3.9.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/poi-ooxml-schemas-3.9.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/sac-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/servlet-api-2.5.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/shiro-all-1.2.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/shiro-cas-1.2.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/sigar-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/slf4j-api-1.6.6.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/slf4j-jdk14-1.6.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/smp-0.0.1-SNAPSHOT.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-aop-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-beans-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-context-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-context-support-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-core-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-expression-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-jdbc-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-orm-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-tx-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-web-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/spring-webmvc-3.2.2.RELEASE.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/tk-filters.jar-1.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/wsdl4j-1.6.2.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/xmlbeans-2.6.0.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/xmlpull-1.1.3.1.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/xpp3_min-1.1.4c.jar" />
+    <libelement value="file://G:/workStudio/SSPDependence/xstream-1.4.4.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="0" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../SSPDependence" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../SSPDependence" recursive="false" />
+      </library>
+    </orderEntry>
+  </component>
+</module>

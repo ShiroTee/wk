@@ -1,0 +1,178 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	font-family: "宋体" !important;
+	font-size: 12px;
+}
+
+li {
+	list-style: none;
+}
+
+.border_none {
+	border-bottom: none !important;
+}
+
+.circle {
+	margin: 60px auto 0 auto;
+}
+
+.circle,
+.ring {
+	height: 480px;
+	position: relative;
+	width: 480px;
+	background: #7ecef4;
+	border-radius: 50%;
+}
+
+.ring a {
+	border-radius: 50%;
+	color: #eeeeee;
+	display: block;
+	height: 69px;
+	line-height: 15px;
+	margin-left: -50px;
+	margin-top: -50px;
+	position: absolute;
+	text-align: center;
+	width: 69px;
+	background: #FFFFFF;
+}
+.ring a img{
+	display: block;
+	width: 69px;
+	height: 69px;
+	border-radius: 50%;
+}
+.ring a img:hover{
+	opacity: .6;
+	transition: .3s;
+}
+
+.left_img {
+    width: 40px;
+    height: 175px;
+    position: absolute;
+    line-height:175px;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    margin-top: -17px;
+    margin-left: -177px;
+    cursor:pointer;
+    background: transparent url(../img/buttons.png) no-repeat 0px -40px;
+}
+
+.right_img {
+    width: 40px;
+    height: 175px;
+    line-height:175px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -17px;
+    margin-left: 138px;
+    cursor:pointer;
+    background: transparent url(../img/buttons.png) no-repeat -41px -40px;
+}
+.center_table {
+	width: 275px;
+    height: 175px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -87px;
+	margin-left: -137px;
+}
+
+.center_table li {
+	width: 275px;
+    height: 175px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.center_table li dl {
+	display: block;
+	width: 275px;
+	height: 25px;
+	position: relative;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=3);/*ie*/
+    -moz-box-shadow: 2px 2px 10px #909090;/*firefox*/
+    -webkit-box-shadow: 2px 2px 10px #909090;/*safari或chrome*/
+    box-shadow:2px 2px 10px #909090;/*opera或ie9*/
+}
+
+.center_table li dt {
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	width: 110px;
+	border-bottom: 1px solid #FFF;
+    border-top: 1px solid #FFF;
+    border-left: 1px solid #FFF;
+	float: left;
+	padding-left: 6px;
+	position: absolute;
+}
+
+.center_table li dd {
+	display: block;
+	width: 155px;
+	height: 24px;
+	line-height: 24px;
+	float: right;
+	border: 1px solid #FFF;
+	margin: 0px;
+	padding-left: 6px;
+	position: absolute;
+	right: 0px;
+}
+.left li{
+	width: 550px;
+	background: #bee9fd;
+	border-radius: 10px;
+	position: fixed;
+	left: 10px;
+	top: 10px;
+	padding: 15px 20px;
+	left: -550px;
+}
+.left #close{
+    position: relative;
+    right: -12px;
+    top: -8px ! important ;
+    float: right;
+}
+
+
+.left li.active{
+	left: 10px;
+}
+.left li dl{
+	display: block;
+	height: 30px;
+	line-height: 30px;
+}
+.left li dt{
+	display: block;
+	width: 45%;
+	float: left;
+}
+.left li dd{
+    display: block;
+    width: 55%;
+    float: left;
+}
+
+#kkpagerGis div{
+    display: block;
+    height: 60px;
+    float: left;
+}

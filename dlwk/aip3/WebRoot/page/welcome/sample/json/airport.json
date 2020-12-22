@@ -1,0 +1,50 @@
+[
+	{
+        "department": "部门1",
+        "name": "Yuma MCAS-Yuma International",
+        "city": "Yuma",
+        "state": "AZ",
+        "country": "USA",
+        "latitude": 35.65658333,
+        "longitude": -89.6059722,
+        "信息资源数量":7455,
+        "信息资源需求数量":7364,
+        "信息资源被需求数量":9487
+    },
+    {
+        "department": "部门2",
+        "name": "Yuma MCAS-Yuma International",
+        "city": "Yuma",
+        "state": "AZ",
+        "country": "USA",
+        "latitude": 39.65658333,
+        "longitude": -104.6059722,
+        "信息资源数量":7455,
+        "信息资源需求数量":7364,
+        "信息资源被需求数量":9487
+    },
+    {
+        "department": "部门3",
+        "name": "Yuma MCAS-Yuma International",
+        "city": "Yuma",
+        "state": "AZ",
+        "country": "USA",
+        "latitude": 42.65658333,
+        "longitude": -93.6059722,
+        "信息资源数量":7455,
+        "信息资源需求数量":7364,
+        "信息资源被需求数量":9487
+    },
+    {
+        "department": "部门4",
+        "name": "Yuma MCAS-Yuma International",
+        "city": "Yuma",
+        "state": "AZ",
+        "country": "USA",
+        "latitude": 25.65658333,
+        "longitude": -113.6059722,
+        "信息资源数量":7455,
+        "信息资源需求数量":7364,
+        "信息资源被需求数量":9487
+    }
+]

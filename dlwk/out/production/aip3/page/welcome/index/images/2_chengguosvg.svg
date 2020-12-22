@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160px" height="160px" viewBox="0 0 160 160" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>2_chengguo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="升级改造首页-vol.3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-and-more" transform="translate(-290.000000, -721.000000)" stroke-width="6">
+            <g id="2_chengguo" transform="translate(295.000000, 724.000000)">
+                <g id="Group">
+                    <path d="M100.933131,75 L139.45657,113.192489 C148.181143,121.842111 148.181143,135.863163 139.45657,144.512784 L139.45657,144.512784 C130.731997,153.162405 116.589448,153.162405 107.864875,144.512784 L71,107.96461" id="Shape" stroke="#E6E6E6"></path>
+                    <polyline id="Shape" stroke="#E6E6E6" points="66 60.9502689 45.3379903 40.1412283 45.2831908 28.299155 23.1415954 6 1 28.299155 23.1415954 50.59831 34.899996 50.6534994 55.102734 71"></polyline>
+                    <path d="M100,105 L121,126" id="Shape" stroke="#E6E6E6" stroke-linecap="square"></path>
+                    <path d="M131.034483,36.6896552 L115.310345,20.9655172 L133.476966,2.79889655 C129.530207,1.01682759 125.164138,0 120.551724,0 C103.184414,0 89.1034483,14.0809655 89.1034483,31.4482759 C89.1034483,34.0191724 89.4467586,36.5035862 90.0285517,38.8962759 L0,120.551724 L31.4482759,152 L113.103724,61.9714483 C115.496414,62.5532414 117.980828,62.8965517 120.551724,62.8965517 C137.919034,62.8965517 152,48.8155862 152,31.4482759 C152,26.8358621 150.983172,22.4697931 149.201103,18.5230345 L131.034483,36.6896552 Z" id="Shape" stroke="#F9C53A" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,37 @@
+.defalutSystemIcon{
+    background-image: url( ../images/systemManageBigIcon.png ) !important;
+}
+.desktopAddApp{
+    background-image: url( ../images/myuseadd.png ) !important;
+}
+.defaultDesktopIcon{
+    background-image: url( ../images/defaultDesktopIcon.png ) !important;
+}
+.usermanager {
+    background-image: url( ../images/im48x48.png ) !important;
+}
+.data-statistics{
+    background-image: url( ../images/stats.png ) !important;
+}
+
+.service-catalogue{
+    background-image: url( ../images/catalogue.png ) !important;
+}
+.system-manager {
+    background-image:url( ../images/service_manager.png ) !important;
+}
+.service-manager {
+    background-image:url( ../images/web_database.png ) !important;
+}
+.app-install {
+    background-image:url( ../images/app_install.png ) !important;
+}
+.folder{
+    background-image:url( ../images/icons/folder.png) !important;
+}
+.file{
+    background-image:url( ../images/icons/file.png) !important;
+}
+.addf{
+    background-image:url( ../images/icons/addf.png) !important;
+}

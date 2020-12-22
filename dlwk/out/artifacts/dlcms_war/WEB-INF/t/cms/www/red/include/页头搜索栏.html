@@ -1,0 +1,34 @@
+<!-- <style type="text/css">
+.txtkeyss{width:200px; height:20px; line-height:20px; float:right; margin:4px 5px 0 8px;border:1px solid #ccc;background:none;outline:none;color: #666;}
+</style>
+<div id="search"  style="border-bottom:1px solid #359be3;height:30px;background-color:#fff">
+      <div style="width:233px; height:28px; line-height:28px; border:0px solid #e3e3e3; float:left; margin-top:1px; text-align:center;">
+      
+      
+      <span class="date">今天是 <script type="text/javascript">
+//<![CDATA[
+                        var y = new Date();
+                        var gy = y.getYear();
+                        var dName = new Array("星期天", "星期一 ", "星期二", "星期三", "星期四", "星期五", "星期六");
+                        var mName = new Array("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+                        document.write(y.getFullYear() + "年" + mName[y.getMonth()] + y.getDate() + "日　" + dName[y.getDay()]);
+          //]]>
+          </script></span>
+          </div>
+	  <form action="${base}/search.jspx" target="_blank" style="width: 450px;float:right;height:30px;margin-right: 35px;line-height: 35px ">
+	   
+		 <input type="submit" id="btnSearch" value="" style="float:right;width: 40px;height: 22px;background-image: url('${resSys}/Images/search_btn.jpg');margin-top: 4px" />
+        <input name="q" value="${q!'请输入关键词'}" type="text" id="txtKey" class="txtkeyss" onfocus="if(this.value=='请输入关键词')this.value=''" onblur="if(this.value=='')this.value='请输入关键词'" maxlength="24" autocomplete="off"  />
+       	<select name="channelId" id="fid" style="width:auto;height:22px; line-height:22px; float:right; margin:4px 5px 0 8px;">
+		  <option value="">所有信息 </option>
+			[@cms_channel_list] 
+				 [#list tag_list as c]
+				      <option value="${c.id}">
+				         ${c.name}
+				      </option>
+				  [/#list]
+			[/@cms_channel_list]
+		</select>
+      <img src="${resSys}/Images/search.jpg" style="margin-top: 5px">
+      </form>
+</div> -->

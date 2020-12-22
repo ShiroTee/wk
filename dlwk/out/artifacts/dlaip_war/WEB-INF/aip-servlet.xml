@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean id="action" class="com.digitalchina.ldp.action.FacadeAction">
+		<property name="print" value="false" />
+		<property name="handlerContainer" ref="handlerContainer" />
+	</bean>
+	<bean class="org.springframework.flex.servlet.MessageBrokerHandlerAdapter" />
+	<bean id="messageBroker" class="org.springframework.flex.core.MessageBrokerFactoryBean" />
+	<bean id="controllerInterceptor" class="com.digitalchina.ldp.action.HandlerInterceptorAdapter">
+		<!-- 是否验证用户session信息，开发测试的时候可以设置为false -->
+		<property name="checkSession" value="true" />
+		<!-- 是否验证用户权限信息 -->
+		<property name="handlerAccess" value="false" />
+		<!-- 是否开发日志审计 -->
+		<property name="openlogWrite" value="true" />
+		<!-- 开发环境 -->
+		<property name="developmentMode" value="false" />
+		<property name="threadPoolTaskExecutor" ref="taskExecutor" />
+		<property name="logsCollectService" ref="logsCollectServiceImpl" />
+	</bean>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="controllerInterceptor" />
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="/http/**">action</prop>
+				<prop key="/amf/**">messageBroker</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="defaultProxy"
+		class="org.springframework.flex.remoting.RemotingDestinationExporter">
+		<property name="messageBroker" ref="messageBroker" />
+		<property name="service" ref="flexProxy" />
+	</bean>
+	<bean id="flexProxy" class="com.digitalchina.ldp.action.FlexRequestFacade">
+		<property name="handlerContainer" ref="handlerContainer" />
+	</bean>
+	<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views"></property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="basename" value="views"></property>
+	</bean>
+	
+	<!-- FreeMarker环境配置 -->
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/ftl/" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">10</prop>
+				<prop key="locale">zh_CN</prop>
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="date_format">yyyy-MM-dd</prop>
+				<prop key="number_format">#.##</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="viewResolver" class="com.digitalchina.ldp.action.MultiViewResover">
+		<property name="resolvers">
+			<map>
+				<entry key="jsp">
+					<bean
+						class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+						<property name="viewClass"
+							value="org.springframework.web.servlet.view.JstlView" />
+						<property name="prefix" value="/" />
+						<property name="suffix" value=".jsp" />
+					</bean>
+				</entry>
+				<entry key="ftl">
+					<bean
+						class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+						<property name="suffix" value=".ftl" />
+						<property name="contentType" value="text/html;charset=UTF-8" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- set the max upload size100MB -->
+		<property name="maxUploadSize">
+			<value>104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+</beans>
+

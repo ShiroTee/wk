@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+	<bean id="springPropertyConfigurerUtil"
+		class="com.digitalchina.ldp.common.util.SpringPropertyConfigurerUtil">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>/WEB-INF/config/*.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 数据监控数据库 -->
+	<bean id="dmsDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${dms_jdbc.username}" />
+		<property name="password" value="${dms_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="name" value="dms" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="connectionProperties" value="druid.stat.mergeSql=false"/>
+	</bean>
+	<!-- 数据管理数据库 -->
+	<bean id="dmpDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${dmp_jdbc.username}" />
+		<property name="password" value="${dmp_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="dmp" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="connectionProperties" value="druid.stat.mergeSql=false"/>
+	</bean>
+	<!-- 人口数据库 -->
+	<bean id="pdsDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${pds_jdbc.username}" />
+		<property name="password" value="${pds_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="pds" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="connectionProperties" value="druid.stat.mergeSql=true"/>
+	</bean>
+	<!--框架基础库 -->
+	<bean id="rdpDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${rdp_jdbc.username}" />
+		<property name="password" value="${rdp_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="rdp" />
+		<property name="resetStatEnable" value="true"/>
+		
+		<property name="connectionProperties" value="druid.stat.mergeSql=true"/>
+	</bean>
+	<!-- 宏观经济数据库 -->
+	<bean id="pdshgjjDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${pds_hgjj_jdbc.username}" />
+		<property name="password" value="${pds_hgjj_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="pdshgjj" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="connectionProperties" value="druid.stat.mergeSql=true"/>
+	</bean>
+	<!-- 信息资源目录数据库 -->
+	<bean id="ircDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${irc_jdbc.username}" />
+		<property name="password" value="${irc_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="irc" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="connectionProperties" value="druid.stat.mergeSql=true"/>
+	</bean>
+	<!-- 领导系统维护数据库 -->
+	<bean id="ldsDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${lds_jdbc.username}" />
+		<property name="password" value="${lds_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="lds" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="connectionProperties" value="druid.stat.mergeSql=true"/>
+	</bean>
+	<!-- 法人数据库 -->
+	<bean id="ldsfrDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="url" value="${url}" />
+		<property name="username" value="${ldsfr_jdbc.username}" />
+		<property name="password" value="${ldsfr_jdbc.password}" />
+		<property name="initialSize" value="${initialSize}" />
+		<property name="minIdle" value="${minIdle}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="${maxWait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+		<property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+		<property name="validationQuery" value="${validationQuery}" />
+		<property name="testWhileIdle" value="${testWhileIdle}" />
+		<property name="testOnBorrow" value="${testOnBorrow}" />
+		<property name="testOnReturn" value="${testOnReturn}" />
+		<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"
+			value="${maxPoolPreparedStatementPerConnectionSize}" />
+		<property name="filters" value="${filters}" />
+		<property name="name" value="ldsfr" />
+		<property name="resetStatEnable" value="true"/>
+		<property name="connectionProperties" value="druid.stat.mergeSql=true"/>
+	</bean>
+	<bean id="dataSource" class="com.digitalchina.ldp.common.util.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="dms" value-ref="dmsDataSource" /><!-- 数据监控数据库 -->
+				<entry key="dmp" value-ref="dmpDataSource" /><!-- 数据管理数据库 -->
+				<entry key="rdp" value-ref="rdpDataSource" /><!-- 桌面系统数据库 -->
+				<entry key="pds" value-ref="pdsDataSource" />	<!-- 人口库 -->
+				<entry key="pdshgjj" value-ref="pdshgjjDataSource" /><!-- 宏观经济库 -->
+				<entry key="irc" value-ref="ircDataSource" />	<!-- 信息资源目录数据库 -->
+				<entry key="lds" value-ref="ldsDataSource" /><!-- 领导决策自定库 -->
+				<entry key="ldsfr" value-ref="ldsfrDataSource" /><!-- 法人数据库 -->
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="rdpDataSource" />
+	</bean>
+</beans>

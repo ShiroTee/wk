@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>search_b</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="aip-v4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="页面/hover_搜索热词" transform="translate(-1247.000000, -102.000000)" fill-rule="nonzero" fill="#090909">
+            <g id="目录标题" transform="translate(0.000000, 54.000000)">
+                <g id="搜索栏" transform="translate(938.000000, 48.000000)">
+                    <path d="M331.707,19.879 L327.337,15.509 C328.386,13.928 329,12.035 329,10 C329,4.486 324.514,0 319,0 C313.486,0 309,4.486 309,10 C309,15.514 313.486,20 319,20 C321.035,20 322.928,19.386 324.509,18.337 L328.878,22.707 C329.269,23.098 329.902,23.098 330.292,22.707 L331.706,21.293 C332.097,20.902 332.098,20.269 331.707,19.879 Z M311,10 C311,5.589 314.589,2 319,2 C323.411,2 327,5.589 327,10 C327,14.411 323.411,18 319,18 C314.589,18 311,14.411 311,10 Z" id="search_b"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

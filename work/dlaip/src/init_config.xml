@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<apps>
+	<app name="系统管理" appCode="sys">
+		<menu name="应用管理" url="#" leaf="N" orderNumber="1">
+			<menu name="应用列表" url="app/app_list.jsp" leaf="Y" orderNumber="1"
+				resourceType="0" />
+		</menu>
+		<menu name="缓存管理" url="#" leaf="N" orderNumber="2">
+			<menu name="缓存列表" url="cachemanager/cache_list.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+		</menu>
+		<menu name="日志审计" url="#" leaf="N" orderNumber="3">
+			<menu name="Request请求日志" url="logs/logs_list.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+			<menu name="数据源性能监视" url="logs/dataSource_info.jsp" leaf="Y"
+				orderNumber="2" resourceType="0" />
+			<menu name="SQL执行情况监视" url="logs/sql_info.jsp" leaf="Y"
+				orderNumber="3" resourceType="0" />
+			<menu name="Request请求日志统计" url="logs/logsinfo_statistics.jsp"
+				leaf="Y" orderNumber="3" resourceType="0" />
+		</menu>
+	</app>
+	<app name="用户管理系统" appCode="ums">
+		<menu name="用户管理" url="#" leaf="N" orderNumber="1">
+			<menu name="用户列表" url="user_info/user_info.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+		</menu>
+		<menu name="机构管理" url="#" leaf="N" orderNumber="2">
+			<menu name="机构列表" url="org_info/org_info.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+		</menu>
+		<menu name="岗位管理" url="#" leaf="N" orderNumber="3">
+			<menu name="岗位列表" url="post_info/post_info.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+		</menu>
+		<menu name="角色管理" url="#" leaf="N" orderNumber="4">
+			<menu name="角色列表" url="role_info/role_info.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+		</menu>
+		<menu name="资源管理" url="#" leaf="N" orderNumber="5">
+			<menu name="资源列表" url="resource_info/resource_info.jsp" leaf="Y"
+				orderNumber="1" resourceType="0" />
+		</menu>
+	</app>
+	<app name="可视化系统" appCode="amp">
+		<menu name="总体视角" url="ams/Main.html?module=totalView" leaf="Y"
+			orderNumber="1" resourceType="0" />
+		<menu name="组织机构视角" url="ams/Main.html?module=orgView" leaf="Y"
+			orderNumber="2" resourceType="0" />
+		<menu name="服务对象视角" url="ams/Main.html?module=serviceView" leaf="Y"
+			orderNumber="3" resourceType="0" />
+		<menu name="信息资产视角" url="#" leaf="N" orderNumber="4"
+			resourceType="0">
+			<menu name="信息系统" url="ams/Main.html?module=infoSysPage" leaf="Y"
+				orderNumber="5" resourceType="0" />
+			<menu name="信息资源" url="#" leaf="N" orderNumber="6" resourceType="0">
+				<menu name="信息资源" url="ams/Main.html?module=infoResourceDepPage"
+					leaf="Y" orderNumber="7" resourceType="0" />
+				<menu name="资源分类" url="ams/Main.html?module=infoResourceCatagroyPage"
+					leaf="Y" orderNumber="8" resourceType="0" />
+			</menu>
+			<menu name="数据元集" url="ams/Main.html?module=infoElementPage"
+				leaf="Y" orderNumber="9" resourceType="0" />
+		</menu>
+		<menu name="协同主题视角" url="ams/Main.html?module=subjectView" leaf="Y"
+			orderNumber="10" resourceType="0" />
+		<menu name="建设成果视角" url="ams/Main.html?module=buildAchievementView"
+			leaf="Y" orderNumber="11" resourceType="0" />
+	</app>
+	<app name="服务管理与发布系统" appCode="sps">
+		<menu name="信息资产管理" leaf="N" orderNumber="1">
+			<menu name="目录管理" url="rd/list.jsp" leaf="Y" orderNumber="1"
+				resourceType="0" />
+			<menu name="文件管理" url="file/list.jsp" leaf="Y" orderNumber="2"
+				resourceType="0" />
+			<menu name="服务管理" leaf="N" orderNumber="3">
+				<menu name="服务列表" url="service/list.jsp" leaf="Y" resourceType="0"/>
+				<menu name="服务运行管理" url="route/list.jsp" leaf="Y"
+					orderNumber="1" resourceType="0" />
+				<menu name="服务日志记录" url="log/list.jsp" leaf="Y" orderNumber="2"
+					resourceType="0" />
+			</menu>
+			<menu name="授权管理" leaf="N" orderNumber="4">
+				<menu name="授权信息管理" url="auth/list.jsp" leaf="Y" orderNumber="1"
+					resourceType="0" />
+				<menu name="权限管理" url="auth/role/list.jsp" leaf="Y"
+					orderNumber="2" resourceType="0" />
+			</menu>
+			<menu name="订阅管理" leaf="N" orderNumber="5">
+				<menu name="我的待办" url="approval/toDoList.jsp" leaf="Y"
+					orderNumber="1" resourceType="0" />
+				<menu name="我的已办" url="approval/doneList.jsp" leaf="Y"
+					orderNumber="2" resourceType="0" />
+				<menu name="我的申请记录" url="approval/myApplication.jsp" leaf="Y"
+					orderNumber="3" resourceType="0" />
+			</menu>
+		</menu>
+	</app>
+	<app name="数据监控平台" appCode="dms">
+		<menu name="数据监控知识库" url="#" leaf="N" orderNumber="1">
+			<menu name="异常流程解决跟踪" url="app/http/dms/knowledgeHandler/page"
+				leaf="Y" orderNumber="1" resourceType="1" />
+			<menu name="典型案例解决方案" url="app/http/dms/knowledgeSolutionHandler/page"
+				leaf="Y" orderNumber="2" resourceType="1" />
+			<menu name="数据监控基本知识" url="app/http/dms/baseKnowledgeHandler/page"
+				leaf="Y" orderNumber="3" resourceType="1" />
+		</menu>
+		<menu name="数据交换整体流程跟踪" url="#" leaf="N" orderNumber="3">
+			<menu name="整体流程跟踪" url="app/http/dms/flowFollowHandler/page"
+				leaf="Y" orderNumber="1" resourceType="1" />
+		</menu>
+		<menu name="数据处理节点监控" url="#" leaf="N" orderNumber="4">
+			<menu name="作业监控" url="#" leaf="N" orderNumber="1">
+				<menu name="作业运行情况" url="app/http/dms/jobRunHandler/page" leaf="Y"
+					orderNumber="1" resourceType="1" />
+				<menu name="作业执行情况" url="app/http/dms/jobDoHandler/page" leaf="Y"
+					orderNumber="2" resourceType="1" />
+			</menu>
+			<menu name="转换监控" url="#" leaf="N" orderNumber="2">
+				<menu name="转换执行情况" url="app/http/dms/transDoHandler/page"
+					leaf="Y" orderNumber="1" resourceType="1" />
+			</menu>
+			<menu name="步骤监控" url="#" leaf="N" orderNumber="3">
+				<menu name="步骤执行情况22" url="app/http/dms/stepMonitorHandler/page"
+					leaf="Y" orderNumber="1" resourceType="1" />
+			</menu>
+		</menu>
+		<menu name="数据交换过程监控" url="#" leaf="N" orderNumber="5">
+			<!--数据清洗监控 -->
+			<menu name="数据清洗监控" url="#" leaf="N" orderNumber="1">
+				<menu name="清洗过程监控" url="app/http/dms/cleanMonitorHandler/page"
+					leaf="Y" orderNumber="1" resourceType="1" />
+				<menu name="清洗规则监控" url="app/http/dms/cleanRuleMonitorHandler/page"
+					leaf="Y" orderNumber="2" resourceType="1" />
+			</menu>
+			<menu name="数据转换监控" url="#" leaf="N" orderNumber="2">
+				<menu name="转换过程监控" url="app/http/dms/transMonitorHandler/page"
+					leaf="Y" orderNumber="1" resourceType="1" />
+			</menu>
+			<menu name="数据比对监控" url="#" leaf="N" orderNumber="3">
+				<menu name="比对过程监控" url="app/http/dms/compareMonitorHandler/page"
+					leaf="Y" orderNumber="1" resourceType="1" />
+			</menu>
+			<menu name="数据加载监控" url="#" leaf="N" orderNumber="4">
+				<menu name="加载过程监控" url="app/http/dms/loadMonitorHandler/page"
+					leaf="Y" orderNumber="1" resourceType="1" />
+			</menu>
+		</menu>
+		<menu name="数据处理流程异常记录" url="#" leaf="N" orderNumber="6">
+			<menu name="作业异常记录" url="app/http/dms/jobExceptionHandler/page"
+				leaf="Y" orderNumber="1" resourceType="1" />
+			<menu name="转换异常记录" url="app/http/dms/transExceptionHandler/page"
+				leaf="Y" orderNumber="2" resourceType="1" />
+		</menu>
+		<menu name="预警管理" url="#" leaf="N" orderNumber="7">
+			<menu name="数据处理流程异常预警" url="app/http/dms/kettleWarningHandler/page"
+				leaf="Y" orderNumber="1" resourceType="1" />
+			<menu name="服务器异常预警" url="app/http/dms/alarmInfoHandler/page"
+				leaf="Y" orderNumber="2" resourceType="1" />
+		</menu>
+		<menu name="日志跟踪" url="#" leaf="N" orderNumber="8">
+			<menu name="作业操作跟踪" url="app/http/dms/jobLogManageHandler/page"
+				leaf="Y" iconCls="notepad-shortcut" orderNumber="1" resourceType="1" />
+			<menu name="转换操作跟踪" url="app/http/dms/transLogManageHandler/page"
+				leaf="Y" orderNumber="2" resourceType="1" />
+			<menu name="流程设计跟踪" url="app/http/dms/repositoryLogHandler/page"
+				leaf="Y" orderNumber="3" resourceType="1" />
+		</menu>
+		<menu name="统计分析" url="#" leaf="N" orderNumber="9">
+			<menu name="作业执行情况" url="#" leaf="N" orderNumber="1">
+				<menu name="作业整体执行情况" url="page/jobs/overall_implementation.jsp"
+					leaf="Y" orderNumber="1" resourceType="1" />
+				<menu name="作业执行情况" url="page/jobs/performance.jsp" leaf="Y"
+					orderNumber="2" resourceType="1" />
+			</menu>
+
+			<menu name="异常情况" url="#" leaf="N" orderNumber="2">
+				<menu name="服务器异常原因" url="page/webandservception/webandservception.jsp"
+					leaf="Y" orderNumber="1" resourceType="1" />
+			</menu>
+
+			<menu name="转换过程执行情况" url="#" leaf="N" orderNumber="3">
+				<menu name="转换过程执行情况" url="page/jobs/change.jsp" leaf="Y"
+					orderNumber="1" resourceType="1" />
+			</menu>
+
+			<menu name="清洗过程执行情况" url="#" leaf="N" orderNumber="4">
+				<menu name="清洗过程执行情况" url="page/jobs/washing.jsp" leaf="Y"
+					orderNumber="1" resourceType="1" />
+			</menu>
+		</menu>
+		<menu name="ESB监控管理" url="#" leaf="N" orderNumber="10">
+			<menu name="ESB渠道信息管理" leaf="Y" orderNumber="1"
+				url="app/http/dms/esbChannelManageHandler/page" resourceType="1" />
+			<menu name="ESB服务分类管理" leaf="Y" orderNumber="2"
+				url="page/esblog/esbservicetypemanage.jsp" resourceType="1" />
+			<menu name="ESB服务信息管理" leaf="Y" orderNumber="3"
+				url="app/http/dms/esbServiceManageHandler/page" resourceType="1" />
+			<menu name="ESB渠道服务信息管理" leaf="Y" orderNumber="4"
+				url="app/http/dms/esbTypeManageHandler/page" resourceType="1" />
+			<menu name="ESB流水监控" leaf="Y" orderNumber="5"
+				url="app/http/dms/esbLogManageHandler/page" resourceType="1" />
+			<menu name="ESB服务渠道监控" leaf="Y" orderNumber="6"
+				url="app/http/dms/esbLogTypeHandler/page" resourceType="1" />
+			<menu name="ESB服务统计图" leaf="Y" orderNumber="7"
+				url="page/esblog/esblogstatics.jsp" resourceType="1" />
+			<menu name="ESB渠道统计图" leaf="Y" orderNumber="8"
+				url="page/esblog/esblogstatics1.jsp" resourceType="1" />
+		</menu>
+	</app>
+	<app name="数据管理平台" appCode="dmp">
+		<menu name="数据生产" url="#" leaf="N" orderNumber="1">
+			<menu name="委办局原始数据" url="page/dataproduce/pre-wbjdata.jsp?appCode=dmp"
+				leaf="Y" orderNumber="1" resourceType="1"/>
+			<menu name="委办局原始文件" url="page/dataproduce/pre-wbjfile.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" resourceType="1"/>
+			<menu name="数据抽取" url="page/dataproduce/pre-centerdata.jsp?appCode=dmp"
+				leaf="Y" orderNumber="3" resourceType="1"/>
+			<menu name="数据清洗" url="page/dataproduce/dataCleanMan.jsp?appCode=dmp"
+				leaf="Y" orderNumber="4" resourceType="1"/>
+			<menu name="数据转换" url="page/dataproduce/dataTransMan.jsp?appCode=dmp"
+				leaf="Y" orderNumber="5" resourceType="1"/>
+			<menu name="数据比对" url="page/dataproduce/dataCompMan.jsp?appCode=dmp"
+				leaf="Y" orderNumber="6" resourceType="1"/>
+			<menu name="基础库数据" url="page/dataproduce/basiclibary.jsp?appCode=dmp"
+				leaf="Y" orderNumber="7" resourceType="1"/>
+		</menu>
+		<menu name="数据对账" url="#" leaf="N" orderNumber="2">
+			<menu name="委办局前置与中心前置对账" url="page/datacheck/olapwbjqzzxqz.jsp?appCode=dmp"
+				leaf="Y" orderNumber="1" resourceType="1"/>
+			<menu name="委办局前置与基础库对账" url="page/datacheck/olapwbjjckdz.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" resourceType="1"/>
+			<menu name="中心前置与基础库对账" url="page/datacheck/comp-centerToBase.jsp?appCode=dmp"
+				leaf="Y" orderNumber="3" resourceType="1"/>
+		</menu>
+		<menu name="数据质量" url="#" leaf="N" orderNumber="3">
+			<menu name="异常数据跟踪" url="page/dataQuality/trackErrorData.jsp?appCode=dmp"
+				leaf="Y" orderNumber="1" resourceType="1"/>
+			<menu name="异常数据返还" url="page/dataQuality/ErrorDataReturn.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" resourceType="1"/>
+			<menu name="数据质量报告" url="#" leaf="N" orderNumber="3">
+				<menu name="文件交换模式" url="page/dataQuality/DataReport.jsp?appCode=dmp"
+					leaf="Y" orderNumber="1" resourceType="1"/>
+				<menu name="数据库交换模式" url="page/dataQuality/DataBaseReport.jsp?appCode=dmp"
+					leaf="Y" orderNumber="2" resourceType="1"/>
+			</menu>
+			<menu name="数据管理质量知识库" url="#" leaf="N" orderNumber="4">
+				<menu name="异常流程解决跟踪" url="page/dataQuality/dataQuality.jsp?appCode=dmp"
+					leaf="Y" orderNumber="1" resourceType="1"/>
+				<menu name="异常案例解决方案" url="page/dataQuality/dataSolution.jsp?appCode=dmp"
+					leaf="Y" orderNumber="2" resourceType="1"/>
+			</menu>
+		</menu>
+		<menu name="数据字典管理" url="#" leaf="N" orderNumber="4">
+			<menu name="异常规则代码管理"
+				url="page/codemanage/exceptionCodeManager.jsp?appCode=dmp" leaf="Y"
+				orderNumber="1" resourceType="1"/>
+			<menu name="委办局数据交换表配置" url="page/codemanage/wbjsjjh.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" resourceType="1"/>
+			<menu name="基础库数据表配置" url="page/codemanage/databasetable.jsp?appCode=dmp"
+				leaf="Y" orderNumber="3" resourceType="1"/>
+			<menu name="委办局数据交换方式配置" url="page/codemanage/dmjhmode.jsp?appCode=dmp"
+				leaf="Y" orderNumber="4" resourceType="1"/>
+		</menu>
+		<menu name="统计分析" url="#" leaf="N" orderNumber="5">
+			<!-- 数据生产 6个 -->
+			<menu name='数据生产' url="#" leaf="N" orderNumber="1">
+				<menu name="委办局原始数据统计" url="page/statistics/statisticsbasedata.jsp?appCode=dmp"
+					leaf="Y" iconCls="data-statistics" orderNumber="1" resourceType="1"/>
+				<menu name="委办局原始文件统计" url="page/statistics/statisticsbasefile.jsp?appCode=dmp"
+					leaf="Y" orderNumber="2" resourceType="1"/>
+				<menu name="数据抽取统计" url="page/statistics/datacq.jsp?appCode=dmp"
+					leaf="Y" orderNumber="3" resourceType="1"/>
+				<menu name="数据清洗统计" url="page/statistics/dataclear.jsp?appCode=dmp"
+					leaf="Y" orderNumber="4" resourceType="1"/>
+				<menu name="数据转换统计" url="page/statistics/datatrasition.jsp?appCode=dmp"
+					leaf="Y" orderNumber="5" resourceType="1"/>
+				<menu name="基础库数据统计" url="page/statistics/database.jsp?appCode=dmp"
+					leaf="Y" orderNumber="6" resourceType="1"/>
+			</menu>
+			<menu name='数据对账' url="#" leaf="N" orderNumber="2">
+				<menu name="中心前置与基础库对账统计" url="page/statistics/centertobase.jsp?appCode=dmp"
+					leaf="Y" orderNumber="1" resourceType="1"/>
+				<menu name="委办局前置与中心前置对账统计" url="page/statistics/wbjtocenter.jsp?appCode=dmp"
+					leaf="Y" orderNumber="2" resourceType="1"/>
+				<menu name="委办局前置与基础库对账统计" url="page/statistics/wbjtobase.jsp?appCode=dmp"
+					leaf="Y" orderNumber="3" resourceType="1"/>
+			</menu>
+
+		</menu>
+	</app>
+</apps>

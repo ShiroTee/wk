@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+#chartBox {
+  height: 500px;
+  margin-bottom: 40px;
+}
+
+.node rect {
+  cursor: pointer;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.link:hover {
+  stroke-opacity: .5;
+}
+
+#chartLegend
+{
+	padding-left: 60px;
+}
+#chartLegend .legend-box
+{
+	margin-left: 40px;
+}
+.legend-value
+{
+	font-weight: bold;
+}
+#lengName
+{
+	font-weight: bold;
+}
+/*** color****/
+#bl_title_box i
+{
+	color: #3483BA;
+}
+#bl_asset_box i
+{
+	color: #B5CBE9;
+}
+#bl_sys_box i
+{
+	color: #00C000;
+}
+#bl_busi_box i
+{
+	color: #FE8B25;
+}

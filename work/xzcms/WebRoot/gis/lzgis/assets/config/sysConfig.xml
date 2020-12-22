@@ -1,0 +1,136 @@
+<config>
+	<map>
+		<baseMapUrl>http://10.6.10.55:8090</baseMapUrl> <!-- 地图根地址  -->
+		<zoomLv>6</zoomLv> <!-- 地图初始化等级 -->
+		<centerX>550446.02</centerX> <!-- 549839.57 地图初始中心点经度 550446.02  -->
+		<centerY>551162.44</centerY> <!-- 554098.41 地图初始中心点纬度 551162.44 -->
+		<extendIsSame>true</extendIsSame><!-- 矢量地图、影像地图范围是否不同，true-表示相同,使用mapExtend的范围;false-表示不相同，使用 vectorMapExtend的范围 -->
+		<mapExtend>408189.28,477780.39,664896.28,681598.89</mapExtend> <!-- 408189.28125,477780.390625,664896.28125,681598.890625 地图范围 -->
+		<vectorMapExtend>408189.28125,477780.390625,664896.28125,681598.890625</vectorMapExtend><!-- 矢量地图范围  506790.47,549133.77,562892.16,567641.94  540673.6809583997,546523.3000186686,561559.6673099444,560536.140451428-->
+		<mapVectorUrl>services/ogc/wmts/1171</mapVectorUrl> <!-- 矢量地图地址-->
+		<mapVectorName>1171</mapVectorName> <!-- 矢量图层名 -->
+		<mapImgUrl>services/ogc/wmts/1170</mapImgUrl> <!-- 影像地图地址  -->
+		<mapImgName>1170</mapImgName> <!-- 影像图层名 -->
+		<tileMatrixSet>CustomCRS0Scale_1171</tileMatrixSet> <!-- 矢量地图瓦片矩阵集的唯一标识符 -->
+		<imgTileMatrixSet>CustomCRS0Scale_1170</imgTileMatrixSet> <!-- 影像地图瓦片矩阵集的唯一标识符 -->
+		<style>default</style> <!-- 地图图层样式 -->
+		<requestEncoding>KVP</requestEncoding> <!-- WMTS 服务访问模式  -->
+		<wellKnownScaleSet>CustomCRS0Scale</wellKnownScaleSet><!-- 标准比例尺集名称 -->
+		<mapVersion>1.0</mapVersion>	<!-- 图层版本信息 -->
+		<mapKey>c1e7b8ef52c3db3f984c397893538f8e</mapKey>	<!-- 地图授权码 -->
+		<!-- 地图比例尺 -->
+		<resolutions>304.6269659308826931969391338486504,152.3134829654413465984695669243253,76.15674148272067329923478346216263,38.07837074152693821211739166583405,19.03918537059686754355869589816429,9.519592685298433771779347949082146,4.759796342649216885889673974541073,2.379898171324608442944836987270536,1.189949085828905783972418428388003,0.5949745429144528919862092141940016,0.2974872712906248834931046723442657,0.1487436356453124417465523361721329</resolutions>
+		<!-- 矢量地图比例尺 -->
+		<mapVctorResolutions>427.4102641631115513605090386547227,152.3134829654413465984695669243253,76.15674148272067329923478346216263,38.07837074152693821211739166583405,19.03918537059686754355869589816429,9.519592685298433771779347949082146,4.759796342649216885889673974541073,2.379898171324608442944836987270536,1.189949085828905783972418428388003,0.5949745429144528919862092141940016,0.2974872712906248834931046723442657,0.1487436356453124417465523361721329</mapVctorResolutions>
+		<mapPropertyQryUrl>sgs/propertyQuery.action</mapPropertyQryUrl> <!-- 地图属性查询地址 -->
+		<themeServiceUrl>services/iserver/1171-rest/rest/maps/ShiLiangDiTu</themeServiceUrl><!-- 地图专题图服务地址 -->
+		<spatialQueryUrl>sgs/spatialQuery.action</spatialQueryUrl>	<!-- 地图空间查询服务 -->
+		<bufferAnalystService>services/spatialanalyst/bufferanalystservice</bufferAnalystService>	<!-- 地图缓冲区分析 -->
+		<netWorkAnalyst>services/networkanalyst/network</netWorkAnalyst><!-- 路径分析  -->
+		<geocodingService>services/geocodingservice/geocoding</geocodingService><!-- 地名查询 -->
+		<poiSearchService>services/PoiSearchService</poiSearchService><!-- POI兴趣点查询 -->
+		<personMark>	<!-- 个人标注 -->
+			<getCatalog>sgs/getMarkCatalogAndMarkDataTree.action</getCatalog><!-- 	获取个人标注目录 -->
+			<addCatalog>sgs/addMarkCatalog.action</addCatalog><!-- 	添加个人标注目录 -->
+			<delCatalog>sgs/deleteMarkCatalog.action</delCatalog><!-- 	删除标注目录 -->
+			<addLayer>sgs/addMarkData.action</addLayer><!-- 		添加标注图层 -->
+			<delLayer>sgs/deleteMarkData.action</delLayer><!-- 	删除标注图层 -->
+			<getUserMark>sgs/getMarkRecordByUserIdAndMarkDataId.action</getUserMark> <!-- 获取个人标注 -->
+			<addMark>sgs/addMarkRecord.action</addMark><!--添加个人标注 -->
+			<delMark>sgs/deleteMarkRecord.action</delMark><!-- 	删除个人标注 -->
+		</personMark>
+		<!-- 专题图 -->
+		<theme>
+			<city><!-- 区县级专题图 -->
+				<serviceUrl>services/iserver/1182-rest/rest/maps/xzqh</serviceUrl><!-- 专题图服务地址 -->
+				<themeDataSourceNames>SGS_LZ_XZQH</themeDataSourceNames><!-- 指定需要做专题图的数据集所在的数据源,如果有多个数据源则以,隔开 -->
+				<themeDataSetNames>LZ_BOU_PGR</themeDataSetNames><!-- 指定需要做专题图的数据集,如果有多个数据源则以,隔开 -->
+				<layerName>LZ_BOU_PGR@SGS_LZ_XZQH</layerName><!-- 用于专题图的图层名称 -->
+			</city>
+			<street><!-- 街道级专题图 -->
+				<serviceUrl>services/iserver/1188-rest/rest/maps/XZQH_JD</serviceUrl><!-- 专题图服务地址 -->
+				<themeDataSourceNames>SGS_LZ_XZQH</themeDataSourceNames><!-- 指定需要做专题图的数据集所在的数据源,如果有多个数据源则以,隔开 -->
+				<themeDataSetNames>街道R</themeDataSetNames><!-- 指定需要做专题图的数据集,如果有多个数据源则以,隔开 -->
+				<layerName>街道R@SGS_LZ_XZQH</layerName><!-- 用于专题图的图层名称 -->
+			</street>
+			<community><!-- 社区级专题图 -->
+				<serviceUrl>services/iserver/1189-rest/rest/maps/XZQH_SQ</serviceUrl><!-- 专题图服务地址 -->
+				<themeDataSourceNames>SGS_LZ_XZQH</themeDataSourceNames><!-- 指定需要做专题图的数据集所在的数据源,如果有多个数据源则以,隔开 -->
+				<themeDataSetNames>社区R</themeDataSetNames><!-- 指定需要做专题图的数据集,如果有多个数据源则以,隔开 -->
+				<layerName>社区R@SGS_LZ_XZQH</layerName><!-- 用于专题图的图层名称 -->
+			</community>
+			<dotDensity><!-- 点密度图 -->
+				<cityCount>5000</cityCount><!-- 市点密度图基数 -->
+				<countyCount>200</countyCount><!-- 区、县点密度图基数 -->
+				<streetCount>50</streetCount><!-- 街道、社区点密度图基数 -->
+			</dotDensity>
+		</theme>
+		
+		<!-- rest服务，用于如人口等的rest查询等 -->
+		<rest>
+			<people><!-- 人口rest服务 -->
+				<layerName>rk_cg_zhuanti@SGS_RK</layerName><!-- 人口rest服务图层名 -->
+				<layerRestServer>services/iserver/1184-rest/rest/maps/RK_PT</layerRestServer><!-- 人口rest服务地址 -->
+			</people>
+		</rest>
+	</map>
+	<module>
+		<item name="showMap">com/dc/map/ShowMap.swf</item><!-- 地图展示 -->
+		<item name="zyzsyy">com/dc/zyzsyy/zyzsyy.swf</item><!-- 资源展示与应用 -->
+	</module>
+	<!-- 报表 -->
+	<report>
+		<biUrl>http://10.6.10.25:7001/bi/opencontrol.jsp?action=visitDirect.do&path=/共享报表/兰州数据中心/</biUrl><!-- BICenter根路径 -->
+	</report>
+	<!-- flex远程对象 -->
+	<remote>
+		<lzdUrl>/lzsjzx/spring/messagebroker/amf</lzdUrl><!-- 远程对象endpoint地址，lzsjzx为后台的根路径，如果的根路径发生改变，则需要对此进行修改  -->
+	</remote>
+	<!-- 注意layer中 code字段请不要改变，为程序中的识符; layerId为相应图层发布后对应的ID，需要改变;visible为控制是否在首页中显示-->
+	<layers>
+		<layer label="商业店铺" layerId="1431" name="shangyedianpu" visible="true" code="layerShop" icon="assets/img/layers/f_sydp.png"/>
+		<layer label="金融保险" layerId="1426" name="jinrongbaoxian" visible="true" code="layerFinance" icon="assets/img/layers/f_jrbx.png"/>
+		<layer label="公共服务" layerId="1430" name="gonggongfuwu" visible="true" code="layerPublicService" icon="assets/img/layers/f_ggfw.png"/>
+		<layer label="居民服务" layerId="1428" name="juminfuwu" visible="true" code="layerResidentService" icon="assets/img/layers/f_jmfw.png"/>
+		<layer label="人口" layerId="1423" name="RK_PT" visible="false" code="layerPeople" icon="assets/img/layers/f_people.png"/><!-- 1194(100) 1243(500)  1222(49,0000) -->
+	</layers>
+	<!-- 图层控制  label-显示名称；url-图层对应的服务地址，根路径使用地图中的baseUrl -->
+	<displayLayers>
+		<layer label="路网" name="ROADNET" url="services/iserver/ROADNET-wms/wms111/ROADNET" wkid="0" bounds="548380.712818,553056.632645,551000.933274,554759.043837"/>
+		<layer label="水系" name="HYDNET" url="services/iserver/HYDNET-wms/wms111/HYDNET" wkid="0" bounds="548380.712818,554193.812841,551000.933274,554759.043837"/>
+	</displayLayers>
+	
+	<!-- 二次开发平台接口 -->
+	<secondDevelop>
+		<baseSecondDevelopUrl>http://10.6.10.38:8888</baseSecondDevelopUrl><!-- 二次开发平台根路径 -->
+		
+		<getCatalogAll><!-- 获取二次开发平台所有服务目录 -->
+			app/api/service/sms/smsServiceInterfaceHandler/getCatalogueInfoTreeAll
+		</getCatalogAll>
+		
+		<node><!-- 获取二次开发平台超图空间服务的id -->
+			9857ec84-f98d-4ab5-9b1a-bf67958e67f4
+		</node>
+		
+		<auth_key><!-- 此服务授权码 -->
+			XJUN1VBY
+		</auth_key>
+	</secondDevelop>
+	
+	<!-- 空间服务 -->
+	<spaceservice>
+		<!-- 地图坐标系 -->
+		<!-- 对应当前使用的地图坐标系名称，在服务管理平台的空间服务目录中可以找到（如果有） -->
+		<!-- 城建坐标系 -->
+		<!-- 2000坐标系 -->
+		<mapSet>城建坐标系</mapSet>
+		
+		<!-- 跟目录名称 -->
+		<root>服务目录</root>
+		
+		<!-- 地图服务分类 -->
+		<wfsmapservice>WFS服务</wfsmapservice>
+		<wmsmapservice>WMS服务</wmsmapservice>
+	</spaceservice>
+	
+</config>

@@ -1,0 +1,60 @@
+html
+	{ 
+		margin:0px; 
+		padding:0px;
+	    color:#000;
+		background-color:#CCCCCC;
+	}
+body 
+	{ 
+		margin:0px; 
+		padding:0px;
+		font-size:13px; 
+		line-height:23px; 
+		font-family: "微软雅黑";
+	}
+a
+	{ text-decoration:none; color:#888787;} a:hover{ color:#FF9900;}
+	
+.login_bg{ width:350px; height:250px; background-color:#fff;}
+.top_bg{ background:url(../images/top_bg.jpg) repeat-x; width:100%; height:32px;}
+.top_tab01{ width:50%; height:32px; background:url(../images/top_bg_select.jpg) repeat-x; color:#4179b6; text-align:center; line-height:32px; float:left;}
+.top_tab02{ width:50%; height:32px; color:#fff; text-align:center; line-height:32px; float:left;}
+.denglu_tab{ margin:0px auto; margin-top:36px;  }
+.denglu_tab td{ height:35px; line-height:32px;}
+.denglu_anniu{ margin-top:12px;}
+.user_bg{ /*background:url(../images/user_bg.jpg) no-repeat  left; */
+height:22px; width:150px; border:solid #ccc 1px; padding-left:30px; line-height:22px;}
+.psw_bg{ /*background: url(../images/psw_bg.jpg) no-repeat  left;*/
+ height:22px; width:150px; border:solid #ccc 1px; padding-left:30px; line-height:22px;}
+.yanzheng_bg{ width:80px; border:solid #ccc 1px; }
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

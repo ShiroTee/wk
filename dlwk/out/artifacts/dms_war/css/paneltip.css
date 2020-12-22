@@ -1,0 +1,66 @@
+﻿/*************** Notifications ***************/
+.notification {
+	position: relative;
+	margin: 3px 4px;
+	border: 1px solid;
+	background-position: 10px 6px !important;
+	background-repeat: no-repeat !important;
+	font-size: 13px;
+	display: block;
+	font-style: normal;
+	padding: 3px 3px 3px 35px;
+	line-height: 1.5em;
+}
+
+.tipcontent {
+	line-height: 22px;
+}
+
+.notification .closetip {
+	color: #990000;
+	font-size: 9px;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+}
+
+.information {
+	background: #DBE3FF url('../images/tip001.png');
+	border-color: #a2b4ee;
+	color: #585b66;
+	font: 12px 微软雅黑,微x8F6F正黑体,新细明体,细明体,黑体,微软雅黑,微x8F6F正黑体,新细明体,细明体,黑体,helvetica,sans-serif !important;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	/* behavior: url(css/ie-css3.htc); */
+}
+.information .tipcontent{
+	background-color: #DBE3FF;
+}
+
+.x-panel-tl{
+	border:none;
+}
+
+.x-form-text{
+	height:20px !important;
+	line-height:20px !important;
+	padding-top:2px !important;
+}
+
+.x-form-trigger{
+	height:23px !important;
+}
+
+.x-form-item {
+	line-height:20px !important;
+}
+
+.x-panel-footer{
+	padding-bottom : 10px !important; 
+}
+
+.x-toolbar-right.x-toolbar-right-ct.x-toolbar-right{
+	width:300px;
+	float : right !important;
+}

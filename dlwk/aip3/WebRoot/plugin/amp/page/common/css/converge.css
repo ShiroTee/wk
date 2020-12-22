@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+    * {margin: 0px;padding: 0px;}
+	body {font-size: 14px;font-family: "微软雅黑";	background:url(../images/vis-bg.png) repeat;height:auto;}
+    img {border: none;}
+	
+	/*页面iframe布局,根据窗口高度自动赋高*/
+	.tjj-iframe{ width:100%;height:auto; position:relative; margin:0px auto;}
+	/*iframe内外套div根据分元素改变大小，相关html body在各自署名css*/
+	.tjj-wrap{ width:100%; min-width:1366px;height:100%; min-height:767px; position:relative; margin:0px auto; overflow:hidden;}
+	/*iframe内,区域内装饰,居于右上侧，随屏定位*/
+	.tjj-right-bg{ width:319px;height:547px; background:url(../images/ttj-right-bg.png) no-repeat; position:absolute; z-index:-1; right:0px; top:0px; overflow:hidden;}
+	
+	/*iframe内,内容，居中，随屏定位*/
+	.tjj-main{ width:90%; min-width:1110px; height:87%;min-height:668px; margin:3.5% auto; position:relative; overflow:hidden;}
+	
+	/*手动设置滚动区域外框宽高属性*/
+	.tjj-main-slide{width:90%; min-width:1110px; position: relative; margin: 0px auto;}
+	/*左右箭头*/
+	.left_slide_div,.right_slide_div{ width:34px;height:77px; overflow:hidden; float:left; display:inline; margin:25% 5px 0px 5px;}
+	.left_slide,.right_slide{ width:34px;height:77px; overflow:hidden; float:left; display:inline; cursor:pointer;}
+	
+	
+	.left_slide{ background:url(../images/left_arrow_normal.png) no-repeat;}
+	.right_slide{ background:url(../images/right_arrow_normal.png) no-repeat;}
+	
+	.left_slide:hover{ background:url(../images/left_arrow_click.png) no-repeat;}
+	.right_slide:hover{background:url(../images/right_arrow_click.png) no-repeat;}
+	
+	/*手动设置滚动区域外框宽高属性*/
+	.tjj-main-slide{width:90%; min-width:1110px; position: relative; margin: 0px auto;}
+	.content_slide{ width:1111px;height:700px; float:left; display:inline;overflow:hidden; position:relative;}
+	
+	/*手动设置滚动区域宽高属性*/
+	.content_slide_div{height:100%; position:relative; margin:0px;overflow:hidden;}
+	/*滚动盒子div,任意命名*/
+	.box1,.box2,.box3,.box4,.box5{height:100%; float:left; display:inline;overflow:hidden;}

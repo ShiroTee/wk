@@ -1,0 +1,23 @@
+[
+   
+    {
+        "origin": "部门1",
+        "destination": "部门2",
+        "count": 99
+    },
+    {
+        "origin": "部门1",
+        "destination": "部门3",
+        "count": 1044
+    },
+    {
+        "origin": "部门1",
+        "destination": "部门4",
+        "count": 1961
+    },
+    {
+        "origin": "部门1",
+        "destination": "部门4",
+        "count": 440
+    }
+]

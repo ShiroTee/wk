@@ -1,0 +1,10 @@
+<!-- bootstrap & fontawesome -->
+<link rel="stylesheet" href="${ctx }/resources/ace1.3.2/css/bootstrap.min.css" />
+<link rel="stylesheet" href="${ctx }/resources/ace1.3.2/css/font-awesome.min.css" />
+<!-- text fonts -->
+<link rel="stylesheet" href="${ctx }/resources/ace1.3.2/css/ace-fonts.min.css" />
+<!-- ace styles -->
+<link rel="stylesheet" href="${ctx }/resources/ace1.3.2/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+<link rel="stylesheet" href="${ctx }/plugin/amp/page/common/css/base.css" />
+<link rel="stylesheet" href="${ctx }/plugin/amp/page/views/detail/css/widget-detail.css" />
+

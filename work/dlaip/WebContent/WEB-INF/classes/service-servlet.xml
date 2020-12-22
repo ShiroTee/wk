@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean id="webServiceAction" class="com.digitalchina.ldp.action.WebServiceFacadeAction">
+		<property name="handlerContainer" ref="handlerContainer" />
+	</bean>
+	<bean class="org.springframework.flex.servlet.MessageBrokerHandlerAdapter" />
+	<bean id="messageBroker_" class="org.springframework.flex.core.MessageBrokerFactoryBean" />
+	<bean id="controllerInterceptor" class="com.digitalchina.ldp.action.ServiceInterceptorAdapter">
+		<!-- 是否开发日志审计 -->
+		<property name="openlogWrite" value="true" />
+		<property name="threadPoolTaskExecutor" ref="taskExecutor" />
+		<property name="logsCollectService" ref="logsCollectServiceImpl" />
+	</bean>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="controllerInterceptor" />
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="/api/**">webServiceAction</prop>
+				<prop key="/amf/**">messageBroker_</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean id="defaultProxy_"
+		class="org.springframework.flex.remoting.RemotingDestinationExporter">
+		<property name="messageBroker" ref="messageBroker_" />
+		<property name="service" ref="flexProxy_" />
+	</bean>
+	<bean id="flexProxy_" class="com.digitalchina.ldp.action.FlexRequestFacade">
+		<property name="handlerContainer" ref="handlerContainer" />
+	</bean>
+</beans>
+

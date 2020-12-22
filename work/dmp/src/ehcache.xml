@@ -1,0 +1,31 @@
+﻿<!-- AOP+Ehcache by mengqingyu-->
+
+<!-- 
+	diskStore 褰撳唴瀛樼紦瀛樻暟閲忚秴杩囪缃暟閲忔椂锛屽皢鏁版嵁鍐欏埌纭洏涓紝path涓虹‖鐩樼浉瀵硅矾寰? 
+	maxElementsInMemory 缂撳瓨涓渶澶у厑璁稿垱寤虹殑瀵硅薄鏁?
+	eternal 缂撳瓨涓璞℃槸鍚︿负姘镐箙锛屽鏋渢rue杩囨湡璁剧疆灏嗘棤鏁? 
+	timeToIdleSeconds 鑷渶鍚庤鍙栧紑濮嬫湁鏁堟椂闂? 
+	timeToLiveSeconds 鑷垱寤哄紑濮嬫湁鏁堟椂闂?
+	overflowToDisk 鍐呭瓨涓嶈冻鏃舵槸鍚﹀惎鐢ㄧ鐩樼紦瀛? 
+-->
+<ehcache>
+	<diskStore path="java.io.tmpdir"/> 
+	
+	<defaultCache 
+		maxElementsInMemory="10000" 
+		eternal="false" 
+		overflowToDisk="false" 
+		timeToIdleSeconds="259200000" 
+		timeToLiveSeconds="259200000" 
+		diskPersistent="false" 
+		diskExpiryThreadIntervalSeconds="120"/>
+		
+  <cache name="mobileCache"
+        maxElementsInMemory="10000"
+        eternal="false"
+        overflowToDisk="true"
+        timeToIdleSeconds="1800"
+        timeToLiveSeconds="3600"
+        memoryStoreEvictionPolicy="LFU" />  
+
+</ehcache>

@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+.widget-box .widget-table
+{
+	text-align: left;
+	font-size: 12px;
+	font-weight: 100;
+	font-family:"宋体";
+	text-indent: 4pt;
+	border-left: 1px solid #add5e4;
+	border-bottom: 1px solid #add5e4;
+	color: #0047a3;
+
+}
+.widget-box .widget-table-desc
+{
+	margin: 5px 0px;
+}
+.widget-table-desc td.desc-laebl
+{
+	background-color: #eef8fc;
+	width: 150px;
+	text-align: right;
+}
+.widget-table-desc td.desc-content
+{
+/* 	width: 160px; */
+}
+.desc-content .txt
+{
+	
+}
+.desc-content .txtArea
+{
+	
+}
+.widget-table-desc .text-area-tr
+{
+	height: 80px;
+}
+.widget-body .input-group-addon
+{
+	border-style: none;
+}
+.widget-body .input-group
+{
+	padding-right: 15px;
+}
+ .content-box 
+{
+	border: 0px !important;
+	border: 0px solid #d5d5d5;
+} 
+.on
+{
+	background-color : #D0D0FF;
+}

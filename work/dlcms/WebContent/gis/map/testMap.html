@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>   
+    <title>SuperMap iClient for JavaScript:TiledDynamicRESTLayer</title>
+    <script src="../supermap/libs/SuperMap.Include.js"></script>
+    <script type="text/javascript">
+    //声明变量map、layer、url； 
+    var map,layer,url = "http://192.168.5.128:8090/iserver/services/map-world/rest/maps/World Map";
+    //创建地图控件
+    function init() {
+        map = new SuperMap.Map ("mapDiv");
+        //创建分块动态REST图层，该图层显示iserver java 6R 服务发布的地图，
+        //其中“world”为图层名称，url图层的服务地址，{transparent: true}设置到url的可选参数，
+        layer = new SuperMap.Layer.TiledDynamicRESTLayer("YingXiangDiTu", url,null,{maxResolution:"auto"});
+        layer.events.on({"layerInitialized": addLayer});          
+    }             
+    function addLayer() {
+        //将Layer图层加载到Map对象上
+        map.addLayer(layer);
+        //出图，map.setCenter函数显示地图
+        map.setCenter(new SuperMap.LonLat(550446.02, 551162.44), 6);        
+    }
+    </script>
+</head>
+<body onload="init()"> 
+    <div id="mapDiv" style="position:absolute;left:0px;right:0px;width:800px;height:500px;" >             
+    </div>    
+</body>
+</html>

@@ -1,0 +1,3199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>在线信息服务 - ${site.name}</title>
+
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="${resSys}/pager/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="${base}/thirdparty/highcharts/highcharts.js"></script>
+<script type="text/javascript" src="${base}/thirdparty/highcharts/highcharts-more.js" ></script>
+
+
+    <!---弹出层控件--->
+<script src="${resSys}/www/red/layer/layer.js" type="text/javascript"></script>
+<!---附件上传控件--->
+<link href="${resSys}/www/red/swfupload/css/default.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript"  src="${resSys}/www/red/swfupload/swfupload/swfupload.js"></script> 
+<script type="text/javascript" src="${resSys}/www/red/swfupload/js/swfupload.queue.js"></script>
+<script type="text/javascript"  src="${resSys}/www/red/swfupload/js/fileprogress.js"></script> 
+<script type="text/javascript" src="${resSys}/www/red/swfupload/js/handlers.js"></script>  
+
+    <!-- 分页控件开始 -->
+<script type="text/javascript"	src="${resSys}/pager/js/kkpagerGis.js"></script>
+<link  href="${resSys}/pager/css/kkpager.css" rel="stylesheet"  type="text/css" />
+	<script type="text/javascript"	src="${resSys}/pager/js/kkpager_app.js"></script>
+	<link  href="${resSys}/pager/css/kkpager_app.css" rel="stylesheet"  type="text/css" />
+<link  href="${resSys}/pager/css/kkpagerGis.css" rel="stylesheet" type="text/css" />
+    <!-- 分页控结束 -->
+<script type="text/javascript">
+	var s=location.search.substring(1);//这个就是页面?后面的内容，自己处理一下
+	s=s.replace('searchContentIndex=','');
+</script>
+<link href="${resSys}/Css/base.css" rel="stylesheet" type="text/css" />
+<link href="${resSys}/Css/header.css" rel="stylesheet" type="text/css" />
+<link href="${resSys}/Css/footer.css" rel="stylesheet" type="text/css" />
+<link href="${resSys}/Css/style.css" rel="stylesheet" type="text/css" />
+<script src="${base}/ap/js/globalInterfaceDomain.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script src="/${res}/js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="${base}/thirdparty/My97DatePicker/WdatePicker.js"></script>
+<script src="${resSys}/Js/jquery.tabso_yeso.js"></script>
+
+<script src="${resSys}/www/red/js/statisticChar.js" type="text/javascript"></script>
+<script src="${resSys}/www/red/js/echarts-all.js" type="text/javascript"></script>
+<script src="${resSys}/Js/dtree.js" type="text/javascript"></script>
+<link href="${resSys}/Css/dtree.css" rel="stylesheet" type="text/css" />
+<script src="${base}/ap/js/wbjDataSubmitDetail.js" type="text/javascript"></script>
+
+<link href="${resSys}/Css/index.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		.mask {
+			position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #777;
+			z-index: 100; left: 0px;
+			opacity:0.5; -moz-opacity:0.5;
+		}
+	</style>
+
+	<script type="text/javascript">
+    var zxcxcd="";
+    [#if user??]
+        $("#userName").val("${user.username}");
+        zxcxcd="${user.resources!}";
+    [/#if]
+
+    $(function() {
+        Cms.siteFlow("${base}", location.href, document.referrer);
+        [#if user??]
+        [#else]
+        showlogin();
+        [/#if]
+    });
+$(document).ready(function($){
+	$("#tab").tabso({                  //要切换的标签
+		cntSelect:"#tab_con",          //要切换的内容
+		tabEvent:"click",              //要触发的事件
+		tabStyle:"fade",			   //要实现的动画效果
+		onStyle:"current"			   //添加样式
+	});
+    //获得人口图谱查询类型
+    getRKTPqueryItem();
+	 $("#serviceLinkCloseBtn1").click(function() {
+		    $(this).parent().hide();
+		    $("#serviceLinkFade").hide();
+		   // document.getElementById("serviceLink").src=null;
+		  });
+
+	$("#tab1").tabso({                    //要切换的标签
+		cntSelect:"#tab_con1",             //要切换的内容
+		tabEvent:"mouseover",              //要触发的事件
+		tabStyle:"fade",				   //要实现的动画效果
+		onStyle:"current"				   //添加样式
+	});
+
+	$("#populationTab").tabso({                    //要切换的标签
+		cntSelect:"#populationTab_con",             //要切换的内容
+		tabEvent:"click",              //要触发的事件
+		tabStyle:"fade",				   //要实现的动画效果
+		onStyle:"current"				   //添加样式
+	});
+
+	$("#bitab").tabso({                    //要切换的标签
+			cntSelect:"#bi_con",             //要切换的内容
+			tabEvent:"mouseover",              //要触发的事件
+			tabStyle:"fade",				   //要实现的动画效果
+			onStyle:"current"				   //添加样式
+		});
+
+		$("#tabMenu").tabso({ // 要切换的标签
+	    cntSelect : "#tabPanel", // 要切换的内容
+	    tabEvent : "click", // 要触发的事件
+	    tabStyle : "fade", // 要实现的动画效果
+	    onStyle : "current" // 添加样式
+	  });
+
+	var kjFlag = getParam('kjFlag');
+	if(kjFlag==1){
+		$("#kj").click();
+		$('#gisFrame').attr('src', gisUrl+gisHtml+'?username='+rdploginName+'&uuid='+gisUuid);
+	}
+	$("#kj").click(function(){
+		if($('#gisFrame').attr('src')== undefined)$('#gisFrame').attr('src', gisUrl+gisHtml+'?username='+rdploginName+'&uuid='+gisUuid);
+	});
+	var s=location.search.substring(1);//这个就是页面?后面的内容，自己处理一下
+	s=s.replace('searchContentIndex=','');
+	var i = s  == null? 0 : s;        //TODO 从前面页面的request取值，判断当前页   var i = request  == null? 0 : request;
+	if(zxcxcd.indexOf('人口基础信息查询')>-1){
+		$("#rkxxcx").show();
+		$("#rkjcxxcx").show();
+		if(i==0) i=2;
+	}
+    <!----定制应用-->
+	if(zxcxcd.indexOf('人口图谱')>-1){
+	    $("#frxxcx").show();
+	    $("#rktpcx").show();
+        if(i==0) i=20;
+	}
+
+    if(zxcxcd.indexOf('低保核查')>-1){
+        $("#frxxcx").show();
+        $("#rk_dbhc").show();
+        if(i==0) i=101;
+    }
+
+    if(zxcxcd.indexOf('入住率分析')>-1){
+        $("#frxxcx").show();
+        $("#fr_lkzd_rzl").show();
+        if(i==0) i=102;
+    }
+    if(zxcxcd.indexOf('酒店信息')>-1){
+        $("#frxxcx").show();
+        $("#fr_lyzf").show();
+        if(i==0) i=105;
+    }
+    if(zxcxcd.indexOf('客栈分析')>-1){
+        $("#frxxcx").show();
+        $("#fr_kzfx").show();
+        if(i==0) i=104;
+    }
+    if(zxcxcd.indexOf('客源分析')>-1){
+        $("#frxxcx").show();
+        $("#fr_lkzd_ky").show();
+        if(i==0) i=106;
+    }
+
+    if(zxcxcd.indexOf('身份核查')>-1){
+        $("#frxxcx").show();
+        $("#fr_fyzfcx").show();
+        if(i==0) i=103;
+    }
+    <!----定制应用-->
+	if(zxcxcd.indexOf('婚姻登记记录查询')>-1){
+		$("#rkxxcx").show();
+		$("#fydjjlcx").show();
+		if(i==0)i=7;
+   	}
+	if(zxcxcd.indexOf('法人信息查询')>-1){
+	    $("#frxxcx").show();
+	    $("#frxxcxz").show();
+        if(i==0)i=3;
+	}
+	if(zxcxcd.indexOf('宏观经济查询')>-1) {
+	    $("#hgjjcx").show();
+	    $("#hgjjcxz").show();
+		if(i==0)i=19;
+	}
+	if(zxcxcd.indexOf('个人行政处罚记录查询')>-1){
+	    $("#rkxxcx").show();
+	    $("#xzcfjlcx").show();
+		if(i==0)i=5;
+	}
+	if(zxcxcd.indexOf('法人行政处罚记录查询')>-1){
+	    $("#rkxxcx").show();
+	    $("#xzcfjlcx1").show();
+		if(i==0)i=6;
+	}
+	if(zxcxcd.indexOf('组织机构代码信息查询')>-1){
+		$("#frxxcx").show();
+		$("#zzjgdmxxcxz").show();
+		if(i==0)i=12;
+	}
+	if(zxcxcd.indexOf('学校信息查询')>-1){
+		$("#rkxxcx").show();
+		$("#xxxxcxz").show();
+		if(i==0)i=13;
+	}
+	if(zxcxcd.indexOf('人员社保信息查询')>-1){
+		$("#rkxxcx").show();
+		$("#rycbxxcxz").show();
+		if(i==0)i=14;
+	}
+	if(zxcxcd.indexOf('土地出让信息查询')>-1){
+		$("#frxxcx").show();
+		$("#tdcrzxxcxz").show();
+		if(i==0)i=15;
+	}
+	if(zxcxcd.indexOf('税务信息查询')>-1){
+	    $("#rkxxcx").show();
+	    $("#swxxcxz").show();
+        if(i==0)i=16;
+	}
+	if(zxcxcd.indexOf('低保信息查询')>-1){
+	    $("#rkxxcx").show();
+	    $("#dbxxcxz").show();
+        if(i==0)i=18;
+	}
+	if(zxcxcd.indexOf('纳税信息查询')>-1){
+        $("#rkxxcx").show();
+        $("#nsxxcx").show();
+        if(i==0)i=99;
+	}
+
+	if(zxcxcd.indexOf('机动车出入许可证')>-1){
+       $("#sjtj").show();
+       $("#jdccrxkz").show();
+       if(i==0)i=105;
+	}
+	if(zxcxcd.indexOf('城市道路开挖许可信息')>-1){
+       $("#sjtj").show();
+       $("#csdlkwxkxx").show();
+       if(i==0)i=98;
+	}
+	if(zxcxcd.indexOf('招牌/广告设置信息')>-1){
+       $("#sjtj").show();
+       $("#hwggszxx").show();
+       if(i==0)i=97;
+	}
+	if(zxcxcd.indexOf('施工占道许可信息')>-1){
+       $("#sjtj").show();
+       $("#sgzycsdlxkxx").show();
+       if(i==0)i=96;
+	}
+	if(zxcxcd.indexOf('经营性占道许可信息')>-1){
+       $("#sjtj").show();
+       $("#jyxzycsdlxkxx").show();
+       if(i==0)i=95;
+	}
+
+
+	if(zxcxcd.indexOf('人口基础信息模糊查询')>-1){
+       $("#rkxxcx").show();
+       $("#rkjcxxmhcx").show();
+       if(i==0)i=94;
+	}
+	if(zxcxcd.indexOf('法人信息模糊查询')>-1){
+       $("#rkxxcx").show();
+       $("#frxxmhcx").show();
+       if(i==0)i=93;
+	}
+
+    if(zxcxcd.indexOf('医疗分析')>-1){
+        $("#frxxcx").show();
+        $("#YLFX").show();
+        if(i==0) i=110;
+    }
+     if(i==110) changeDiv($("#YLFX a"),110);
+    if(zxcxcd.indexOf('就业核查')>-1){
+        $("#frxxcx").show();
+        $("#JYHC").show();
+        if(i==0) i=109;
+    }
+     if(i==109) changeDiv($("#JYHC a"),109);
+    if(zxcxcd.indexOf('信息核实')>-1){
+        $("#frxxcx").show();
+        $("#XXHS").show();
+        if(i==0) i=108;
+    }
+     if(i==108) changeDiv($("#XXHS a"),108);
+    if(zxcxcd.indexOf('身份核查')>-1){
+        $("#frxxcx").show();
+        $("#AJSL").show();
+        if(i==0) i=103;
+    }
+     if(i==103) changeDiv($("#AJSL a"),103);
+
+
+
+    if(zxcxcd.indexOf('少数民族少儿入园率')>-1){
+        $("#frxxcx").show();
+        $("#SSMZYERYL").show();
+        if(i==0) i=113;
+    }
+     if(i==112) changeDiv($("#SSMZYERYL a"),113);
+    if(zxcxcd.indexOf('惠农补贴')>-1){
+        $("#frxxcx").show();
+        $("#HNBT").show();
+        if(i==0) i=112;
+    }
+     if(i==112) changeDiv($("#HNBT a"),112);
+    if(zxcxcd.indexOf('退伍安置')>-1){
+        $("#frxxcx").show();
+        $("#TWAZ").show();
+        if(i==0) i=111;
+    }
+     if(i==111) changeDiv($("#TWAZ a"),111);
+
+    if(zxcxcd.indexOf('宗教教职人员')>-1){
+        $("#frxxcx").show();
+        $("#ZJJZRYXX").show();
+        if(i==0) i=115;
+    }
+    if(i==115) changeDiv($("#ZJJZRYXX a"),115);
+
+    if(zxcxcd.indexOf('宗教社团监管')>-1){
+        $("#frxxcx").show();
+        $("#ZJSTJG").show();
+        if(i==0) i=116;
+    }
+     if(i==116) changeDiv($("#ZJSTJG a"),116);
+    if(zxcxcd.indexOf('特少民族学生管理')>-1){
+        $("#frxxcx").show();
+        $("#TSMZXSGL").show();
+        if(i==0) i=117;
+    }
+    if(i==117) changeDiv($("#TSMZXSGL a"),117);
+
+    if(zxcxcd.indexOf('教职人员监管')>-1){
+        $("#frxxcx").show();
+        $("#JZRYJG").show();
+        if(i==0) i=122;
+    }
+     if(i==122) changeDiv($("#JZRYJG a"),122);
+    if(zxcxcd.indexOf('招商监管')>-1){
+        $("#frxxcx").show();
+        $("#zsjg").show();
+        if(i==0) i=121;
+    }
+     if(i==121) changeDiv($("#zsjg a"),121);
+    if(zxcxcd.indexOf('少数名族分析')>-1){
+        $("#frxxcx").show();
+        $("#SSMZFX").show();
+        if(i==0) i=119;
+    }
+     if(i==119) changeDiv($("#SSMZFX a"),119);
+
+    if(zxcxcd.indexOf('流动少数名族分析')>-1){
+        $("#frxxcx").show();
+        $("#LDSSMZFX").show();
+        if(i==0) i=120;
+    }
+    if(i==120) changeDiv($("#LDSSMZFX a"),120);
+
+    if(zxcxcd.indexOf('流动少数名族管理')>-1){
+        $("#frxxcx").show();
+        $("#LDSSMZGL").show();
+        if(i==0) i=118;
+    }
+     if(i==118) changeDiv($("#LDSSMZGL a"),118);
+    <!----codeCreatejs-->    
+    if(zxcxcd.indexOf('食品安全宣传')>-1){
+        $("#frxxcx").show();
+        $("#SPAQXC").show();
+        if(i==0) i=124;
+    }
+     if(i==124) changeDiv($("#SPAQXC a"),124);    
+    if(zxcxcd.indexOf('环评信息查询')>-1){
+        $("#frxxcx").show();
+        $("#HPXXCX").show();
+        if(i==0) i=123;
+    }
+     if(i==123) changeDiv($("#HPXXCX a"),123);
+    <!----codeCreatejs end-->
+
+    if(i==2) changeDiv($("#rkjcxxcx a"),2);
+	if(i==3) changeDiv($("#frxxcxz a"),3);
+	if(i==5) changeDiv($("#grxyzxcx a"),5);
+	if(i==6) changeDiv($("#frxyzxcx a"),6);
+	if(i==7) changeDiv($("#rkxxcx a"),7);
+    if(i==8) changeDiv($("#grxyzxcx a"),8);
+	if(i==9) changeDiv($("#frxyzxcx a"),9);
+	if(i==10) changeDiv($("#grxyzxcx a"),10);
+	if(i==11) changeDiv($("#frxyzxcx a"),11);
+	if(i==12) changeDiv($("#zzjgdmxxcxz a"),12);
+	if(i==13) changeDiv($("#xxxxcxz a"),13);
+	if(i==14) changeDiv($("#rycbxxcxz a"),14);
+	if(i==15) changeDiv($("#tdcrzxxcxz a"),15);
+	if(i==16) changeDiv($("#swxxcxz a"),16);
+	if(i==19) changeDiv($("#hgjjcxz a"),19);
+	if(i==18) changeDiv($("#dbxxcxz a"),18);
+	if(i==99) changeDiv($("#nsxxcx a"),99);
+    <!----定制应用-->
+	if(i==20) changeDiv($("#rktpcx a"),20);
+    if(i==101) changeDiv($("#rk_dbhc a"),101);//低保核查
+    if(i==102) changeDiv($("#fr_lkzd_rzl a"),102);//旅客住店_入住率分析
+    if(i==103) changeDiv($("#fr_fyzfcx a"),103);//身份核查
+    if(i==104) changeDiv($("#fr_kzfx a"),104);
+    if(i==105) changeDiv($("#fr_lyzf a"),105);
+    if(i==106) changeDiv($("#fr_lkzd_ky a"),106);//旅客住店_客源分析
+    <!----定制应用-->
+    if(i==105) changeDiv($("#jdccrxkz a"),105);
+    if(i==98) changeDiv($("#csdlkwxkxx a"),98);
+	if(i==97) changeDiv($("#hwggszxx a"),97);
+	if(i==96) changeDiv($("#sgzycsdlxkxx a"),96);
+	if(i==95) changeDiv($("#jyxzycsdlxkxx a"),95);
+	if(i==94) changeDiv($("#rkjcxxmhcx a"),94);
+	if(i==93) changeDiv($("#frxxmhcx a"),93);
+	if(i==0) $("#rno").show();
+});
+   function showAppInfo(type){
+       if($("#appInfo").is(":hidden")){
+           queryGnms(type);    //如果元素为隐藏,则将它显现
+       }else{
+           $("#appInfo").slideToggle("slow","swing");     //如果元素为显现,则将其隐藏
+       }
+	}
+</script>
+<style type="text/css">
+.text {
+	border: 1px solid #b5b8c8;
+}
+
+.index_zxfw{ width:780px; height:33px;}
+.index_zxfw tr{background:url(${resSys}/Images/line_bot.jpg) repeat-x left bottom; width:660px; height:35px;}
+.index_zxfw tr td{text-align:center;}
+.index_zxfw tr:hover{background:#ebf5ff;}
+
+#modelPanel #tabMenu {background: url(${resSys}/Images/tit_bg.jpg) repeat-x;height: 33px;line-height: 33px;color: #000;}
+#modelPanel #tabMenu li {cursor: pointer;margin: 1px 0 0 1px;border-right: 1px solid #a2c5e1;float: left;height: 32px;text-align: center;width: 105px;}
+#modelPanel #tabMenu li.current {background: url(${resSys}/Images/current.jpg) no-repeat;color: #fff;font-weight: bold;}
+#modelPanel #tabPanel ul {padding-top: 5px;}
+#modelPanel #tabPanel ul li {height: 35px;background: url(${resSys}/Images/line_bot.jpg) repeat-x left bottom;line-height: 35px;}
+#modelPanel #tabPanel ul li a {background: url(${resSys}/Images/dot.jpg) no-repeat left center;padding-left: 10px;margin-left: 12px;}
+#modelPanel #tabPanel ul li a:hover {text-decoration: underline;}
+#modelPanel #tabPanel ul li span {color: #b2b2b2;float: right;margin-right: 15px;}
+#modelPanel {display: none;background-color: #FFFFFF;position: fixed;width: 70%;z-index: 1002;}
+
+.closeBtn {float: right;padding: 8px 8px 0px 0px;}
+.popupTable{border-bottom: 0px;text-align: center;background: rgb(193, 193, 193);margin:20px auto 20px auto;}
+.popupTable th{background: url(${resSys}/Images/th_bg.jpg) repeat-x;}
+
+/****低保核查******/
+#p101tabledbhc th{background: url(${resSys}/Images/th_bg.jpg) repeat; white-space:nowrap;padding-left:6px;padding-right: 6px;}
+#p101tabledbhc td{white-space:nowrap;word-break:keep-all;padding-left:6px;padding-right: 6px;}
+
+.popupTable tr{height: 34px;line-height: 34px;}
+.popupTable td{background: rgb(255, 255, 255);}
+/* edit begin */
+.white_content3 { display: none; position: absolute; position:fixed; width:880px; height:550px;z-index:1002; overflow: hidden; background:url(${base}/r/cms/Images/tanchu2.jpg) no-repeat;}
+.white_content3 h1{font-size:20px; color:#164a9c; height:48px; line-height:48px; padding-left:25px; border-bottom:1px solid #a2bae1;}
+.white_content3 h1 a{float:right; padding:15px 25px 0 0;}
+ /* edit end */
+
+.index_left1_new { width:665px; height:500px; margin-bottom:13px; background:url(${resSys}/Images/bg1.jpg) no-repeat; text-align:center;background-size: 665px 500px}
+.index_left1_new .more {background:url(${resSys}/Images/dot2.png) no-repeat scroll right;color: #ff0000;float: right;font-size: 12px;height: 37px;line-height: 37px;margin-right: 9px;padding-right: 13px;}
+
+.index_left1_new #bitab{ height:33px; line-height:33px; color:#000;padding-top:50px;margin-left: 25px}
+/* edit begin 10-23 */
+.index_left1_new h1{font-size: 22px;color: rgb(22, 74, 156);height: 65px;line-height: 90px;}
+/* edit end */
+.index_left1_new #bitab li{border-right:1px solid #a2c5e1; float:left;height:32px; text-align:center; width:105px;}
+.index_left1_new #bitab li.current{background:url(${resSys}/Images/current.jpg) no-repeat; color:#fff; font-weight:bold;}
+.index_left1_new #bi_con {height:430px;}
+
+</style>
+</head>
+<body>
+	<!--header_begin-->
+	[#include "../include/页头顶栏.html"/]
+    <script src="${base}/ap/js/unspaceQuery.js" type="text/javascript"></script>
+    <div id="fade" class="black_overlay"></div>
+
+    <!--内容开始-->
+	<div class="warp_content">
+		<div class="warp_tit">
+			您现在正在浏览： <a href="/">首页</a><span>></span> 在线信息服务
+		</div>
+
+		<div class="warp_tab">
+			<ul id="tab">
+				<li class="current">非空间查询</li>
+				<li id="kj">空间查询</li>
+			</ul>
+			<div id="tab_con">
+				<div class="Non_space">
+					<ul class="left">
+						<li id="rkxxcx" style="display:none"><a href="#">基础信息查询</a>
+							<ul>
+								<li id="rkjcxxcx" style="display:none"><a href="#" onclick="changeDiv(this,2);">人口基础信息查询</a></li>
+								<li id="rkjcxxmhcx" style="display:none"><a href="#" onclick="changeDiv(this,94);">人口基础信息模糊查询</a></li>
+                                <li id="frxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,3);">法人信息查询</a></li>
+								<li id="frxxmhcx" style="display:none"><a href="#" onclick="changeDiv(this,93);">法人信息模糊查询</a></li>
+                                <li id="dbxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,18);">低保信息查询</a></li>
+                                <li id="xxxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,13);">学校信息查询</a></li>
+                                <li id="rycbxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,14);">人员社保信息查询</a></li>
+                                <li id="tdcrzxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,15);">土地出让信息查询</a></li>
+                                <li id="fydjjlcx" style="display:none"><a href="#" onclick="changeDiv(this,7);">婚姻登记记录查询</a></li>
+                                <li id="zzjgdmxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,12);">组织机构代码信息查询</a></li>
+                                <li id="swxxcxz" style="display:none"><a href="#" onclick="changeDiv(this,16);">税务信息查询</a></li>
+                                <li id="nsxxcx" style="display:none"><a href="#" onclick="changeDiv(this,99);">纳税信息查询</a></li>
+                                <li id="xzcfjlcx" style="display:none"><a href="#" onclick="changeDiv(this,5);">个人行政处罚记录查询</a></li>
+                                <li id="xzcfjlcx1" style="display:none"><a href="#" onclick="changeDiv(this,6);">法人行政处罚记录查询</a></li>
+							</ul></li>
+						<li id="frxxcx" style="display:none"><a href="#">定制应用</a>
+							<ul>
+							    <li id="rktpcx"  style="display:none"><a href="#" onclick="changeDiv(this,20);">人口图谱</a></li>
+								<li id="rk_dbhc" style="display:none"><a href="#" onclick="changeDiv(this,101);">低保核查</a></li>
+                                <li id="fr_lkzd_rzl" style="display:none"><a href="#" onclick="changeDiv(this,102);">入住率分析</a></li>
+                                <li id="fr_lkzd_ky" style="display:none"><a href="#" onclick="changeDiv(this,106);">客源分析</a></li>
+                                <li id="fr_lyzf" style="display:none"><a href="#" onclick="changeDiv(this,105);">酒店信息</a></li>
+                                <li id="fr_kzfx" style="display:none"><a href="#" onclick="changeDiv(this,104);">客栈分析</a></li>
+                                <li id="AJSL" style="display:none"><a href="#" onclick="changeDiv(this,103);">身份核查</a></li>
+                                <li id="XXHS" style="display:none"><a href="#" onclick="changeDiv(this,108);">信息核实</a></li>
+                                <li id="JYHC" style="display:none"><a href="#" onclick="changeDiv(this,109);">就业核查</a></li>
+                                <li id="YLFX" style="display:none"><a href="#" onclick="changeDiv(this,110);">医疗分析</a></li>
+                                <li id="TWAZ" style="display:none"><a href="#" onclick="changeDiv(this,111);">退伍安置</a></li>
+                                <li id="HNBT" style="display:none"><a href="#" onclick="changeDiv(this,112);">惠农补贴</a></li>
+                                <li id="SSMZYERYL" style="display:none"><a href="#" onclick="changeDiv(this,113);">少数民族少儿入园率</a></li>
+                                <li id="ZJJZRYXX" style="display:none"><a href="#" onclick="changeDiv(this,115);">宗教教职人员</a></li>
+                                <li id="ZJSTJG" style="display:none"><a href="#" onclick="changeDiv(this,116);">宗教社团监管</a></li>
+                                <li id="TSMZXSGL" style="display:none"><a href="#" onclick="changeDiv(this,117);">特少民族学生管理</a></li>
+                                <li id="LDSSMZGL" style="display:none"><a href="#" onclick="changeDiv(this,118);">流动少数名族管理</a></li>
+                                <li id="SSMZFX" style="display:none"><a href="#" onclick="changeDiv(this,119);">少数名族分析</a></li>
+                                <li id="LDSSMZFX" style="display:none"><a href="#" onclick="changeDiv(this,120);">流动少数名族分析</a></li>
+                                <li id="zsjg" style="display:none"><a href="#" onclick="changeDiv(this,121);">招商监管</a></li>
+                                <li id="JZRYJG" style="display:none"><a href="#" onclick="changeDiv(this,122);">教职人员监管</a></li>
+                                <!----codeCreateli--> 
+                                <li id="SPAQXC" style="display:none"><a href="#" onclick="changeDiv(this,124);">食品安全宣传</a></li> 
+                                <li id="HPXXCX" style="display:none"><a href="#" onclick="changeDiv(this,123);">环评信息查询</a></li>
+                                <!----codeCreateli end-->
+                            </ul>
+                        </li>
+						<li id="hgjjcx" style="display:none"><a href="#">宏观经济查询</a>
+							<ul>
+								<li id="hgjjcxz" style="display:none"><a href="#" onclick="changeDiv(this,19);">宏观经济查询</a></li>
+							</ul>
+                        </li>
+						<li id="sjtj" style="display:none"><a href="#">数据提交</a>
+							<ul>
+								<li id="jdccrxkz"><a href="#" onclick="changeDiv(this,4);">机动车出入口许可证</a></li>
+								<li id="csdlkwxkxx" style="display:none"><a href="#" onclick="changeDiv(this,98);">城市道路开挖许可信息</a></li>
+								<li id="hwggszxx" style="display:none"><a href="#" onclick="changeDiv(this,97);">招牌/广告设置信息</a></li>
+								<li id="sgzycsdlxkxx" style="display:none"><a href="#" onclick="changeDiv(this,96);">施工占道许可信息</a></li>
+								<li id="jyxzycsdlxkxx" style="display:none"><a href="#" onclick="changeDiv(this,95);">经营性占道许可信息</a></li>
+							</ul>
+                        </li>
+					</ul>
+					<!--展示应用的信息（数据区间、数据类，委办局）-->
+
+					<div id="appInfo" border="0" style="display:none;width: 750px;float: right;margin-bottom:15px;line-height:30px;padding-top:20px;margin-right:2px;padding-bottom:15px;padding-left: 28px;padding-right:15px;color: #8a6d3b;background-color: #fcf8e3;border-color: #faebcc;">
+						<div>
+							<span style="font-size: 14px;">功能描述:</span>
+							<div id="gnms">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了落实智慧大理的规划要求，更好的服务大理市区域经济发展、完善政务管理及更好的为民服务，完成大理市向智慧城市转型迈进的目标，特提出建设大理市信息资源中心，促进政务信息资源的充分共享利用，满足大理智慧城市的政府办公、政府决策、行业应用、城市管理、公共服务等应用的需要，加快智慧大理建设的进程。 </div>
+						</div>
+						<div>
+							<span style="font-size: 14px;">使用数据类:</span>
+							<table style="float: left;width:740px;" id="gnsjl">
+								<tr><th>数据源</th><th>支撑数据类</th><th>详情</th></tr>
+								<tr><td>公安局</td><td>常住人口</td><td>详细</td></tr>
+							</table>
+							<div id="applicationDescFy">
+
+							</div>
+						</div>
+					</div>
+
+					<!-- 全体人口开始-->
+					<div class="right" id="rno" style="display:none" align="center">
+						<img src="/r/cms/Images/qxts.jpg" />
+					</div>
+					<div class="right" id="p1" style="display:none;">
+						<form action="">
+							<div class="top">
+								<span>行政区划：</span> <select id="ps11"></select> <span>性别：</span>
+								<select id="ps12">
+									<option value='0' selected>全部</option>
+									<option value='1'>男</option>
+									<option value='2'>女</option>
+								</select> <span>统计年份：</span> <select id="ps13"></select>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp1();" /> <input
+										type="button" class="btn2" onclick="restP1Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>全员人口统计查询结果<img onclick="showAppInfo('')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>行政区划名称</th>
+								<th>统计年份（年）</th>
+								<th>总人数（人）</th>
+								<th>男性总数（人）</th>
+								<th>女性总数（人）</th>
+							</tr>
+							<tbody id="p1table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- 全体人口结束-->
+					<!-- 人口基本信息开始-->
+					<div class="right" id="p2" style="display:none;">
+						<form id="rkjcxx_form">
+							<div class="top1">
+								<span>姓名：<input type="text" id="pname" name="pname"
+									value="" style="width:120px;" class="text" /></span> <span>证件类型：</span><select
+									class="s1" id="ps2" name="papersType"></select> <span>证件号码：<input
+									type="text" id="ppapersNum" name="ppapersNum" value=""
+									style="width:160px;" class="text" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp2();" /> <input
+										type="button" class="btn2" onclick="restP2Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>人口基础信息查询结果<img onclick="showAppInfo('人口基础信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<form action="">
+							<table class="renkou" cellspacing="0">
+								<tr>
+									<td class="one">姓名:</td>
+									<td class="two"><input type="text" id="name" /></td>
+								</tr>
+								<tr>
+									<td class="one">所属区县:</td>
+									<td class="two"><input type="text" id="religion" /></td>
+								</tr>
+								<tr>
+									<td class="one">曾用名:</td>
+									<td class="two"><input type="text" id="usedName" /></td>
+								</tr>
+								<tr>
+									<td class="one">现住址:</td>
+									<td class="two"><input type="text" id="educationDegree" /></td>
+								</tr>
+								<tr>
+									<td class="one">性别:</td>
+									<td class="two"><input type="text" id="sex" /></td>
+								</tr>
+								<tr>
+									<td class="one">婚姻状况:</td>
+									<td class="two"><input type="text" id="maritalStatus" /></td>
+								</tr>
+								<tr>
+									<td class="one">民族:</td>
+									<td class="two"><input type="text" id="nation" /></td>
+								</tr>
+								<tr>
+									<td class="one">管理状态:</td>
+									<td class="two"><input type="text" id="politicsStatus" /></td>
+								</tr>
+								<tr>
+									<td class="one">证件类型:</td>
+									<td class="two"><input type="text" id="papersType" /></td>
+								</tr>
+								<tr>
+									<td class="one">户口性质:</td>
+									<td class="two"><input type="text" id="accountType" /></td>
+								</tr>
+								<tr>
+									<td class="one">证件号码:</td>
+									<td class="two"><input type="text" id="papersNum" /></td>
+								</tr>
+								<tr>
+									<td class="one">出生日期:</td>
+									<td class="two"><input type="text" id="birthdate" /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<!--人口基本信息结束 -->
+					<!-- 婚姻登记记录信息开始-->
+					<div class="right" id="p7" style="display:none;">
+						<form id="p71form">
+							<div class="top1" style="height:auto;">
+								<input type="hidden" id="userName" value='' /> <input
+									type="hidden" id="argMap1" value='' /> <input type="hidden"
+									id="queryLogId" value='' /> <input type="hidden" id="mdata"
+									value='' /> <input type="hidden" id="global"
+									value='${platformAdd!}/service/api' /> <span>姓名：<input
+									type="text" id="p7name" name="p7name" value=""
+									style="width:120px;" class="text" /></span> <span>证件类型：</span> <select
+									class="s1" id="ps7" name="p7papersType">
+								</select> <span> 证件号码：<input type="text" id="p7papersNum"
+									name="p7papersNum" value="" style="width:160px;" class="text" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp7();" /> <input
+										type="button" class="btn2" onclick="restP7Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>婚姻登记记录查询结果<img onclick="showAppInfo('婚姻登记记录查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>证件字号</th>
+								<th>登记性质</th>
+								<th>登记日期</th>
+								<th>男方姓名</th>
+								<th>男方证件号码</th>
+								<th>女方姓名</th>
+								<th>女方证件号码</th>
+							</tr>
+							<tbody id="p7table">
+
+							</tbody>
+						</table>
+						<div id="p7fy"></div>
+					</div>
+					<!--婚姻登记记录信息结束 -->
+					<!-- 人员社保信息查询开始-->
+					<div class="right" id="p14" style="display:none;">
+						<form id="p14form">
+							<div class="top1" style="height:auto;">
+								<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：
+                                    <input type="text" id="p14name" name="p14name" value="" style="width:160px;" class="text" />
+                                </span>
+                                <span> 身份证号码：
+                                    <input type="text" id="p14sfzhm" name="p14sfzhm" value="" style="width:160px;" class="text" />
+                                </span>
+                                <span style="width: 90%; height:7px;text-align: left;"></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp14();" />
+                                    <input type="button" class="btn2" onclick="restP14Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>人员社保信息查询结果<img onclick="showAppInfo('人员社保信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>姓名</th>
+								<th>身份证号码</th>
+								<th>性别</th>
+								<th>出生年月</th>
+								<th>参加险种</th>
+								<th>缴费时段</th>
+								<th>单位名称</th>
+								<th>单位社保编号</th>
+								<th>缴纳状态</th>
+								<th>个人社保编号</th>
+							</tr>
+							<tbody id="p14table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+
+						</table>
+						<div id="p14fy"></div>
+					</div>
+					<!--人员社保信息查询结束 -->
+
+					<!-- 低保信息开始-->
+					<div class="right" id="p18" style="display:none;">
+						<form action="">
+							<div class="top1">
+								<span>户主姓名：
+                                    <input type="text" id="p18Name" value="" class="text" style="width:160px;" />
+                                </span>
+                                <span>户主身份证号码：
+                                    <input type="text" id="p18sfzhm" value="" class="text" style="width:200px;" />
+                                </span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp18();" />
+                                    <input type="button" class="btn2" onclick="restP18Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>低保信息查询结果<img onclick="showAppInfo('低保信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<form action="">
+							<table class="renkou" cellspacing="0">
+								<tr>
+									<td class="one">户主姓名:</td>
+									<td class="two"><input type="text" id="HZXM" /></td>
+								</tr>
+								<tr>
+									<td class="one">户主身份证号码:</td>
+									<td class="two"><input type="text" id="HZSFZHM" /></td>
+								</tr>
+								<tr>
+									<td class="one">登记时间:</td>
+									<td class="two"><input type="text" id="DJSJ" /></td>
+								</tr>
+								<tr>
+									<td class="one">低保种类:</td>
+									<td class="two"><input type="text" id="DBZL" /></td>
+								</tr>
+								<tr>
+									<td class="one">低保证件号码:</td>
+									<td class="two"><input type="text" id="DBZJHM" /></td>
+								</tr>
+								<tr>
+									<td class="one">家庭住址:</td>
+									<td class="two"><input type="text" id="JTZZ" /></td>
+								</tr>
+								<tr>
+									<td class="one">联系电话:</td>
+									<td class="two"><input type="text" id="LXDH" /></td>
+								</tr>
+								<tr>
+									<td class="one">享受保障人数:</td>
+									<td class="two"><input type="text" id="XSBZRS" /></td>
+								</tr>
+								<tr>
+									<td class="one">户月保障金额:</td>
+									<td class="two"><input type="text" id="HYBZJE" /></td>
+								</tr>
+								<tr>
+									<td class="one">家庭人口总收入/月:</td>
+									<td class="two"><input type="text" id="JTRKZSRY" /></td>
+								</tr>
+								<tr>
+									<td class="one">最低生活保障标准:</td>
+									<td class="two"><input type="text" id="ZDSHBZBZ" /></td>
+								</tr>
+								<tr>
+									<td class="one">开户银行:</td>
+									<td class="two"><input type="text" id="KHYH" /></td>
+								</tr>
+								<tr>
+									<td class="one">银行账号:</td>
+									<td class="two"><input type="text" id="YHZH" /></td>
+								</tr>
+
+
+							</table>
+						</form>
+					</div>
+					<!--低保信息结束 -->
+					<!-- 法人基本信息开始-->
+					<div class="right" id="p3" style="display:none;">
+						<form action="">
+							<div class="top1">
+								<span>机构名称：
+                                    <input type="text" id="porgName" value="" class="text" style="width:220px;" />
+                                </span>
+                                <span> 机构代码：
+                                    <input type="text" id="porgCode" value="" class="text" style="width:120px;" />&nbsp;&nbsp;
+                                    <font color="red">格式：xxxxxxxx-x</font>
+                                </span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp3();" />
+                                    <input type="button" class="btn2" onclick="restP3Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>法人信息查询结果<img onclick="showAppInfo('法人信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<form action="">
+							<table class="renkou" cellspacing="0">
+								<tr>
+									<td class="one">机构名称:</td>
+									<td class="two"><input type="text" id="orgName" /></td>
+								</tr>
+								<tr>
+									<td class="one">法定代表人:</td>
+									<td class="two"><input type="text" id="buildWay" /></td>
+								</tr>
+								<tr>
+									<td class="one">法人规模:</td>
+									<td class="two"><input type="text" id="regOrgName" /></td>
+								</tr>
+								<tr>
+									<td class="one">法定代表证件号码:</td>
+									<td class="two"><input type="text" id="unit" /></td>
+								</tr>
+								<tr>
+									<td class="one">组织机构代码:</td>
+									<td class="two"><input type="text" id="orgCode" /></td>
+								</tr>
+								<tr>
+									<td class="one">法人类型:</td>
+									<td class="two"><input type="text" id="legalPersonType" /></td>
+								</tr>
+								<tr>
+									<td class="one">注册或登记号:</td>
+									<td class="two"><input type="text" id="regNumber" /></td>
+								</tr>
+								<tr>
+									<td class="one">机构类型:</td>
+									<td class="two"><input type="text" id="orgType" /></td>
+								</tr>
+								<tr>
+									<td class="one">成立日期:</td>
+									<td class="two"><input type="text" id="registerDate" /></td>
+								</tr>
+
+								<tr>
+									<td class="one">机构住所:</td>
+									<td class="two"><input type="text" id="orgAddress" /></td>
+								</tr>
+
+								<tr>
+									<td class="one">法人状态:</td>
+									<td class="two"><input type="text" id="busnissTime" /></td>
+								</tr>
+								<tr>
+									<td class="one">工商注销日期:</td>
+									<td class="two"><input type="text" id="logoutDate" /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<!--法人基本信息结束 -->
+					<!-- 组织结构代码信息开始-->
+					<div class="right" id="p12" style="display:none;">
+						<form action="">
+							<div class="top1">
+								<span>机构名称：<input type="text" id="porgName2" value=""
+									class="text" style="width:220px;" /></span> <span> 机构代码：<input
+									type="text" id="porgCode2" value="" class="text"
+									style="width:120px;" />&nbsp;&nbsp;<font color="red">格式：xxxxxxxx-x</font></span>
+
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp12();" /> <input
+										type="button" class="btn2" onclick="restP12Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>组织结构代码信息查询结果<img onclick="showAppInfo('组织机构代码信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<form action="">
+							<table class="renkou" cellspacing="0">
+								<tr>
+									<td class="one">机构名称:</td>
+									<td class="two"><input type="text" id="jgmc" /></td>
+								</tr>
+								<tr>
+									<td class="one">机构代码:</td>
+									<td class="two"><input type="text" id="jgdm" /></td>
+								</tr>
+								<tr>
+									<td class="one">颁发单位:</td>
+									<td class="two"><input type="text" id="fbdw" /></td>
+								</tr>
+								<tr>
+									<td class="one">管理机关:</td>
+									<td class="two"><input type="text" id="gljg" /></td>
+								</tr>
+								<tr>
+									<td class="one">办证日期:</td>
+									<td class="two"><input type="text" id="bzrq" /></td>
+								</tr>
+								<tr>
+									<td class="one">颁证机构名称:</td>
+									<td class="two"><input type="text" id="bzjgmc" /></td>
+								</tr>
+								<tr>
+									<td class="one">机构地址:</td>
+									<td class="two"><input type="text" id="jgdz" /></td>
+								</tr>
+								<tr>
+									<td class="one">法定代表人名称:</td>
+									<td class="two"><input type="text" id="fddbrmc" /></td>
+								</tr>
+								<tr>
+									<td class="one">法定代表人身份证:</td>
+									<td class="two"><input type="text" id="fddbrsfzhm" /></td>
+								</tr>
+								<tr>
+									<td class="one">机构类型:</td>
+									<td class="two"><input type="text" id="jglx" /></td>
+								</tr>
+								<tr>
+									<td class="one">发证日期:</td>
+									<td class="two"><input type="text" id="fzrq" /></td>
+								</tr>
+								<tr>
+									<td class="one">作废日期:</td>
+									<td class="two"><input type="text" id="zfrq" /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<!--组织结构代码信息结束 -->
+					<!-- 学校信息开始-->
+					<div class="right" id="p13" style="display:none;">
+						<form action="">
+							<div class="top1">
+								<span>学校名称：<input type="text" id="schoolName" value=""
+									class="text" style="width:220px;" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp13();" /> <input
+										type="button" class="btn2" onclick="restP13Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>学校信息查询结果<img onclick="showAppInfo('学校信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<form action="">
+							<div  style="height: 161px;width: 778px;overflow-y: auto;">
+								<table id="p13_item" style="width: 760px;background-color:white; ">
+
+								</table>
+							</div>
+							<table class="renkou" cellspacing="0">
+								<tr>
+									<td class="one">学校名称:</td>
+									<td class="two"><input type="text" id="xxmc" /></td>
+								</tr>
+								<tr>
+									<td class="one">学校标识码:</td>
+									<td class="two"><input type="text" id="xxbsm" /></td>
+								</tr>
+								<tr>
+									<td class="one">学校代码:</td>
+									<td class="two"><input type="text" id="xxdm" /></td>
+								</tr>
+								<tr>
+									<td class="one">主管部门:</td>
+									<td class="two"><input type="text" id="zgbm" /></td>
+								</tr>
+								<tr>
+									<td class="one">建校年月:</td>
+									<td class="two"><input type="text" id="jxny" /></td>
+								</tr>
+								<tr>
+									<td class="one">单位类别:</td>
+									<td class="two"><input type="text" id="dwlb" /></td>
+								</tr>
+								<tr>
+									<td class="one">星级:</td>
+									<td class="two"><input type="text" id="xj" /></td>
+								</tr>
+								<tr>
+									<td class="one">校长:</td>
+									<td class="two"><input type="text" id="xz" /></td>
+								</tr>
+								<tr>
+									<td class="one">联系电话:</td>
+									<td class="two"><input type="text" id="p13_lxdh" /></td>
+								</tr>
+								<tr>
+									<td class="one">网址:</td>
+									<td class="two"><input type="text" id="wz" /></td>
+								</tr>
+								<tr>
+									<td class="one">地址:</td>
+									<td class="two"><input type="text" id="dz" /></td>
+								</tr>
+								<tr>
+									<td class="one">邮政:</td>
+									<td class="two"><input type="text" id="yb" /></td>
+								</tr>
+							</table>
+						</form>
+					</div>
+					<!--学校信息结束 -->
+					<!-- 土地出让信息查询开始-->
+					<div class="right" id="p15" style="display:none;">
+						<form id="p15form">
+							<div class="top1" style="height:auto;">
+								<span>开始日期：<input type="text" id="p15start"
+									name="p15start" value="" class="text" style="width:160px;"
+									onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'p5end\');}'})" /></span> <span>截止日期：<input
+									type="text" id="p15end" name="p15end" value="" class="text"
+									style="width:160px;"
+									onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'p5end\');}'})" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp15();" /> <input
+										type="button" class="btn2" onclick="restP15Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>土地出让信息查询结果<img onclick="showAppInfo('土地出让信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<thead>
+								<tr>
+									<th width="80">合同签订时间</th>
+									<th width="120">宗地项目名称</th>
+									<th width="120">宗地位置</th>
+									<th width="80">受让人</th>
+									<th width="80">合同编号</th>
+									<th width="80">土地用途</th>
+									<th width="80">土地面积(㎡)</th>
+									<th width="80">合同价款(元)</th>
+								</tr>
+							</thead>
+							<tbody id="p15table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="p15fy"></div>
+					</div>
+					<!--土地出让信息查询结束 -->
+					<!--税务信息结束 -->
+					<div class="right" id="p16" style="display:none;">
+						<form action="">
+							<div class="top1">
+								<span>纳税人名称：<input type="text" id="p16Name" value=""
+									class="text" style="width:120px;" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp16();" /> <input
+										type="button" class="btn2" onclick="restP16Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>税务信息查询结果<img onclick="showAppInfo('税务信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<form action="">
+							<table class="renkou" cellspacing="0" id="table16">
+								<tr>
+									<td class="one">纳税人名称:</td>
+									<td class="two"><input type="text" id="NSRMC" /></td>
+								</tr>
+								<tr>
+									<td class="one">纳税人识别号:</td>
+									<td class="two"><input type="text" id="NSRSBH" /></td>
+								</tr>
+								<tr>
+									<td class="one">主管税务机关:</td>
+									<td class="two"><input type="text" id="ZGSWJG" /></td>
+								</tr>
+								<tr>
+									<td class="one">国地管户类型:</td>
+									<td class="two"><input type="text" id="GDGHLX" /></td>
+								</tr>
+								<tr>
+									<td class="one">纳税人状态:</td>
+									<td class="two"><input type="text" id="NSRZT" /></td>
+								</tr>
+								<tr>
+									<td class="one">登记日期:</td>
+									<td class="two"><input type="text" id="DJRQ" /></td>
+								</tr>
+
+
+							</table>
+						</form>
+					</div>
+					<!--税务信息结束 -->
+					<!-- 个人行政处罚开始-->
+					<div class="right" id="p5" style="display:none;">
+						<form id="p5form">
+							<div class="top1" style="height:auto;">
+								<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：<input
+									type="text" id="p5name" name="p5name" value=""
+									style="width:160px;" class="text" /></span>
+								<span> 证件号码：<input type="text" id="p5papersNum"
+									name="p5papersNum" value="" style="width:160px;" class="text" /></span>
+								<span style="width: 90%; height:7px;text-align: left;"></span> <span>开始日期：<input
+									type="text" id="p5start" name="p5start" value="" class="text"
+									style="width:160px;"
+									onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'p5end\');}'})" /></span> <span>截止日期：<input
+									type="text" id="p5end" name="p5end" value="" class="text"
+									style="width:160px;"
+									onFocus="WdatePicker({minDate:'#F{$dp.$D(\'p5start\');}'})" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp56(1);" /> <input
+										type="button" class="btn2" onclick="restP5Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>个人行政处罚记录查询结果<img onclick="showAppInfo('个人行政处罚记录查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>当事人姓名</th>
+								<th>当事人证件号码</th>
+								<th>处罚名称</th>
+								<th>处罚日期</th>
+								<th>处罚决定书文号</th>
+								<th>处罚部门</th>
+							</tr>
+							<tbody id="p5table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+
+						</table>
+						<div id="p5fy"></div>
+					</div>
+					<!--个人行政处罚结束 -->
+					<!-- 法人行政处罚开始-->
+					<div class="right" id="p6" style="display:none;">
+						<form id="p6form">
+							<div class="top1" style="height:auto;">
+								<span>当事人名称：<input type="text" id="p6name" name="p6name"
+									value="" style="width:160px;" class="text" /></span>
+								<span> 证件号码：<input type="text" id="p6papersNum"
+									name="p6papersNum" value="" style="width:160px;" class="text" /></span>
+								<span style="width: 90%; height:7px;text-align: left;"></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;开始日期：<input
+									type="text" id="p6start" name="p6start" value="" class="text"
+									style="width:160px;"
+									onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'p6end\');}'})" /></span> <span>截止日期：&nbsp;<input
+									type="text" id="p6end" name="p6end" value="" class="text"
+									style="width:160px;"
+									onFocus="WdatePicker({minDate:'#F{$dp.$D(\'p6start\');}'})" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp56(6);" /> <input
+										type="button" class="btn2" onclick="restP6Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>法人行政处罚记录查询结果<img onclick="showAppInfo('法人行政处罚记录查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>当事人名称</th>
+								<th>当事人证件号码</th>
+								<th>处罚名称</th>
+								<th>处罚日期</th>
+								<th>处罚决定书文号</th>
+								<th>处罚部门</th>
+							</tr>
+							<tbody id="p6table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="p6fy"></div>
+					</div>
+					<!--法人行政处罚结束 -->
+					<!-- 个人荣誉开始-->
+					<div class="right" id="p8" style="display:none;">
+						<form id="p8form">
+							<div class="top1" style="height:auto;">
+								<span>姓名：<input type="text" id="p8name" name="p8name"
+									style="width:120px;" value="" class="text" /></span> <span>证件类型：</span>
+								<select class="s1" id="ps8" name="ps8">
+								</select> <span> 证件号码：<input type="text" id="p8papersNum"
+									name="p8papersNum" value="" style="width:160px;" class="text" /></span>
+								<span style="width: 90%; height:7px;text-align: left;"></span> <span>开始日期：<input
+									type="text" id="p8start" name="p8start" value="" class="text"
+									style="width:120px;"
+									onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'p8end\');}'})" /></span> <span>截止日期：&nbsp;<input
+									type="text" id="p8end" name="p8end" value="" class="text"
+									style="width:120px;"
+									onFocus="WdatePicker({minDate:'#F{$dp.$D(\'p8start\');}'})" /></span>
+								<span style="width:290px;"></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp89(1);" /> <input
+										type="button" class="btn2" onclick="restP8Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>个人荣誉信息查询结果<img onclick="showAppInfo('个人荣誉信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>证书编号</th>
+								<th>荣誉名称</th>
+								<th>荣誉事项</th>
+								<th>荣誉等级</th>
+								<th>评（认）定日期</th>
+								<th>评（认）定单位</th>
+							</tr>
+							<tbody id="p8table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					<!--个人荣誉结束 -->
+					<!-- 税务局纳税信息开始-->
+					<div class="right" id="p99" style="display:none;">
+						<form id="p99form">
+							<div class="top1" style="height:auto;">
+								<span>&nbsp;&nbsp;&nbsp;&nbsp;纳税人名称：<input type="text"
+									id="p99name" name="p99name" value="" style="width:160px;"
+									class="text" /></span> <span>纳税人识别号：<input type="text"
+									id="p99nsrsbh" name="p99nsrsbh" value="" style="width:160px;"
+									class="text" /></span> <span
+									style="width: 90%; height:7px;text-align: left;"></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp99();" /> <input
+										type="button" class="btn2" onclick="restP99Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>税务局纳税信息查询结果<img onclick="showAppInfo('纳税信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<thead>
+								<tr>
+									<th>纳税人名称</th>
+									<th>纳税人识别号</th>
+									<th>征收项目</th>
+									<th>征收品目</th>
+									<th>实缴金额</th>
+									<th>税款所属期起</th>
+									<th>税款所属期止</th>
+									<th>缴款日期</th>
+									<th>征收税务机关</th>
+								</tr>
+							</thead>
+							<tbody id="p99table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="p99fy"></div>
+					</div>
+					<!--纳税局纳税信息结束 -->
+					<!-- 人口基础信息模糊查询信息开始-->
+					<div class="right" id="p94" style="display:none;">
+						<form id="p94form">
+							<div class="top1">
+								<span>姓名：<input type="text" id="p94name" name="p94name"
+									value="" style="width:120px;" class="text" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp94();"/> <input
+										type="button" class="btn2" onclick="restP94Form();" />
+								</div>
+							</div>
+						</form>
+
+						<h4>人口基础信息模糊查询结果<img onclick="showAppInfo('人口基础信息模糊查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<thead>
+								<tr>
+									<th width="40">姓名</th>
+								<!-- 	<th width="80">曾用名</th> -->
+									<th width="40">性别</th>
+									<th width="40">民族</th>
+									<th width="140">证件类型</th>
+									<th width="80">证件号码</th>
+									<th width="60">所属区县</th>
+									<th width="120">现住址</th>
+									<!-- <th width="80">婚姻状况</th> -->
+									<th width="60">管理状态</th>
+									<!-- <th width="60">户口性质</th> -->
+									<th width="80">出生日期</th>
+
+
+								</tr>
+							</thead>
+							<tbody id="p94table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="p94fy"></div>
+					</div>
+					<!--人口基础信息模糊查询信息结束 -->
+
+					<!-- 法人信息模糊查询开始-->
+					<div class="right" id="p93" style="display:none;">
+						<form id="p93form">
+							<div class="top1">
+								<span>法人名称：<input type="text" id="p93name" name="p93name"
+									value="" style="width:120px;" class="text" /></span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp93();" /> <input
+										type="button" class="btn2" onclick="restP93Form();" />
+								</div>
+							</div>
+						</form>
+
+						<h4>法人信息模糊查询结果<img onclick="showAppInfo('法人信息模糊查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+
+							<thead>
+								<tr>
+									<th>法人名称</th>
+									<th>组织机构代码</th>
+									<th >工商注册号</th>
+									<th>成立日期</th>
+									<th>法人住所</th>
+									<th>法人类型</th>
+									<th>法定代表人</th>
+
+								</tr>
+							</thead>
+							<tbody id="p93table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="p93fy"></div>
+					</div>
+					<!--法人信息模糊查询结束 -->
+
+					<!-- 法人荣誉开始-->
+					<div class="right" id="p9" style="display:none;">
+						<form id="p9form">
+							<div class="top1" style="height:auto;">
+								<span>机构名称：<input type="text" id="p9name" name="p9name"
+									value="" style="width:120px;" class="text" /></span> <span>
+									机构代码：<input type="text" id="p9papersNum" name="p9papersNum"
+									value="" style="width:160px;" class="text" /> <span><font
+										color="red">格式：xxxxxxxx-x</font></span>
+								</span> <span style="width: 90%; height:7px;text-align: left;"></span>
+								<span>开始日期：<input type="text" id="p9start" name="p9start"
+									value="" class="text" style="width:120px;"
+									onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'p9end\');}'})" /></span> <span>截止日期：<input
+									type="text" id="p9end" name="p9end" value="" class="text"
+									style="width:160px;"
+									onFocus="WdatePicker({minDate:'#F{$dp.$D(\'p9start\');}'})" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp89(2);" /> <input
+										type="button" class="btn2" onclick="restP9Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>法人荣誉信息查询结果<img onclick="showAppInfo('法人荣誉信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>证书编号</th>
+								<th>荣誉名称</th>
+								<th>荣誉事项</th>
+								<th>荣誉等级</th>
+								<th>评（认）定日期</th>
+								<th>评（认）定单位</th>
+							</tr>
+							<tbody id="p9table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					<!--法人荣誉结束 -->
+					<!-- 个人公共事业开始-->
+					<div class="right" id="p10" style="display:none;">
+						<form id="p10form">
+							<div class="top1" style="height:auto;">
+								<span>业务类型：</span> <select class="s1" id="ps10" name="ps10">
+								</select> <span>用户名：<input type="text" id="p10name" name="p10name"
+									value="" style="width:120px;" class="text" /></span> <span>
+									证（表）号：<input type="text" id="p10papersNum" name="p10papersNum"
+									value="" style="width:160px;" class="text" />
+								</span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp101(1);" />
+									<input type="button" class="btn2" onclick="restP10Form();" />
+								</div>
+							</div>
+						</form>
+						<h4>个人公共事业欠费信息查询结果<img onclick="showAppInfo('个人公共事业欠费信息查')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+
+								<th>公共事业单位</th>
+								<th>用户名</th>
+								<th>业务种类</th>
+								<th>证号（表号）</th>
+								<th>地址</th>
+								<th>欠费金额（元）</th>
+								<th>费用年月</th>
+							</tr>
+							<tbody id="p10table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+					<!--个人公共事业结束 -->
+					<!-- 法人公共事业开始-->
+					<div class="right" id="p11" style="display:none;">
+						<form id="p11form">
+							<div class="top1" style="height:auto;">
+								<span>机构名称：<input type="text" id="p11name" name="p11name"
+									value="" style="width:120px;" class="text" /></span> <span>
+									机构代码：<input type="text" id="p11papersNum" name="p11papersNum"
+									value="" style="width:160px;" class="text" /><span><font
+										color="red">格式：xxxxxxxx-x</font></span>
+								</span> <span style="width: 90%; height:7px;text-align: left;"></span>
+
+								<span>开始日期：<input type="text" id="p11start"
+									name="p11start" value="" class="text" style="width:120px;"
+									onFocus="WdatePicker({dateFmt:'yyyy-MM',maxDate:'#F{$dp.$D(\'p11end\');}'})" /></span>
+
+
+								<span>截止日期：<input type="text" id="p11end" name="p11end"
+									value="" class="text" style="width:160px;"
+									onFocus="WdatePicker({dateFmt:'yyyy-MM',minDate:'#F{$dp.$D(\'p11start\');}'})" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</span>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp1011(2);" />
+									<input type="button" class="btn2" onclick="restP11Form();" />
+								</div>
+
+							</div>
+						</form>
+						<h4>法人公共事业欠费信息查询结果<img onclick="showAppInfo('法人公共事业欠费信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<table cellspacing="1">
+							<tr>
+								<th>公共事业单位</th>
+								<th>欠费业务</th>
+								<th>欠费金额(元)</th>
+								<th>欠费所属时段</th>
+								<th>拖欠天数</th>
+								<th>补交日期</th>
+								<th>补交金额(元)</th>
+							</tr>
+							<tbody id="p11table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--法人公共事业结束 -->
+
+					<!-- 宏观经济开始-->
+					<div class="right" id="p19" style="display:none;">
+						<form id="p19form">
+							<div class="top1" style="height:auto;">
+								<span>指标类型：</span> <select id="p19type"  onchange="p19ClearTime();">
+									<option value="year">年度指标</option>
+									<option value="month">月度指标</option>
+								</select>
+								<span>统计时间：</span><input type="text" id="p19time"
+									class="Wdate" style="width:200px" onclick="p19showTime();"
+									readonly/>
+								<div class="anniu">
+									<input type="button" class="btn1" onclick="queryp19NoZB();" /> <input
+										type="button" class="btn2" onclick="p19ClearTime();" />
+								</div>
+							</div>
+						</form>
+						<h4>宏观经济统计查询结果<img onclick="showAppInfo('宏观经济查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+						<div class="clear"></div>
+						<div style="height:23px;">
+							<div style="float:left">
+								<span style="height:23px;margin-bottom:3px;font-size: 14px;display: inline-block;padding-left: 15px;">指标名称：</span>
+								<input type="text" id="p19target" style="width:200px;height:21px;margin-bottom:3px;border:1px solid #b5b8c8"/>
+							</div>
+							<div style="float:left;margin-left:12px;">
+							<input type="button" class="select_p19" onclick="queryp19ZB();" />
+							</div>
+						</div>
+						<table cellspacing="1">
+							<tr>
+								<th>指标全称</th>
+								<th>指标类型</th>
+								<th>指标单位</th>
+								<th>当期值</th>
+								<th>累计值</th>
+								<th>增长值</th>
+							</tr>
+							<tbody id="p19table">
+								<tr>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+						<div id="p19fy"></div>
+					</div>
+					<!-- 宏观经济结束结束-->
+					<!-- 机动车出入口许可证开始-->
+					<div class="right" id="p4" style="display:none;">
+						<form action=""></form>
+						<h4>机动车出入口许可证</h4>
+						<table class="jdc" cellspacing="0" id="pt2">
+							<tr>
+								<td class="one">申请人:</td>
+								<td class="two"><input type="text" id="p4_sqr" /></td>
+								<td class="three"  style="color:#ff2121;">* 填写申请人名称</td>
+							</tr>
+							<tr>
+								<td class="one">开口地点:</td>
+								<td class="two"><input type="text" id="p4_kkdd" /></td>
+								<td class="three"  style="color:#ff2121;">* 填写 开口地点</td>
+							</tr>
+							<tr>
+								<td class="one">开口性质:</td>
+								<!-- <td class="two"><input type="text" id="p4_kkxz" /></td> -->
+								<td class="two"><select  id="p4_kkxz"  style="width:203px;height:38px;">
+                                 <option>永久开口</option>
+                                 <option>临时开口</option>
+								</select>
+								</td>
+								<td class="three" style="color:#ff2121;">* 开口性质</td>
+							</tr>
+							<!-- <tr>
+								<td class="one">开口规格:</td>
+								<td class="two"><input type="text" id="p4_kkgg" /></td>
+								<td class="three">建议设置开口规格不低于3组（部分申请要求在不同方向开口），输入数值并自行计算面积和总面积</td>
+							</tr> -->
+							<tr>
+								<td class="one">施工占道面积（㎡）:</td>
+								<td class="two"><input type="text" id="p4_sgzdmj"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#ff2121;">* 施工占道面积（请输入数字）</td>
+							</tr>
+							<tr>
+								<td class="one">施工起始时间:</td>
+								<td class="two"><input type="text" id="p4_sgqssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"  readonly/></td>
+								<td class="three" style="color:#ff2121;">* 施工开始日期</td>
+							</tr>
+							<tr>
+								<td class="one">施工结束时间:</td>
+								<td class="two"><input type="text" id="p4_sgjssj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly /></td>
+								<td class="three" style="color:#ff2121;">* 施工结束日期</td>
+							</tr>
+							<tr>
+								<td class="one">通知签发人:</td>
+								<td class="two"><input type="text" id="p4_tzqfr" /></td>
+								<td class="three"  style="color:#029900;">填写需要通知的签发人姓名（请输入汉字）</td>
+							</tr>
+							<tr>
+								<td class="one">办理时间:</td>
+								<td class="two"><input type="text" id="p4_blsj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">填写办理日期</td>
+							</tr>
+							<tr>
+								<td class="one">联系电话:</td>
+								
+								<td class="two"><input type="text" id="p4_lxdh"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))
+this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))
+this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))this.value=this.t_value;
+else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))this.o_value=this.value" 
+onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?|\-\d*?)?$/))this.value=this.o_value;
+else{if(this.value.match(/^\-\d+$/))this.value=0+this.value;if(this.value.match(/^\-$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#029900;">填写联系方式</td>
+							</tr>
+							<tr>
+								<td class="one">备注:</td>
+								<td class="two"><input type="text" id="p4_bz" /></td>
+								<td class="three" style="color:#029900;">填写补充说明</td>
+							</tr>
+						</table>
+
+						<div class="anniu">
+							<input type="button" class="tj" onclick="queryp4();" value="提交" />
+							<input type="button" class="cz" onclick="restP4Form();"
+								value="重置" />
+						</div>
+					</div>
+					<!-- 机动车出入口许可证-->
+
+					<!-- 城市道路开挖许可信息开始-->
+					<div class="right" id="p98" style="display:none;">
+						<form action=""></form>
+						<h4>城市道路开挖许可信息</h4>
+						<table class="jdc" cellspacing="0">
+							<tr>
+								<td class="one">申请人:</td>
+								<td class="two"><input type="text" id="p98_sqr" /></td>
+								<td class="three"  style="color:#ff2121;">* 填写申请人名称</td>
+							</tr>
+							<tr>
+								<td class="one">开挖原因:</td>
+								<td class="two"><input type="text" id="p98_kwyy" /></td>
+								<td class="three"  style="color:#ff2121;">* 填写开挖原因</td>
+							</tr>
+							<tr>
+								<td class="one">开挖地点:</td>
+								<td class="two"><input type="text" id="p98_kwdd" /></td>
+								<td class="three"  style="color:#ff2121;">* 开挖地点</td>
+							</tr>
+							<tr>
+								<td class="one">开挖面积（㎡）:</td>
+								<td class="two"><input type="text" id="p98_kwgghmj" t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#ff2121;">* 开挖总面积（请输入数字）</td>
+							</tr>
+							<tr>
+								<td class="one">施工占道面积（㎡）:</td>
+								<td class="two"><input type="text" id="p98_sgzdgghmj" t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#ff2121;">* 施工占道总面积（请输入数字）</td>
+							</tr>
+							<tr>
+								<td class="one">施工起始时间:</td>
+								<td class="two"><input type="text" id="p98_sgqssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#ff2121;">* 施工开始日期</td>
+							</tr>
+							<tr>
+								<td class="one">施工结束时间:</td>
+								<td class="two"><input type="text" id="p98_sgjssj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#ff2121;">* 施工结束日期</td>
+							</tr>
+							<tr>
+								<td class="one">通知签发人:</td>
+								<td class="two"><input type="text" id="p98_tzqfr"  /></td>
+								<td class="three" style="color:#029900;">填写需要通知的签发人姓名（请输入汉字）</td>
+							</tr>
+							<tr>
+								<td class="one">办理时间:</td>
+								<td class="two"><input type="text" id="p98_blsj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">日期格式</td>
+							</tr>
+							<tr>
+								<td class="one">联系电话:</td>
+								<td class="two"><input type="text" id="p98_lxdh"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))
+this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))
+this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))this.value=this.t_value;
+else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))this.o_value=this.value" 
+onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?|\-\d*?)?$/))this.value=this.o_value;
+else{if(this.value.match(/^\-\d+$/))this.value=0+this.value;if(this.value.match(/^\-$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three"  style="color:#029900;">填写联系方式</td>
+							</tr>
+							<tr>
+								<td class="one">备注:</td>
+								<td class="two"><input type="text" id="p98_bz" /></td>
+								<td class="three" style="color:#029900;">填写补充说明</td>
+							</tr>
+						</table>
+
+						<div class="anniu">
+							<input type="button" class="tj" onclick="queryp98();" value="提交" />
+							<input type="button" class="cz" onclick="restP98Form();"
+								value="重置" />
+						</div>
+					</div>
+					<!-- 城市道路开挖许可信息结束-->
+
+					<!--人口图谱查询开始-->
+                    <div class="right" id="p20" style="display:none;">
+					<div id="index_population">
+				      <ul id="populationTab">
+				       <li class="current" id="populationli">人口信息图谱</li>
+				       <li >人口信息表单</li>
+				      </ul>
+				      <div class="clear"></div>
+				      <div id="populationTab_con" >
+				         <ul><div>
+                             <form id="rktpjcxx_form">
+                                 <div class="top1">
+                                     <span>查询类型：</span>
+                                     <select class="s1" id="p20type" name="papersType" >
+                                     </select>
+                                     <span>查询字段：<input type="text" id="ppapersNum2" name="ppapersNum" value="522127199004246535"  style="width:160px;" class="text" /></span>
+                                     <div class="anniu">
+                                         <input type="button" class="btn1" onclick="showPopulationinfo();useApplicationTimes('人口图谱-人口信息图谱');"/>
+                                         <input type="button" class="btn2" onclick="restP20Form();">
+                                     </div>
+                                 </div>
+                             </form>
+				           <div>
+					          <h4>人口图谱查询结果<img onclick="showAppInfo('人口图谱')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+							   <div ></div>
+							   <div id="mask" class="mask"></div>
+                               <div id="p20msg"></div>
+							   <form action="">
+		                      	 <div id="bi" style="height: 520px"></div>
+	                       	   </form>
+                               </div>
+                         </div>
+				         </ul>
+				           <ul>
+				           		<!-- 显示人口全文信息检索的详细信息 -->
+                               <form >
+                                   <div class="top1">
+                                       <span>关键字：<input type="text" id="keyValue" name="keyvalue" value="赵"  style="width:360px;" class="text" /></span>
+                                       <div class="anniu">
+                                           <input type="button" class="btn1" onclick="showSubjectInfo();useApplicationTimes('人口图谱-人口信息表单');"/>
+                                           <input type="button" class="btn2" onclick="restP20detailForm();">
+                                       </div>
+                                   </div>
+                               </form>
+							<div id="p20showDetail" ></div>
+                            <div id="detailmask" class="mask"></div>
+                            <div id="p20msgdetail"></div>
+							<div style="margin: 3px 1px 0px 3px;height:620px" id="p20resultdetial">
+							 <li style="color: #1892e5;font-size: 20px; font-weight: normal; line-height: 42px;text-align:center;">结果信息清单
+								 <img onclick="showAppInfo('人口图谱')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></li>
+                                <div style="height:578px;width:774px;border: 1px solid #a2bae1;">
+							  <div style="text-align:center">
+								 <div style="width:150px;float:left;">
+                                     <div style="height:578px;width:148px;border: 1px solid #a2bae1;">
+                                     <table id="p20subject" cellpadding="0" cellspacing="0" style=" margin:auto;width:148px;">
+                                         <thead>
+                                         <tr style="font-weight: bold;">
+                                             <td width="150px">数据类别</td>
+                                         </tr>
+                                         </thead>
+                                     </table>
+                                         <hr style="height:1px;border:none;border-top:2px solid #a2bae1;"/>
+                                         <div id="dtree" style="position:absolute; height:538px; overflow:auto; width:150px;padding-left: 3px"></div>
+                                     </div>
+                                 </div>
+								 <div style="width:623px;float:left;">
+                                     <div style="height:578px;width:623px;border:1px solid #a2bae1;">
+                                     <table id="detail" cellpadding="0" cellspacing="0" style=" margin:auto;width:622px;">
+                                     <thead>
+                                     <tr style="font-weight: bold;">
+                                         <td width="623px">数据详细信息</td>
+                                     </tr>
+                                     </thead>
+                                     </table>
+                                         <hr style="height:1px;border:none;border-top:2px solid #a2bae1;"/>
+                                     <table id="p20formDetail" style="width:622px;" cellpadding="0" cellspacing="0">
+                                     </table>
+                                     <div id ="p20formdetailfy"></div>
+                                     </div>
+                                 </div>
+                                </div>
+								 </div>
+				         </div></ul>
+				         </div>
+                   </div>
+                   </div>
+					<!--人口图谱查询结束 -->
+
+                    <!-- 低保核查-->
+                    <div class="right" id="p101" style="display:none;">
+                        <form id="p101form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <table border="0" cellpadding="0" cellspacing="0" >
+                                    <tr height="20px">
+                                        <td height="20px" align="right"> <span >核查类型：</span>
+                                        <select class="s1" id="p101type"  style="width:180px;" onchange="dbhcQueryTypeChange()">
+                                            <option value="single">单户核查</option>
+                                            <option value="many">批量核查</option>
+                                        </select>
+                                        </td>
+                                        <td width="160px"></td>
+                                         <td height="20px"></td>
+                                    </tr>
+                                    <tr >
+                                     <td height="20px" align="right">
+                                         <span>核查日期起：<input type="text"  id="p101dateStart"  value="2016-06-21" style="width:180px;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'p5start\');}'})" class="text" /></span>
+                                     </td>
+                                        <td width="160px"></td>
+                                     <td height="20px" align="left">
+                                        <span>核查日期止：<input type="text" id="p101dateEnd"  value="2016-06-21" style="width:180px;" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'p5start\');}'})" class="text" /></span>
+                                     </td>
+                                    </tr>
+                                    <tr id="singleTr" height="20px">
+                                      <td height="20px" align="right">
+                                        <span>姓名：<input type="text" id="p101name" name="p7name" value="彭永建" style="width:180px;" class="text" /></span>
+                                      </td>
+                                        <td width="160px"></td>
+                                      <td height="20px" align="left">
+                                         <span style="margin-left: 14px;">身证件号：<input type="text" id="p101papersNum"  value="53290119640905031X" style="width:180px;"  class="text" /></span>
+                                      </td>
+                                    </tr>
+                                    <tr id="manyTr" style="display: none" height="20px">
+                                       <td colspan="3" height="20px" align="left">
+                                           <div style="float:left;margin-left:38px">
+                                               <span style="float:left;margin-top:2px;">查询文件：</span>
+                                               <input type="text" id="dbhc_file" style="float:left;width:300px;height:20px;margin-left:1px;margin-right:1px;padding-right:6px;text-align:right;" class="text" disabled="disabled">
+                                               <div id="swfu-placeholder" ></div>
+                                           </div>
+                                           <a value="模板下载"  onclick="javascript:window.open('/r/cms/www/red/upload/dbhcmb.xls','_blank');" style="float:left;display:block;width:55px;height:20px;background:#f7b530;font-size:12px;color: #fff;margin-left:12px;margin-bottom:1px;padding-left: 6px;padding-top: 2px;cursor: pointer;" >模板下载</a>
+                                       </td>
+                                    </tr>
+                                </table>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp101_dbhc();useApplicationTimes('低保核查');" />
+                                    <input type="button" class="btn2" onclick="restP101Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>低保核查结果<img onclick="showAppInfo('低保核查')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div id="dbhc_catche" ></div>
+                        <a id="dbhc_dc" onclick="dbhc_export()" style="float:right;display:block;cursor:pointer;width:55px;height:20px;background:#f7b530;font-size:12px;color: #fff;margin-left:12px;margin-right:9px;margin-top:-24px;padding-left: 6px;padding-top: 2px;z-index:3" >数据导出</a>
+                        <div style="height:auto;width:770px;overflow-x: auto">
+                            <table id ="p101tabledbhc"  cellspacing="1" >
+                            <thead>
+                            <tr>
+                                <th>户号</th>
+                                <th>姓名</th>
+                                <th>身份证号</th>
+                                <th>与户主关系</th>
+                                <th>户籍性质</th>
+                                <th>户籍地址</th>
+                                <th>家庭住址</th>
+                                <th>低保保障类别</th>
+                                <th>生存状态</th>
+                                <th>性别</th>
+                                <th>年龄</th>
+                                <th>民族</th>
+                                <th>政治面貌</th>
+                                <th>就业状况</th>
+                                <th>劳动能力</th>
+                                <th>健康状况</th>
+                                <th>月缴公积金数额</th>
+                                <th>工商注册资金</th>
+                                <th>房产类型</th>
+                                <th>房产结构</th>
+                                <th>房产面积</th>
+                                <th>房产位置</th>
+                                <th>月享受社保金额</th>
+                                <th>是否有车辆</th>
+                                <th>纳税状态</th>
+                            </tr>
+                            </thead>
+                            <tbody id="p101table">
+
+                            </tbody>
+                        </table>
+                        </div>
+                        <div id="p101fy"></div>
+                    </div>
+                    <!--低保核查 -->
+
+                    <!--入住率分析 -->
+                    <div class="right" id="p102" style="display:none;">
+                        <form id="p102form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <table border="0" cellpadding="0" cellspacing="0" >
+                                    <tr >
+                                        <td height="20px" align="right">
+                                            <span>开始日期：<input type="text"  id="p102dateStart"  value="2016-01" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                        </td>
+                                        <td width="160px"></td>
+                                        <td height="20px" align="left">
+                                            <span>结束日期：<input type="text" id="p102dateEnd"  value="2016-06" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp102_lkzd_rzl();useApplicationTimes('入住率分析');" />
+                                    <input type="button" class="btn2" onclick="restP102Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>入住率分析结果<img onclick="showAppInfo('入住率分析')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="rzl_catche"></div>
+                            <div id="div_guest" >
+                                <div style="margin-top:-75px;">
+                                    <div id="lkzd_all" style="float:left;height: 220px;width:192px;"></div>
+                                    <div id="lkzd_ts" style="float:left;height: 220px;width:192px;"></div>
+                                    <div id="lkzd_xj" style="float:left;height: 220px;width:192px;"></div>
+                                    <div id="lkzd_jj" style="float:left;height: 220px;width:192px;"></div>
+                                </div>
+                                <div id="rzlfx" style="margin-top:-75px;display: none;">
+                                    <div  style="float:left;height: 60px;width:192px;">
+                                        总数：<input id="lyfx_hotel" style="width:100px;height:18px;margin-left:12px;" class="text"><br/>
+                                        房间数：<input id="lyfx_fjs" style="width:100px;height: 18px;"  class="text"/><br/>
+                                        入住率：<input id="lyfx_rzl" style="width:100px;height: 18px;"  class="text"/>
+                                    </div>
+                                    <div  style="float:left;height: 20px;width:192px;">
+                                        特色客栈数：<input id="lyfx_tshotel" style="width:100px;height: 18px;"  class="text"/><br/>
+                                        房间数：<input id="lyfx_tsfjs" style="width:100px;height: 18px;margin-left:24px"  class="text"/><br/>
+                                        入住率：<input id="lyfx_tsrzl" style="width:100px;height: 18px;margin-left:24px"  class="text"/>
+                                    </div>
+                                    <div  style="float:left;height: 20px;width:192px;">
+                                        星级酒店数：<input id="lyfx_xjhotel" style="width:100px;height: 18px;"  class="text"/><br/>
+                                        房间数：<input id="lyfx_xjfjs" style="width:100px;height: 18px;margin-left:24px"  class="text"/><br/>
+                                        入住率：<input id="lyfx_xjrzl" style="width:100px;height: 18px;margin-left:24px"  class="text"/>
+                                    </div>
+                                    <div  style="float:left;height: 20px;width:192px;margin-bottom: 80px;">
+                                        经济型客栈数：<input id="lyfx_jjxhotel" style="width:100px;height: 20px;"  class="text"/><br/>
+                                        房间数：<input id="lyfx_jjxfjs" style="width:100px;height: 18px;margin-left:36px;"  class="text"/><br/>
+                                        入住率：<input id="lyfx_jjxrzl" style="width:100px;height: 18px;margin-left:36px;"  class="text"/>
+                                    </div>
+                                </div>
+                                <div style="margin-left: -45px;margin-bottom: -30px;">
+                                    <div id="lkzd_rzl" style="float:left;height: 380px;width: 650px;"></div>
+                                    <div id="lkzd_fe" style="float:left;height: 320px;width: 190px;margin-top:30px;margin-left:-21px;margin-right:-20px;"></div>
+                                </div>
+                                <a onclick="rzl_export()" style="float:right;display:block;cursor:pointer;width:55px;height:20px;background:#f7b530;font-size:12px;color: #fff;margin-left:12px;margin-right:7px;margin-top:6px;padding-left: 6px;padding-top: 2px;z-index:3">数据导出</a>
+                                <table cellspacing="1" >
+                                    <tbody id="p102table_guest">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--入住率分析 -->
+
+                    <!--身份核查开始-->
+                    <div class="right" id="p103" style="display:none;">
+                        <form id="p103form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>姓名：<input type="text" id="ajsl_name"  value="汪鹤龄" style="width:180px;" class="text" /></span>
+                                <span>身份证件号：<input type="text"  id="ajsl_sfzjh"  value="532901198412060016" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp103_AJSL();useApplicationTimes('身份核查');" />
+                                    <input type="button" class="btn2" onclick="restP103Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>身份核查结果<img onclick="showAppInfo('身份核查')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="p103item" style="margin-left:80px;">
+
+                            </div>
+                            <h4 id="p103title"></h4>
+                            <div id="p103_jtgx" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                    <thead>
+                                    <th>与户主关系</th>
+                                    <th>姓名</th>
+                                    <th>身份证号</th>
+                                    <th>性别</th>
+                                    <th>户号</th>
+                                    <th>联系方式</th>
+                                    <th>居住住址</th>
+                                    <th>民族</th>
+                                    <th>人员状态</th>
+                                    </thead>
+                                    <tbody id="p103table_jtgx">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="p103_clxx" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                    <thead>
+                                    <th>车辆所有人姓名</th>
+                                    <th>身份证号</th>
+                                    <th>车牌号</th>
+                                    <th>发动机号</th>
+                                    </thead>
+                                    <tbody id="p103table_clxx">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="p103_hyxx" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                    <thead>
+                                    <th>男方姓名</th>
+                                    <th>男方身份证号</th>
+                                    <th>民族</th>
+                                    <th>女方姓名</th>
+                                    <th>女方身份证号</th>
+                                    <th>民族</th>
+                                    <th>登记类型</th>
+                                    <th>登记日期</th>
+                                    </thead>
+                                    <tbody id="p103table_hyxx">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="p103_fcxx" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                    <thead>
+                                    <th>姓名</th>
+                                    <th>身份证号码</th>
+                                    <th>房屋面积</th>
+                                    <th>房屋坐落</th>
+                                    </thead>
+                                    <tbody id="p103table_fcxx">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="p103_gszcxx" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                    <thead>
+                                    <th>企业名称</th>
+                                    <th width="35px">企业类型</th>
+                                    <th>法人</th>
+                                    <th>联系电话</th>
+                                    <th>经营范围</th>
+                                    <th>地址</th>
+                                    </thead>
+                                    <tbody id="p103table_gszcxx">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="p103_nsxx" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                    <thead>
+                                    <th>纳税人名称</th>
+                                    <th>纳税人识别号</th>
+                                    <th>税款所属期起</th>
+                                    <th>税款所属期止</th>
+                                    <th>税额</th>
+                                    <th>征税项目</th>
+                                    <th>身份证号码</th>
+                                    </thead>
+                                    <tbody id="p103table_nsxx">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="p103fy"></div>
+                        </div>
+                    </div>
+                    <!--身份核查结束-->
+
+                    <!--客栈分析 -->
+                    <div class="right" id="p104" style="display:none;">
+                        <form id="p104form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <table border="0" cellpadding="0" cellspacing="0" >
+                                    <tr >
+                                        <td height="20px" align="right">
+                                            <span>开始日期：<input type="text"  id="p104dateStart"  value="2016-01" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                        </td>
+                                        <td width="160px"></td>
+                                        <td height="20px" align="left">
+                                            <span>结束日期：<input type="text" id="p104dateEnd"  value="2016-06" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp104_kzfx();useApplicationTimes('客栈分析');" />
+                                    <input type="button" class="btn2" onclick="restP104Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>客栈分析结果<img onclick="showAppInfo('客栈分析')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div style="margin-left: 5px;margin-bottom: 10px;">
+                                <div id="kzfx_kzs" style="float:left;height: 380px;width: 780px;margin-left: -15px;margin-right: 5px;"></div>
+                                <div id="kzfx_fjs" style="float:left;height: 300px;width: 320px;margin-bottom:10px;margin-left: 40px;"> </div>
+                                <div id="kzfx_cws" style="float:left;height: 300px;width: 320px;margin-bottom:10px;margin-left: 80px;"> </div>
+                            </div>
+                            <table cellspacing="1" style="display: none;"><!--暂时隐藏-->
+                                <tbody id="p104table">
+
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+                    <!--客栈分析 -->
+                    <!--酒店信息 -->
+                    <div class="right" id="p105" style="display:none;">
+                        <form id="p105form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>旅馆(酒店)名称：<input type="text"  id="lyzf_lgmc"  value="" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp105_lyzf();useApplicationTimes('酒店信息');" />
+                                    <input type="button" class="btn2" onclick="restP105Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>旅馆目录<img onclick="showAppInfo('酒店信息')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div >
+                            <div  style="height: 161px;width: 778px;overflow-y: auto;">
+                                <table id="lyzf_item" style="width: 760px;background-color:white; ">
+                                </table>
+                            </div>
+                            <h4>旅馆信息<img onclick="showAppInfo('酒店信息')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                            <table cellspacing="1" align="left">
+                                <tbody>
+                                <tr>
+                                    <td><span>旅馆(酒店)名称：<input type="text"  id="lyzf_lgmc_show"  value="" style="width:380px;" class="text" /></span></td>
+                                    <td><span>旅馆(酒店)法人：<input type="text"  id="lyzf_lgfr_show"  value="" style="width:180px;" class="text" /></span></td>
+                                </tr>
+                                <tr >
+                                    <td><span>旅馆(酒店)地址：<input type="text"  id="lyzf_lgdz_show"  value="" style="width:380px;" class="text" /></span></td>
+                                    <td><span>旅馆(酒店)电话：<input type="text"  id="lyzf_lgdh_show"  value="" style="width:180px;" class="text" /></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--酒店信息 -->
+
+                    <!--客源分析 -->
+                    <div class="right" id="p106">
+                        <form id="p106form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <table border="0" cellpadding="0" cellspacing="0" >
+                                    <tr >
+                                        <td height="20px" align="right">
+                                            <span>开始日期：<input type="text"  id="p106dateStart"  value="2016-01" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                        </td>
+                                        <td width="160px"></td>
+                                        <td height="20px" align="left">
+                                            <span>结束日期：<input type="text" id="p106dateEnd"  value="2016-06" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp106_lkzd_ky();useApplicationTimes('客源分析');" />
+                                    <input type="button" class="btn2" onclick="restP106Form();" />
+                                </div>
+                            </div>
+                        </form>
+						<h4>客源分析结果<img onclick="showAppInfo('客源分析')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="div_analysis">
+                                <div style="margin-top: 0px;margin-left: 10px;margin-bottom: 0px;">
+                                    <div id="lkzd_sfbl" style="height: 350px;width: 750px;"></div>
+                                </div>
+                                <div>
+                                    <div id="lkzd_ky" style="height: 440px;width: 750px;"></div>
+                                </div>
+                                <div id="range" style="height: 80px;display:none;margin-bottom: 8px;margin-top:8px">
+                                    <div style="float:left;width:120px;line-height: 30px;text-align: right;margin-right: 20px;margin-bottom: 4px">男女比例</div><div id="lkzd_nvbl" style="float:left;height: 30px;width:570px;margin-bottom: 4px;"></div>
+                                    <div style="float:left;width:120px;line-height: 28px;text-align: right;margin-right: 20px;">年龄段比例</div><div id="lkzd_nlbl" style="float:left;height: 28px;width:570px;"></div>
+                                </div>
+
+                                <table cellspacing="1" >
+                                    <tbody id="p102table_analysis">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--客源分析 -->
+
+                   <!--信息核查开始-->
+                    <div class="right" id="p108" style="display:none;">
+                        <form id="p108form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>姓名：<input type="text"  id="p108_name"  value="汪鹤龄" style="width:180px;" class="text" /></span>
+                                <span>身份证件号：<input type="text"  id="p108_sfzjh"  value="532901198412060016" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp108_XXHS();useApplicationTimes('信息核查');" />
+                                    <input type="button" class="btn2" onclick="restP108Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>驾驶员信息<img onclick="showAppInfo('信息核实')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                 <thead>
+                                  <th>驾驶证号</th>
+                                  <th>有效期</th>
+                                  <th>姓名</th>
+                                  <th>身份证号</th>
+                                 </thead>
+                                <tbody id="p108table">
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>工商注册登记信息<img onclick="showAppInfo('信息核实')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div id="p108_gszcxx" style="height:auto;width:778px;overflow-x: auto;">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                <thead>
+                                <th>企业名称</th>
+                                <th width="35px">企业类型</th>
+                                <th>法人</th>
+                                <th>联系电话</th>
+                                <th>经营范围</th>
+                                <th>地址</th>
+                                <th>身份证号</th>
+                                </thead>
+                                <tbody id="p108table_gszcxx">
+                                </tbody>
+                            </table>
+                            <div id="p108fy"></div>
+                        </div>
+                    </div>
+                    <!--信息核查结束-->
+
+                    <!--就业核查开始-->
+                    <div class="right" id="p109" style="display:none;">
+                        <form id="p109form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>姓名：<input type="text"  id="p109_name"  value="汪鹤龄" style="width:180px;" class="text" /></span>
+                                <span>身份证件号：<input type="text"  id="p109_sfzjh"  value="532901198412060016" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp109_JYHC();useApplicationTimes('就业核查');" />
+                                    <input type="button" class="btn2" onclick="restP109Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>人口基础信息<img onclick="showAppInfo('就业核查')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                <thead>
+                                <th>与户主关系</th>
+                                <th>姓名</th>
+                                <th>身份证号</th>
+                                <th>性别</th>
+                                <th>户号</th>
+                                <th>联系方式</th>
+                                <th>居住住址</th>
+                                <th>民族</th>
+                                <th>人员状态</th>
+                                </thead>
+                                <tbody id="p109table">
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>婚姻登记信息<img onclick="showAppInfo('就业核查')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div id="p109_hyxx" style="height:auto;width:778px;overflow-x: auto">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                <thead>
+                                <th>男方姓名</th>
+                                <th>男方身份证号</th>
+                                <th>男方是否再婚</th>
+                                <th>女方姓名</th>
+                                <th>女方身份证号</th>
+                                <th>女方是否在婚</th>
+                                <th>登记类型</th>
+                                <th>登记日期</th>
+                                </thead>
+                                <tbody id="p109table_hyxx">
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>工商注册登记信息<img onclick="showAppInfo('就业核查')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div id="p109_gszcxx" style="height:auto;width:778px;overflow-x: auto">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                <thead>
+                                <th>企业名称</th>
+                                <th width="35px">企业类型</th>
+                                <th>法人</th>
+                                <th>联系电话</th>
+                                <th>经营范围</th>
+                                <th>地址</th>
+                                </thead>
+                                <tbody id="p109table_gszcxx">
+                                </tbody>
+                            </table>
+                            <div id="p109fy"></div>
+                        </div>
+                    </div>
+                    <!--就业核查结束-->
+
+                    <!--医疗分析开始-->
+                    <div class="right" id="p110" style="display:none;">
+                        <form id="p110form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>开始时间：<input type="text"  id="p110_startDate"  value="2016-01" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                <span>结束时间：<input type="text"  id="p110_endDate"  value="2016-07" style="width:180px;"  onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowToday: false});" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp110_YLFX();useApplicationTimes('医疗分析');" />
+                                    <input type="button" class="btn2" onclick="restP110Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>医疗分析结果<img onclick="showAppInfo('医疗分析')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                                <div id="ylfx_ylfx" style="height: 350px;width: 370px;float:left;"></div>
+                                <div id="ylfx_bfb" style="height: 350px;width: 370px;float:left;"></div>
+                            <div id="ylfxTable" style="height:auto;width:750px;float: left;display: none">
+                                <table cellspacing="1" style="height:auto;width:750px;">
+                                    <thead>
+                                    <th>统计月份</th>
+                                    <th>医疗支出</th>
+                                    <th>百分比</th>
+                                    <th>财政支出</th>
+                                    <th>同比增长</th>
+                                    </thead>
+                                    <tbody id="p110table">
+                                    </tbody>
+                                </table>
+                                <div id="p110formfy"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--医疗分析结束-->
+
+                    <!--退伍安置开始-->
+                    <div class="right" id="p111" style="display:none;">
+                        <form id="p111form">
+                            <div class="top1" style="height:auto;width:778px;">
+                                <span>单位名称：<input type="text"  id="p111_dwmc"  value="大理" style="width:180px;" class="text" /></span>
+                                <span style="display: none">岗位类别：<input type="text"  id="p111_gwlb"  value="1" style="width:180px;" class="text" /></span>
+                                <span style="display: none">人员分类：<input type="text"  id="p111_ryfl"  value="1" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp111_TWAZ();" />
+                                    <input type="button" class="btn2" onclick="restP111Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>退伍安置结果<img onclick="showAppInfo('退伍安置')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;">
+                            <div>
+                                <table cellspacing="1" style="height:auto;width:750px;">
+                                    <thead>
+                                          <th>单位名称</th>
+                                          <th>法定代表人</th>
+                                          <th>联系电话</th>
+                                          <th>编制总数</th>
+                                          <th>在岗编制人数</th>
+                                          <th>空编人数</th>
+                                         </thead>
+                                        <tbody id="p111table">
+                                        </tbody>
+                                </table>
+                                  <div id="p111TWAZfy"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--退伍安置结束-->
+
+                    <!--惠农补贴开始-->
+                    <div class="right" id="p112" style="display:none;">
+                        <form id="p112form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>姓名：<input type="text"  id="p112_name"  value="李博成" style="width:180px;" class="text" /></span>
+                                <span>身份证号：<input type="text"  id="p112_sfzjh"  value="532901200902103218" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp112_HNBT();useApplicationTimes('惠农补贴');" />
+                                    <input type="button" class="btn2" onclick="restP112Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>惠农补贴结果<img onclick="showAppInfo('惠农补贴')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                <thead>
+                                <th>户号</th>
+                                <th>与户主关系</th>
+                                <th>姓名</th>
+                                <th>身份证号</th>
+                                <th>性别</th>
+                                <th>民族</th>
+                                <th>地址</th>
+                                <th>是否参加医保</th>
+                                <th>是否获得低保</th>
+                                </thead>
+                                <tbody id="p112table">
+                                </tbody>
+                            </table>
+                            <div id="p112HNBTfy"></div>
+                        </div>
+                    </div>
+                    <!--惠农补贴结束-->
+
+                    <!--少数民族少儿入园率开始-->
+                    <div class="right" id="p113" style="display:none;">
+                        <form id="p113form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>开始时间：<input type="text"  id="p113_startDate"  value="2012" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy',isShowToday: false});"  class="text" /></span>
+                                <span>结束时间：<input type="text"  id="p113_endDate"  value="2016" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy',isShowToday: false});"  class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp113_SSMZYERYL();useApplicationTimes('少数民族入园率');" />
+                                    <input type="button" class="btn2" onclick="restP113Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>少数民族少儿入园率结果<img onclick="showAppInfo('少数民族少儿入园率')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="p113_ryl" style="float:left;height:400px;width:600px;overflow-x: auto"></div>
+                            <div id="p113_rys" style="float:left;height:280px;width:160px;overflow-x: auto;margin-top: 60px;"></div>
+                        </div>
+                    </div>
+                    <!--少数民族少儿入园率结束-->
+
+                    <!--宗教教职人员开始-->
+                    <div class="right" id="p115" style="display:none;">
+                        <form id="p115form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>名称：<input type="text"  id="p115name"  value="高新山" style="width:180px;" class="text" /></span>
+                                <span>身份证件号码：<input type="text"  id="p115sfzjh"  value="410222196910043513" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp115_ZJJZRYXX();useApplicationTimes('宗教教职人员');" />
+                                    <input type="button" class="btn2" onclick="restP115Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>宗教教职人员参保险种<img onclick="showAppInfo('宗教教职人员')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="p115item" style="margin-left:100px;">
+
+                            </div>
+                            <h4 id="p115title"></h4>
+                            <div id="p115_YLBX" style="display: none;">
+                                <table cellspacing="1" style="height:auto;width:778px;">
+                                     <thead>
+                                      <th>个人编号</th>
+                                      <th>出生日期</th>
+                                      <th>姓名</th>
+                                      <th>单位保号</th>
+                                      <th>单位名称</th>
+                                      <th>参保时间</th>
+                                      <th>参加工作日期</th>
+                                     </thead>
+                                    <tbody id="p115YLBXtable">
+                                    </tbody>
+                                </table>
+                            </div>
+                          <div  id="p115_YILBX"  style="display: none;">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                 <thead>
+                                  <th>个人编号</th>
+                                  <th>出生日期</th>
+                                  <th>姓名</th>
+                                  <th>单位保号</th>
+                                  <th>单位名称</th>
+                                  <th>参加工作日期</th>
+                                 </thead>
+                                <tbody id="p115YILBXtable">
+                                </tbody>
+                            </table>
+
+                          </div>
+                            <div id="p115_SYBX"  style="display: none;">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                 <thead>
+                                  <th>个人编号</th>
+                                  <th>个人参保日期</th>
+                                  <th>经办机构</th>
+                                  <th>姓名</th>
+                                  <th>人员状态</th>
+                                  <th>单位保号</th>
+                                  <th>单位名称</th>
+                                  <th>经办日期</th>
+                                  <th>参保状态</th>
+                                  <th>个人缴费状态</th>
+                                 </thead>
+                                <tbody id="p115SYBXtable">
+                                </tbody>
+                            </table>
+                           </div>
+                          <div id="p115fy"></div>
+                        </div>
+                    </div>
+                     <!--宗教教职人员结束-->
+
+                    <!--宗教社团监管开始-->
+                    <div class="right" id="p116" style="display:none;">
+                        <form id="p116form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>社团名称：<input type="text"  id="p116_stname"  value="" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp116_ZJSTJG();useApplicationTimes('宗教社团监管');" />
+                                    <input type="button" class="btn2" onclick="restP116Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>宗教社团监管结果<img onclick="showAppInfo('宗教社团监管')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div  style="height: 161px;width: 778px;overflow-y: auto;">
+                                <table id="p116zjtt_item" style="width: 760px;background-color:white; ">
+
+                                </table>
+                            </div>
+                         <div>
+                             <h4>社团详细信息<img onclick="showAppInfo('宗教社团监管')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                             <table cellspacing="1" align="left">
+                                 <tbody>
+                                 <tr>
+                                     <td><span>社团名称：<input type="text"  id="p116_stmc"  value="" style="width:380px;" class="text" /></span></td>
+                                     <td><span>负责人姓名：<input type="text"  id="p116_fzrxm"  value="" style="width:180px;" class="text" /></span></td>
+                                 </tr>
+                                 <tr >
+                                     <td><span style="margin-left: 25px;">教别：<input type="text"  id="p116_jb"  value="" style="width:380px;" class="text" /></span></td>
+                                     <td><span>联  系  电  话：<input type="text"  id="p116_lxdh"  value="" style="width:180px;" class="text" /></span></td>
+                                 </tr>
+                                 <tr >
+                                     <td ><span style="margin-left: 25px;">地址：<input type="text"  id="p116_dz"  value="" style="width:380px;" class="text" /></span></td>
+                                     <td></td>
+                                 </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+                        </div>
+                    </div>
+                    <!--宗教社团监管结束-->
+
+                    <!--特少民族学生管理开始-->
+                    <div class="right" id="p117" style="display:none;">
+                        <form id="p117form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>学校名称：<input type="text"  id="p117_xxname"  value="" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp117_TSMZXSGL();useApplicationTimes('特少数民族学生管理');" />
+                                    <input type="button" class="btn2" onclick="restP117Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>特少民族学生管理结果<img onclick="showAppInfo('特少民族学生管理')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div  style="height: 161px;width: 778px;overflow-y: auto;">
+                                <table id="p117tssmz_item" style="width: 760px;background-color:white; ">
+
+                                </table>
+                            </div>
+                            <div id="p117rs" style="display: none">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                 <thead>
+                                  <th>民族</th>
+                                  <th>人数</th>
+                                  <th>民族</th>
+                                  <th>人数</th>
+                                  <th>民族</th>
+                                  <th>人数</th>
+                                 </thead>
+                                <tbody id="p117TSMZXSGLtable">
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+                    <!--特少民族学生管理结束-->
+
+                    <!--流动少数名族管理开始-->
+                    <div class="right" id="p118" style="display:none;">
+                        <form id="p118form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>姓名：<input type="text"  id="p118_name"  value="玉苏甫·提依甫" style="width:180px;" class="text" /></span>
+                                <span>身份证件号：<input type="text"  id="p118_sfzjh"  value="652924197305201036" style="width:280px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp118_LDSSMZGL();useApplicationTimes('流动少数民族管理');" />
+                                    <input type="button" class="btn2" onclick="restP118Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>流动少数名族管理结果<img onclick="showAppInfo('流动少数名族管理')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;">
+                            <table cellspacing="1" align="left">
+                                <tbody>
+                                <tr align="left">
+                                    <td><span style="margin-left:38px">姓名: <input type="text"  id="p118R_xm"  value="" style="width:180px;" class="text" /></span></td>
+                                    <td><span style="margin-left:14px">联系电话: <input type="text"  id="p118R_lxdh"  value="" style="width:380px;" class="text" /></span></td>
+                                </tr>
+                                <tr align="left">
+                                    <td><span style="margin-left:38px">性别: <input type="text"  id="p118R_xb"  value="" style="width:180px;" class="text" /></span></td>
+                                    <td><span style="margin-left:3px">到本市日期: <input type="text"  id="p118R_dbsrq"  value="" style="width:380px;" class="text" /></span></td>
+                                </tr>
+                                <tr align="left">
+                                    <td><span style="margin-left:3px">身份证号码: <input type="text"  id="p118R_sfzjh"  value="" style="width:180px;" class="text" /></span></td>
+                                    <td><span style="margin-left:3px">到本市原因: <input type="text"  id="p118R_dbsyy"  value="" style="width:380px;" class="text" /></span></td>
+                                </tr>
+                                <tr align="left">
+                                    <td><span style="margin-left:38px">民族: <input type="text"  id="p118R_mz"  value="" style="width:180px;" class="text" /></span></td>
+                                    <td><span style="margin-left:14px">居住地址: <input type="text"  id="p118R_jzdz"  value="" style="width:380px;" class="text" /></span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--流动少数名族管理结束-->
+
+                    <!--少数名族分析开始-->
+                    <div class="right" id="p119" style="display:none;">
+                        <h4>少数名族分析结果<img onclick="showAppInfo('少数名族分析')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="ssmzfx_zb" style="width:778px;height:60px"></div>
+                            <div id="ssmzfx_xzqy" style="width:778px;height:400px;float: left;"></div>
+                            <div id="ssmzfx_xzqy_mz" style="width:778px;height:900px;float: left;"></div>
+                        </div>
+                    </div>
+                    <!--少数名族分析结束-->
+
+                    <!--流动少数名族分析开始-->
+                    <div class="right" id="p120" style="display:none;">
+                        <h4>流动少数名族分析结果<img onclick="showAppInfo('流动少数名族分析')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div id="ldssmzfx_xzqy" style="width:778px;height:400px;float: left;"></div>
+                            <div id="ldssmzfx_xzqy_mz" style="width:778px;height:900px;float: left;"></div>
+                        </div>
+                    </div>
+                    <!--流动少数名族分析结束-->
+
+                    <!--教职人员监管开始-->
+                    <div class="right" id="p122" style="display:none;">
+                        <form id="p122form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>姓名：<input type="text"  id="p122_name"  value="李世文" style="width:180px;" class="text" /></span>
+                                <span>身份证件号：<input type="text"  id="p122_sfzjh"  value="533523196609041036" style="width:280px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp122_JZRYJG();useApplicationTimes('教职人员监管');" />
+                                    <input type="button" class="btn2" onclick="restP122Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>教职人员监管结果<img onclick="showAppInfo('教职人员监管')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;">
+                            <table cellspacing="1" style="height:auto;width:778px;">
+                                 <tbody>
+                                 <tr>
+                                    <td align="left" width="220px"> <span style="margin-left:52px">姓名：<input type="text"  id="p122_xm"  value="" style="width:120px;" class="text" /></span></td>
+                                    <td align="left"> <span style="margin-left:64px">性别：<input type="text"  id="p122_xb"  value="" style="width:390px;" class="text" /></span></td>
+                                 </tr>
+                                 <tr>
+                                     <td align="left" width="220px"> <span style="margin-left:52px">民族：<input type="text"  id="p122_mz"  value="" style="width:120px;" class="text" /></span></td>
+                                     <td align="left"> <span style="margin-left:64px">地址：<input type="text"  id="p122_dz"  value="" style="width:390px;" class="text" /></span></td>
+                                 </tr>
+                                 <tr>
+                                    <td align="left" width="220px"> <span style="margin-left:4px">是否在逃人员：<input type="text"  id="p122_sfztry"  value="" style="width:120px;" class="text" /></span></td>
+                                    <td align="left"> <span style="margin-left:4px">行政处罚记录数：<input type="text"  id="p122_xzcfjys"  value="" style="width:390px;" class="text" /><span id="p122_xq"></span></span></td>
+                                 </tr>
+                                 </tbody>
+                            </table>
+                            <div id="p122_cfxx" style="display: none;">
+                                <h4>处罚详细信息<img onclick="showAppInfo('')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                                <div  style="width:110px;height:700px;float: left;border-left:2px solid #a2bae1;border-top:2px solid #a2bae1;border-bottom:2px solid #a2bae1;border-right:1px solid #a2bae1;">
+                                    <div style="width:90px;height:40px;line-height: 40px;text-align:center">处罚类别</div><hr style="border-top:2px solid  #a2bae1">
+                                    <div id="p122_item" style="height:660px;overflow-x: auto;">
+                                    </div>
+                                </div>
+                                <div  style="width:660px;height:700px;float: left;border-left:1px solid #a2bae1;border-top:2px solid #a2bae1;border-bottom:2px solid #a2bae1;border-right:2px solid #a2bae1;">
+                                    <div style="width:680px;height:40px;line-height: 40px;text-align:center">处罚详细信息</div><hr style="border-top:2px solid  #a2bae1">
+                                    <div id="p122_detail" style="height:660px;width:660px;" >
+
+                                        <table cellspacing="1" style="width:640px;border: 1px solid #a2bae1;margin-left:10px;margin-right: 10px;margin-top: 10px;" >
+                                            <thead>
+                                            <th id="p122thcflx" >处罚类型</th>
+                                            <th id="p122thcfwh">处罚文号</th>
+                                            <th id="p122thcfsj">处罚时间</th>
+                                            <th id="p122thcfss">违法事实</th>
+                                            </thead>
+                                            <tbody id="p122table_AJXZCF">
+
+                                            </tbody>
+                                            <tbody id="p122table_CXZDXZCF">
+
+                                            </tbody>
+                                            <tbody id="p122table_FYZFRY">
+
+                                            </tbody>
+                                            <tbody id="p122table_FZZDXZCF">
+
+                                            </tbody>
+                                            <tbody id="p122table_GONGSXZCF">
+
+                                            </tbody>
+                                            <tbody id="p122table_GSXZCF">
+
+                                            </tbody>
+                                            <tbody id="p122table_ZJZDXZCF">
+
+                                            </tbody>
+                                        </table>
+                                        <div id="p122_fy"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--教职人员监管结束-->
+
+                    <!--招商监管开始-->
+                    <div class="right" id="p121" style="display:none;">
+                        <form id="p121form">
+                            <div class="top1" style="height:auto;width:778px;">
+                                <span>受让人：<input type="text"  id="p121_srr"  value="" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp121_zsjg();useApplicationTimes('招商监管');" />
+                                    <input type="button" class="btn2" onclick="restP121Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>招商监管结果<img onclick="showAppInfo('招商监管')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;">
+                            <table cellspacing="1" style="height:auto;width:750px;">
+                                <thead>
+                                <th>合同编号</th>
+                                <th>受让人</th>
+                                <th>宗地位置</th>
+                                <th>时间</th>
+                                <th>宗地项目名称</th>
+                                <th>土地用途</th>
+                                <th>面积(公顷)</th>
+                                </thead>
+                                <tbody id="p121zsjgtable">
+                                </tbody>
+                            </table>
+                            <div id="p121zsjgfy"></div>
+                        </div>
+                    </div>
+                    <!--招商监管结束-->
+
+                    <!--环评信息查询开始-->
+                    <div class="right" id="p123" style="display:none;">
+                        <form id="p123form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>单位名称：<input type="text"  id="p123_dwmc"  value="" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp123_HPXXCX();useApplicationTimes('环评信息查询');" />
+                                    <input type="button" class="btn2" onclick="restP123Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>环评信息查询结果<img onclick="showAppInfo('环评信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div  style="height: 161px;width: 778px;overflow-y: auto;">
+                                <table id="p123_item" style="width: 760px;background-color:white; ">
+
+                                </table>
+                            </div>
+                            <div>
+                                <h4>社团详细信息<img onclick="showAppInfo('环评信息查询')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                                <table cellspacing="1" align="left">
+                                    <thead>
+                                    <th><span>单位名称：</span></th>
+                                    <th><span>项目名称：</span></th>
+                                    <th><span >建设地点：</span></th>
+                                    <th><span>审批时间：</span></th>
+                                    </thead>
+                                    <tbody id="p123hpxxtable">
+
+                                    </tbody>
+                                </table>
+                                <div id="p123hpxxfy"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--环评信息查询结束-->
+                    <!----codeCreatediv-->  
+                    <!--食品安全宣传开始-->
+                    <div class="right" id="p124" style="display:none;">
+                        <form id="p124form">
+                            <div class="top1" style="height:auto;width:770px;">
+                                <span>社团名称：<input type="text"  id="p124_stmc"  value="" style="width:180px;" class="text" /></span>
+                                <div class="anniu">
+                                    <input type="button" class="btn1" onclick="queryp124_SPAQXC();" />
+                                    <input type="button" class="btn2" onclick="restP124Form();" />
+                                </div>
+                            </div>
+                        </form>
+                        <h4>食品安全宣传结果<img onclick="showAppInfo('食品安全宣传')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                        <div style="height:auto;width:778px;overflow-x: auto">
+                            <div  style="height: 161px;width: 778px;overflow-y: auto;">
+                                <table id="p124_item" style="width: 760px;background-color:white; ">
+
+                                </table>
+                            </div>
+                            <div>
+                                <h4>社团详细信息<img onclick="showAppInfo('食品安全宣传')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4>
+                                <table cellspacing="1" align="left">
+                                    <tbody>
+                                    <tr>
+                                        <td><span>社团名称：<input type="text"  id="p124_stmc1"  value="" style="width:380px;" class="text" /></span></td>
+                                        <td><span>负责人：<input type="text"  id="p124_fzr"  value="" style="width:180px;" class="text" /></span></td>
+                                    </tr>
+                                    <tr >
+                                        <td><span>社团地址：<input type="text"  id="p124_stdz"  value="" style="width:380px;" class="text" /></span></td>
+                                        <td><span >联系电话：<input type="text"  id="p124_lxdh"  value="" style="width:180px;" class="text" /></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+               <!--食品安全宣传结束-->
+
+                    <!----codeCreatediv end-->
+					<!-- 店面招牌/户外广告设置信息开始-->
+					<div class="right" id="p97" style="display:none;">
+						<form action=""></form>
+						<!-- <h4>店面招牌/户外广告设置信息<img onclick="showAppInfo('')" src="${resSys}/Images/question40.png" title="功能描述"  style="height: 35px;width: 35px;cursor: pointer;"/></h4> -->
+						<h4>招牌/广告设置信息</h4>
+						<table class="jdc" cellspacing="0">
+							<tr>
+								<td class="one">申请人:</td>
+								<td class="two"><input type="text" id="p97_sqr" /></td>
+								<td class="three" style="color:#ff2121;">* 填写申请人名称</td>
+							</tr>
+							<tr>
+								<td class="one">设置地点:</td>
+								<td class="two"><input type="text" id="p97_szdd" /></td>
+								<td class="three" style="color:#ff2121;">* 填写店面招牌/户外广告设置</td>
+							</tr>
+							<tr>
+								<td class="one">类型:</td>
+								<td class="two"><select  id="p97_lx" style="width:203px;height:38px;">
+                                 <option>门头招牌</option>
+                                 <option>墙体招牌</option>
+                                 <option>立式招牌</option>
+                                 <option>楼顶招牌</option>
+                                 <option>墙体广告</option>
+                                 <option>立式广告</option>
+                                 <option>楼顶广告</option>
+                                 <option>临时广告</option>
+								</select>
+								</td>
+								<td class="three"  style="color:#ff2121;">* 招牌、广告的类型</td>
+							</tr>
+							<tr>
+								<td class="one">数量:</td>
+								<td class="two"><input type="text" id="p97_sl" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" /></td>
+								<td class="three" style="color:#029900;">填写店面招牌/户外广告设置个数（数值）</td>
+							</tr>
+							<tr>
+								<td class="one">面积（㎡）:</td>
+								<td class="two"><input type="text" id="p97_zmj"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}" /></td>
+								<td class="three" style="color:#029900;">占用总面积</td>
+							</tr>
+							<tr>
+								<td class="one">核准设置起始时间:</td>
+								<td class="two"><input type="text" id="p97_hzszqssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">核准设置开始日期</td>
+							</tr>
+							<tr>
+								<td class="one">核准设置终止时间:</td>
+								<td class="two"><input type="text" id="p97_hzszzzsj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">核准设置结束日期</td>
+							</tr>
+							<tr>
+								<td class="one">通知签发人:</td>
+								<td class="two"><input type="text" id="p97_tzqfr"/></td>
+								<td class="three" style="color:#029900;">填写需要通知的签发人姓名（请输入汉字）</td>
+							</tr>
+							<tr>
+								<td class="one">办理时间:</td>
+								<td class="two"><input type="text" id="p97_blsj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">办理日期</td>
+							</tr>
+							<tr>
+								<td class="one">联系电话:</td>
+								<td class="two"><input type="text" id="p97_lxdh"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))
+this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))
+this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))this.value=this.t_value;
+else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))this.o_value=this.value" 
+onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?|\-\d*?)?$/))this.value=this.o_value;
+else{if(this.value.match(/^\-\d+$/))this.value=0+this.value;if(this.value.match(/^\-$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#029900;">填写联系方式</td>
+							</tr>
+							<tr>
+								<td class="one">备注:</td>
+								<td class="two"><input type="text" id="p97_bz" /></td>
+								<td class="three" style="color:#029900;">填写特殊说明</td>
+							</tr>
+						</table>
+
+						<div class="anniu">
+							<input type="button" class="tj" onclick="queryp97();" value="提交" />
+							<input type="button" class="cz" onclick="restP97Form();"
+								value="重置" />
+						</div>
+					</div>
+					<!-- 店面招牌/户外广告设置信息结束-->
+
+					<!-- 施工占用城市道路许可信息开始-->
+					<div class="right" id="p96" style="display:none;">
+						<form action=""></form>
+						<h4>施工占道许可信息</h4>
+						<table class="jdc" cellspacing="0">
+							<tr>
+								<td class="one">申请人:</td>
+								<td class="two"><input type="text" id="p96_sqr" /></td>
+								<td class="three" style="color:#ff2121;">* 填写申请人名称</td>
+							</tr>
+							<tr>
+								<td class="one">占道原因:</td>
+								<td class="two"><input type="text" id="p96_zdyy" /></td>
+								<td class="three" style="color:#029900;">填写占道原因</td>
+							</tr>
+							<tr>
+								<td class="one">施工占道地点:</td>
+								<td class="two"><input type="text" id="p96_sgzddd" /></td>
+								<td class="three"  style="color:#ff2121;">* 施工占道地点</td>
+							</tr>
+							<tr>
+								<td class="one">施工占道面积（㎡）:</td>
+								<td class="two"><input type="text" id="p96_sgzdzmj"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#029900;">施工占道面积</td>
+							</tr>
+							<tr>
+								<td class="one">占道起始时间:</td>
+								<td class="two"><input type="text" id="p96_zdqssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">占道起始日期</td>
+							</tr>
+							<tr>
+								<td class="one">占道结束时间:</td>
+								<td class="two"><input type="text" id="p96_zdjssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">占道结束日期</td>
+							</tr>
+							<tr>
+								<td class="one">通知签发人:</td>
+								<td class="two"><input type="text" id="p96_tzqfr"/></td>
+								<td class="three" style="color:#029900;">填写需要通知的签发人姓名（请输入汉字）</td>
+							</tr>
+							<tr>
+								<td class="one">办理时间:</td>
+								<td class="two"><input type="text" id="p96_blsj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">办理日期</td>
+							</tr>
+							<tr>
+								<td class="one">联系电话:</td>
+								<td class="two"><input type="text" id="p96_lxdh"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))
+this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))
+this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))this.value=this.t_value;
+else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))this.o_value=this.value" 
+onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?|\-\d*?)?$/))this.value=this.o_value;
+else{if(this.value.match(/^\-\d+$/))this.value=0+this.value;if(this.value.match(/^\-$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#029900;">填写联系方式</td>
+							</tr>
+							<tr>
+								<td class="one">备注:</td>
+								<td class="two"><input type="text" id="p96_bz" /></td>
+								<td class="three" style="color:#029900;">补充填写特殊说明</td>
+							</tr>
+						</table>
+
+						<div class="anniu">
+							<input type="button" class="tj" onclick="queryp96();" value="提交" />
+							<input type="button" class="cz" onclick="restP96Form();"
+								value="重置" />
+						</div>
+					</div>
+					<!-- 施工占用城市道路许可信息结束-->
+
+					<!-- 经营性占用城市道路许可信息开始-->
+					<div class="right" id="p95" style="display:none;">
+						<form action=""></form>
+						<h4>经营性占道许可信息</h4>
+						<table class="jdc" cellspacing="0">
+							<tr>
+								<td class="one">申请人:</td>
+								<td class="two"><input type="text" id="p95_sqr" /></td>
+								<td class="three" style="color:#ff2121;">* 填写申请人名称</td>
+							</tr>
+							<tr>
+								<td class="one">占道原因:</td>
+								<td class="two"><input type="text" id="p95_zdyy" /></td>
+								<td class="three" style="color:#029900;">填写占道原因</td>
+							</tr>
+							<tr>
+								<td class="one">占道地点:</td>
+								<td class="two"><input type="text" id="p95_zddd" /></td>
+								<td class="three" style="color:#ff2121;">* 占道地点</td>
+							</tr>
+							<tr>
+								<td class="one">占道面积（㎡）:</td>
+								<td class="two"><input type="text" id="p95_zdzmj"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\.?\d*?$/))this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?)?$/))this.o_value=this.value" onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\.\d+)?|\.\d*?)?$/))this.value=this.o_value;else{if(this.value.match(/^\.\d+$/))this.value=0+this.value;if(this.value.match(/^\.$/))this.value=0;this.o_value=this.value}" /></td>
+								<td class="three" style="color:#029900;">占道面积</td>
+							</tr>
+							<tr>
+								<td class="one">占道起始时间:</td>
+								<td class="two"><input type="text" id="p95_zdqssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">占道开始日期</td>
+							</tr>
+							<tr>
+								<td class="one">占道结束时间:</td>
+								<td class="two"><input type="text" id="p95_zdjssj"
+									name="startDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">占道结束日期</td>
+							</tr>
+							<tr>
+								<td class="one">占道时段:</td>
+								<td class="two"><input type="text" id="p95_zdsd" /></td>
+								<td class="three" style="color:#029900;">可选项，对时段有特殊要求时填写</td>
+							</tr>
+							<tr>
+								<td class="one">通知签发人:</td>
+								<td class="two"><input type="text" id="p95_tzqfr" /></td>
+								<td class="three" style="color:#029900;">填写需要通知的签发人姓名（请输入汉字）</td>
+							</tr>
+							<tr>
+								<td class="one">办理时间:</td>
+								<td class="two"><input type="text" id="p95_blsj"
+									name="endDate" class="Wdate" style="width:200px"
+									onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly/></td>
+								<td class="three" style="color:#029900;">办理日期</td>
+							</tr>
+							<tr>
+								<td class="one">联系电话:</td>
+								<td class="two"><input type="text" id="p95_lxdh"  t_value="" o_value="" onkeypress="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))
+this.value=this.t_value;else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))
+this.o_value=this.value" onkeyup="if(!this.value.match(/^[\+\-]?\d*?\-?\d*?$/))this.value=this.t_value;
+else this.t_value=this.value;if(this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?)?$/))this.o_value=this.value" 
+onblur="if(!this.value.match(/^(?:[\+\-]?\d+(?:\-\d+)?|\-\d*?)?$/))this.value=this.o_value;
+else{if(this.value.match(/^\-\d+$/))this.value=0+this.value;if(this.value.match(/^\-$/))this.value=0;this.o_value=this.value}"/></td>
+								<td class="three" style="color:#029900;">填写联系方式</td>
+							</tr>
+							<tr>
+								<td class="one">备注:</td>
+								<td class="two"><input type="text" id="p95_bz" /></td>
+								<td class="three" style="color:#029900;">补充特殊说明</td>
+							</tr>
+						</table>
+
+						<div class="anniu">
+							<input type="button" class="tj" onclick="queryp95();" value="提交" />
+							<input type="button" class="cz" onclick="restP95Form();"
+								value="重置" />
+						</div>
+					</div>
+					<!--经营性占用城市道路许可信息结束-->
+
+
+				</div>
+				[#if user??]
+				<iframe id="gisFrame" class="popupTable" cellspacing="1"
+					width="100%" height="680px" cellpadding="0" bgcolor="#e4e4e4"></iframe>
+				[/#if]
+			</div>
+		</div>
+
+	</div>
+	<div class="clear"></div>
+
+</div>
+	<!--内容结束-->
+	[#include "../include/页脚信息栏.html"/]
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

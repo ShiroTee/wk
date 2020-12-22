@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="137px" viewBox="0 0 200 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>list_6svg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="100%" x2="0%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#D92C2C" offset="0%"></stop>
+            <stop stop-color="#FF8080" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="40" y="71" width="34" height="15" rx="1"></rect>
+        <filter x="-80.9%" y="-110.0%" width="232.4%" height="400.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M123.5,49.5 L137.003356,49.5" id="path-4"></path>
+        <filter x="-211.1%" y="-850.0%" width="446.8%" height="2400.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="-5" dy="6" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="-5" dy="6" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-6" cx="74.5" cy="78.5" r="1.5"></circle>
+        <radialGradient cx="100%" cy="100%" fx="100%" fy="100%" r="164.130046%" gradientTransform="translate(1.000000,1.000000),scale(0.409091,1.000000),rotate(-145.896434),translate(-1.000000,-1.000000)" id="radialGradient-7">
+            <stop stop-color="#0028FF" offset="0%"></stop>
+            <stop stop-color="#2C9AFF" offset="99.9800702%"></stop>
+        </radialGradient>
+        <rect id="path-8" x="1" y="0" width="22" height="9" rx="1"></rect>
+        <filter x="-125.0%" y="-183.3%" width="304.5%" height="600.0%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-10" cx="1.5" cy="4.5" r="1.5"></circle>
+        <rect id="path-11" x="1" y="0" width="22" height="9" rx="1"></rect>
+        <filter x="-125.0%" y="-183.3%" width="304.5%" height="600.0%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-13" cx="1.5" cy="4.5" r="1.5"></circle>
+        <rect id="path-14" x="1" y="0" width="22" height="9" rx="1"></rect>
+        <filter x="-125.0%" y="-183.3%" width="304.5%" height="600.0%" filterUnits="objectBoundingBox" id="filter-15">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-16" cx="1.5" cy="4.5" r="1.5"></circle>
+        <rect id="path-17" x="1" y="0" width="22" height="9" rx="1"></rect>
+        <filter x="-125.0%" y="-183.3%" width="304.5%" height="600.0%" filterUnits="objectBoundingBox" id="filter-18">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-19" cx="1.5" cy="4.5" r="1.5"></circle>
+        <rect id="path-20" x="1" y="0" width="22" height="9" rx="1"></rect>
+        <filter x="-125.0%" y="-183.3%" width="304.5%" height="600.0%" filterUnits="objectBoundingBox" id="filter-21">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <circle id="path-22" cx="1.5" cy="4.5" r="1.5"></circle>
+    </defs>
+    <g id="政务信息资源目录-各种模板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list_6">
+            <g id="Rectangle-14">
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+            </g>
+            <path d="M74.5,78.5 L74.5025501,78.5 C82.2331282,78.5 88.5,72.2413292 88.5,64.4950066 L88.5,37.0049934 C88.5,29.2702491 94.7629354,23 102.49745,23 L102.5,23" id="Path-6" stroke="#A2C6FF" opacity="0.5"></path>
+            <path d="M74.5,78.5 L74.5025501,78.5 C82.2331282,78.5 88.5,72.2348668 88.5,64.5000151 L88.5,50.4999849 C88.5,42.7680067 94.7629354,36.5 102.49745,36.5 L102.5,36.5" id="Path-6-Copy" stroke="#A2C6FF" opacity="0.5"></path>
+            <path d="M74.5,102 L76.7493422,102 C83.2390513,102 88.5,96.7407726 88.5,90.25 L88.5,90.25 C88.5,83.7606542 93.7529146,78.5 100.250658,78.5 L102.5,78.5" id="Path-6-Copy-2" stroke="#A2C6FF" opacity="0.5" transform="translate(88.500000, 90.250000) scale(1, -1) translate(-88.500000, -90.250000) "></path>
+            <path d="M74.5,78.5 L74.5025501,78.5 C82.2331282,78.5 88.5,72.2252919 88.5,64.5096723 L88.5,63.4903277 C88.5,55.7636831 94.7629354,49.5 102.49745,49.5 L102.5,49.5" id="Path-6-Copy-3" stroke="#A2C6FF" opacity="0.5"></path>
+            <g id="Path-6-Copy-4">
+                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                <use stroke="#A2C6FF" stroke-width="1" xlink:href="#path-4"></use>
+            </g>
+            <g id="Oval-5">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-6"></use>
+                <circle stroke="#8E8E8E" stroke-width="0.5" cx="74.5" cy="78.5" r="1.25"></circle>
+            </g>
+            <g id="Group" transform="translate(101.000000, 18.000000)">
+                <g id="Rectangle-14-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-9)" xlink:href="#path-8"></use>
+                    <use fill="url(#radialGradient-7)" fill-rule="evenodd" xlink:href="#path-8"></use>
+                </g>
+                <g id="Oval-5-Copy">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-10"></use>
+                    <circle stroke="#8E8E8E" stroke-width="0.5" cx="1.5" cy="4.5" r="1.25"></circle>
+                </g>
+            </g>
+            <g id="Group-Copy" transform="translate(101.000000, 32.000000)">
+                <g id="Rectangle-14-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
+                    <use fill="url(#radialGradient-7)" fill-rule="evenodd" xlink:href="#path-11"></use>
+                </g>
+                <g id="Oval-5-Copy">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-13"></use>
+                    <circle stroke="#8E8E8E" stroke-width="0.5" cx="1.5" cy="4.5" r="1.25"></circle>
+                </g>
+            </g>
+            <g id="Group-Copy-2" transform="translate(101.000000, 45.000000)">
+                <g id="Rectangle-14-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-15)" xlink:href="#path-14"></use>
+                    <use fill="url(#radialGradient-7)" fill-rule="evenodd" xlink:href="#path-14"></use>
+                </g>
+                <g id="Oval-5-Copy">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-16"></use>
+                    <circle stroke="#8E8E8E" stroke-width="0.5" cx="1.5" cy="4.5" r="1.25"></circle>
+                </g>
+            </g>
+            <g id="Group-Copy-4" transform="translate(135.000000, 45.000000)">
+                <g id="Rectangle-14-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-18)" xlink:href="#path-17"></use>
+                    <use fill="url(#radialGradient-7)" fill-rule="evenodd" xlink:href="#path-17"></use>
+                </g>
+                <g id="Oval-5-Copy">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-19"></use>
+                    <circle stroke="#8E8E8E" stroke-width="0.5" cx="1.5" cy="4.5" r="1.25"></circle>
+                </g>
+            </g>
+            <g id="Group-Copy-3" transform="translate(101.000000, 98.000000)">
+                <g id="Rectangle-14-Copy">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-21)" xlink:href="#path-20"></use>
+                    <use fill="url(#radialGradient-7)" fill-rule="evenodd" xlink:href="#path-20"></use>
+                </g>
+                <g id="Oval-5-Copy">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-22"></use>
+                    <circle stroke="#8E8E8E" stroke-width="0.5" cx="1.5" cy="4.5" r="1.25"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

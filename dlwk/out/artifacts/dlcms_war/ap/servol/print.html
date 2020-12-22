@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style media="print">
+.noprint { display: none }
+</style>
+<script type="text/javascript" src="../../r/cms/jquery.js" ></script> 
+<script src="../js/globalInterfaceDomain.js" type="text/javascript"></script> 
+<script type="text/javascript">
+var hkey_root,hkey_path,hkey_key;
+hkey_root="HKEY_CURRENT_USER";
+hkey_path="//Software//Microsoft//Internet Explorer//PageSetup//";
+//设置网页打印的页眉页脚为空
+function pagesetup_null(){
+try{
+var RegWsh = new ActiveXObject("WScript.Shell")
+hkey_key="header" 
+RegWsh.RegWrite(hkey_root+hkey_path+hkey_key,"")
+hkey_key="footer"
+RegWsh.RegWrite(hkey_root+hkey_path+hkey_key,"")
+}catch(e){}
+}
+Date.prototype.Format = function(fmt)   
+{ //author: meizz   
+  var o = {   
+    "M+" : this.getMonth()+1,                 //月份   
+    "d+" : this.getDate(),                    //日   
+    "h+" : this.getHours(),                   //小时   
+    "m+" : this.getMinutes(),                 //分   
+    "s+" : this.getSeconds(),                 //秒   
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
+    "S"  : this.getMilliseconds()             //毫秒   
+  };   
+  if(/(y+)/.test(fmt))   
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
+  for(var k in o)   
+    if(new RegExp("("+ k +")").test(fmt))   
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
+  return fmt;   
+}  
+$(function(){
+	//$("#argMap1").val(JSON.stringify(data.data.argMap));
+	//$("#queryLogId").val(JSON.stringify(data.data.queryLogId));
+	//$("#mdata").val(JSON.stringify(data.data.list));
+	var argMap = $("#argMap1",opener.document).val();
+	var queryLogId = $("#queryLogId",opener.document).val();
+	var mdata = $("#mdata",opener.document).val();
+	var globalInterfaceDomain = $("#global",opener.document).val();
+var baseUrl = globalInterfaceDomain+"/csdsc/onlineInformationHandler/";
+	 $.ajax({
+		    url: encodeURI(baseUrl+"getPrintContent?argMap1="+argMap+"&queryLogId="+queryLogId+"&mdata="+mdata),
+		    dataType : 'jsonp',
+		    //data:{papersType:papersType,papersNum:papersNum,papersNum1:papersNum1},
+		    jsonp : "jsonpcallback",
+		    success : function(data) {
+		    	var obj = data.data.baseBean;
+		    	var list = data.data.list;
+		    	var currentDate = data.data.currentDate;
+		    	var printNum = data.data.printNum;
+		    	$("#current").html(currentDate);
+		    	$("#zh").html(printNum);
+		    	
+		    	var content = "";
+		    	if(obj != undefined ){
+		    		
+		    		$("#name").html(obj.name);
+		    		$("#sex").html(obj.sex+"性");
+		    		$("#papersType").html(obj.papersType);
+		    		$("#papersNum").html(obj.papersNum);
+		    		$("#address").html(obj.address);
+		    		$("#birthdate").html(new Date(obj.birthdate).Format("yyyy年MM月dd日"));
+		    		/* for(var i=0;i<obj;i++){
+		    			 tbody +="<tr>"+"<td>"+data[i].ZZH+"</td>"+"<td>"+data[i].DJXZ+"</td>"+"<td>"+new Date(data[i].DJRQ).format('Y-m-d')+"</td>"+"<td>"+data[i].NAN+
+		    			 "</td>"+"<td>"+data[i].NANZJ+"</td>"+"<td>"+data[i].NV+"</td>"+"<td>"+data[i].NVZJ+"</td>"+"</tr>";
+		    		 }
+		    		 1、2014年03月15日张三（123456789012345）与李XX（987654321012345）办理过结婚登记类业务；
+   2、2010年08月30日张三（123456789012345）与陈XX（321010101010101）办理过离婚登记类业务；
+		    		 $("#p7table").html(tbody);
+		    		 $("#printButton").show();*/
+		    		 
+		    	} 
+		    	if(list != undefined && list.length >0){
+		    		for(var i=0;i<list.length;i++){
+		    			if(obj.papersNum == list[i].NANZJ){
+		    				content+=createNbsp(8)+(i+1)+"、"+new Date(list[i].DJRQ).Format("yyyy年MM月dd日")+list[i].NAN+"("+list[i].NANZJ+")与"+list[i].NV+"("+list[i].NVZJ+")"+"办理过"+list[i].DJXZ+"登记类业务；<br/>";
+		    			}
+		    			if(obj.papersNum == list[i].NVZJ){
+			    			content+=createNbsp(8)+(i+1)+"、"+new Date(list[i].DJRQ).Format("yyyy年MM月dd日")+list[i].NV+"("+list[i].NVZJ+")与"+list[i].NAN+"("+list[i].NANZJ+")"+"办理过"+list[i].DJXZ+"登记类业务；<br/>";
+			    		}
+		    		}
+		    		$("#content").html(content);
+		    	}else{
+		    		$("#content").html(createNbsp(8)+"未发现当事人有结婚或离婚登记记录。<br/>");
+		    	}
+		    },
+		    error : function(response) {
+		      alert(response);
+		    },
+		    timeout:6000
+		  });
+});
+function print1(){
+	pagesetup_null();
+	window.print();
+}
+function createNbsp(size){
+	var str="";
+	for(var i=0; i<size;i++){
+		str+="&nbsp;";
+	}
+	return str;
+}
+
+</script>
+</head>
+   
+<body  style="width:600px;">
+<div style="text-align:center; font-size:16px; font-weight:bold; height:30px">
+婚姻登记记录证明
+</div>
+
+<div style="text-align:center; font-size:16px; font-weight:bold;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;字号：<span id="zh"></span></div>
+<div style="padding:20px;">
+  <table width="482" border="0" align="center" cellspacing="0">
+    <tr>
+      <td width="98">当事人姓名：</td>
+      <td width="380"><u id="name"></u></td>
+    </tr>
+    <tr>
+      <td>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</td>
+      <td><u id="sex"></u></td>
+    </tr>
+    <tr>
+      <td>出&nbsp;生 &nbsp;日&nbsp;期：</td>
+      <td><u id="birthdate"></u></td>
+    </tr>
+    <tr>
+      <td>证&nbsp;件 &nbsp;类&nbsp;型：</td>
+      <td><u id="papersType"></u></td>
+    </tr>
+    <tr>
+      <td>身份证件号：</td>
+      <td><u id="papersNum"></u></td>
+    </tr>
+    <tr>
+      <td>户口所在地：</td>
+      <td><u id="address"></u></td>
+    </tr>
+  </table>
+</div>
+<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;根据当事人的申请及声明，经查阅我婚姻登记机关从<u>2007年01月01日</u>
+至今的婚姻登记档案，查到当事人婚姻登记记录如下：</div>
+<div id="content">
+</div>
+<div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本证明只记载当事人在本婚姻登记机关所辖范围内目前的结婚或离婚登记记录。</div>
+<div style="text-align:right;">
+  <p>&nbsp;</p>
+  <p>大理市婚姻登记管理处（印章）</p>
+</div>
+<div style="text-align:right;" id="current"></div>
+<div style="text-align: center;"> <input type="button" value="打印" onclick="print1();" class="noprint"/></div>
+</body>
+</html>

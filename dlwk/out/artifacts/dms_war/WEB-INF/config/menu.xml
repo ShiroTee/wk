@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus name="数据监控平台" iconCls="" orderNumber="2">
+
+	<!-- 数据监控知识库 -->
+	<menu name="数据监控知识库" url="#" leaf="N" orderNumber="1">
+		<menu name="异常流程解决跟踪" url="knowledgeHandler/page" leaf="Y"
+			orderNumber="1" menuType="controller" />
+		<menu name="典型案例解决方案" url="knowledgeSolutionHandler/page" leaf="Y"
+			orderNumber="2" menuType="controller" />
+		<menu name="数据监控基本知识" url="baseKnowledgeHandler/page" leaf="Y"
+			orderNumber="3" menuType="controller" />
+	</menu>
+
+	<!-- 网络及服务监控 -->
+	<menu name="服务器监控" url="#" leaf="N" orderNumber="2">
+		<menu name="服务器预警规则" url="ruleinfoHandler/page" leaf="Y"
+			orderNumber="1" menuType="controller" />
+		<menu name="服务器监控项配置" url="addHostMonitorHandler/page" leaf="Y"
+			orderNumber="2" menuType="controller" />
+		<menu name="服务器监控详情" url="hostMonitorHandler/page" leaf="Y"
+			iconCls="cpu-shortcut" orderNumber="3" menuType="controller" />
+		<menu name="服务器监控详情中详情" url="hostInfoHandler/page" leaf="Y"
+			  iconCls="cpu-shortcut" orderNumber="4" menuType="controller" />
+	</menu>
+	<!-- 数据交换整体流程跟踪 -->
+	<menu name="数据交换整体流程跟踪" url="#" leaf="N" orderNumber="3">
+		<menu name="整体流程跟踪" url="flowFollowHandler/page" leaf="Y"
+			orderNumber="1" menuType="controller" />
+	</menu>
+
+	<!-- 数据处理节点监控 -->
+	<menu name="数据处理节点监控" url="#" leaf="N" orderNumber="4">
+		<menu name="作业监控" url="#" leaf="N" orderNumber="1">
+			<menu name="作业运行情况" url="jobRunHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+			<menu name="作业执行情况" url="jobDoHandler/page" leaf="Y"
+				orderNumber="2" menuType="controller" />
+		</menu>
+
+		<!-- 转换监控 -->
+		<menu name="转换监控" url="#" leaf="N" orderNumber="2">
+			<menu name="转换执行情况" url="transDoHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+		</menu>
+
+		<!-- 步骤监控 -->
+		<menu name="步骤监控" url="#" leaf="N" orderNumber="3">
+			<menu name="步骤执行情况" url="stepMonitorHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+		</menu>
+	</menu>
+	<!-- 数据交换过程监控 -->
+	<menu name="数据交换过程监控" url="#" leaf="N" orderNumber="5">
+		<!--数据清洗监控 -->
+		<menu name="数据清洗监控" url="#" leaf="N" orderNumber="1">
+			<menu name="清洗过程监控" url="cleanMonitorHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+			<menu name="清洗规则监控" url="cleanRuleMonitorHandler/page" leaf="Y"
+				orderNumber="2" menuType="controller" />
+		</menu>
+
+		<!-- 数据转换监控 -->
+		<menu name="数据转换监控" url="#" leaf="N" orderNumber="2">
+			<menu name="转换过程监控" url="transMonitorHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+		</menu>
+		<!-- 数据比对监控 -->
+		<menu name="数据比对监控" url="#" leaf="N" orderNumber="3">
+			<menu name="比对过程监控" url="compareMonitorHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+		</menu>
+		<!-- 数据加载监控 -->
+		<menu name="数据加载监控" url="#" leaf="N" orderNumber="4">
+			<menu name="加载过程监控" url="loadMonitorHandler/page" leaf="Y"
+				orderNumber="1" menuType="controller" />
+		</menu>
+	</menu>
+	<!-- 数据处理流程异常记录 -->
+	<menu name="数据处理流程异常记录" url="#" leaf="N" orderNumber="6">
+		<menu name="作业异常记录" url="jobExceptionHandler/page" leaf="Y"
+			orderNumber="1" menuType="controller" />
+		<menu name="转换异常记录" url="transExceptionHandler/page" leaf="Y"
+			orderNumber="2" menuType="controller" />
+	</menu>
+
+	<!-- 预警管理 -->
+	<menu name="预警管理" url="#" leaf="N" orderNumber="7">
+		<menu name="数据处理流程异常预警" url="kettleWarningHandler/page" leaf="Y"
+			orderNumber="1" menuType="controller" />
+		<menu name="服务器异常预警" url="alarmInfoHandler/page" leaf="Y"
+			orderNumber="2" menuType="controller" />
+	</menu>
+	<!-- 日志跟踪 -->
+	<menu name="日志跟踪" url="#" leaf="N" orderNumber="8">
+		<menu name="作业操作跟踪" url="jobLogManageHandler/page" leaf="Y"
+			iconCls="notepad-shortcut" orderNumber="1" menuType="controller" />
+		<menu name="转换操作跟踪" url="transLogManageHandler/page" leaf="Y"
+			orderNumber="2" menuType="controller" />
+		<menu name="流程设计跟踪" url="repositoryLogHandler/page" leaf="Y"
+			orderNumber="3" menuType="controller" />
+	</menu>
+	<!-- 统计分析 -->
+	<menu name="统计分析" url="#" leaf="N" orderNumber="9">
+		<menu name="作业执行情况" url="#" leaf="N" orderNumber="1">
+			<menu name="作业整体执行情况" url="page/jobs/overall_implementation.jsp"
+				leaf="Y" orderNumber="1" menuType="page" />
+			<menu name="作业执行情况" url="page/jobs/performance.jsp" leaf="Y"
+				orderNumber="2" menuType="page" />
+		</menu>
+
+		<menu name="异常情况" url="#" leaf="N" orderNumber="2">
+			<menu name="服务器异常原因" url="page/webandservception/webandservception.jsp"
+				leaf="Y" orderNumber="1" menuType="page" />
+		</menu>
+
+		<menu name="转换过程执行情况" url="#" leaf="N" orderNumber="3">
+			<menu name="转换过程执行情况" url="page/jobs/change.jsp" leaf="Y"
+				orderNumber="1" menuType="page" />
+		</menu>
+
+		<menu name="清洗过程执行情况" url="#" leaf="N" orderNumber="4">
+			<menu name="清洗过程执行情况" url="page/jobs/washing.jsp" leaf="Y"
+				orderNumber="1" menuType="page" />
+		</menu>
+		<!-- <menu name="比对过程执行情况" url="#" leaf="N" orderNumber="5"> <menu name="比对过程执行情况" 
+			url="page/jobs/comparison.jsp" leaf="Y" orderNumber="1"/> </menu> <menu name="加载过程执行情况" 
+			url="#" leaf="N" orderNumber="6"> <menu name="加载过程执行情况" url="page/jobs/load.jsp" 
+			leaf="Y" orderNumber="1"/> </menu> -->
+	</menu>
+</menus>

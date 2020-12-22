@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page7">
+	<!--left-->
+	<select id="getLeft1" resultType="hashmap" parameterType="map">
+	    select xsjgsl val1,ywsxsl val2,xxzysl val3,sjxsl val4 from zwbm where zwbmbm=#{names}
+	</select>
+	<select id="getLeft2" resultType="hashmap" parameterType="map">
+		    SELECT
+			count(a.xxzybm) total,
+			count(
+				CASE
+				WHEN a.ccjz = '数据库' OR a.ccjz = '电子表格' OR a.ccjz = '电子文件' THEN
+					a.ccjz
+				END
+			) val1
+			FROM
+			(select distinct(xxzybm),ccjz,zwbmbm from xxzy) a where a.zwbmbm=#{names}
+	</select>
+	<select id="getLeft3_1" resultType="hashmap" parameterType="map">
+	    SELECT
+		count(a.xxzybm) total,
+		count(
+			CASE
+			WHEN a.sfkf = '依申请开放' THEN
+				a.sfkf
+			END
+		) val1,
+		count(
+			CASE
+			WHEN a.sfkf = '无条件开放' THEN
+				a.sfkf
+			END
+		) val2,
+		count(
+			CASE
+			WHEN a.sfkf = '有条件开放' THEN
+				a.sfkf
+			END
+		) val5,
+		count(
+			CASE
+			WHEN a.gxlx = '无条件共享' THEN
+				a.gxlx
+			END
+		) val3,
+		count(
+			CASE
+			WHEN a.gxlx = '有条件共享' THEN
+				a.gxlx
+			END
+		) val4
+	FROM
+		(select distinct(xxzybm),sfkf,gxlx,zwbmbm from xxzy) a where a.zwbmbm=#{names}
+	</select>
+	<select id="getLeft3_2" resultType="hashmap" parameterType="map">
+	    SELECT fwdx name,count(fwdx) value FROM ywsx where zwbmbm=#{names} GROUP BY fwdx 
+	</select>
+	<select id="getLeft4" resultType="hashmap" parameterType="map">
+	    SELECT gxzq name,count(distinct(xxzybm)) value FROM xxzy where zwbmbm=#{names} GROUP BY gxzq ORDER BY value
+	</select>
+	<!--mid-->
+	<select id="getMid1" resultType="hashmap">
+	    SELECT NAME,TOTAL 
+		FROM (select a.xqxxzymc name,count(*) total from xxzyxqxx a where a.xxzylybmbm=#{names}
+		group by a.xqxxzymc order by total desc)WHERE ROWNUM &lt; 21
+	</select>
+	<select id="getMid2_1" resultType="hashmap" parameterType="map">
+		SELECT wlccwz name,count(xxzybm) value FROM (select distinct(xxzybm),wlccwz,zwbmbm from xxzy) where zwbmbm=#{names} GROUP BY wlccwz 
+	</select>
+	<select id="getMid2_2" resultType="hashmap" parameterType="map">
+		SELECT ywxtjsxz name,count(ywxtbm) value FROM ywxt where zwbmbm=#{names} GROUP BY ywxtjsxz 
+	</select>
+	<select id="getMid3" resultType="hashmap" parameterType="map">
+		SELECT gxfs name, count(distinct xxzybm) value FROM xxzy where zwbmbm=#{names} GROUP BY gxfs 
+	</select>
+	<!--right-->
+	<select id="getRight1" resultType="hashmap" parameterType="map">
+		select name,total from(SELECT b.zwbmmc name,count(distinct(b.xqxxzybm)) total FROM xxzy a LEFT JOIN xxzyxqxx b ON a.xxzybm=xqxxzybm where a.zwbmbm=#{names} GROUP BY b.zwbmmc ORDER BY total DESC) where rownum &lt;11 
+	</select>
+	<select id="getRight2" resultType="hashmap" parameterType="map">
+		select name,total from (SELECT a.zwbmmc name,count(a.xxzybm) total FROM xxzy a LEFT JOIN xxzyxqxx b ON a.xxzybm=xqxxzybm where b.zwbmbm=#{names} GROUP BY a.zwbmmc ORDER BY total DESC) where rownum &lt; 11
+	</select>
+	
+	<select id="getNames" resultType="hashmap">
+		SELECT zwbmjc name, zwbmbm code FROM zwbm
+	</select>
+</mapper>

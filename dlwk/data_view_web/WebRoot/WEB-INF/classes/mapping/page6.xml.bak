@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page6">
+	<!--left-->
+	<select id="getLeft" resultType="hashmap">
+<!-- 	    select d.zwbmmc name,d.xxzyxqsl x_total,nvl(c.h_total,0) h_total from zwbm b -->
+<!-- 		left join (select a.zwbmmc name,count(distinct(a.xqxxzybm)) h_total from xxzyxqxx a where a.sfhq='是' group by a.zwbmmc) c -->
+<!-- 		on b.zwbmmc = c.name -->
+<!-- 		right join zwbm d -->
+<!-- 		on b.zwbmmc = d.zwbmmc -->
+<!-- 		order by x_total -->
+		select c.zwbmmc name,nvl(d.h_total,0) h_total,nvl(e.x_total,0) x_total from zwbm c
+		left join (select a.zwbmmc name,count(a.xqxxzybm) h_total from ysxqxx a where a.sfhq='是' group by a.zwbmmc) d
+		on c.zwbmmc=d.name
+		left join (select b.zwbmmc name,count(b.xqxxzybm) x_total from ysxqxx b group by b.zwbmmc) e
+		on c.zwbmmc=e.name
+		order by x_total
+	</select>
+	<!--mid-->
+	<select id="getMid1" resultType="hashmap">
+		<!--SELECT a.zwbmmc name,a.zwbmbm code,COUNT(a.xxzybm) total,
+		(SELECT COUNT(*) FROM xxzy WHERE a.zwbmbm = zwbmbm AND gxlx IN ( '有条件共享', '无条件共享')) val1,
+		(SELECT COUNT(*) FROM xxzy WHERE a.zwbmbm = zwbmbm AND sfkf IN ( '无条件开放', '依申请开放','有条件开放') ) val2
+		FROM xxzy a
+		where zwbmmc is not null
+		GROUP BY
+		  a.zwbmbm,a.zwbmmc
+		ORDER BY
+		total DESC-->
+		 SELECT
+        a.zwbmmc name,
+        COUNT(distinct(a.xxzybm)) total,
+      (SELECT COUNT(distinct(xxzybm)) FROM xxzy WHERE a.zwbmmc = zwbmmc AND gxlx IN ( '政府内部条件共享', '政府内部强制共享','社会公开')) val1,
+      (SELECT COUNT(distinct(xxzybm)) FROM xxzy WHERE a.zwbmmc = zwbmmc AND sfkf IN ( '无条件','内部' ) ) val2
+      FROM
+        xxzy a
+      where zwbmmc is not null
+		GROUP BY
+		  a.zwbmbm,a.zwbmmc
+		ORDER BY
+		total DESC
+	</select>
+	<select id="getMid2_1" resultType="hashmap" parameterType="map">
+<!-- 		select zwbmmc name,zwbmbm code,xxzyxqsl x_total from zwbm order by x_total desc -->
+		select c.zwbmmc name,nvl(a.x_total,0) x_total from zwbm c
+		left join (select b.zwbmmc name,count(b.xqxxzybm) x_total from ysxqxx b group by b.zwbmmc) a
+		on c.zwbmmc=a.name order by x_total desc
+	</select>
+	<select id="getMid2_2" resultType="hashmap" parameterType="map">
+		select zwbmmc name,zwbmbm code,xxzybxqsl b_total from zwbm order by b_total desc
+	</select>
+	<!--right-->
+	<select id="getRight1" resultType="hashmap" parameterType="map">
+			SELECT zwbmmc name,
+				COUNT(xxzybm) total,
+				COUNT(CASE WHEN ccjz = '数据库' THEN ccjz END) val1,
+				COUNT(CASE WHEN ccjz = '电子表格' THEN ccjz END) val2,
+				COUNT(CASE WHEN ccjz = '图形图像' THEN ccjz END) val3,
+				COUNT(CASE WHEN ccjz = '电子文件' THEN ccjz END) val4,
+				COUNT(CASE WHEN ccjz = '流媒体' THEN ccjz END) val5,
+				COUNT(CASE WHEN ccjz = '其它' THEN ccjz END) val6
+			FROM (select distinct a.xxzybm,a.ccjz,a.zwbmbm,a.zwbmmc from xxzy a)
+			GROUP BY zwbmbm,zwbmmc 
+			ORDER BY val1+val2+val3+val4+val5+val6 DESC
+	</select>
+	<select id="getRight2" resultType="hashmap" parameterType="map">
+	<!--SELECT
+			a.zwbmmc name,
+			(SELECT COUNT(zwbmbm) FROM ywxt WHERE zwbmmc=a.zwbmmc) val1,
+			(COUNT(a.xxzybm)-(SELECT COUNT(zwbmbm) FROM ywxt WHERE zwbmmc=a.zwbmmc)) val2,
+			(SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='国家垂直系统') val3,
+			(SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='省级系统') val4,
+			(SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='自行开发') val5
+		FROM
+		  xxzy a
+		GROUP BY
+		  a.zwbmmc
+		ORDER BY val3+val4+val5 DESC-->
+		  SELECT
+			a.zwbmmc name,
+			(SELECT COUNT(zwbmbm) FROM ywxt WHERE zwbmmc=a.zwbmmc ) val1,
+			(COUNT(a.xxzybm)-(SELECT COUNT(zwbmbm) FROM ywxt WHERE zwbmmc=a.zwbmmc)) val2,
+			(SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='国家垂直系统') val3,
+			(SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='省级系统') val4,
+			(SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='州级系统') val5,
+      (SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='市级系统') val6,
+      (SELECT COUNT(DISTINCT ywxtbm) FROM ywxt WHERE zwbmmc=a.zwbmmc AND ywxtjsxz='自行开发') val7
+		FROM
+		  xxzy a
+		GROUP BY
+		  a.zwbmmc
+		ORDER BY val3+val4+val5+val6+val7 DESC
+	</select>
+</mapper>

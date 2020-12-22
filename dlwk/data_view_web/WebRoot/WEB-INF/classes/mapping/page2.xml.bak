@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page2">
+	<!--left-->
+	<select id="getLeft1" resultType="hashmap">
+	    select gxfs name,count(distinct(xxzybm)) value from xxzy group by gxfs order by value DESC
+	</select>
+	<select id="getLeft2" resultType="hashmap" parameterType="java.util.Map">
+	    SELECT sfkf name,COUNT(distinct(xxzybm)) value from xxzy WHERE sfkf IS NOT NULL GROUP BY sfkf order by value DESC    
+	</select>
+	<select id="getLeft3" resultType="hashmap">
+	   select gxzq name,count(distinct(xxzybm)) value from xxzy1 group by gxzq 
+	</select>
+	
+	<!--right-->
+	<select id="getRight1" resultType="hashmap">
+	select t.name,t.totals,t.wtotal,t.ytotal from ( 
+      SELECT zwbmmc name,
+        count(distinct(a.xxzybm)) totals,
+        (SELECT count(distinct(xxzybm)) FROM xxzy b WHERE gxlx = '社会公开' AND b.zwbmmc = a.zwbmmc ) wtotal,
+        (SELECT count(distinct(xxzybm)) FROM xxzy b WHERE （gxlx = '政府内部强制共享' or gxlx = '政府内部条件共享'） AND b.zwbmmc = a.zwbmmc ) ytotal
+      FROM xxzy a
+      WHERE gxlx IN ('社会公开','政府内部强制共享','政府内部条件共享')
+      GROUP BY zwbmmc ORDER BY totals DESC) t 
+    where rownum  &lt; 11
+	</select>
+	<select id="getRight2" resultType="hashmap">
+		SELECT t.name,t.totals,t.wtotal,t.stotal,t.ytotal FROM ( 
+			SELECT zwbmmc name, count(distinct(xxzybm)) totals,
+				(SELECT count(distinct(xxzybm)) FROM xxzy b WHERE sfkf = '无条件' AND b.zwbmmc = a.zwbmmc ) wtotal,
+				(SELECT count(distinct(xxzybm)) FROM xxzy b WHERE (sfkf = '秘密' or sfkf = '绝密') AND b.zwbmmc = a.zwbmmc ) stotal,
+				(SELECT count(distinct(xxzybm)) FROM xxzy b WHERE sfkf = '内部' AND b.zwbmmc = a.zwbmmc ) ytotal
+			FROM xxzy a
+			WHERE sfkf IN ('无条件','秘密','绝密','内部') 
+			GROUP BY zwbmmc ORDER BY totals DESC ) t 
+    WHERE rownum  &lt; 11
+	</select>
+	<select id="getRight3" resultType="hashmap">
+	    select ztkmc name,sjxsl count,sfjck iss from ztxx 
+	</select>
+	
+	<!--mid-->
+	<select id="getMid2" resultType="hashmap">
+<!-- 	    select zwbmmc name,zwbmjc shortName,zwbmbm code,xxzysl val1,sjxsl val2 from zwbm -->
+		select c.zwbmmc name,c.zwbmjc shortName,c.zwbmbm code,nvl(b.sum,0) val1,c.sjxsl val2 
+		from zwbm c
+		left join (select a.zwbmmc,count(distinct(a.xxzybm)) sum from xxzy a group by a.zwbmmc) b
+		on c.zwbmmc = b.zwbmmc
+	</select>
+	<select id="getMid1" resultType="hashmap">
+		  SELECT
+		    a.zwbmmc name,
+		    COUNT(distinct(a.xxzybm)) total,
+		  (SELECT COUNT(distinct(xxzybm)) FROM xxzy WHERE a.zwbmmc = zwbmmc AND gxlx IN ( '有条件共享', '无条件共享')) val1,
+		  (SELECT COUNT(distinct(xxzybm)) FROM xxzy WHERE a.zwbmmc = zwbmmc AND sfkf IN ( '无条件开放','有条件开放', '依申请开放' ) ) val2
+		  FROM
+		    xxzy a
+		  GROUP BY a.zwbmmc
+	</select>
+</mapper>

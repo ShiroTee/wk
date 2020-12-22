@@ -1,0 +1,138 @@
+@charset "utf-8";
+ol, ul, li { list-style: none; line-height: 22px; }
+ol, ul { zoom: 1; }
+a, a:link, a:visited { cursor: pointer; text-decoration: none;}
+a:hover { cursor: pointer; }
+.clear { clear: both; float: none; overflow: hidden; height: 0; font-size: 0; }
+.clearFix:after { clear: both; display: block; visibility: hidden; height: 0; line-height: 0; content: "."; }
+.clearFix { zoom: 1; }
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+:after, :before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.font { font: 14px/24px "Comic Sans MS"; }
+:focus { outline: none; }
+.css3pie { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; behavior: url(css3pie/PIE.htc); }
+::-webkit-scrollbar{width:0px}
+.nav-slide {
+	scrollbar-3dlight-color:rgba(29,64,86,0.8); 
+    scrollbar-highlight-color:rgba(29,64,86,0.8); 
+    scrollbar-face-color:rgba(29,64,86,0.8); 
+    scrollbar-arrow-color:rgba(29,64,86,0.8); 
+    scrollbar-shadow-color:rgba(29,64,86,0.8); 
+    scrollbar-darkshadow-color:rgba(29,64,86,0.8); 
+    scrollbar-base-color:rgba(29,64,86,0.8); 
+    scrollbar-track-color:rgba(29,64,86,0.8);
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+body{ font-size: 14px; font-family: "黑体-简","黑体","微软雅黑", Arial, Gotham, "Helvetica Neue", Helvetica, sans-serif; width: 100%; margin: 0 auto; background-color: #313131; overflow-x: hidden; }
+
+/*一级导航*/
+.nav-main{
+	position: fixed;
+	top: 0;
+	z-index: 12;
+	height: 100%;
+	width: 5px;		/*该div宽度为鼠标悬停的有效区域*/
+	color: #fff;
+	background: rgba(0,0,0,0);
+}
+.nav-main a{color: #fff;}
+.nav-box{
+	position: relative;
+	perspective: 10px;
+	-webkit-perspective: 10px;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	height: 100%;
+	z-index: 99;
+}
+
+.nav-slide{
+	position: fixed;
+	left: '3%';
+	top: 0;
+	width: 180px;	/*控制菜单宽度*/
+	height: 100%;
+/* 	overflow: auto; */
+	overflow: hidden;
+	background: rgba(29,64,86,0.9);
+	transform: rotateY(120deg);
+	-webkit-transform: rotateY(120deg);
+	-moz-transform: rotateY(120deg);
+	-o-transform: rotateY(120deg);
+	-ms-transform: rotateY(120deg);
+	z-index: 99;
+	visibility: hidden;
+	transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	-o-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition-timing-function: cubic-bezier(.08, .72, .71, .96);
+	-webkit-transition-timing-function: cubic-bezier(.08, .72, .71, .96);
+	
+}
+
+.nav-slide.hover{
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	overflow: hidden;
+	z-index: 15;
+	visibility: visible;
+}
+
+/*二级菜单*/
+.nav-slide-o li a{
+	line-height: 35px;	/*控制标签高度*/
+	display: block;
+	padding: 0 20px;
+	font-size: 14px;
+	overflow: hidden;
+	text-align: left;
+	position: relative;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+}
+.nav-slide-o li a:before{
+	content: '';
+	position: absolute;
+	left: -230%;
+	top: 0px;
+	width: 200%;
+	height: 100%;
+	background: #629feb;
+	z-index: 1;
+	transform: skew(30deg, 0);
+	-webkit-transform: skew(30deg, 0);
+	-moz-transform: skew(30deg, 0);
+	-o-transform: skew(30deg, 0);
+	-ms-transform: skew(30deg, 0);
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+}
+
+.nav-slide-o {
+    width: 110%;
+    height: 100%;
+    overflow-y: scroll;
+/*     padding-right: 17px; Increase/decrease this value for cross-browser compatibility */
+}
+
+.nav-slide-o li a:hover{background: #357dd7;}
+.nav-slide-o li a:hover:before{left: -60px;}
+.nav-slide-o li a span{position: relative;z-index: 1;}
+.nav-slide-o {display: none;}
+

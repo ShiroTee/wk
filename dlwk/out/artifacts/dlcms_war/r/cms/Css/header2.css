@@ -1,0 +1,31 @@
+/* CSS Document */
+.topbox {width:100%; height:35px; }
+.topbox .top {width:1000px; height:35px; margin:0 auto;background:url(../Images/head_bg.jpg) repeat-x;}
+.topbox .top .date {padding-left:10px;width:auto; float:left; padding-right:40px;margin-top: 5px;}
+.topbox .top .date a {color:#1071be; font-weight:bold; text-decoration:none;}
+.topbox .top .collect {width:auto; line-height:35px; float:right;padding-right:10px;height: 35px}
+.top_nav{height:35px; width:998px; margin:0 auto; line-height:40px;}
+.top_nav input{background:url(../www/red/img/denglu.png) no-repeat; width: 43px;height: 23px;margin-left: 10px;	margin-top: 0px; color:white; border:0; font-size:14px; font-family:'Microsoft YaHei'}
+.top_nav ul{float:right;}
+.top_nav ul li{float:left;}
+.top_nav ul li span{padding:0 10px;}
+.header {width:1000px; height:auto; margin:0 auto;background-color:#fff}
+.banner {width:1000px; border:none;position:relative;text-align:right;}
+.top_nav a {color:#333; text-decoration:none;}
+.top_nav a:hover {color:#0788da; text-decoration:none;}
+
+.top_nav h1.logo{height:87px; width:988px; margin:33px auto 0; padding-left:10px;}
+
+
+.nav2{width:990px; height:39px; margin:0 auto; line-height:39px; background:url(../Images/nav_bg.jpg) repeat-x; padding-left:10px; position:relative;margin-top: 3px}
+.nav2 li{float:left; color:#0372bb; list-style: none;}
+.nav2 li a{color:#fff; display:inline-block; height:39px; line-height:39px; width:100px; text-align:center;font-size:14px;font-weight:bold;margin:0 3px}
+.nav2 li a:hover,.nav2 li a.current{ background:url(../Images/nav_hover.jpg)repeat-x;background-color: #0072bf;}
+.nav2 li .a1{width:100px;margin-left: -10px;}
+
+.nav2 li .a1:hover i{background:url(../Images/home.png) no-repeat bottom center;}
+.nav2 li .a2{ width:112px;}
+.nav2 li .a3{ width:93px;}
+.nav2 li .a2:hover,.nav2 li .current1{background:url(../Images/nav_hover.jpg)repeat-x; }
+.nav2 li .a3:hover,.nav2 li .current2{background:url(../Images/nav_hover.jpg)repeat-x; }
+.nav2 li span{padding:0 10px;}

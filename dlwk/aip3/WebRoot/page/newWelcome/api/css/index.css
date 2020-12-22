@@ -1,0 +1,111 @@
+html,body{
+	overflow: auto;
+}
+.main_content{
+    /*margin-left: 290px; */
+    display: table;
+    /* padding: 25px 0; */
+    width: 1050px;
+    margin: 25px auto;
+    position: relative;
+}
+.category{
+    position: absolute;
+    left: -70px;
+    width: 40px;
+    font-size: 16px;
+    background: #F1AD12;
+    color: #fff;
+    padding: 20px 13px;
+    cursor: pointer;
+} 
+/* .category:hover .category_main{
+	display:block;
+} */
+.category_main{
+	padding: 0 30px 60px !important;
+    width: 350px;
+    position: absolute;
+    z-index: 10;
+    height: inherit;
+    background: #fff !important;
+    border-radius: 8px;
+    left: 50px;
+    top:0;
+    display:none;
+}
+.category_main .title{
+	color: #F77125;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 50px;
+    margin-top: 30px;
+}
+.category_main .line{
+    color: #666;
+    font-size: 14px;
+}
+.category_main span{
+    color: #666;
+    padding: 0 10px;
+    cursor: pointer;
+    
+}
+.category_main span:hover,
+.category_main span.cur{
+    color: #F77125;
+}
+.card_item{
+    width: 200px;
+    height: 220px;
+    padding: 20px;
+    margin: 0 10px 10px 0;
+    text-align: left;
+    position: relative;
+}
+.card_item .title{
+	padding-top: 100px;
+    padding-bottom: 10px;
+    background: url(../images/icon.png) no-repeat top center;
+}
+.card_item span{
+	font-size: 12px;
+    line-height: 16px;
+    background: red;
+    color: #fff;
+    padding: 2px 5px;
+}
+.card_item i{
+	position: absolute;
+    bottom: 20px;
+}
+.card_item i:last-child{
+    right: 20px;
+    color:red;
+}
+.search_left {
+    height: 34px;
+}
+.card_item .todo{
+	display:none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 109px;
+    text-align: center;
+    background: rgba(51, 51, 51, 0.86);
+    color: #fff;   
+    padding: 0 20px; 
+    z-index: 1;
+}
+.card_item .todo div{
+	border-bottom:1px solid #fff;
+}
+.card_item .todo div:last-child{
+	border-bottom:0px solid #fff;
+}
+.card_item:hover .todo{
+	display:block;
+}

@@ -1,0 +1,32 @@
+﻿/*!
+ * Ext JS Library 3.2.0
+ * Copyright(c) 2006-2010 Ext JS, Inc.
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+#mytree .x-panel-body {
+    padding: 10px;
+    background: #fff;
+    color: #555;
+}
+#mytree a:link, #mytree a:visited {
+    color: #369;
+}
+#mytree h2 {
+    color: #369;
+    font-size: 15px;
+}
+#mytree p {
+    margin-bottom: 5px;
+}
+/*
+.author-m {
+    background-image: url(../shared/icons/fam/user.gif) !important;
+}
+.author-f {
+    background-image: url(../shared/icons/fam/user_female.gif) !important;
+}
+.book {
+    background-image: url(../shared/icons/fam/book.png) !important;
+}
+*/

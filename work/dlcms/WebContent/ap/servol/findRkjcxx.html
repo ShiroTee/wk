@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="unspace_query_html">
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>人口基础信息查询</title>
+<link href="../../r/cms/www/red/css/index02.css" rel="stylesheet" 0type="text/css" />
+<link href="../../r/cms/www/red/css/layout02.css" rel="stylesheet" 0type="text/css" />
+<script type="text/javascript" src="../../r/cms/jquery17.js"></script>
+<script type="text/javascript" src="../../r/cms/jquery.colorAnimations.js"></script>
+<script type="text/javascript" src="../js/findRkjcxx.js"></script>
+</head>
+<body class="unspace_query_body">
+<div class="query_content">
+		<div class="querychannel_title">
+			<span>人口基础信息查询(信息验证)</span>
+		</div>
+		<form class="query_form" id="rkjcxx_form">
+			<div>
+				<label style="margin-left:0;">姓名：</label>
+				<input type="text" name="xm"  id="xm" style="width:100px;" maxlength="10"/>
+				<b class="check_tip" title="姓名格式不正确"></b>
+				<label style="margin-left:20px;">证件类型：</label>
+				<select name="zjlx" id="zjlx" style="width:160px;">
+				</select>
+				<label>证件号码：</label>
+				<input type="text" name="zjhm" id="zjhm"  maxlength="25"/>
+				<b class="check_tip_zjhm" title="证件号码格式不正确"></b>
+			</div>
+			<div style="position:relative;">
+				<input type="submit" name="selectName" value="查询" />
+				<b class="waiting"></b>
+				<input type="reset" name="resetName" value="重置" />
+			</div>
+		</form>
+		<hr />
+		<div class="query_result_div">
+			<div class="result_left f-left">
+				<ul>
+					<li><label>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</label><span id="xms"></span></li>
+					<li><label>曾&nbsp;用&nbsp;名：</label><span id="cyms"></span></li>
+					<li><label>性&nbsp;&nbsp;&nbsp;&nbsp;别：</label><span id="xbs"></span></li>
+					<li><label>民&nbsp;&nbsp;&nbsp;&nbsp;族：</label><span id="mzs"></span></li>
+					<li><label>证件类型：</label><span id="zjlxs"></span></li>
+					<li><label>证件号码：</label><span id="zjhms"></span></li>
+				</ul>
+			</div>
+			<div class="result_right  f-left">
+				<ul>
+					<li><label>宗教信仰：</label><span id="zjzys"></span></li>
+					<li><label>文化程度：</label><span id="whcds"></span></li>
+					<li><label>婚姻状况：</label><span id="hyzks"></span></li>
+					<li><label>政治面貌：</label><span id="zzmms"></span></li>
+					<li><label>户口性质：</label><span id="hkxzs"></span></li>
+					<li><label>出生日期：</label><span id="csrqs"></span></li>
+				</ul>
+			</div>
+		</div>
+</div>		
+</body>
+</html>

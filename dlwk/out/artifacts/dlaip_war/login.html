@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<style type="text/css">
+/* edit begin */
+*{ margin:0; padding:0;}
+body{ font-size:12px; font-family: "微软雅黑", SimHei, sans-serif;}
+/* edit end */
+.index_right2 {
+	width: 321px;
+	height: 250px;
+	background: url(images/bg2.jpg) no-repeat;
+}
+/* edit begin */
+.index_right2 h2 {
+	font-size: 20px;
+	color: #164a9c;
+	font-weight: normal;
+	text-align: center;
+	height: 60px;
+	line-height: 60px;
+}
+/* edit end */
+.index_right2 table {
+	padding-left: 30px;
+}
+
+.index_right2 table tr {
+	height: 20px;
+}
+
+.index_right2 table td.one {
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	font-size:14px;
+}
+
+/* edit begin */
+.index_right2 table td input{width:201px; height:28px; border:1px solid #a2bae1;}
+.index_right2 table td input.sbt{ width:265px; height:34px; background:#f6b530; border:none;-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; font-size:20px; color:#fff; font-family:"微软雅黑";}
+.index_right2 table td.two a.two{ float:right;}
+
+/* edit end */
+</style>
+<script type="text/javascript"
+	src="resource/scripts/jquery-1.9.1.min.js"></script>
+<script>
+	function login(LKey)
+	{
+		var loginName = document.getElementById("loginName").value;
+		var loginPassword = document.getElementById("loginPassword").value;
+		if (loginName == "")
+		{
+			alert("用户名不能为空");
+			return false;
+		}
+		if (loginPassword == "")
+		{
+			alert("密码不能为空");
+			return;
+		}
+		$.ajax(
+		{
+			url : 'app/http/ums/loginHandler/login?number=' + Math.random(),
+			type : 'POST',
+
+			data :
+			{
+				loginName : loginName,
+				loginPassword : loginPassword,
+				LKey : LKey
+			},
+
+			dataType : 'json',
+
+			timeout : 30000,
+
+			error : function()
+			{
+				alert('请求超时');
+			},
+
+			success : function(result, action)
+			{
+				if (result.success)
+				{
+					//document.location.href = "index.jsp";
+					window.parent.location.href = "index.jsp";
+				} else
+				{
+					alert(result.msg);
+					if (result.msg == "用户已经在别处登录")
+					{
+						if (confirm("该账号已在别处登录，是否继续？"))
+						{
+							login("LKey");
+						}
+						return;
+					}
+					document.getElementById("loginName").value = "";
+					document.getElementById("loginPassword").value = "";
+					document.getElementById("loginName").focus();
+
+				}
+			}
+
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="index_right2">
+		<h2>信息资源中心应用系统入口</h2>
+		<form id="form1" name="form1" method="post" target="hidden_frame">
+			<table>
+
+				<tr>
+					<td class="one">用户名：</td>
+					<td><input type="text" name="userName" id="loginName" /></td>
+				</tr>
+				<tr>
+					<td class="one">密&nbsp;&nbsp;&nbsp;码：</td>
+					<td><input type="password" name="passWord" id="loginPassword" /></td>
+				</tr>
+				<!--  <tr><td >验证码：</td><td> <input		type="text"   name="captcha" id="checkCode1" /><img src="${base}/captcha.svl?d=1397543655499"	onclick="refreshCaptcha1();" id="imgcaptcha1" 
+									style="width: 65px; height: 30px; vertical-align: middle;"/></td></tr>-->
+
+
+
+				<tr>
+					<td style="padding-top: 20px;" colspan="2"><input
+						type="hidden" name="desktop_model" value="desktop_model" /><input
+						type="button" value="登录" class="sbt" onclick='login();' /></td>
+				</tr>
+
+			</table>
+		</form>
+	</div>
+</body>
+</html>

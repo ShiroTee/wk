@@ -1,0 +1,72 @@
+package com.jeecms.rdp.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.jeecms.cms.entity.main.CmsSite;
+import com.jeecms.cms.entity.main.CmsUser;
+import com.jeecms.cms.web.CmsUtils;
+import com.jeecms.cms.web.FrontUtils;
+import com.jeecms.common.web.ResponseUtils;
+
+/**
+ * 服务申请
+ * 
+ * @author zhyg
+ * 
+ */
+@Controller
+public class RdpCommonAct {
+	private static final Logger log = LoggerFactory
+			.getLogger(RdpCommonAct.class);
+
+	public static final String COOKIE_ERROR_REMAINING = "_error_remaining";
+	public static final String LOGIN_INPUT = "tpl.loginInput";
+	public static final String LOGIN_STATUS = "tpl.loginStatus";
+	public static final String SERVID_ARR = "servIdArray";
+	public static final String APPLY_ORG = "applyOrg";
+	public static final String APPLY_USE = "applyUse";
+	public static final String PHONE_NUMBER = "phoneNumber";
+
+	@RequestMapping(value = "/rdpAct/checkLogin.jspx", method = RequestMethod.POST)
+	public String checkLogin(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+		// 设置站点信息
+		CmsSite site = CmsUtils.getSite(request);
+		FrontUtils.frontData(request, model, site);
+
+		JSONObject responseData = new JSONObject();
+		// 获取用户登陆信息--zhyg
+		CmsUser user = CmsUtils.getUser(request);
+		// successo为false并且status：0-用户未登陆, 3-登陆用户不是RDP平台用户，不能申请服务, 4-已登陆并且是RDP平台用户
+		// 用户未登陆
+		if (user == null) {
+			 responseData.put("success", false);
+			 responseData.put("status", 0);
+			 ResponseUtils.renderJson(response, responseData.toString());
+			 return null;
+		} else {
+			String userId = user.getRdpUserId();
+			// 判断登陆用户是否是RDP平台用户
+			if (StringUtils.isBlank(userId)) {
+				responseData.put("success", false);
+				responseData.put("status", 3);
+				ResponseUtils.renderJson(response, responseData.toString());
+				return null;
+			}
+		}
+		responseData.put("success", true);
+		responseData.put("status", 4);
+		ResponseUtils.renderJson(response, responseData.toString());
+	return null;
+	}
+}

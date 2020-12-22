@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="137px" viewBox="0 0 200 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>list_7svg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="100%" cy="100%" fx="100%" fy="100%" r="164.130046%" gradientTransform="translate(1.000000,1.000000),scale(0.666667,1.000000),rotate(-132.183362),translate(-1.000000,-1.000000)" id="radialGradient-1">
+            <stop stop-color="#0028FF" offset="0%"></stop>
+            <stop stop-color="#2C9AFF" offset="99.9800702%"></stop>
+        </radialGradient>
+        <path d="M0,3.19991316 C0,1.43264992 1.44190407,0 3.19275718,0 L98.8072428,0 C100.570554,0 102,1.43596598 102,3.19991316 L102,64.8000868 C102,66.5673501 100.558096,68 98.8072428,68 L3.19275718,68 C1.42944608,68 0,66.564034 0,64.8000868 L0,3.19991316 Z M67,68 L67,60 L102,60 L102,57 L67,57 L67,41 L102,41 L102,38 L67,38 L67,18 L102,18 L102,14 L67,14 L67,0 L64,0 L64,25 L34,25 L34,0 L31,0 L31,39 L0,39 L0,42 L31,42 L31,68 L34,68 L34,54 L64,54 L64,68 L67,68 Z M34,28 L64,28 L64,50 L34,50 L34,28 Z" id="path-2"></path>
+        <filter x="-27.0%" y="-24.3%" width="144.1%" height="166.2%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="-5" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="6.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="政务信息资源目录-各种模板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list_7">
+            <g id="Rectangle" transform="translate(51.000000, 34.000000)">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <g id="Mask">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-2"></use>
+                    <use fill="url(#radialGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+                <rect id="Rectangle-2" fill="#6A68FF" mask="url(#mask-3)" x="32" y="25" width="32" height="45"></rect>
+                <rect id="Rectangle-2-Copy" fill="#FF972E" mask="url(#mask-3)" x="66" y="15" width="40" height="55"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

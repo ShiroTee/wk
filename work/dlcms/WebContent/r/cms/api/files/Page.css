@@ -1,0 +1,378 @@
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	overflow-x:hidden;
+	/* overflow-y:auto;
+	overflow: auto;
+	style="margin:0 auto;position:relative;overflows:scroll;overflow-x:hidden;" */
+}
+html {
+    /* overflow: auto;
+	overflow-y:auto;*/
+	overflow-x:hidden;
+	
+}
+
+ 
+
+/*img, input, textarea { vertical-align: middle; border:0; }*/
+
+td,th,div,body,textarea,input,ul,ol,li,b,strong
+{
+ font-size: 12px;
+ font-family: "微软雅黑", "宋体","tahoma", Verdana, Geneva, sans-serif;
+ color: #3e3e3e;
+ text-decoration: none;
+ text-shadow: 1px 1px 1px #FFF;
+ word-break:break-all;
+ 
+}
+ 
+input, textarea 
+{
+	display:block;
+	background-color: #f9f9f9;
+	margin: 1px;
+	padding-top:0px;
+	border:1px solid #dddddd;
+	border-top: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-left: 1px solid #dddddd;
+	color: #413f3f;
+	
+	
+}
+table
+{
+	padding-top:0px;
+}
+img
+{
+	display:block;
+	border:0;
+}
+div img
+{
+	
+	display:inline;
+}
+
+a:link {
+	color: #1B3214;
+	text-decoration: none;
+}
+a:visited {
+	color: #1B3214;
+	text-decoration: none;
+}
+a:hover {
+	color: #1B3214;
+	text-decoration: underline;
+	/*background-color: #BCD8EF;*/
+}
+
+
+
+.textTopLink
+{
+	color:#FFFFFF;
+	text-shadow: 1px 1px 1px #000;
+}
+.textLink 
+{
+	color:#3e3e3e;
+}
+.topMenu
+{
+	cursor:pointer;
+}
+.tdNews
+{
+	padding-top:1px;
+	height:27px;
+}
+.textNews
+{
+	cursor:pointer;
+	width:220px; 
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	word-wrap:normal;
+	color:#5e5e5e;
+	blr:expression(this.onFocus=this.blur()) ;/*for IE*/
+	outline:none; /*for firefox */
+	
+ }
+ 
+
+
+
+ .detialNews
+{
+	
+	width:550px; 
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	word-wrap:normal;
+	color:#5e5e5e;
+	align:left;
+ }
+ 
+.detialTD
+{
+	
+	width:600px; 
+	height:35px;
+	text-align:left;
+ }
+
+ .catalogTitle
+{
+	color:#77b7cb;
+	font-size:14px; 
+	font-weight:bold;
+} 
+ 
+  .catalogHead
+{
+	color:#7b7a7a;
+	font-weight:bold;
+}
+ .catalogTD
+{
+	color:#747373;
+}
+
+.textDownload
+{
+	width:500px; 
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	word-wrap:normal;
+	color:#989898;
+	blr:expression(this.onFocus=this.blur()) ;/*for IE*/
+	outline:none; /*for firefox */
+	
+ }
+ 
+ .LeftPanel_TD
+ {
+	 background:url(/Portal/images/Portal/Index/LeftPanel_Top_BG_Center.png);
+	 height:34px;
+	 padding-left:53px;
+	 color:#5e5e5e; 
+	 font-size:14px; 
+	 font-weight:bold; 
+	 cursor:pointer;
+}
+ .LeftPanel_TD_Bottom
+ {
+	 background:url(/Portal/images/Portal/Index/LeftPanel_Top_BG_Bottom.png);
+	 height:37px;
+	 padding-left:53px;
+	 color:#5e5e5e; 
+	 font-size:14px; 
+	 font-weight:bold; 
+	 cursor:pointer;
+	 padding-top:0px;
+}
+ .LeftPanel_Spot
+ {
+	display:inline;
+	padding-right:12px; 
+	padding-bottom:4px;
+	width:3px;
+	height:3px; 
+}
+
+.DivScroll
+{
+	overflow:auto; 
+	overFlow-x: hidden;
+    overFlow-y: auto; 
+	scrollBar-face-color: #019eef;         
+	scrollBar-hightLight-color: #dddddd;    
+	scrollBar-3dLight-color: #dddddd;     
+	scrollBar-darkshadow-color:#dddddd;   
+	scrollBar-shadow-color:#dddddd;      
+	scrollBar-arrow-color:#ececec;       
+	scrollBar-track-color:#dddddd;         
+	scrollBar-base-color:#0773aa;          
+}
+
+.PageFirstClass
+{
+	 padding-right:23px;
+	 color:#f4f4f4; 
+	 font-size:14px; 
+	 font-weight:bold; 
+	 
+}
+.PageSecondClass
+{
+	 padding-right:23px;
+	 color:#f4f4f4; 
+	 font-size:14px; 
+}
+.APIMenus
+{
+	padding-left:20px;
+	width:110px;
+	height:42px;
+	cursor:pointer;
+}
+
+.APIh3
+{
+	color:#999999;
+	font-size:14px;
+	font-weight:bold;
+	padding-bottom:12px;
+	padding-top:8px;
+}
+ 
+.APIh3 img
+{
+	display:inline;
+}
+
+ 
+.APIh4
+{
+	color:#5e8091;
+	padding:4px;
+	
+}
+ 
+
+.APItext
+{
+	color:#444444;
+	font-size:12px;
+	line-height:28px;
+}
+
+.APITitle
+{
+	color:#666666;
+	font-size:14px;
+}
+.APITD
+{
+	color:#888888;
+	font-size:12px;
+	line-height:26px;
+	padding:0px;
+	padding-left:5px;
+}
+
+.APIMenuTitle
+{
+	color:#888888;
+	font-size:12px;
+	line-height:22px;
+	padding:0px;
+	padding-left:5px;
+	cursor:pointer;
+}
+.APIMenuTitle_Over
+{
+	color:#1369c0;
+	font-size:13px;
+	font-weight:bold;
+	line-height:22px;
+	padding:0px;
+	padding-left:5px;
+	cursor:pointer;
+	
+	
+}
+ 
+ 
+
+.APIMenuSecond
+{
+	color:#888888;
+	font-size:12px;
+	line-height:22px;
+	padding:0px;
+	padding-left:5px;
+}
+
+
+.HRDiv
+{
+	color: #dddddd;
+	height: 1px; 
+	border: 0;
+	background: #dddddd;
+}
+.HRDiv_gray
+{
+	color: #dddddd;
+	height: 1px; 
+	border: 0;
+	background: #dddddd;
+}
+.PriceImage
+{
+	position:absolute; 
+	top:50px; 
+	left:-10px;
+}
+.APItable 
+{
+	border:1px solid #cccccc;
+	border-collapse:collapse;
+	text-align:left;
+	line-height:26px;
+	
+
+}
+.APItable td
+{
+	border: solid #cccccc 1px; 
+	text-align:left;
+	padding-left:10px;
+	line-height:26px;
+	padding:4px;
+}		
+.APILink  
+{
+	color:#5e8091;
+	font-size:12px;
+	padding-left:40px;
+	cursor:pointer;
+}		
+ 
+ .APICode
+{
+	border:solid #dddddd 1px;
+	padding:12px;
+	width:95%;
+	background: #f8f8f8;
+	text-align:left;
+	line-height:26px;
+	
+}
+ .ResourceInfo
+{
+	border:solid #dddddd 1px;
+	padding:10px;
+	background: #f8f8f8;
+	text-align:left;
+	line-height:26px;
+	
+}
+
+
+	
+	
+	

@@ -1,0 +1,96 @@
+.container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none
+}
+
+.container .ref {
+	position: absolute;
+	background-color: #03162b;
+	opacity: 1;
+	filter: alpha(opacity=80)
+}
+
+.container .left-wrap {
+	position: absolute;
+	height: 100%;
+	width: 18%
+}
+
+.container .left-wrap .ref:nth-child(1) {
+	position: relative;
+	height: calc(50% - 20px)
+}
+
+.container .left-wrap .ref:nth-child(2) {
+	position: relative;
+	margin-top: 10px;
+	height: 45%
+}
+
+.container .middle-wrap {
+	position: absolute;
+	height: 100%;
+	width: calc(64% - 20px);
+	left: calc(18% + 10px)
+}
+
+.container .middle-wrap .top-row {
+	position: relative;
+	height: calc(50% - 20px)
+}
+
+.container .middle-wrap .top-row .ref {
+	position: absolute;
+	height: 100%;
+	width: 100%
+}
+
+.container .middle-wrap .mid-row {
+	position: relative;
+	margin-top: 10px;
+	height: 45%
+}
+
+.container .middle-wrap .mid-row .ref:nth-child(1) {
+	position: absolute;
+	height: 100%;
+	width: calc(50% - 10px)
+}
+
+.container .middle-wrap .mid-row .ref:nth-child(2) {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	left: calc(50%)
+}
+
+.container .right-wrap {
+	position: absolute;
+	height: 100%;
+	width: 18%;
+	right: 0
+}
+
+.container .right-wrap .ref:nth-child(1) {
+	position: relative;
+	height: calc(50% - 20px)
+}
+
+.container .right-wrap .ref:nth-child(2) {
+	position: relative;
+	margin-top: 10px;
+	height: 45%
+}
+
+/*.container .right-wrap .ref:nth-child(3) {
+	position: absolute;
+	margin-top: 10px;
+	height: 25%;
+	width: 100%
+}*/

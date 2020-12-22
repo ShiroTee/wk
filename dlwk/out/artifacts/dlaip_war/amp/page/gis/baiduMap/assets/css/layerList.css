@@ -1,0 +1,286 @@
+/***图层样式****/
+ul, ol {
+    list-style: outside none none;
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: outside;
+    padding-left: 5px;
+    padding-right: 2px;
+}
+#cityBoxCon
+{
+	left: 0px;
+}
+#cityBoxCon li a:HOVER
+{
+	color: #4073D8;
+	text-decoration: none;
+}
+.layerBoxStyle
+{
+	float: left;
+	height: 70px;
+	width: 70px;
+	text-align: center;
+	line-height: 18px;
+}
+.layerNameStyle
+{
+	height: 60px;
+	width: 70px;
+	display: block;
+	color: #666;
+}
+/***餐饮***/
+
+#repast a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 24px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll 0px 0px transparent;
+}
+#repast a img:HOVER
+{
+	background-position: 0px -38px;
+}
+/***丽人***/
+#beauty a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 22px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -27px 0px transparent;
+}
+#beauty a img:HOVER
+{
+	background-position: -27px -38px;
+}
+/***餐厅***/
+#caterorder a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 30px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -586px 0px transparent;
+}
+#caterorder a img:HOVER
+{
+	background-position: -586px -38px;
+}
+/***景点***/
+#viewpoint a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 28px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -78px 0px transparent;
+}
+#viewpoint a img:HOVER
+{
+	background-position: -78px -38px;
+}
+/***地铁***/
+#li_subway a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 26px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -50px 0px transparent;
+}
+#li_subway a img:HOVER
+{
+	background-position: -50px -38px;
+}
+/***购物***/
+#shopping a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 26px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -109px 0px transparent;
+}
+#shopping a img:HOVER
+{
+	background-position: -109px -38px;
+}
+/***ATM***/
+#atm a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 30px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -387px 0px transparent;
+}
+#atm a img:HOVER
+{
+	background-position: -387px -38px;
+}
+/***网吧***/
+#internet a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 28px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -328px 0px transparent;
+}
+#internet a img:HOVER
+{
+	background-position: -328px -38px;
+}
+/***咖啡厅***/
+#coffee a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 32px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -293px 0px transparent;
+}
+#coffee a img:HOVER
+{
+	background-position: -293px -38px;
+}
+/***停车场***/
+#carpark a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 28px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -420px 0px transparent;
+}
+#carpark a img:HOVER
+{
+	background-position: -420px -38px;
+}
+/***超市***/
+#market a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 32px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -138px 0px transparent;
+}
+#market a img:HOVER
+{
+	background-position: -138px -38px;
+}
+/***KTV***/
+#ktv a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 29px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -172px 0px transparent;
+}
+#ktv a img:HOVER
+{
+	background-position: -172px -38px;
+}
+/***银行***/
+#bank a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 25px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -204px 0px transparent;
+}
+#bank a img:HOVER
+{
+	background-position: -204px -38px;
+}
+/***加油站***/
+#fillingstation a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 28px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -262px 0px transparent;
+}
+#fillingstation a img:HOVER
+{
+	background-position: -262px -38px;
+}
+/***酒吧***/
+#hotelbar a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 28px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -231px 0px transparent;
+}
+#hotelbar a img:HOVER
+{
+	background-position: -231px -38px;
+}
+/***学校***/
+#school a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 30px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -450px 0px transparent;
+}
+#school a img:HOVER
+{
+	background-position: -450px -38px;
+}
+/***医院***/
+#hospital a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 32px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -483px 0px transparent;
+}
+#hospital a img:HOVER
+{
+	background-position: -483px -38px;
+}
+/***洗浴***/
+#bath a img
+{
+	background-position: 0px 0px;
+	margin: 0px auto 5px;
+    display: block;
+	width: 25px;
+	height: 32px;
+	background: url('../img/layers.png') no-repeat scroll -359px 0px transparent;
+}
+#bath a img:HOVER
+{
+	background-position: -359px -38px;
+}

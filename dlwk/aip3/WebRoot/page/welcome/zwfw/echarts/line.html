@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='content-type'>
+ <title>Echarts图表Demo</title>
+ <script src="js/esl/esl.js"></script>
+</head>
+
+<body>
+
+<div id="line" style="width:800px;height:600px;">  </div>
+ <script type="text/javascript">
+
+ var fileLocation ='js/echarts';
+require.config({
+   
+    paths:{ 
+          echarts: fileLocation,
+            'echarts/chart/line': fileLocation,
+            'echarts/chart/bar': fileLocation,
+            'echarts/chart/pie': fileLocation
+    }
+});
+
+// 作为入口
+require(
+    [
+        'echarts',
+        'echarts/chart/line'
+    ], 
+	
+	displayChart
+    
+);
+
+function displayChart(ec) {
+         //折线图
+        var lineChart = ec.init(document.getElementById('line'));
+		var lineChartOtion = getLineChartOption();	
+        lineChart.setOption(lineChartOtion);
+    }
+
+	//获得Line图的选项和数据
+	function getLineChartOption(){
+	var lineChartOption={
+    title : {
+        text: '未来一周气温变化',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高气温','最低气温']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : true,
+            dataView : {readOnly: false},
+            magicType:['line', 'bar'],
+            restore : true,
+            saveAsImage : true
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            axisLabel : {
+                formatter: '{value} °C'
+            },
+            splitArea : {show : true}
+        }
+    ],
+    series : [
+        {
+            name:'最高气温',
+            type:'line',
+            itemStyle: {
+                normal: {
+                    lineStyle: {
+                        shadowColor : 'rgba(0,0,0,0.4)'
+                    }
+                }
+            },
+            data:[11, 11, 15, 13, 12, 13, 10]
+        },
+        {
+            name:'最低气温',
+            type:'line',
+            itemStyle: {
+                normal: {
+                    lineStyle: {
+                        shadowColor : 'rgba(0,0,0,0.4)'
+                    }
+                }
+            },
+            data:[-2, 1, 2, 5, 3, 2, 0]
+        }
+    ]
+};
+return lineChartOption;
+	}
+
+</script>
+</body>
+</html>

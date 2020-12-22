@@ -1,0 +1,180 @@
+/*
+    @page.css
+    @锟斤拷劬锟斤拷梅锟斤拷锟�
+    @2016-12-4
+*/
+.page-head {
+	background-color: #03162b
+}
+
+.page-body {
+	background-color: #02040a
+}
+
+.corporation_left {
+	position: absolute;
+	top: 61px;
+	left: 0;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: -webkit-calc(27%);
+	width: calc(27%)
+}
+
+.corporation_right {
+	position: absolute;
+	top: 61px;
+	right: 0;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: calc(27%);
+	width: -webkit-calc(27%)
+}
+
+.corporation_container {
+	position: absolute;
+	top: 61px;
+	left: 27%;
+	height: -webkit-calc(100% - 61px);
+	height: calc(100% - 61px);
+	width: calc(46%);
+	width: -webkit-calc(46%)
+}
+
+.subCorporDiv {
+	position: relative;
+	height: -webkit-calc(33.3% - 12px);
+	height: calc(50% - 12px);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.subCorporDiv div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.titletop {
+	position: absolute;
+	top: 5px;
+	left: 8px;
+	font-size: 15px;
+	color: #018ccd;
+	width: 250px;
+	z-index: 2;
+	font-weight: normal;
+	font-family: 'Microsoft YaHei'
+}
+
+.midCorporDiv {
+	position: relative;
+	margin: 10px 5px;
+	height: -webkit-calc(50% - 12px);
+	height: calc(50% - 12px);
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDive {
+	position: relative;
+	margin: 10px 5px;
+	height: -webkit-calc(35% - 14px);
+	height: calc(50% - 14px);
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDiv2 {
+	position: relative;
+	height: -webkit-calc(65% - 12px);
+	height: calc(50%);
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	border-radius: 3px
+}
+
+.midCorporDive2 {
+	position: relative;
+	height: -webkit-calc(35% - 14px);
+	height: calc(50%);
+	margin: 10px 5px;
+	width: calc(100% - 10px);
+	width: -webkit-calc(100% - 10px);
+	border-radius: 3px
+}
+
+.midCorporDiv1 {
+	position: relative;
+	margin: 0px 5px;
+	height: -webkit-calc(65% - 12px);
+	height: calc(100% - 12px);
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px;
+	float:left
+}
+
+.midCorporDive1 {
+	position: relative;
+	height: -webkit-calc(35% - 14px);
+	height: calc(100% - 14px);
+	margin: 10px 5px;
+	width: calc(50% - 10px);
+	width: -webkit-calc(50% - 10px);
+	background-color: #03162b;
+	border-radius: 3px;
+	float:left
+}
+
+.midCorporDive div, .midCorporDiv div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.midCorporDive1 div, .midCorporDiv1 div {
+	background-color: #03162b;
+	border-radius: 3px
+}
+
+.chartBarEx, .chartDieBarEx {
+	position: relative;
+	float: left;
+	width: calc(50%);
+	width: -webkit-calc(50%);
+	height: -webkit-calc(100%);
+	height: calc(100%)
+}
+
+#IndustrySurvialEx {
+	position: relative;
+	margin: 10px auto
+}
+
+#IndustrySurvialEx a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 6px;
+	text-decoration: none
+}
+
+#IndustrySurvialEx a:hover {
+	border: 1px solid #eee;
+	background: #000;
+	border-radius: 5px
+}
+
+#IndustrySurvialEx a:hover span {
+	display: block;
+	visibility: visible
+}

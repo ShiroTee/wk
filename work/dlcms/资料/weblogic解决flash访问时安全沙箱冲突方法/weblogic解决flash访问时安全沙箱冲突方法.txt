@@ -1,0 +1,2 @@
+1、需要把crossdomain.xml放到服务根目录，保证访问服务器根目录能正常访问（如：http://localhost:7001/crossdomain.xml）
+2、需要在Middleware\user_projects\domains\base_domain\config下配置mimemappings.properties文件

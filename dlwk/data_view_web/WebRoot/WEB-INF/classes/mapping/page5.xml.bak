@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page5">
+	<!--left-->
+	<select id="getLeft1" resultType="hashmap" parameterType="map">
+	    SELECT COUNT(a.xxzybm) total FROM ztxx a INNER JOIN  (select xxzybm from ywxtxxzygxb group by xxzybm) b ON a.xxzybm = b.xxzybm WHERE a.sfjck = '否' AND a.ztkbm=#{code}
+		UNION ALL
+		SELECT COUNT(xxzybm) total FROM ztxx WHERE sfjck = '否' AND ztkbm=#{code}
+	</select>
+	<select id="getLeft2" resultType="hashmap" parameterType="map">
+	    select ccjz name,count(xxzybm) value from(select a.xxzybm,b.ccjz from ztxx a left join (select distinct xxzybm,ccjz from xxzy) b on a.xxzybm=b.xxzybm
+		where a.ztkbm=#{code})group by ccjz order by value desc
+	</select>
+	<select id="getLeft3" resultType="hashmap" parameterType="map">
+	    select sfkf name,count(xxzybm) value from(select a.xxzybm,b.sfkf from ztxx a left join (select distinct xxzybm,sfkf from xxzy) b on a.xxzybm=b.xxzybm
+		where a.ztkbm=#{code})group by sfkf order by value desc
+	</select>
+	<!--mid-->
+	<select id="getMid1" resultType="hashmap">
+	    SELECT ztkbm code,ztkmc name,xxzysl val1,bxqxxzysl val2 FROM ztxxhz WHERE sfjck='否' order by xxzysl desc
+	</select>
+	<select id="getMid2" resultType="hashmap" parameterType="map">
+		<!--select gxlx name,count(xxzybm) value from(select a.xxzybm,b.gxlx from ztxx a left join (select distinct xxzybm,gxlx from xxzy) b on a.xxzybm=b.xxzybm
+		where a.ztkbm=#{code})group by gxlx order by value desc-->	
+select name,sum(value) VALUE from(
+select decode(name, '政府内部条件共享' , '有条件共享', '政府内部强制共享' , '有条件共享', '社会公开' , '无条件共享', '不予共享') name,value
+  from (select gxlx name,count(xxzybm) value
+          from (select a.xxzybm, b.gxlx
+                  from ztxx a
+                  left join (select distinct xxzybm, gxlx from xxzy) b
+                    on a.xxzybm = b.xxzybm)
+         group by gxlx
+         order by value desc ) t
+         )  group by name
+	</select>
+	<select id="getMid3" resultType="hashmap" parameterType="map">
+		select gxfs name,count(xxzybm) value from(select a.xxzybm,b.gxfs from ztxx a left join (select distinct xxzybm,gxfs from xxzy) b on a.xxzybm=b.xxzybm
+		where a.ztkbm=#{code})group by gxfs order by value desc
+	</select>
+	<!--right-->
+	<select id="getRight1_1" resultType="hashmap" parameterType="map">
+		select name,sum from (SELECT b.zwbmmc name,count(a.xxzybm) sum FROM ztxx a LEFT JOIN xxzy b ON b.xxzybm=a.xxzybm WHERE a.ztkbm=#{code} and b.zwbmmc is not null GROUP BY b.zwbmmc ORDER BY sum DESC) where rownum &lt; 6
+	</select>
+	<select id="getRight1_2" resultType="hashmap" parameterType="map">
+		select name,sum from (SELECT b.zwbmmc name,count(a.xxzybm) sum FROM ztxx a JOIN xxzyxqxx b ON b.xqxxzymc=a.xxzymc WHERE a.ztkbm=#{code} GROUP BY b.zwbmmc ORDER BY sum DESC ) where rownum &lt; 6
+	</select>
+	<select id="getRight2" resultType="hashmap" parameterType="map">
+		select name,sum from (SELECT a.xxzymc name,count(a.xxzybm) sum FROM ztxx a LEFT JOIN xxzyxqxx b ON b.xqxxzymc=a.xxzymc WHERE a.ztkbm=#{code} GROUP BY a.xxzymc ORDER BY sum DESC ) where rownum &lt; 11
+	</select>
+</mapper>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<!-- flex远程对象 -->
+	<remote>
+		<remoteUrl>/service/amf/ams</remoteUrl> <!-- 远程对象地址 -->
+		<distination>defaultProxy_</distination>
+	</remote>
+	<authKey>testAppKey</authKey> <!-- 授权KEY -->
+	<!--<rootOrgId>_HBNoYOznEeGGd9tXrm-Mbg</rootOrgId>-->  <!-- 所在城市组织机构Id，兰州市 -->
+	<rootOrgId>I_wJgN0CEeOlovfuVspipA</rootOrgId>  <!-- 所在城市组织机构Id，常熟市 -->
+	<module> <!-- 功能模块 -->
+		<item label="总体视角" name="totalView" url="com/info/module/indexView/IndexModule.swf"/>
+		<item label="组织机构视角" name="orgView" url="com/info/module/orgCircleScaleView/OrgCircleScaleModule.swf"/>
+		<item label="服务对象视角" name="serviceView" url="com/info/module/serviceView/ServerVisualModule.swf"/>
+		<item label="信息资产视角 " name="infoView">
+			<item label="信息系统" name="infoSysPage" url="com/info/module/infoView/infoSystemCircleScaleView/InfoSysCSViewModule.swf"/>
+			<item label="信息资源" name="infoResource">
+				<item label="信息资源" name="infoResourceDepPage" url="com/info/module/infoView/DepInfo/DepInfoModule.swf"/>
+				<item label="资源分类" name="infoResourceCatagroyPage" url="com/info/module/infoView/infoCatagory/InfoCatagoryModule.swf"/>	
+			</item>
+			<item label="数据元集" name="infoElementPage" url="com/info/module/infoView/dataElement/ElementViewModule.swf"/>
+		</item>
+		<item label="协同主题视角" name="subjectView" url="com/info/module/subjectView/SubjectVisualModule.swf"/>
+		<item label="建设成果视角" name="buildAchievementView" url="com/info/module/buildAchievementView/ArchieVisualModule.swf"/>
+		<item label="空间信息视角" name="geoInfoView" url="com/info/module/geoInfo/GeoInfoModule.swf"/>
+		<item label="柳州信息视角" name="liuzInfoView" url="com/info/module/liuzInfoView/LiuzInfoModule.swf"/>
+	</module>
+	<!-- 功能描述 节点名称与模块name一致，如果模块外的可以自行增加 -->
+	<moduleDesc>
+		<totalView>
+			<desc></desc>
+			<help>总体视角：总体把握全域内的信息资产情况。</help>
+		</totalView>
+		<orgView>
+			<desc>
+			以组织机构维度层层推进，描述信息资产情况，管理路径：组织机构类型-》组织机构（委办局）-》组织机构（处室）-》业务事项-》信息资源，节点中的数字代表当前节点拥有的子节点数。
+			</desc>
+			<help>
+组织机构视角：以组织机构维度层层推进，描述信息资产情况。
+1、点击左边组织机构类型，可查看选中组织机构类型的图形。
+2、点击图形的节点可以展开/收缩选中节点。
+3、双击图形的节点可以查看选中节点的详细信息。
+4、双击底部的标题栏可以展开选中节点的详细信息。
+			</help>
+		</orgView>
+		<serviceView>
+			<desc>以智慧城市服务对象的业务办理事项为维度，描述信息资产情况。</desc>
+			<help>1 点击服务对象显示服务分类
+2 点击服务分类显示业务事项
+3 点击业务事项显示悬浮窗口
+4 点击关联业务表数展开显示信息资源
+5 点击关联业务系统数展开显示信息系统
+6 点击关联业务事项数切换到业务事项关联关系图
+7 双击服务对象显示其拥有的业务事项列表
+8 双击服务对象子分类显示其拥有的业务事项列表
+9 双击业务事项显示业务事项详细描述
+10双击信息资源节点显示信息资源详细描述
+11双击信息系统节点显示信息系统详细描述</help>
+		</serviceView>
+		<infoSysPage>
+			<desc></desc>
+			<help>
+信息系统：展现全域范围内各组成部门的信息系统情况，以及系统管理的信息资源和业务情况。
+1、点击图形的节点可以展开/收缩选中节点。
+2、双击图形的节点可以查看选中节点的详细信息。
+3、双击底部的标题栏可以展开选中节点的详细信息。
+			</help>
+		</infoSysPage>
+		<infoResourceDepPage>
+			<desc></desc>
+			<help>
+信息资源：展现全域范围内各组成部门的信息资源情况，展现信息资源的组成和详细描述。
+1、双击委办局方块图可以查看选中委办局提供的信息资源。
+			</help>
+		</infoResourceDepPage>
+		<infoResourceCatagroyPage>
+			<desc></desc>
+			<help>
+资源分类：以多个维度实现对信息资源的分类。
+1、点击图形的节点可以展开/收缩选中节点。
+2、双击图形的节点可以查看选中节点的详细信息。
+3、双击底部的标题栏可以展开选中节点的详细信息。
+			</help>
+		</infoResourceCatagroyPage>
+		<infoElementPage>
+			<desc></desc>
+			<help>
+数据元集：展现全域和各组成部门的数据元情况，以及数据元与信息资源的关系。
+1、双击委办局方块图可以查看选中委办局提供的数据元信息。
+			</help>
+		</infoElementPage>
+		<subjectView>
+			<desc>分析主题库下组织机构间信息资源的供需关系。</desc>
+			<help>1 鼠标悬浮于左上角图标处可切换主题
+2 单击关系图的部门节点，下方显示主题信息资源
+3 双击主题信息资源可查询详细信息
+4 双击关系图的部门节点显示部门供需资源关联关系图
+5 单击关联关系图的供需节点下方显示信息资源的详细情况
+6 鼠标悬浮于关系图的线上显示关联的供需信息资源
+7 单击关系图的线下方显示机构关联信息资源
+8 双击机构关联信息资源显示信息资源列表</help>
+		</subjectView>
+		<buildAchievementView>
+			<desc>分析主题库下信息资源和信息系统的建设成果。</desc>
+			<help>1 鼠标悬浮于左上角图标处可切换主题
+2 点击成果类型单选框可切换信息资源和信息系统
+3 点击架构类型复选框可切换用户视图和逻辑实体
+4 点击右上角数字分页条可切换显示的信息资源或信息系统
+5 当成果类型为信息资源时点击成果关系图的中心节点，下方展示主题信息资源详细列表
+6 当成果类型为信息系统时点击成果关系图的中心节点，下方展示主题信息系统详细列表
+7 当成果类型为信息资源时点击成果关系图的圆上节点，下方展示信息资源详细信息
+8 当成果类型为信息系统时点击成果关系图的圆上节点，下方展示信息系统详细信息
+9 点击分页条按钮可分屏显示信息资源或信息系统</help>
+		</buildAchievementView>
+		<geoInfoView>
+			<desc>以多种分类方式展示空间地理信息资产,点击带数据的图形节点可进行展开/收缩操作，双击图形节点可查看节点详细信息</desc>
+			<help>以多种分类方式展示空间地理信息资产
+1、 单击左边的资产目录查看方式可以打开不同的图形。
+2、单击图形节点可进行展开/收缩操作。
+3、 双击图形节点信息资源可查询详细信息
+			</help>
+		</geoInfoView>
+		<liuzInfoView>
+			<desc></desc>
+			<help>常用操作说明如下：
+1、鼠标移到各视角图形上会显示对应的提示信息。
+2、双击各视角可以查看对应视角的具体信息。
+3、点击各视角右上角的图标可以放大该视角。
+3、 在单个视角放大后，点击左右切换图标，可以切换视角。
+			</help>
+		</liuzInfoView>
+	</moduleDesc>
+</config>

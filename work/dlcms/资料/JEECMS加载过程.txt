@@ -1,0 +1,22 @@
+﻿1、加载web.xml
+2、访问http://localhost/jeecms/   （index.jhtml）
+3、被JeeCmsFront   SERVLET拦截
+4、进入jeecms-servlet-front.xml，被
+<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="frontContextInterceptor"/>
+				<ref bean="frontLocaleInterceptor"/>
+			</list>
+		</property>
+</bean>
+其中两个拦截器拦截执行。
+5、从注解中找到DynamicPageAct类中的
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index(HttpServletRequest request, ModelMap model) {}
+此方法。（因为访问路径匹配）
+此方法返回“WEB-INF/t/cms/www/red/index/首页.html”
+6、从而定位到首页并显示
+
+
+typeId='3':内容下，内容类型ID

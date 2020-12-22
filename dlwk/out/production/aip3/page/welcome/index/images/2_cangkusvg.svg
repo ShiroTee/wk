@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="160px" height="144px" viewBox="0 0 160 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>2_cangku</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="升级改造首页-vol.3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-and-more" transform="translate(-72.000000, -733.000000)">
+            <g id="2_cangku" transform="translate(75.000000, 724.000000)">
+                <path d="M100.640263,27.595262 C95.6657529,11.3043501 88.3219364,1 80.130141,1 C65.1465779,1 53,35.4740743 53,78 C53,120.525926 65.1465779,155 80.130141,155 L80.130141,155 C88.5217356,155 96.0234822,144.186871 101,127.202103" id="Oval-Copy-4" stroke="#FABA39" stroke-width="6" stroke-linecap="round" transform="translate(77.000000, 78.000000) rotate(90.000000) translate(-77.000000, -78.000000) "></path>
+                <path d="M49.8826859,86.0004099 C50.2342468,102.229631 52.3502886,117.098463 55.6909468,129.068774 C60.6420789,146.809767 68.2831658,158.183956 76.8566796,158.183956 C91.7827307,158.183956 103.882686,123.709882 103.882686,81.1839561 C103.882686,38.6580304 91.7827307,4.18395609 76.8566796,4.18395609 C68.3018251,4.18395609 60.6753433,15.5086901 55.7233118,33.1833945" id="Oval-Copy" stroke="#E6E6E6" stroke-width="6" stroke-linecap="round" transform="translate(76.882686, 81.183956) scale(1, -1) rotate(210.000000) translate(-76.882686, -81.183956) "></path>
+                <path d="M98.2846097,30.8768118 C93.3560286,13.0913515 85.7390201,1.68395609 77.1910016,1.68395609 C62.3310117,1.68395609 50.2846097,36.1580304 50.2846097,78.6839561 C50.2846097,121.209882 62.3310117,155.683956 77.1910016,155.683956 L77.1910016,155.683956 C85.4290488,155.683956 92.8023829,145.088879 97.737922,128.400528" id="Oval-Copy-2" stroke="#F9C53A" stroke-width="6" stroke-linecap="round" transform="translate(74.284610, 78.683956) rotate(30.000000) translate(-74.284610, -78.683956) "></path>
+                <ellipse id="Oval-2" fill="#F9C53A" cx="76.5" cy="80.5" rx="6.5" ry="6.5"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

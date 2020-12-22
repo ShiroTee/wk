@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
+    <bean id="wsAuthHandler" class="com.digitalchina.client.WsClinetAuthHandler" />
+
+    <!--这里无非是通过配置来替代JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean()创建代理并实例化一个ws-->
+    <bean id="SayWS" class="com.digitalchina.ws.SayWS"
+          factory-bean="SayWSFactory" factory-method="create" />
+    <!-- 通过代理创建ws实例 -->
+    <bean id="SayWSFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+        <property name="serviceClass" value="com.digitalchina.ws.SayWS" />
+        <!-- ws地址，也可以是完整的wsdl地址 -->
+        <property name="address"
+                  value="http://localhost:8010/webservices/SayWSwebs" />
+        <!--outInterceptors表示调用外部指定ws时，调用此拦截器 -->
+        <property name="outInterceptors">
+            <list>
+                <bean class="org.apache.cxf.binding.soap.saaj.SAAJOutInterceptor" />
+                <ref bean="wss4jOutConfiguration" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="wss4jOutConfiguration" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+        <property name="properties">
+            <map>
+                <!-- 设置加密类型 ,服务端需要和这里的设置保持一致-->
+                <entry key="action" value="UsernameToken" />
+                <entry key="user" value="admin" />
+                <!-- 设置密码为明文 ,服务端需要和这里的设置保持一致-->
+                <entry key="passwordType" value="PasswordText" />
+                <!-- <entry key="action" value="UsernameToken Timestamp" /> <entry key="user"
+                    value="adminTest" /> 设置密码类型为加密方式,服务端需要和这里的设置保持一致<entry key="passwordType" value="PasswordDigest"
+                    /> -->
+                <entry key="passwordCallbackRef">
+                    <ref bean="wsAuthHandler" />
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

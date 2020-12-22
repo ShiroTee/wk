@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+	<package name="owen" extends="json-default">
+	
+		
+		<action name="pageInit" method="pageInit" class="tasksAction">
+			<result name="fail"></result>
+			<result type="json">
+				<param name="includeProperties">
+					^rowList\[\d+\]\.id,
+					^rowList\[\d+\]\.level,
+					^rowList\[\d+\]\.parent,
+					^rowList\[\d+\]\.leaf,
+					^rowList\[\d+\]\.expanded,
+					^rowList\[\d+\]\.loaded,
+					^rowList\[\d+\]\.treeLink,
+					^rowList\[\d+\]\.taskId,
+					^rowList\[\d+\]\.taskName,
+					^rowList\[\d+\]\.orgName,
+					^rowList\[\d+\]\.stageName,
+					^rowList\[\d+\]\.status,
+					^rowList\[\d+\]\.interval
+				</param>
+				<param name="noCache">true</param>  
+        		<param name="ignoreHierarchy">false</param>  
+			</result>
+		</action >
+		
+		<action name="taskInfoLoad" method="taskInfoLoad" class="taskLogAction">
+		<result name="fail"></result>
+			<result type="json">
+				<param name="includeProperties">
+					^rowList\[\d+\]\.srv_ip,
+					^rowList\[\d+\]\.org_name,
+					^rowList\[\d+\]\.task_id,
+					^rowList\[\d+\]\.task_name,
+					^rowList\[\d+\]\.start_time,
+					^rowList\[\d+\]\.end_time,
+					^rowList\[\d+\]\.error_number,
+					^rowList\[\d+\]\.error_info
+				</param>
+				<param name="noCache">true</param>  
+        		<param name="ignoreHierarchy">false</param>  
+		</result>
+		</action>
+		<action name="stopTasks" method="stopTasks" class="tasksAction">
+			<result type="json">
+				<param name="root">taskArray</param>
+			</result>
+		</action>
+		<action name="startTasks" method="startTasks" class="tasksAction">
+			<result type="json">
+				<param name="root">taskArray</param>
+			</result>
+			<result name="fail"></result>
+		</action>
+		<action name="saveTasks" method="saveTasks" class="tasksAction">
+			<result type="json">
+				<param name="root">taskArray</param>
+			</result>
+			<result name="fail"></result>
+		</action>
+		<action name="getNewTask" method="getNewTask" class="tasksAction">
+			<result type="json">
+				 <param name="root">taskArray</param> 
+			</result>
+			<result name="fail"></result>
+		</action>
+		<action name="getNewKettle" method="getNewKettle" class="tasksAction">
+			<result type="json">
+				 <param name="root">taskArray</param> 
+			</result>
+			<result name="fail"></result>
+		</action>
+		
+		<!-- 测试用的Action -->
+			<action name="test" method="test" class="serverAction">
+			<result name="success">/owenFrame.jsp</result>
+			<result name="fail"></result>
+		</action>
+	
+	</package>
+	
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+	<!-- 
+		当Struts与Spring整合的时候需要注意两点：
+		1，Struts的Action标签，其默认的class需要指定一个服务类名，而当与Spring整合在一起的时候，这里的class
+			需要指定为由Spring代理生成的服务类实例，即bean_id，不然struts会创建一个新的实例而非使用spring生成的实例
+		2，struts有自己的对象工厂，但与spring整合的目的，就是使用spring的对象工厂，于是struts.objectFactory需要指定
+			为spring
+	 -->
+</struts>

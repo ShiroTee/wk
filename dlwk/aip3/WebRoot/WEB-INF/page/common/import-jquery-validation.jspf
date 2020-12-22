@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="${ctx }/resources/jquery-validation/css/validationEngine.jquery.css" />
+<script src="${ctx }/resources/jquery-validation/jquery.validationEngine-zh_CN.js"></script>
+<script src="${ctx }/resources/jquery-validation/jquery.validationEngine.js"></script>
+<script src="${ctx }/resources/jquery-validation/custom_validation.js"></script>

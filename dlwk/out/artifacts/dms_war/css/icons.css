@@ -1,0 +1,126 @@
+﻿.icon_blue {
+	background-image: url(../images/icons/blue.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_green {
+	background-image: url(../images/icons/green.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_red {
+	background-image: url(../images/icons/red.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_yellow {
+	background-image: url(../images/icons/yellow.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_grey {
+	background-image: url(../images/icons/grey.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_query {
+	background-image: url(../images/icons/query.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_save {
+	background-image: url(../images/icons/save.gif) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_add {
+	background-image: url(../images/icons/add.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_edit {
+	background-image: url(../images/icons/edit.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_delete {
+	background-image: url(../images/icons/delete.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_cancel {
+	background-image: url(../images/icons/cancel.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_close {
+	background-image: url(../images/icons/close.gif) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_refresh {
+	background-image: url(../images/icons/refresh.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_printer {
+	background-image: url(../images/icons/printer.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_help {
+	background-image: url(../images/icons/help.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_reset {
+	background-image: url(../images/icons/reset.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_back {
+	background-image: url(../images/icons/back.png) !important;
+	background-repeat: no-repeat;
+}
+/*\*/  
+.icon_explan {
+	background-image: url(../images/icons/expand.gif) !important;
+	background-repeat: no-repeat;
+}
+/**/  
+.icon_explan {
+	background-image: url(../images/icons/elbow-end-plus.gif) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_explantwo {
+	background-image: url(../images/icons/elbow-end-minus-nl.gif) !important;
+	background-repeat: no-repeat;
+}
+.icon_start {
+	background-image: url(../images/icons/start.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_stop {
+	background-image: url(../images/icons/stop.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_warning {
+	background-image: url(../images/icons/information.png) !important;
+	background-repeat: no-repeat;
+}
+.icon_export {
+	background-image: url(../images/icons/export.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_down {
+	background-image: url(../images/icons/down001.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_lookup {
+	background-image: url(../images/icons/lookup.png) !important;
+	background-repeat: no-repeat;
+}
+
+.icon_export_new {
+	background-image: url(../images/icons/export_new.png) !important;
+	background-repeat: no-repeat;
+}

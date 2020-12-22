@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                     http://www.springframework.org/schema/tx
+                     http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        			 http://www.springframework.org/schema/aop
+        			 http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
+
+		
+	
+	<bean id="kettleEnv" class="com.owen.env.KettleEnv" scope="singleton">
+		<property name="repName">
+			<value>owen</value>
+		</property>
+		<property name="repType">
+			<value>Oracle</value>
+		</property>
+		<property name="repAccess">
+			<value>Native</value>
+		</property>
+		<property name="repHost">
+			<value>172.16.123.2</value>
+		</property>
+		<property name="repSid">
+			<value>xe</value>
+			<!-- <value>xe</value> -->
+		</property>
+		<property name="repPort">
+			<value>1521</value>
+		</property>
+		<property name="repDBUser">
+			<value>dms</value>
+			<!-- <value>myUser</value> -->
+		</property>
+		<property name="repDBPassword">
+			<value>dms</value>
+			<!-- <value>123</value> -->
+		</property>
+		<property name="repLginUser">
+			<value>admin</value>
+		</property>
+		<property name="repLginPassword">
+			<value>admin</value>
+		</property>
+	</bean>
+	
+	<bean id="runnablePool" class="com.owen.console.xchange.OwenRunnablePool"></bean>
+		
+	<bean id="kettleService" class="com.owen.server.KetterServerServiceImpl" scope="singleton" init-method="sys_init">
+		<property name="kettleEnv" ref="kettleEnv"></property>
+		<property name="runnablePool" ref="runnablePool"></property>
+	</bean>
+	
+	<bean id="kettleServerAction" class="com.owen.server.KettleServerAction" scope="singleton">
+		<property name="kettleService" ref="kettleService"></property>
+	</bean>
+	
+	
+</beans>        			 

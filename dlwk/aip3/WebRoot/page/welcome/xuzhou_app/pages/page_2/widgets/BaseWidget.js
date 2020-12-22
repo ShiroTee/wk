@@ -1,0 +1,1 @@
+'use strict';define(["dojo/_base/declare","dojo/_base/lang","dojo/_base/html","dijit/_WidgetBase","dijit/_TemplatedMixin"],function(a,d,e,b,c){return a([b,c],{resize:function(){this.chart&&this.chart.resize()}})});

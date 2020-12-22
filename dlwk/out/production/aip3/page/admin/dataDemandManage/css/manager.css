@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.qry-item-box1
+{
+    padding-top: 7px;
+}
+
+.qry-box1
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 60px;
+}
+
+table td .op-icon
+{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+table td .op-icon :HOVER {
+    font-size: 20px;
+    text-decoration: none;
+
+}
+table tbody tr .table-td
+{
+    padding-top: 10px;
+}

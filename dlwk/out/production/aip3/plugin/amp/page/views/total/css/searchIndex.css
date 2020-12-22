@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+#searchResultTotal
+{
+	font-size: 14px;
+	margin-left: 50px;
+	margin-right: 50px;
+	color: #ffffff;
+}
+#searchResultList
+{
+	margin-left: 50px;
+	margin-right: 50px;
+    background:#ffffff;
+	border:dotted 1px #a0cff2;
+	padding-top: 10px;
+	width: 94%;
+	border-radius:8px;
+	background: url(../../../common/images/vis-bg1.png);
+	border-radius:5px;
+	padding-left: 30px;
+	margin-top:10px;
+	margin-bottom:20px;
+	padding-right: 30px;
+	color:#0043a7;
+}
+#searchResultList li
+{
+    background:transparent;
+    height: 70px;
+    position: relative;
+    border-style: none;
+    border-top: 1px dotted #333333;
+}
+#searchResultList li:FIRST-CHILD
+{
+	border-style: none;
+}
+.result-label
+{
+	font-size: 14px;
+	text-decoration: underline;
+	cursor: pointer;
+	margin-left: 50px;
+}
+.result-label-count
+{
+	font-size: 14px;
+	color: #FFFF00;
+	font-weight: bold;
+}
+
+.ritem-img
+{
+	
+}
+.ritem-title
+{
+	position: absolute;
+	left: 85px;
+	top: 10px;
+	font-size: 14px;
+}
+.ritem-type
+{
+	font-size: 14px;
+	font-weight: bold;
+}
+.ritem-name
+{
+	font-size: 14px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.ritem-desc
+{
+	position: absolute;
+	left: 85px;
+	bottom: 4px;
+}
+.ritem-value
+{
+	margin-right: 50px;
+}

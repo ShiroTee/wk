@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>常熟信息资源中心</title>
+    <!--<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="libs/animate.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="index.css?version=2.0.3">
+
+    <script src="libs/echarts.js"></script>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <!--<script src="libs/bootstrap/js/bootstrap.js"></script>-->
+    <script src="libs/JNumber.min.js"></script>
+    <script src="libs/common.js"></script>
+    <script src="libs/radialIndicator.min.js"></script>
+    <script src="libs/jquery.darktooltip.min.js"></script>
+    <script src="libs/l-by-l.min.js"></script>
+    <script src="data/index_data.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="indexBox">
+        <!--标题头head-->
+        <div class="common_header">
+            <div class="header_logo"></div>
+            <div class="header_middle">
+                <div class="header_title"></div>
+            </div>
+            <div class="header_date"></div>
+        </div>
+
+        <!--中间图-->
+        <div id="index_container" class="index_container" >
+            <table>
+                <tr>
+                    <td valign="middle" align="center">
+                       <div class="container_content zoomIn animated">
+                            <img class="content_db" src="images/index/index_db.png" />
+                            <div class="content_arrow">
+                                <img src="images/index/index_arrow.png" />
+                            </div>
+                            <div id="content_line" class="content_line"></div> <!-- -->
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--左侧统计-->
+        <div class="index_left fadeInLeft animated" >
+            <div class="index_left_top">
+                <!--各委办局使用量-->
+                <div>
+                    <span class="left_GWBJSYL">75321</span><span>万条</span><div>已支撑数据总量</div>
+                </div>
+                <!--各委办局提交量-->
+                <div>
+                    <span class="left_GWBJTJL">75321</span><span>万条</span><div>归集数据总量</div>
+                </div>
+            </div>
+
+            <div class="index_left_middle">
+                <div>
+                    <span>人口信息(条)</span>
+                    <div class="left_RKXX">17083253</div>
+                </div>
+                <div>
+                    <span>法人信息(条)</span>
+                    <div class="left_FRXX">2268506</div>
+                </div>
+                <div>
+                    <span>宏观经济信息(条)</span>
+                    <div class="left_HGJJXX">624</div>
+                </div>
+                <div>
+                    <span>空间地理(条)</span>
+                    <div class="left_KJDL">1098812</div>
+                </div>
+                <div>
+                    <span>信用征信信息(条)</span>
+                    <div class="left_XYZXXX">920648</div>
+                </div>
+            </div>
+
+            <!-- <div class="index_left_bottom">徐州市信息资源枢</div> -->
+            <div class="index_left_bottom">常熟信息资源中心</div>
+        </div>
+
+        <!--右侧图表-->
+        <div class="index_right fadeInRight animated" >
+            <table>
+                <!--数据使用率-->
+                <tr class="tr_h_one">
+                    <td align="center" valign="middle">
+                        <div id="right_ringChart" class="right_ringChart">
+                            <div class="right_ringChartLable"><span class="ringChartLabel">75%</span><div>数据归集率</div></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr_h_two">
+                    <td align="center" valign="middle">
+                        <div class="right_stackBarChart_title">
+                            <div>已梳理目录：<span id="YSLML">528</span>类</div><div>已归集目录：<span id="YGJML">389</span>类</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="tr_h_three">
+                    <td align="center" valign="middle">
+                        <div id="right_stackBarChart" class="right_stackBarChart"></div>
+                        <div style="color:#fff;font-size:12px;">五库提交情况</div>
+                    </td>
+                </tr>
+                
+                <!--<tr>
+                    <td align="center" valign="middle">
+                        <div id="right_lineChart" class="right_lineChart"></div>
+                        <div style="color:#fff;font-size:12px;">四库共享情况</div>
+                    </td>
+                </tr>-->
+                <!--<tr>
+                    <td align="center" valign="middle">
+                        <div id="right_barChart" class="right_barChart"></div>
+                        <div style="color:#fff;font-size:12px;">四库提交情况</div>
+                    </td>
+                </tr>-->
+            </table>
+        </div>
+
+        <!--页面跳转-->
+        <div class="common_page common_page_bg_index">
+            <a class="pageSelect" href="#" title="首页">1</a>
+            <a href="pages/page_2/page.html" title="宏观经济分析">2</a>
+            <a href="pages/page_4/page.html" title="法人分析">3</a>
+            <!--<a href="pages/page_3/page.html" title="人口分析">4</a>-->
+        </div>
+    </div>
+    
+</body>
+</html>

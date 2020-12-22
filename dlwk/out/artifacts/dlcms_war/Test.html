@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function baseClass()
+        {
+            this.showMsg = function()
+            {
+                alert("baseClass::showMsg");
+            }
+        }
+
+        function extendClass()
+        {
+        }
+
+        extendClass.prototype = new baseClass();
+        var instance = new extendClass();
+        instance.showMsg(); // 显示baseClass::showMsg
+    </script>
+</head>
+<body>
+
+</body>
+</html>

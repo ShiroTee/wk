@@ -1,0 +1,65 @@
+<link href="${resSys}/Css/header.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.boild{ font-weight:bold;}
+.cc30{ color:#c30; font-family:Arial;}
+.c390{ color:#390; font-family:Arial;}
+.centertwo{ width:50px; height:25px;position:relative; left:50%; margin-left:-25px; float:left}
+.qing{ background-position:0 0px}
+.duoyun{ background-position:-25px 0px}
+.yin{ background-position:-50px 0px}
+.zhenyu{ background-position:-75px 0px}
+.leizhenyu{ background-position:-100px 0px}
+.leizhengyubanyoubingbao{ background-position:-125px 0px}
+.yujiaxue{ background-position:-150px 0px}
+.xiaoyu{ background-position:-175px 0px}
+.zhongyu{ background-position:-200px 0px}
+.dayu{ background-position:-225px 0px}
+.baoyu{ background-position:-250px 0px}
+.dabaoyu{ background-position:-275px 0px}
+.tedabaoyu{ background-position:-300px 0px}
+.zhenxue{ background-position:-325px 0px}
+.xiaoxue{ background-position:-350px 0px}
+.zhongxue{ background-position:-375px 0px}
+.daxue{ background-position:-400px 0px}
+.baoxue{ background-position:-425px 0px}
+.wu{ background-position:-450px 0px}
+.dongyu{ background-position:-475px 0px}
+.shachenbao{ background-position:-500px 0px}
+</style>
+
+<div class="menu" id="nav">
+	<ul id="topmenu" style="margin-top: 3px;">
+		<!-- 只显示两级导航 -->
+		<li  style="float:left;">
+			<div  [#if !channel??]class="selected"[/#if]>
+				<a href="${base}/" target="_self"><img src="${resSys}/Images/home2.png"/>&nbsp;首页</a>
+			</div><span>|</span>
+			
+		</li>
+		[@cms_channel_list] [#list tag_list as c]
+		<li  style="float:left;"><!-- 如果当前打开栏目ID或者当前打开栏目的父ID等于根栏目ID，则将样式设置为selected -->
+			<div [#if channel??&&((channel.id==c.id)||(channel.parentId??&&channel.parentId==c.id))] class="selected"[/#if]>
+				<!-- 新闻动态栏目显示栏目页，其它栏目显示第一个子栏目 -->
+				<!-- href="[#if c.id!=1][@cms_channel_list parentId=c.id][#if tag_list?size>0]${tag_list[0].url}[#else]${c.url}[/#if][/@cms_channel_list][#else]${c.url}[/#if]" -->
+				
+				<!-- 所有父栏目的URL设置为第一个子栏目的URL，并且是否在新窗口中打开，按照相应子栏目的设置而定 -->
+				 
+				
+				[#if c.name=='互动交流']
+					<a
+					href="/exchangeIndex.jhtml" >${c.name}
+				</a>
+				[#else]
+					<a
+					[@cms_channel_list parentId=c.id][#if tag_list?size>0]href="${tag_list[0].url}" [#if tag_list[0].blank!false]target="_blank"[#else]target="_self"[/#if][#else]href="${c.url}" target="_blank"[/#if][/@cms_channel_list]>${c.name}
+				</a>
+				[/#if]
+				
+			</div><span>|</span>
+			 [/#list] [/@cms_channel_list]
+			 </li>
+	</ul>
+
+</div>
+

@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="${ctx }/resources/Zebra_Dialog/css/zebra_dialog.css" />
+<script src="${ctx }/resources/Zebra_Dialog/js/zebra_dialog.js"></script>
+<script src="${ctx }/resources/Zebra_Dialog/js/zebraUtil.js"></script>

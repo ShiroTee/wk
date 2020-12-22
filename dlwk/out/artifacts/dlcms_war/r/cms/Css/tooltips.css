@@ -1,0 +1,25 @@
+/*Tooltips*/
+.tooltips{
+position:relative; /*这个是关键*/
+z-index:2;
+}
+.tooltips:hover{
+z-index:3;
+background:none; /*没有这个在IE中不可用*/
+}
+.tooltips span{
+display: none;
+}
+.tooltips:hover span{ /*span 标签仅在 :hover 状态时显示*/
+display: block;
+position: absolute;
+top: 22px;
+left: 0px;
+border: 1px solid rgb(17, 203, 219);
+padding: 7px 15px 7px 15px;
+border-radius: 6px;
+background-color: rgb(217, 237, 247);
+color: rgb(58, 135, 173);
+font-family: "Georgia";
+box-shadow: 0 0 15px 1px rgba(44, 159, 182, 0.8);
+}

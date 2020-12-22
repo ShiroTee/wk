@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>徐州信息资源枢纽工程数据分析系统</title>
+    <link rel="stylesheet" href="../../libs/animate.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="css/page.css">
+
+    <script src="../../libs/common.js"></script>
+    <script src="../../libs/echarts.js"></script>
+    <script src="../../libs/jquery-3.1.0.min.js"></script>
+    <script src="../../libs/JNumber.min.js"></script>
+    <script src="js/page.js"></script>
+</head>
+
+<body>
+<!--head-->
+<div class="common_header">
+    <div class="header_logo"></div>
+    <div class="header_middle">
+        <div class="header_title_page3"></div>
+    </div>
+    <div class="header_date">2016年12月5日</div>
+</div>
+
+<div class="page_left">
+    <div class="panel">
+        <div class="title">居民收入(万)</div>
+        <div id="jmsr" class="chart"></div>
+    </div>
+    <div class="panel">
+        <div class="title">各年龄段就业人数</div>
+        <div id="jyrs" class="chart"></div>
+    </div>
+    <div class="panel">
+        <div class="title">人口性别年龄金字塔</div>
+        <div id="nljzt" class="chart"></div>
+    </div>
+    <div class="panel">
+        <div class="title">平均生育年龄</div>
+        <div id="pjsynl" class="chart"></div>
+    </div>
+</div>
+<div id="rkmdMap" class="page_container"></div>
+<div class="page_right">
+    <div class="panel">
+        <div class="title">社保缴纳人数及比例</div>
+        <div class="xe-label">
+            <strong class="num num1">0</strong>
+            <span>总人数</span>
+        </div>
+        <div id="sbjn" class="chart-ybp"></div>
+    </div>
+    <div class="panel">
+        <div class="title">公积金缴纳人数及比例</div>
+        <div class="xe-label">
+            <strong class="num num2">0</strong>
+            <span>总人数</span>
+        </div>
+        <div id="gjjjn" class="chart-ybp"></div>
+    </div>
+    <div class="panel">
+        <div class="title">老年抚养比</div>
+        <!--<div class="xe-label">-->
+        <!--<strong class="num num3">00.0</strong>-->
+        <!--<strong>%</strong>-->
+        <!--<span>百分比</span>-->
+        <!--</div>-->
+        <div id="lnfyb1" class="chart-ybp1"></div>
+        <div id="lnfyb" class="chart-ybp"></div>
+    </div>
+    <div class="panel">
+        <div class="title">社会抚养比</div>
+        <!--<div class="xe-label">-->
+        <!--<strong class="num num4">00.0</strong>-->
+        <!--<strong>%</strong>-->
+        <!--<span>百分比</span>-->
+        <!--</div>-->
+        <div id="shfyb1" class="chart-ybp1"></div>
+        <div id="shfyb" class="chart-ybp"></div>
+    </div>
+    <div class="panel">
+        <div class="title">人口增长率</div>
+        <div id="rkzzl" class="chart"></div>
+    </div>
+</div>
+
+<!--页面跳转-->
+<div class="common_page common_page_bg_page4">
+    <a href="../../index.html" title="首页">1</a>
+    <a href="../page_2/page.html" title="宏观经济分析">2</a>
+    
+    <a href="../page_4/page.html" title="法人分析">3</a>
+    <a class="pageSelect" href="../page_3/page.html" title="人口分析">4</a>
+</div>
+</body>
+</html>

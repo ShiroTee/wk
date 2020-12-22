@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="108px" viewBox="0 0 200 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>API/default icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="101.999998%" y2="100.999999%" id="linearGradient-1">
+            <stop stop-color="#3023AE" offset="0%"></stop>
+            <stop stop-color="#C96DD8" offset="100%"></stop>
+        </linearGradient>
+        <path d="M55.4888889,59 L37.7777778,59 C36.9425413,59 36.2666667,58.3226346 36.2666667,57.4871795 L36.2666667,55.974359 C36.2666667,51.8037549 32.8770027,48.4102564 28.7111111,48.4102564 C24.5452196,48.4102564 21.1555556,51.8037549 21.1555556,55.974359 L21.1555556,57.4871795 C21.1555556,58.3226346 20.4796809,59 19.6444444,59 L1.51111111,59 C0.675874667,59 0,58.3226346 0,57.4871795 L0,43.8717949 C0,43.0363397 0.675874667,42 1.51111111,42 L3.02222222,42 C7.18811378,42 10.5777778,38.9654759 10.5777778,34.7948718 C10.5777778,30.6242677 7.18811378,27 3.02222222,27 L1.51111111,27 C0.675874667,27 0,26.5534038 0,25.7179487 L0,12.5128205 C0,11.6773654 0.675874667,11 1.51111111,11 L21.1555556,11 L21.1555556,7.56410256 C21.1555556,3.39349846 24.5452196,0 28.7111111,0 C32.8770027,0 36.2666667,3.39349846 36.2666667,7.56410256 L36.2666667,11 L55.4888889,11 C56.3241253,11 57,11.6773654 57,12.5128205 L57,27 L60.4444444,27 C64.610336,27 68,30.6242677 68,34.7948718 C68,38.9654759 64.610336,43 60.4444444,43 L57,43 L57,57.4871795 C57,58.3226346 56.3241253,59 55.4888889,59 Z" id="path-2"></path>
+        <filter x="-49.3%" y="-34.7%" width="180.9%" height="193.2%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="-6" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="政务信息资源目录-各种模板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="300_Artboard" transform="translate(-237.000000, -59.000000)">
+            <g id="Stacked-Group-2" transform="translate(17.000000, 30.000000)">
+                <g id="Group-4" transform="translate(220.000000, 29.000000)">
+                    <g id="API/default-icon">
+                        <g id="Group-2" transform="translate(72.000000, 28.000000)">
+                            <g id="Shape" fill-rule="nonzero">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                                <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                            </g>
+                            <text id="API" font-family="AvenirNextCondensed-Heavy, Avenir Next Condensed" font-size="16" font-style="condensed" font-weight="600" letter-spacing="1.28000009" fill="#FFFFFF">
+                                <tspan x="16.2239999" y="38">API</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

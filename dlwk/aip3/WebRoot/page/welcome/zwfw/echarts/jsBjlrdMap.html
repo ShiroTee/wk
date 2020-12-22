@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='content-type'>
+ <title>江苏13市服务事项数量统计</title>
+ 
+ 
+ <script src="js/jquery.js"></script>
+ <script src="echarts.js"></script>
+
+ 
+</head>
+
+<body style="overflow: hidden;">
+
+<div id="chinaMap" style="width:650px;height:810px; margin-left:10%;margin-top:3%;">  </div>
+ <script type="text/javascript">
+ $.getJSON('map/json/jiangsu.json', function (data) {
+ 	
+   var myChart = echarts.init(document.getElementById('chinaMap'));
+    echarts.registerMap('jiangsu', data);
+
+    myChart.setOption(option = {
+        title: {
+            text: '江苏政务服务办件量按地区分布（2017）',
+            subtext: ''
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>{c} (项)'
+        },
+        toolbox: {
+            show: true,
+            orient: 'vertical',
+            left: 'right',
+            top: 'center',
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        visualMap: {
+            min: 900000,
+            max: 10000000,
+            text:['High','Low'],
+            realtime: false,
+            calculable: true,
+            inRange: {
+                color: ['lightskyblue','yellow', 'orangered']
+            }
+        },
+        series: [
+            {
+                name: '江苏13市服务事项数量',
+                type: 'map',
+                mapType: 'jiangsu', // 自定义扩展图表类型
+                itemStyle:{
+                    normal:{label:{show:true}},
+                    emphasis:{label:{show:true}}
+                },
+                data:[
+                    {name: '南京市', value: 6057000},
+                    {name: '苏州市', value: 4070700},
+                    {name: '无锡市', value: 2000686},
+                    {name: '徐州市', value: 1090092},
+                    {name: '连云港市', value: 1004045},
+					{name: '宿迁市', value: 1002900},
+					{name: '淮安市', value: 2050010},
+					{name: '盐城市', value: 2003023},
+					{name: '扬州市', value: 3900405},
+					{name: '泰州市', value: 2001041},
+					{name: '南通市', value: 1060028},
+					{name: '镇江市', value: 3604006},
+					{name: '常州市', value: 2080030}
+                ],
+               
+            }
+        ]
+        });
+    });
+</script>
+</body>
+</html>

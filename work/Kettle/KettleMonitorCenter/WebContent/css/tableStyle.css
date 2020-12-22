@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.clrRunning{
+	background:#80ff80;
+}
+
+.clrInit{
+	background:#c0c0c0;
+}
+
+.clrHandStop{
+	background:#ff8000;
+}
+
+.clrError{
+	background:#ff0000;
+}
+
+.clrCheckBox{
+	background:#808000;
+}
+
+.clrTabTh{
+	background:#408080;
+	color:#ffff80;
+}
+
+.mouseHover
+{
+  background-color: #00ffff;
+}

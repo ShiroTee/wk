@@ -1,0 +1,12 @@
+*{
+	margin: 0;padding: 0;
+}
+html {
+	font-family: "微软雅黑";font-size: 13px;
+}
+body {
+	background: #03162B;
+}
+p{
+	width: 100%;line-height: 1.5;height:100%;
+}

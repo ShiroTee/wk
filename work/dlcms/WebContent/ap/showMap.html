@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>网站地图</title>
+<style type="text/css">
+.style th {
+	text-align: center;
+	color: black;
+	list-style-type: none;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+.style th a:HOVER {
+	background-color: gray;
+	color: black;
+}
+
+.style th a {
+	padding: 12px 50px;
+	margin: -8px;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.centers td{
+	text-align: center;
+}
+.centers td a{
+	text-align: center;
+	text-decoration: none;
+	font-size: 13px;
+}
+.datalist th{ background:#blue;}
+.datalist th a{ text-decoration: none;font-weight: normal;margin: -8px;padding: 10px 10px;font-weight: bold;font-size: 13px;}
+.datalist th a:hover{ background-color: gray;color: black;}
+.datalist td{border:1px solid #dbdbdb;}
+.datalist td a{text-decoration: none;font-size: 13px;color: gray;}
+.even{ background:#FFFFFF; color:#000;}
+.normal{background:#fff; color:#000;}/*其他行当白色*/
+.over{background:#EEEEEE; color:#000;  /*这个将是鼠标高亮行的背景色*/
+}
+</style>
+<script>
+window.onload=function(){
+  var otal=document.getElementById("otable");
+   for(var i=0; i<otal.rows.length; i++){   
+  if(i%2==0){       
+   otal.rows[i].className="even";    
+   otal.rows[i].onmouseout=function(){         
+    this.className="even";   
+    };   
+  }else{        
+   otal.rows[i].className="normal";    
+   otal.rows[i].onmouseout=function(){         
+    this.className="normal";    
+   }   
+  }   
+  otal.rows[i].onmouseover=function(){       
+   this.className="over";   
+  }    
+ } 
+}
+</script>
+</head>
+<body>
+<div class="body-box">
+<div style="text-align:center; line-height:40px; height:40px; font-size:20px; font-weight:bold;color: blue;">网站地图</div>
+<div>
+<table width="75%" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="text-align:center; height:30px; line-height:30px;border-color: blue;" border="1" align="center" id="otable" class="datalist">
+<tr align="center" style="background-color: #147EB6;" class="style">
+					<th><a href="./" style="padding: 5px 10px;color: white;" target="_Blank">首&nbsp;&nbsp;页</a>
+					</th>
+					<th><a href="introduce.jhtml" style="padding: 5px 10px;color: white;" target="_Blank">走进数据中心</a>
+					</th>
+					<th><a href="news/index.jhtml" style="padding: 5px 10px;color: white;" target="_Blank">信息动态</a>
+					</th>
+					<th><a href="servol/index.jhtml" style="padding: 5px 10px;color: white;" target="_Blank">在线信息服务</a>
+					</th>
+					<th><a href="resource/index.jhtml" style="padding: 5px 10px;color: white;" target="_Blank">信息资源目录</a>
+					</th>
+					<th><a href="sjcg/index.jhtml" style="padding: 5px 10px;color: white;" target="_Blank">数据成果</a>
+					</th>
+				</tr>
+				<tr class="centers">
+					<td><a href="http://10.6.10.38:7001/" target="_Blank"> 兰州数据中心</a></td>
+					<td><a href="about.jhtml" target="_Blank"> 数据中心简介</a></td>
+					<td><a href="xwgg/index.jhtml" target="_Blank">通知公告</a></td>
+					<td><a href="unspaceserv/index.jhtml" target="_Blank"> 非空间服务</a></td>
+					<td><a href="unspaservlist/index.jhtml" target="_Blank"> 非空间服务目录</a></td>
+					<td><a href="jckjscg/index.jhtml" target="_Blank">基础库建设成果</a></td>
+					<td><a href="guestbook.jspx" target="_Blank">留言咨询</a></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="">RDP平台</a></td>
+					<td><a href="fwdt/index.jhtml">服务动态</a></td>
+					<td><a href="gis/lzgis/main.html?module=zyzsyy">空间服务</a></td>
+					<td><a href="spaservlist/index.jhtml">空间服务目录</a></td>
+					<td><a href="sjyy/index.jhtml">数据应用</a></td>
+					<td></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="">规划发展</a></td>
+					<td><a href="zcfg/index.jhtml" target="_Blank">政策法规</a></td>
+					<td><a href="GISserv/index.jhtml" target="_Blank">GIS API</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="">使用流程</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="sjyy/index.jhtml" target="_Blank">数据成果展示</a></td>
+					<td><a href="">管理办法</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="xwgg/index.jhtml" target="_Blank">新闻公告</a></td>
+					<td><a href="">四大库建库规范</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="ztzl/22.jhtml">专题栏目</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr class="centers">
+					<td><a href="jgzn.jhtml">机构职能</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="ghfz.jhtml">规划发展</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="sylc.jhtml">使用流程</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="glbf.jhtml">管理办法</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="jkgf.jhtml">四大库建设规范</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="djs.jhtml">大记事</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="cjwtjd/index.jhtml">常见问题解答</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+					<tr class="centers">
+					<td><a href="guestbook.jspx">留言咨询</a></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+</table>
+		</div>
+</div>
+</body>
+</html>

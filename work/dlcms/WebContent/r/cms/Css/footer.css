@@ -1,0 +1,8 @@
+/* CSS Document */
+
+.foot{ width:1000px; height:123px; margin:0 auto; color:#004ca0; font-size:12px;background-color: white;}
+.foot_nav{width:620px; height:28px; border:1px solid #a9cbe6; background:#f7fcff; line-height:28px; padding-left:377px;background-color:#0982D7;color:white}
+.foot_nav li{float:left;}
+.foot_nav li a{color:#fff; font-size:12px;}
+.foot_nav li span{padding:0 5px;}
+.foot p{text-align:center; line-height:30px;}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="unspace_query_html">
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>全员人口统计</title>
+<link href="../../r/cms/www/red/css/index02.css" rel="stylesheet" 0type="text/css" />
+<link href="../../r/cms/www/red/css/layout02.css" rel="stylesheet" 0type="text/css" />
+<script type="text/javascript" src="../../r/cms/jquery17.js"></script>
+<script type="text/javascript" src="../js/findQyrktj.js"></script>
+</head>
+<body class="unspace_query_body">
+	<div class="query_content">
+		<div class="querychannel_title">
+			<span>兰州市全员人口信息统计查询</span>
+		</div>
+		<form class="query_form" id="qyrktj_form">
+			<div>
+				<label style="margin-left:0;">行政区划：</label>
+				<select name="xzqh" id="xzqh">
+				</select>
+				<label>性别：</label>
+				<select name="sex" id="sex">
+					<option value="">全部</option>
+				</select>
+				<label>统计年份：</label>
+				<select name="tjnf" id="tjnf">
+				</select>
+			</div>
+			<div style="position:relative;">
+				<input type="submit" name="selectName" value="查询"/>
+				<b class="waiting"></b>
+				<input type="reset" name="resetName" value="重置" />
+			</div>
+		</form>
+		<hr />
+		<table class="query_result_table" border='1'>
+			<!-- a)	全员人口统计 -->
+			<tr>
+				<th align="center">行政区划名称</th>
+				<th align="center">统计年份(年)</th>
+				<th align="center">总人数(个)</th>
+				<th align="center">男性总数(个)</th>
+				<th align="center">女性总数(个)</th>
+			</tr>
+			<tr>
+				<td id="xzqhName" align="center">&nbsp;</td>
+				<td id="nfcounts" align="center">&nbsp; </td>
+				<td id="counts" align="center">&nbsp;</td>
+				<td id="boyCount" align="center">&nbsp;</td>
+				<td id="girlCount" align="center">&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

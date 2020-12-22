@@ -1,0 +1,10 @@
+<systemCollect>
+	<system>
+		<name>提供</name>
+		<areaCode></areaCode>
+		<isSelf>true</isSelf>
+		<bindIp>172.17.150.209</bindIp>
+		<bindPort>6600</bindPort>
+		<service>Communication</service>
+	</system>
+</systemCollect>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="246px" height="58px" viewBox="0 0 246 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>small_basesvg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#172129" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#172129" stop-opacity="0.00450144827" offset="0%"></stop>
+            <stop stop-color="#144058" offset="100%"></stop>
+        </linearGradient>
+        <path d="M70.4620324,258.731931 C74.0628398,254.461704 78.8845447,251 81.2263357,251 L228.77742,251 C231.121573,251 235.934816,254.45447 239.541723,258.731931 L275.409701,301.268069 C279.010509,305.538296 278.834155,309 275.024388,309 L34.9793673,309 C31.1657573,309 30.9871468,305.54553 34.594054,301.268069 L70.4620324,258.731931 Z" id="path-2"></path>
+        <filter x="-1.0%" y="-4.3%" width="102.0%" height="108.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-4" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.239215686   0 0 0 0 0.4   0 0 0 0 0.490196078  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="首页排版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="第五屏" transform="translate(-1084.000000, -676.000000)">
+            <g id="右" transform="translate(1052.000000, 69.000000)">
+                <g id="Group-6" transform="translate(0.000000, 356.000000)">
+                    <g id="small_base">
+                        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

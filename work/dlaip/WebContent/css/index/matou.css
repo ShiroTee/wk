@@ -1,0 +1,35 @@
+#dock {
+	width: 500px;
+	position: absolute; 
+	bottom: -1px;
+	height: 80px; 
+	text-align: center;
+	margin:0 auto;
+	background: url(../images/index/matou/bg.png) right bottom no-repeat;
+	z-index:99999;
+}
+
+.dockcontainer {
+	position: absolute;
+	height: 70px;
+	margin:0 auto 10px;
+}
+a.dock-item {
+	display: block; 
+	font: bold 12px Arial, Helvetica, sans-serif;
+	width: 48px; 
+	color: #000; 
+	bottom: 0px; 
+	position: absolute;
+	text-align: center;
+	text-decoration: none;
+}
+.dock-item span {
+	display: none;
+	padding-left: 20px;
+}
+.dock-item img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}

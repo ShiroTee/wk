@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>资源目录展示</title>
+<link href="../../r/cms/www/red/css/index02.css" type="text/css" rel="stylesheet" />
+<link href="../../r/cms/www/red/css/layout02.css" rel="stylesheet" type="text/css" />
+<link href="../../r/cms/ext/jscss/ext-all.css"  rel="stylesheet" type="text/css" />
+<script src="../../r/cms/jquery.js" type="text/javascript" ></script> 
+<script src="../../r/cms/ext/jscss/ext-base.js" type="text/javascript"></script>
+<script src="../../r/cms/ext/jscss/ext-all.js" type="text/javascript"></script>
+<script src="../../r/cms/ext/jscss/ext-lang-zh_CN.js" type="text/javascript"></script>
+<script type='text/javascript' src='../js/irc_servlist.js'></script>
+<script type='text/javascript' src='../js/irc_applyAndShowService.js'></script><!-- 处理申请的查看我的申请服务列表 -->
+<script type='text/javascript' src='../js/irc-config-serv-tabinfo.js'></script>
+</head>
+<body style="width:715px;">
+	<div class="fuwumulu_zi_daohang_top" style="width:695px;">
+		<div class="f-left">
+			<span id="servlisttitle">资源列表</span>&nbsp;&nbsp;&nbsp;
+			<span class="xizi">小提示：双击资源行,可查看资源详情。</span>
+		</div>
+		<div id="apply_myservice_btn" class="f-right">
+			<button onclick="toMyServPage()" class="shengqingwufu" title="查看所有已申请的服务及资源列表">我的申请</button>
+			<button onclick="applySrvice()" class="shengqingwufu" id="applyrdpserv">申请资源</button>
+		</div>
+		<!-- <div id="login_tip" style="display:none;" class="f-right">
+			<span class="xizi">请[<a href="#" class="cuzi" style="color:#FDB74E">登陆</a>]再进行申请操作&nbsp;&nbsp;</span>
+		</div> -->
+	</div>
+	<div class="w715" id="irc_serlist"></div>
+</body>
+</html>

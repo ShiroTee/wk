@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+.legendLabel 
+{
+	font-size: 14px;
+	padding-right: 30px;
+/* 	color: #ffffff; */
+}
+
+.chart-btn
+{
+	font-size: 14px;
+	min-width: 130px;
+}

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: lib/forms-1.3.0.jar lib/xmlparserv2.jar lib/RBSPAdapter2.j
+ ar lib/log4j-1.2.9.jar lib/commonlib.jar lib/jaxen-1.1.3.jar lib/dom4
+ j-1.6.1.jar lib/axis-ant.jar lib/xml.jar lib/axis.jar lib/PCI2.jar li
+ b/miglayout15-swing.jar lib/xschema.jar lib/ojdbc14.jar
+Main-Class: com.digitalchina.service.PoliceMain
+

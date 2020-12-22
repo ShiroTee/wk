@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>按照身份证号查询人口详情</title>
+<link href="../../r/cms/www/red/css/global.css" type="text/css" rel="stylesheet" />
+<link href="../../r/cms/www/red/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="../../r/cms/www/red/css/servol.css" rel="stylesheet" type="text/css" />
+<link href="../../r/cms/ext/jscss/ext-all.css"  rel="stylesheet" type="text/css" />
+<script src="../../r/cms/ext/jscss/ext-base.js" type="text/javascript"></script>
+<script src="../../r/cms/ext/jscss/ext-all.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../r/cms/jquery.js" ></script>  
+</head>
+<script type="text/javascript">
+	function checknum(obj) {
+		if (obj.value == '') {
+			obj.value = '请输入15或18位身份证号' ;
+		}else if (!(/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/).test(obj.value)) {
+			document.getElementById("formmsg").innerHTML = "*身份证号格式错误" ;
+		}else{
+			document.getElementById("formmsg").innerHTML = "" ;
+			setbaseinfo() ;
+			seteduinfo() ;
+		}
+	}
+	
+	//基础信息
+	function setbaseinfo(){
+		var array = ['张萍','女','620102197008230325','佛教','已婚','张萍萍','汉','1991-01-09','专科','团员','兰州市城关区东方街24号2-23-3室'] ;
+		$("#baseinfo dd").each(
+			function(i){
+				$(this).html(array[i]) ;
+			}
+		) ;
+	}
+	//教育信息
+	function seteduinfo(){
+		var array1 = ['IT专业','专科','无','英语','兰州理工大学','LZLGDX-B432135656','ZGRMYLZ-1232188B','一般','无'] ;
+		$("#eduinfo dd").each(
+			function(i){
+				$(this).html(array1[i]) ;
+			}
+		) ;
+	}
+	
+	//基础信息
+	var baseinfostr = '<div id="baseinfo"><div class="inf_content"><dl><dt>姓名：</dt><dd></dd></dl><dl><dt>性别：</dt><dd></dd></dl><dl><dt>身份证号码：</dt><dd></dd></dl><dl><dt>宗教信仰：</dt><dd></dd></dl><dl><dt>婚姻状况：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>曾用名：</dt><dd></dd></dl><dl><dt>民族：</dt><dd></dd></dl><dl><dt>出生日期：</dt><dd></dd></dl><dl><dt>文化程度：</dt><dd></dd></dl><dl><dt>政治面貌：</dt><dd></dd></dl></div><div class="remarks"><dl><dt>居住地址：</dt><dd></dd></dl></div></div>'
+	//教育信息
+	var eduinfostr = '<div id="eduinfo"><div class="inf_content"><dl><dt>所学专业：</dt><dd></dd></dl><dl><dt>学历：</dt><dd></dd></dl><dl><dt>学位：</dt><dd></dd></dl><dl><dt>所学外语语种：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>学位授予单位：</dt><dd></dd></dl><dl><dt>毕业证编号：</dt><dd></dd></dl><dl><dt>学位证书号：</dt><dd></dd></dl><dl><dt>外语语种熟练程度：</dt><dd></dd></dl></div><div class="remarks"><dl><dt>备注：</dt><dd></dd></dl></div></div>';
+	//就业信息
+	var jyinfo = '<div id="jyinfo"><div class="inf_content"><dl><dt>就业状况：</dt><dd></dd></dl><dl><dt>工作单位：</dt><dd></dd></dl><dl><dt>工作开始时间：</dt><dd></dd></dl><dl><dt>离退休时间：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>失业原因：</dt><dd></dd></dl><dl><dt>职务：</dt><dd></dd></dl><dl><dt>工作结束时间：</dt><dd></dd></dl><dl><dt>离退休人员类别：</dt><dd></dd></dl></div><div class="remarks"><dl><dt>备注：</dt><dd></dd></dl></div></div>';
+	//社保信息
+	var sbinfo = '<div id="sbinfo"><div class="inf_content"><dl><dt>社保号码：</dt><dd></dd></dl><dl><dt>缴费单位名称：</dt><dd></dd></dl><dl><dt>参保人电话：</dt><dd></dd></dl><dl><dt>联系人姓名：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>参保证人状态：</dt><dd></dd></dl><dl><dt>缴费人员类别：</dt><dd></dd></dl><dl><dt>参保日期：</dt><dd></dd></dl><dl><dt>联系人电话：</dt><dd></dd></dl></div><div class="remarks"><dl><dt>备注：</dt><dd></dd></dl></div></div>';
+	//家庭信息
+	var homeinfo = '';
+	//计划生育
+	var jhsyinfo = '<div id="jhsyinfo"><div class="inf_content"><dl><dt>独生子女证号：</dt><dd></dd></dl><dl><dt>二女光荣证：</dt><dd></dd></dl><dl><dt>纳入奖扶日期：</dt><dd></dd></dl><dl><dt>办理机构：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>独子领证日期：</dt><dd></dd></dl><dl><dt>二女领证日期：</dt><dd></dd></dl><dl><dt>婚育证明号码：</dt><dd></dd></dl><dl><dt>办理日期：</dt><dd></dd></dl></div><div class="remarks"><dl><dt>备注：</dt><dd></dd></dl></div></div>';
+	//住房公积金
+	var zfgjjinfo = '<div id="zfgjjinfo"><div class="inf_content"><dl><dt>职工账号：</dt><dd></dd></dl><dl><dt>单位名称：</dt><dd></dd></dl><dl><dt>账户是否冻结：</dt><dd></dd></dl><dl><dt>发放员：</dt><dd></dd></dl><dl><dt>代办人：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>开户日期：</dt><dd></dd></dl><dl><dt>住房情况 ：</dt><dd></dd></dl><dl><dt>是否有住房贷款：</dt><dd></dd></dl><dl><dt>发放时间：</dt><dd></dd></dl><dl><dt>代办人身份证：</dt><dd></dd></dl></div></div>';
+	//房产信息
+	var fcinfo = '<div id="fcinfo"><div class="inf_content"><dl><dt>房屋产权证号：</dt><dd></dd></dl><dl><dt>房屋地址：</dt><dd></dd></dl><dl><dt>建筑面积：</dt><dd></dd></dl><dl><dt>共有人数：</dt><dd></dd></dl></div><div class="inf_content"><dl><dt>产权类型：</dt><dd></dd></dl><dl><dt>住房来源：</dt><dd></dd></dl><dl><dt>房屋坐落：</dt><dd></dd></dl><dl><dt>共有情况：</dt><dd></dd></dl></div><div class="remarks"><dl><dt>备注：</dt><dd></dd></dl></div></div>';
+	
+	
+	
+	// second tabs built from JS
+    Ext.onReady(function(){
+    	var inftabs = new Ext.TabPanel({
+        renderTo: 'resinfo',
+        activeTab: 0,
+        width: 767,
+        height: 310,
+        defaults :{
+            autoScroll: true,
+            bodyPadding: 15
+        },
+        items: [{
+                title: '基础信息',
+                html: baseinfostr
+            },{
+                title: '教育信息',
+                html: eduinfostr
+            },{
+                title: '就业信息',
+                html: jyinfo
+            },{
+                title: '社保信息',
+                html: sbinfo
+            },{
+                title: '家庭信息',
+                html: homeinfo
+            },{
+                title: '计划生育',
+                html: jhsyinfo
+            },{
+                title: '住房公积金',
+                html: zfgjjinfo
+            },{
+                title: '房产信息',
+                html: fcinfo
+            }
+        ]
+    });  
+});
+</script>
+<body>
+	<div class="main">
+		<div class="page5 box">
+			<div class="font-size1" style="margin-top:30px;">
+				按身份证号查询人口详细信息
+			</div>
+			<div class="queryform">
+				<input name="q" value="请输入15或18位身份证号" type="text" id="number"
+					onfocus="if(this.value=='请输入15或18位身份证号')this.value=''"
+					onblur="checknum(this)" maxlength="50" autocomplete="off">
+				</input><label id="formmsg"></label> <input type="submit" id="querybtn"
+					value="查&nbsp;&nbsp;&nbsp;询"></input>
+			</div>
+			<div id="resinfo" class="">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

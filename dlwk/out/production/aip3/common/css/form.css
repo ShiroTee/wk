@@ -1,0 +1,44 @@
+.tooltip-inner {
+	background-color: #a94442;
+	color: #fff;
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: #a94442;
+}
+
+.tooltip.right .tooltip-arrow {
+	border-right-color: #00acd6;
+}
+
+.tooltip.bottom .tooltip-arrow {
+	border-bottom-color: #00acd6;
+}
+
+.tooltip.left .tooltip-arrow {
+	border-left-color: #00acd6;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+	right: 5px;
+}
+
+.col-lg-3 {
+	padding-left: 2px;
+	padding-right: 1px;
+}
+
+.col-lg-9 {
+	padding-left: 2px;
+	padding-right: 1px;
+}
+
+.col-md-3 {
+	padding-left: 2px;
+	padding-right: 1px;
+}
+
+.col-md-9 {
+	padding-left: 2px;
+	padding-right: 1px;
+}

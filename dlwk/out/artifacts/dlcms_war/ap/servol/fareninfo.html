@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>按照姓名和身份证号码验证人口信息</title>
+<link href="../../r/cms/www/red/css/global.css" type="text/css" rel="stylesheet" />
+<link href="../../r/cms/www/red/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="../../r/cms/www/red/css/servol.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../r/cms/jquery.js" ></script>  
+</head>
+<script type="text/javascript">
+	var numflag = false;
+	function checknum(obj) {
+		if (obj.value == '') {
+			obj.value = '' ;
+		}else if (!(/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/).test(obj.value)) {
+			numflag = false;
+			document.getElementById("formmsg").innerHTML = "*输入有误,请输入15或18位身份证号" ;
+		}else{
+			numflag = true;
+			document.getElementById("formmsg").innerHTML = "" ;
+		}
+	}
+	
+
+	function showrest() {
+		if($('#zhucehao').val() == ''){
+			var array = ['刘明', '兰州市兴业五金有限公司', 'ZC234-BD456' ];
+			$('#restmsg td').each(function(i) {
+				$(this).html('');
+			});
+		}else{
+			var array = ['刘明', '兰州市兴业五金有限公司', 'ZC234-BD456' ];
+			$('#restmsg td').each(function(i) {
+				$(this).html(array[i]);
+			});
+		}
+	}
+</script>
+<style type="text/css">
+	#restmsg th{width: 100px;text-align:center;font-weight:bold;}
+</style>
+<body>
+	<div class="main">
+		<div class="page5 box">
+			<div class="font-size1" style="margin-top:30px;">
+				法人信息查询
+			</div>
+			<div class="checkform">
+					<div class="margin1">
+						<span id="name" class="fontw-bold">工商注册号：</span>
+						<input maxlength=20 type="text" class="inputinfo" id="zhucehao"></input>
+						<input type="submit" id="querybtn" value="查&nbsp;&nbsp;&nbsp;询" onclick="showrest()"></input>
+					</div>
+					<div style="margin:30px 250px;" id="restmsg">
+						<table name="fareninfo" border="1" width="300px" height="100px">
+							<tr>
+								<th>姓名：</th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>公司名称：</th>
+								<td></td>
+							</tr>
+							<tr>
+								<th>工商注册号：</th>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+			</div>
+			<div id="checkresinfo" class="">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

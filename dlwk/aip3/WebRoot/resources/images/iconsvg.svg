@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="108px" viewBox="0 0 200 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>API/icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-58.8%" y="-28.5%" width="196.5%" height="176.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="-6" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.200294384 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <radialGradient cx="87.6378954%" cy="88.5184163%" fx="87.6378954%" fy="88.5184163%" r="116.001582%" gradientTransform="translate(0.876379,0.885184),scale(1.000000,0.545455),rotate(-117.425395),translate(-0.876379,-0.885184)" id="radialGradient-2">
+            <stop stop-color="#F76B1C" offset="0%"></stop>
+            <stop stop-color="#FBDA61" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="政务信息资源目录-各种模板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="300_Artboard" transform="translate(-457.000000, -59.000000)">
+            <g id="Stacked-Group-2" transform="translate(17.000000, 30.000000)">
+                <g id="Group-5" transform="translate(440.000000, 29.000000)">
+                    <g id="API/icon">
+                        <g id="icon" filter="url(#filter-1)" transform="translate(72.000000, 18.000000)">
+                            <path d="M21,17 L21,14 L3,14 L3,1.5 C3,0.672 2.328,0 1.5,0 C0.672,0 0,0.672 0,1.5 L0,63 C0,63.828 0.672,64.5 2,65 L21,65 L21,62 L3,62 L3,41 L21,41 L21,38 L3,38 L3,17 L21,17 Z" id="Shape" fill="#B3B3B3" fill-rule="nonzero"></path>
+                            <path d="M55.5,24 L22.5,24 C21.672,24 21,23.3295 21,22.5 L21,7.5 C21,6.6705 21.672,6 22.5,6 L55.5,6 C56.328,6 57,6.6705 57,7.5 L57,22.5 C57,23.3295 56.328,24 55.5,24 Z M55.5,72 L22.5,72 C21.672,72 21,71.3295 21,70.5 L21,55.5 C21,54.6705 21.672,54 22.5,54 L55.5,54 C56.328,54 57,54.6705 57,55.5 L57,70.5 C57,71.3295 56.328,72 55.5,72 Z M55.5,48 L22.5,48 C21.672,48 21,47.3295 21,46.5 L21,31.5 C21,30.6705 21.672,30 22.5,30 L55.5,30 C56.328,30 57,30.6705 57,31.5 L57,46.5 C57,47.3295 56.328,48 55.5,48 Z" id="Combined-Shape" fill="url(#radialGradient-2)" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

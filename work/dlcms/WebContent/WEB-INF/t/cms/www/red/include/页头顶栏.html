@@ -1,0 +1,510 @@
+﻿<link href="${resSys}/Css/header.css" rel="stylesheet" type="text/css" />
+<script src="${resSys}/Js/des.js" type="text/javascript"></script>
+<style type="text/css">
+.boild{ font-weight:bold;}
+.cc30{ color:#c30; font-family:Arial;}
+.c390{ color:#390; font-family:Arial;}
+.centerimg{ background-image:url(http://static.xixik.com.cn/images/weather.png); width:25px; height:25px;position:relative; left:50%; margin-left:-12px; float:left;}
+.img{ background-image:url(http://static.xixik.com.cn/images/weather.png); width:25px; height:25px;float:left; border:solid 0px black}
+.centertwo{ width:50px; height:25px;position:relative; left:50%; margin-left:-25px; float:left}
+.qing{ background-position:0 0px}
+.duoyun{ background-position:-25px 0px}
+.yin{ background-position:-50px 0px}
+.zhenyu{ background-position:-75px 0px}
+.leizhenyu{ background-position:-100px 0px}
+.leizhengyubanyoubingbao{ background-position:-125px 0px}
+.yujiaxue{ background-position:-150px 0px}
+.xiaoyu{ background-position:-175px 0px}
+.zhongyu{ background-position:-200px 0px}
+.dayu{ background-position:-225px 0px}
+.baoyu{ background-position:-250px 0px}
+.dabaoyu{ background-position:-275px 0px}
+.tedabaoyu{ background-position:-300px 0px}
+.zhenxue{ background-position:-325px 0px}
+.xiaoxue{ background-position:-350px 0px}
+.zhongxue{ background-position:-375px 0px}
+.daxue{ background-position:-400px 0px}
+.baoxue{ background-position:-425px 0px}
+.wu{ background-position:-450px 0px}
+.dongyu{ background-position:-475px 0px}
+.shachenbao{ background-position:-500px 0px}
+
+.black_overlay_new{ display: none; position:fixed; top: 0%; left: 0%; width: 100%; min-height:1000px; height: 100%; background-color: #ECF5FA; z-index:1001; -moz-opacity: 0.5; opacity:.50; filter: alpha(opacity=100); } 
+
+</style>
+
+
+<script src="${base}/resourceList/Js/utils.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var siteBase = '${base!}' ;	//站点部署路径	
+	var rdpUserName,rdploginName,rdpPhoneNumber,rdpUserOrgId,rdpUserOrg ;	
+	var rdpRole="00";
+	var authKey;
+	[#if user??]
+		rdpUserName = '${user.username!}' ;
+		rdploginName='${user.rdploginName!}' ;
+		rdpPhoneNumber = '${user.rdpPhoneNumber!}' ;
+		rdpUserOrgId = '${user.rdpUserOrg!}' ;
+		rdpUserOrg = '${user.rdpUserOrgId!}' ;
+		rdpRole ='${user.rdpRole!}' ;
+		authKey ='${user.authKey!}';
+	[/#if]
+	 
+	 var goBackUrl = "/";
+	 var platformAdd="${platformAdd!}";
+	 var biReportFileDirectoryName="${biReportFileDirectoryName!}";
+	 var rootCode="${rootCode!}";
+	 var biUserName="${biUserName!}";
+	 var biPassword="${biPassword!}";
+	 var biQueryStartDate="${biQueryStartDate!}";
+	 var biQueryEndDate="${biQueryEndDate!}";
+	 var biBaseUrl="${BIAdd!}";
+	 var gisUrl = "${gisDomain!}";
+	 var gisHtml = "${gisHtml!}";
+	 var gisUuid = "${gisUuid!}";
+	// var weatherUrl = "${weatherIp!}/Weather/index.jsp";
+
+	 var globalInterfaceDomain="${platformAdd!}/service/api";
+	 
+	 var wbjUrl ="${platformAdd!}/service/api/csdsc/wbjDataSubmitDetailHandler/";
+	 var echartUrl ="${platformAdd!}/service/api/csdsc/statisticChartHandler/";
+	 
+	jQuery(function ($) {
+		var caFlag = "${caFlag!}";
+		if(caFlag=="caFlag")
+		{
+			alert("CA认证失败！请检查UKEY是否正确插入且是否处于正常服务状态？");
+			$("#login").click();
+		}
+		 
+		/*
+		  $.getJSON(weatherUrl+"?callback=?", function(data){      
+		        $("#week").html(data[0].week);
+							   $("#date").html(data[0].date);
+							   var min = data[0].minTem;
+							   var max = data[0].maxTem;
+							   if(min != null || max !=null)
+							   $("#tem").html(min+"-"+max+"°");
+							   $("#imgCss").addClass(data[0].css);   
+		    }); 
+		*/
+		if(rdpRole=="01"||rdpRole=="00")
+		{
+			$("#jfgl").parent().hide();
+			
+		}
+		
+		$(".close").click(function(){
+		$(this).parent().parent().hide();
+		$("#fade").hide();
+		});
+
+		$(".closeBtn").click(function() {
+			location.reload();
+	  	});
+	});
+
+	function showlogin_new(){
+		var obj = $("#light_1");
+		var x = ($(window).width()- obj.width())/2;
+		var y = ($(window).height()-obj.height())/2;
+		obj.css("top",y).css("left",x);
+		obj.show();
+		refreshCaptcha();
+		//document.body.bgColor="#ECF5FA";
+		$("#fade_new").show();
+	}
+
+	function showlogin(str){
+		
+		if(typeof(str)!="undefined"){
+			goBackUrl = str;
+		}
+		var obj = $("#light_1");
+		var x = ($(window).width()- obj.width())/2;
+		var y = ($(window).height()-obj.height())/2;
+		obj.css("top",y).css("left",x);  
+		obj.show();
+		refreshCaptcha();
+		$("#fade").show();
+	}
+	function refreshCaptcha() {
+		document.getElementById("imgcaptcha").src = "${base}/captcha.svl?d="+ new Date() * 1 + "";
+	}
+
+	function showPrompt(rdpUserOrg) {
+		  var requestUrl ='${platformAdd!}/service/api/csdsc/wbjDataSubmitDetailHandler/getWbjByOrgId?orgId='+rdpUserOrg;
+		  //alert(requestUrl);
+		  $.ajax({
+		    url: requestUrl,
+		    dataType : 'jsonp',
+		    jsonp : "jsonpcallback",
+		   
+		    success : function(data) {
+		      var line='';
+		      if (data.success) {
+		    	  var array=data.data.unzero;
+		    	  if(array.length>0)
+		    	  { 
+			    	  for ( var i = 0; i < array.length; i++) {
+			    			var TJSJLXMC= (undefined ==array[i].TJSJLXMC? "-" :array[i].TJSJLXMC);
+			    			var YTJSJRQ=(undefined == array[i].YTJSJRQ ? "-" :  formatDate(array[i].YTJSJRQ, formatRQ));
+			    			
+			    		    line = line+'<li>您局应在&nbsp;&nbsp'+YTJSJRQ+'&nbsp;&nbsp提交的 &nbsp;&nbsp'+TJSJLXMC+'&nbsp;&nbsp信息至今仍未提交，请尽快提交！</li>'
+			    		  }
+		    	    }   
+		    	  var array1=data.data.zero;
+		    	  if(array1.length>0)
+		    	  { 
+		    		       line=line+'<div style="height:1px; width:100%; border-bottom:1px dashed #000;padding:10px 0 0 10px;"></div>'
+			    	  for ( var i = 0; i < array.length; i++) {
+			    			var TJSJLXMC= (undefined ==array[i].TJSJLXMC? "-" :array[i].TJSJLXMC);
+			    			var YTJSJRQ=(undefined == array[i].YTJSJRQ ? "-" :  formatDate(array[i].YTJSJRQ, formatRQ));
+			    			
+			    		    line = line+'<li style="color: red;">你局&nbsp;&nbsp'+YTJSJRQ+'&nbsp;&nbsp提交的&nbsp;&nbsp'+TJSJLXMC+'&nbsp;&nbsp信息错误率达到50%以上，请及时进行更正！</li>'
+			    		  }
+		    	    }   
+		    	  
+		    	  if(array.length>0||array1.length>0){	 
+		    		  
+		    	  
+		    	   $("#tishi1").append(line);
+			    	    var obj = $("#light_2");
+			    		var x = ($(window).width()- obj.width())/2;
+			    		var y = ($(window).height()-obj.height())/2;
+			    		obj.css("top",y).css("left",x);  
+			    		obj.show();
+			    		$("#fade").show();
+		    	  }
+		    		
+		      } else {
+		      }
+		    },
+		    error : function(response) {
+		      alert(response);
+		    },
+		    timeout:6000
+		  });
+		}
+	
+	
+	function ligin_submit(formObj){
+		var yhm = formObj.yhm.value ;
+		var scode = formObj.scode.value ;
+		var captcha = formObj.captcha.value ;
+		
+		if(!Cms.isNotBlank(yhm, scode,captcha)){
+			if(yhm.length == 0){
+				alert("登录用户名未填写！"); 
+			}else	if(scode.length == 0){
+				alert("登录密码未填写！"); 
+			}else if(captcha.length == 0){
+				alert("验证码未填写！ ");
+			}
+			return false;
+		}
+
+        getKey(yhm,scode,captcha);
+
+		return false;
+	}
+
+
+    function getKey(yhm,scode,captcha) {
+        $.ajax({
+            url: encodeURI("/getUserKey.jspx"),
+            dataType: 'json',
+            success: function (datas) {
+                if(datas){
+                    var str=datas.split("_@@_");
+                    var data=str[0];
+                    var key=str[1];
+                    yhm= strEnc(yhm,data,data,data);
+                    scode= strEnc(scode,data,data,data);
+                    userLoginEncode(yhm,scode,captcha,key);
+                }else {
+                    $("#isComplete").html("<font color='red'>登录出现问题，稍后请重试！</font>");
+                }
+            },
+            error: function (response) {
+                alert(response.statusText);
+                $("#light_1").hide();
+            },
+            timeout: 60000
+        });
+    }
+
+    function userLoginEncode(yhm,scode,captcha,key) {
+        $.ajax({ url:"/rdplogin_dialog.jspx",
+            dataType:"text",
+            type:'POST',
+            async:false,
+            data:{"yhm" : yhm, "scode" : scode,"captcha":captcha,'key':key},
+            success:function(results){
+                var result = eval("(" + results + ")") ;;
+                if(result.success){
+
+                    rdpUserName=result.username;
+                    rdpPhoneNumber=result.rdpPhoneNumber;
+                    rdpUserOrg=result.rdpUserOrg;
+                    rdpRole =result.rdpRole;
+                    rdpUserOrgId=result.rdpUserOrgId;
+                    rdploginName=result.rdploginName;
+
+                    $("#light_1").hide();
+                    $("#fade").hide();
+                    var nts=rdpUserName+'<img style="cursor:pointer;" onclick="imgClick()" src="/r/cms/www/red/img/button_exit.jpg" />';
+                    $("#new_ts").html(nts);
+                    location.reload() ;
+                    //window.location.href = "/";
+
+                }else{
+                    refreshCaptcha();
+                    //formObj.yhm.value = "";
+                    formObj.captcha.value = "";
+                    formObj.scode.value="";
+                    formObj.scode.focus() ;
+                    $("#scode").val("");
+                    $("#new_ts").html(" 游客 <input type=\"button\"  id=\"login\" onclick=\"showlogin()\" />");
+                    alert(result.error) ;
+                }
+            },
+			error: function (response) {
+					$("#light_1").hide();
+					$("#fade").hide();
+					alert(response.statusText);
+            },
+            timeout: 60000
+        });
+
+    }
+
+	/**
+	 * 消息提醒
+	 */
+	function getAlertMessage(rdploginName) {
+		var requestUrl = platformAdd + "/service/api/csdsc/msgManageHandler/getAlertMessage";
+		var param = {
+			userLoginName: rdploginName,
+		};
+		$.ajax({
+			url: requestUrl,
+			dataType: 'jsonp',
+			jsonp: "jsonpcallback",
+			data: param,
+			success: function (data) {
+				if (data.success) {
+					showAlertMessage(data.data);
+				}
+			},
+			error: function (response) {
+				console.error(response);
+			},
+			timeout: 12000
+		});
+	}
+
+	function showAlertMessage(data) {
+		for (var i = 0; i < data.errorRate.length; i++) {
+			alert("你局" + formatDate(data.errorRate[i].TIME, 'YYYY年MM月DD日') + "提交的" + data.errorRate[i].DATA_NAME + "信息错误率达到50%以上，请及时进行更正！");
+		}
+		for (var i = 0; i < data.promise.length; i++) {
+			alert("你局应在" + formatDate(data.promise[i].TIME, 'YYYY年MM月DD日') + "提交的" + data.promise[i].DATA_NAME + "信息至今仍未提交，请尽快提交！");
+		}
+	}
+
+	function clear_tip(formObj){
+	    refreshCaptcha();
+		formObj.yhm.value = "";
+		formObj.captcha.value = "";
+		formObj.scode.value="";
+		$("#scode").val("");
+		newstr_length=0;
+		newstr="";
+		$("#new_ts").html(" 游客 <input type=\"button\"  id=\"login\" onclick=\"showlogin()\" />");
+		formObj.scode.focus() ;
+	}
+	
+	 var dialog = "false";
+	 function imgClick()
+	 {
+	 	window.location.href = "${base}/logout.jspx?returnUrl=/";
+	 }
+	
+	 function goback(){
+	   window.location.href = "/";
+	 }
+
+    //收藏本站
+    function AddFavorite(title, url) {
+        try {
+            window.external.addFavorite(url, title);
+        }
+        catch (e) {
+            try {
+                window.sidebar.addPanel(title, url, "");
+            }
+            catch (e) {
+                alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+            }
+        }
+    }
+</script>
+	<!--第一个win-->
+  	<div id="light_1" class="white_content">
+  		<h1>登录<a href = "javascript:goback();" class="close"><img src="${resSys}/Images/close.png" /></a></h1>
+    	<div class="warp" style="padding:0;margin:auto;">
+    		<div id="tab_con2" style="">
+       			<table width="100%">
+       				<form onsubmit="return ligin_submit(this);" id="formObj">
+       				<tr><td class="one">用户名：</td><td><input type="text"  name="yhm" id="yhm" style="background: #ffffff" autocomplete="off"/></td></tr>
+           			<tr><td class="one">密&nbsp;&nbsp;&nbsp;码：</td><td> 
+	    				<input type="password" id="scode" name="scode" autocomplete="off" />
+          				</td></tr>
+            			<tr><td class="one">验证码：</td><td>
+            				<input type="text" name="captcha" id="checkCode" autocomplete="off" style="background: #ffffff" />
+            	 			<input type="hidden" name="loginType" value="1"/>
+            				<img onclick="refreshCaptcha();" id="imgcaptcha" style="width: 65px; height: 30px; vertical-align: middle;"/>
+					</td></tr>
+           			<tr><td colspan="2"><input type="submit" value="登录" class="sbt sbt1"/><input type="button" value="重置" class="res" onclick="clear_tip(formObj);"/></td></tr>
+   					</form>
+       			</table>
+    		</div>
+    	</div>
+   </div>
+    
+   <!--头部导航-->
+ <div class="top_nav" style="background-color:white;margin-top: -17px "> 
+	<div class="topbox">
+        <div class="top">
+          <!-- <span class="date"><iframe width="280" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe> </span> -->
+          <span class="date"  width="280" scrolling="no" frameborder="0"  allowtransparency="true" style ="height: 23px;margin-top: 0px;">今天是 <script type="text/javascript">
+                        var y = new Date();
+                        var gy = y.getYear();
+                        var dName = new Array("星期天", "星期一 ", "星期二", "星期三", "星期四", "星期五", "星期六");
+                        var mName = new Array("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+                        document.write(y.getFullYear() + "年" + mName[y.getMonth()] + y.getDate() + "日　" + dName[y.getDay()]);
+          </script></span>
+           <span class="collect"><a  onclick="AddFavorite('大理市信息资源中心',location.href)">加入收藏</a> |
+          <span id="new_ts">欢迎您
+        	
+        	
+	[#if user??]     
+	     ${user.username}
+	     <input type="button" value="退出" onclick="imgClick()" style=" width: 43px;height: 23px;margin-left: 10px;	margin-top: 0px; color:white; border:0; font-size:14px; font-family:'微软雅黑';	background-image:url( ${base}/r/cms/www/red/img/denglu.png)" />
+	[#else]  
+	           游客 <input type="button" value="登录" id="login" onclick="showlogin()" />
+	[/#if]
+	     </span> </span>
+        	
+        </div>
+      </div>
+</div>
+
+<!--头部导航结束--> 
+<!--logo-->
+<!--  
+<h1 class="logo"><img src="${resSys}/Images/logo.png" width="453" height="56" /></h1>
+-->
+<div class="header">
+ <div class="banner">
+             <img src="${resSys}/Images/banner.jpg" />
+  </div>
+
+<!--logo--> 
+
+
+
+<!--导航开始-->
+<ul class="nav">
+  <li>
+   [#if !channel??] 
+      <a href="${base}/" class="a1 current"><i></i>首页</a>
+   [#else] 
+      <a href="${base}/" class="a1"><i></i>首页</a>
+   [/#if] 
+   </li>
+ [@cms_channel_list] 
+ 
+ 
+	 [#list tag_list as c]
+	    <li>
+	  
+	   [#if channel??&&((channel.id==c.id)||(channel.parentId??&&channel.parentId==c.id))] 
+	      <a [@cms_channel_list parentId=c.id]
+	         [#if tag_list?size>0] 
+		         href="${tag_list[0].url}" 
+			         [#if tag_list[0].blank!false]  
+			            target="_blank"
+			         [#else]
+			            target="_self"
+			         [/#if]
+	         [#else]
+	             href="${c.url}" 
+	                 target="_blank"
+	         [/#if]
+	         
+	         [#if c.name=='信息资源管理中心']
+	                class="a2  current1"
+	         [#else]
+		         [#if c.name=='在线信息服务'|| c.name=='信息资源目录']
+		                class="a3 current2"
+		         [#else]  
+		                class="current"  
+		         [/#if]
+	         [/#if]
+	         [#if c.name=='积分管理']
+	                id="jfgl"
+	         [/#if]
+	         [/@cms_channel_list]>
+	         ${c.name}
+	     </a>
+	   [#else] 
+	
+	     <a [@cms_channel_list parentId=c.id]
+	         [#if tag_list?size>0] 
+		         href="${tag_list[0].url}" 
+			         [#if tag_list[0].blank!false]  
+			            target="_blank"
+			         [#else]
+			            target="_self"
+			         [/#if]
+	         [#else]
+	             href="${c.url}" 
+	                 target="_self"
+	         [/#if]
+	         
+	         [#if c.name=='信息资源管理中心']
+	                class="a2"
+	         [#else]
+		         [#if c.name=='在线信息服务'|| c.name=='信息资源目录']
+		                class="a3"
+		         [/#if]
+	         [/#if]
+	         [#if c.name=='积分管理']
+	                id="jfgl"
+	         [/#if]
+	         [/@cms_channel_list]>
+	         ${c.name}
+		 </a>
+	   [/#if]
+	   [#if c.name!='下载中心']
+	    	
+	   [#else]
+	        &nbsp;
+	   [/#if]
+	   
+	   </li>
+	[/#list] 
+	
+[/@cms_channel_list]
+			 
+  <!--天气
+   <div class="tianqi"><div style="width: 70px; height: 47px; padding: 19px 0 0 60px; "><div id="imgCss"></div></div> <span class="one" id="tem" style="font-size:14pt;"></span> <span class="two"><strong id="week"></strong> <div id="date"> </div></span> </div>
+       天气结束-->
+  
+
+</ul>
+<div class="clear"></div>
+[#include "../include/页头搜索栏.html"/]
+</div>

@@ -1,0 +1,194 @@
+﻿<configBean host="http://10.6.10.55:8090">
+	<item label="路网" url="services/iserver/ROADNET-wms/wms111/ROADNET"
+		interfaceType="WMS" catalogueId="2fa87bb5-016e-4fa3-a136-9d0deca6c5da"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="548380.712818,553056.632645,551000.933274,554759.043837" />
+		<parameter name="name" value="ROADNET" />
+	</item>
+	<item label="水系" url="services/iserver/HYDNET-wms/wms111/HYDNET"
+		interfaceType="WMS" catalogueId="2fa87bb5-016e-4fa3-a136-9d0deca6c5da"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="548380.712818,554193.812841,551000.933274,554759.043837" />
+		<parameter name="name" value="HYDNET" />
+
+	</item>
+	<item label="社区" url="services/iserver/XZQH_SQ-wms/wms111/XZQH_SQ"
+		interfaceType="WMS" catalogueId="2fa87bb5-016e-4fa3-a136-9d0deca6c5da"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="548380.712818,553056.632645,551000.933274,554759.043837" />
+		<parameter name="name" value="XZQH_SQ" />
+	</item>
+	<item label="街道" url="services/iserver/XZQH_JD-wms/wms111/XZQH_JD"
+		interfaceType="WMS" catalogueId="2fa87bb5-016e-4fa3-a136-9d0deca6c5da"
+		serviceProvider="superMap">
+
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="548380.712818,553056.632645,551000.933274,554759.043837" />
+		<parameter name="name" value="XZQH_JD" />
+
+	</item>
+	<item label="行政区划"
+		url="services/iserver/xingzhengquhua-wms/wms111/xingzhengquhua" sid=""
+		bounds="" interfaceType="WMS" catalogueId="2fa87bb5-016e-4fa3-a136-9d0deca6c5da"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="439648.319277145,499849.634455301,616541.346666449,658159.996944572" />
+		<parameter name="name" value="xingzhengquhua" />
+	</item>
+	<item label="居民服务" url="services/iserver/juminfuwu-wms/wms111/juminfuwu"
+		sid="" bounds="" interfaceType="WMS" catalogueId="2fa87bb5-016e-4fa3-a136-9d0deca6c5da"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="548391.168502,553073.906511,550918.869444,554620.192345" />
+		<parameter name="name" value="juminfuwu" />
+	</item>
+
+	<item label="商业店铺" url="services/ogc/wfs/shangyedianpu"
+		interfaceType="WFS" catalogueId="543185df-ae39-4a4c-a4ab-38f8b4747be3"
+		serviceProvider="superMap">
+		<parameter name="sid" value="1431" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="SYDP" />
+	</item>
+	<item label="金融保险" url="services/ogc/wfs/jinrongbaoxian"
+		interfaceType="WFS" catalogueId="543185df-ae39-4a4c-a4ab-38f8b4747be3"
+		serviceProvider="superMap">
+		<parameter name="sid" value="1426" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="JRBX" />
+	</item>
+	<item label="公共服务" url="services/ogc/wfs/gonggongfuwu"
+		interfaceType="WFS" catalogueId="543185df-ae39-4a4c-a4ab-38f8b4747be3"
+		serviceProvider="superMap">
+		<parameter name="sid" value="1430" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="GGFW" />
+	</item>
+	<item label="居民服务" url="services/ogc/wfs/juminfuwu" interfaceType="WFS"
+		catalogueId="543185df-ae39-4a4c-a4ab-38f8b4747be3" serviceProvider="superMap">
+		<parameter name="sid" value="1428" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="JMFW" />
+	</item>
+
+	<item label="矢量地图" url="services/iserver/1171-rest/rest/maps/ShiLiangDiTu"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="ShiLiangDiTu" />
+	</item>
+
+	<item label="影像地图" url="services/iserver/1170-rest/rest/maps/YingXiangDiTu"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="YingXiangDiTu" />
+	</item>
+
+	<item label="街道" url="services/iserver/1188-rest/rest/maps/XZQH_JD"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="XZQH_JD" />
+	</item>
+
+	<item label="行政区划1" url="services/iserver/1182-rest/rest/maps/xzqh"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="xzqh" />
+	</item>
+
+	<item label="社区" url="services/iserver/1189-rest/rest/maps/XZQH_SQ"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="XZQH_SQ" />
+	</item>
+
+	<item label="水系" url="services/iserver/1191-rest/rest/maps/HYDNET"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="HYDNET" />
+	</item>
+
+	<item label="路网" url="services/iserver/1186-rest/rest/maps/ROADNET"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="ROADNET" />
+	</item>
+
+	<item label="人口" url="services/iserver/1184-rest/rest/maps/RK_PT"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="RK_PT" />
+	</item>
+
+	<item label="行政区划2" url="services/iserver/1183-rest/rest/maps/xingzhengquhua"
+		interfaceType="REST" catalogueId="561fdef5-7d5a-40ab-be6f-8c1dc0c5890f"
+		serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds" value="" />
+		<parameter name="name" value="xingzhengquhua" />
+	</item>
+
+
+	<item label="矢量地图" url="services/ogc/wmts/1171" interfaceType="WMTS"
+		catalogueId="81e965a6-951f-47c5-8b6b-647730d407db" serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="408189.28125,477780.390625,664896.28125,681598.890625" />
+		<parameter name="name" value="ShiLiangDiTu" />
+	</item>
+
+	<item label="影像地图" url="services/ogc/wmts/1170" interfaceType="WMTS"
+		catalogueId="81e965a6-951f-47c5-8b6b-647730d407db" serviceProvider="superMap">
+		<parameter name="sid" value="" />
+		<parameter name="bounds"
+			value="408189.28125,477780.390625,664896.28125,681598.890625" />
+		<parameter name="name" value="YingXiangDiTu" />
+	</item>
+	<!--功能服务接口-->
+	<item label="空间查询接口" url="sgs/spatialQuery.action" interfaceType="HTTP"
+		catalogueId="1229e497-1f45-487e-b387-b7f67a8921eb" serviceProvider="superMap">
+	</item>
+	<item label="路径分析接口" url="services/networkanalyst/network"
+		interfaceType="HTTP" catalogueId="1229e497-1f45-487e-b387-b7f67a8921eb"
+		serviceProvider="superMap">
+	</item>
+	<item label="统计分析接口" url="services/StatisticsService"
+		interfaceType="HTTP" catalogueId="1229e497-1f45-487e-b387-b7f67a8921eb"
+		serviceProvider="superMap">
+	</item>
+	<item label="属性查询接口" url="sgs/propertyQuery.action" interfaceType="HTTP"
+		catalogueId="1229e497-1f45-487e-b387-b7f67a8921eb" serviceProvider="superMap">
+	</item>
+	<item label="个人标注接口" url="sgs/getMarkCatalogAndMarkDataTree.action"
+		interfaceType="HTTP" catalogueId="1229e497-1f45-487e-b387-b7f67a8921eb"
+		serviceProvider="superMap">
+	</item>
+	<item label="POI兴趣点服务" url="services/PoiSearchService"
+		interfaceType="HTTP" catalogueId="1229e497-1f45-487e-b387-b7f67a8921eb"
+		serviceProvider="superMap">
+	</item>
+</configBean>

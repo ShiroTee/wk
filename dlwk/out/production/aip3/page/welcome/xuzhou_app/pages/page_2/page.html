@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>徐州信息资源枢纽工程数据分析系统</title>
+    <!-- resources in general -->
+    <link rel="stylesheet" href="../../libs/animate.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <!-- resources in economic -->
+    <link rel="stylesheet" href="style.css">
+    <script src="libs/echarts-all.js"></script>
+    <script src="libs/echarts.js"></script>
+    <script src="../../libs/common.js"></script>
+    <script>
+    var dojoConfig = {
+        async: true,
+        packages: [{
+            name: 'libs',
+            location: location.pathname.replace(/\/[^/]*$/, '') + '/libs'
+        }, {
+            name: 'widgets',
+            location: location.pathname.replace(/\/[^/]*$/, '') + '/widgets'
+        }]
+    };
+    </script>
+    <!--<script src="http://10.0.5.61:90/localsources/dojo/dojo-release-1.10.4/dojo/dojo.js"></script>-->
+    <script src="../../libs/dojo/dojo/dojo.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <!--标题头head-->
+    <div class="common_header">
+        <div class="header_logo"></div>
+        <div class="header_middle">
+            <div class="header_title_page2"></div>
+        </div>
+        <div class="header_date" id="header_date">2016年12月7</div>
+    </div>
+    <div id="economic_container" class="economic_container"></div>
+    <!--页面跳转-->
+    <div class="common_page common_page_bg_page2">
+        <a href="../../index.html" title="首页">1</a>
+        <a class="pageSelect" href="#" title="宏观经济分析">2</a>
+        <a href="../page_4/page.html" title="法人分析">3</a>
+        <a href="../page_3/page.html" title="人口分析">4</a>
+    </div>
+</body>
+
+</html>

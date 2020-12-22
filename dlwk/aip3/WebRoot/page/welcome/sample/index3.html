@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>成都信息资源枢纽工程数据分析系统</title>
+    <!--<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="libs/animate.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="index.css?version=2.0.3">
+
+    <script src="libs/echarts.js"></script>
+    <script src="echarts-wordcloud.min.js"></script>
+    <script src="libs/jquery-3.1.0.min.js"></script>
+    <!--<script src="libs/bootstrap/js/bootstrap.js"></script>-->
+    <script src="libs/JNumber.min.js"></script>
+    <script src="libs/common.js"></script>
+    <script src="libs/radialIndicator.min.js"></script>
+    <script src="libs/jquery.darktooltip.min.js"></script>
+    <script src="libs/l-by-l.min.js"></script>
+    <script src="data/index_data.js"></script>
+    <script src="index.js"></script>
+    <script src="libs/g2.js"></script>
+    <script src="libs/d3.v4.min.js"></script>
+    
+    <style type="text/css">
+    .index_left_top .left_GWBJSYL1:hover:before {
+	width: 100%;
+	left: 0;
+	right: 0
+}
+
+.index_left_top .left_GWBJSYL1 {
+	position: relative;
+	cursor: default
+}
+
+.index_left_top .left_GWBJSYL1:before
+	{
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -2px;
+	width: 0;
+	height: 2px;
+	background-image: -webkit-linear-gradient(-45deg, #e2fae7, #10e06b);
+	background-image: -moz-linear-gradient(-45deg, #e2fae7, #10e06b);
+	transition: all .3s
+}
+    </style>
+    
+    
+    
+    <script>
+      
+    function g22(){
+    	var Stat = G2.Stat;
+        var Frame = G2.Frame;
+        $.getJSON('json/USA.geo.json', function(mapData) {
+          var map = [];
+          var features = mapData.features;
+          // 获取出所有的地图区域名称
+          for(var i=0; i<features.length; i++) {
+            var name = features[i].properties.name;
+            map.push({
+              "name": name
+            });
+          }
+          var chart = new G2.Chart({
+            id: 'mid11',
+            forceFit: true,
+            height: 450,
+            animate: false,
+            syncXYScales: true,
+            plotCfg: {
+              margin: [40, 90, 40, 20]
+            }
+          });
+          var defs = {
+            '..long': {
+              max: -66,
+              min:-125
+            },
+            '..lant': {
+              max: 50,
+              min:24
+            },
+            '..x': {
+              max: -66,
+              min:-125
+            },
+            '..y': {
+              max: 50,
+              min:24
+            }
+          };
+          chart.source(map, defs);
+          chart.legend(false);
+          chart.tooltip({
+            title: null
+          });
+          var backView = chart.createView();
+          backView.source(map);
+          backView.tooltip(false); // 背景不显示tooltip
+          backView.polygon().position(Stat.map.region('name', mapData)).style({
+            fill: 'rgb(204,204,204)',
+            stroke: '#fff',
+            lineWidth: 1
+          });
+          // backView.render();
+          $.getJSON('json/flights-airport.json', function(flights) {
+            var linksByOrigin = {},
+                countByAirport = {},
+                locationByAirport = {},
+                subFlights = [];
+            // 计算飞机的起飞、降落数
+            flights.forEach(function(flight) {
+              var origin = flight.origin,
+                  destination = flight.destination;
+              countByAirport[origin] = (countByAirport[origin] || 0) + 1;
+              countByAirport[destination] = (countByAirport[destination] || 0) + 1;
+            });
+            $.getJSON('json/airport.json', function(airports) {
+              // Only consider airports with at least one flight.
+              airports = airports.filter(function(airport) {
+                if (countByAirport[airport.department]) {
+                  airport.count = countByAirport[airport.department]; // 加入班次数量
+                  airport.x = airport.longitude;
+                  airport.y = airport.latitude;
+                  airport.id = airport.department;
+                  return true;
+                }
+              });
+              var airView = chart.createView();
+              airView.source(airports);
+              airView.point().position(Stat.map.location('longitude*latitude'))
+                .color('#F8E71C')
+                .shape('circle')
+                .style({
+                stroke: '#eee',
+                lineWidth: 1
+              })
+                .size('count', 15, 3)
+                .tooltip('department*信息资源数量*信息资源需求数量*信息资源被需求数量');
+              var flightView = chart.createView(); // 飞行路线
+              flightView.tooltip(false);
+              flightView.source(subFlights);
+              flightView.edge().position(Stat.link('origin*destination', airports));
+              chart.render();
+              var preShape;
+              function getFlights(department) {
+                var rst = [];
+                flights.forEach(function(flight) {
+                  if (flight.origin == department || flight.destination == department) {
+                    rst.push(flight);
+                  }
+                });
+                return rst;
+              }
+              var preId;
+              chart.on('plotmove', function(ev){
+                var records = airView.getSnapRecords({
+                  x: ev.x,
+                  y: ev.y
+                });
+                if (records.length) {
+                  var obj = records[0]._origin;
+                  var department = obj.department;
+                  if (preId !== department) {
+                    subFlights = getFlights(department);
+                    flightView.changeData(subFlights);
+                    preId = department;
+                  }          
+                }
+              });
+              chart.on('plotleave', function(ev){
+                if (subFlights.length) {
+                  subFlights = [];
+                  flightView.changeData([]);
+                }
+              });
+            });
+          });
+        });
+    }
+      
+      
+      //----------------------------------------
+      function d33(){
+    	  var width  = 50;	//SVG绘制区域的宽度
+    		var height = 50;	//SVG绘制区域的高度
+    				
+    		var svg = d3.select("body")			//选择<body>
+    				.append("svg")			//在<body>中添加<svg>
+    				.attr("width", width)	//设定<svg>的宽度属性
+    				.attr("height", height);
+    		
+    		var pack = d3.layout.pack()
+    		    	.size([ width, height ])
+    		    	.sort(null)
+    		    	.value(function(d){
+    		    		return d.weight;
+    		    	})
+    			.padding(2);
+    		
+    		d3.json("json/data.json",function(error, root){
+
+    			var nodes = pack.nodes(root);
+    			
+    			console.log(nodes);
+    				
+    			var color = d3.scale.category20c();
+
+    			var bubbles = svg.selectAll(".bubble")
+    				.data(nodes.filter(function(d) { 
+    					return !d.children; 
+    				}))
+    				.enter()
+    				.append("g")
+    				.attr("class","bubble");
+
+    			bubbles.append("circle")
+    				.style("fill",function(d,i){
+    					return color(i);
+    				})
+    				.attr("cx",function(d){ return d.x; })
+    				.attr("cy",function(d){ return d.y; })
+    				.attr("r",function(d){ return d.r; });
+
+    			bubbles.append("text")
+    				.attr("x",function(d){ return d.x; })
+    				.attr("y",function(d){ return d.y; })
+    				.text(function(d){
+    					return d.name;
+    				});
+
+    		});
+
+      }
+      
+      g22();
+      //d33();
+
+      function clickNext1(){
+	 	location.href='pages/page_2/page.html';
+ 	}
+      
+      function clickNext(val){
+    	  if(1 == val){
+    		  location.href='pages/page_3/page.html?next='+val;
+    	  }else{
+    		  location.href='pages/page_3/page.html';
+    	  }
+  	 	
+   	}
+    </script>
+</head>
+
+<body>
+    <div class="indexBox">
+        <!--标题头head-->
+        <div class="common_header">
+            <div class="header_logo"></div>
+            <div class="header_middle">
+                <div class="header_title"></div>
+            </div>
+            <div class="header_date"></div>
+        </div>
+
+        <!--中间图-->
+        <div id="index_container" class="index_container">
+            <table>
+                <tr height="70%">
+                    <td valign="middle" align="center">
+                        <div class="container_content zoomIn animated">
+                                        <img alt="11" src="images/index/cd.png">             
+                            <div id="mid11" class="content_lines"></div> 
+                            <div class="totalNum animated">
+                            <div class="totalTit">&nbsp;&nbsp;当前累计数据项总量</div>
+                            <div class="total"><label class="total_num"></label><span class="danwei">条</span></div>
+                            </div>                     
+                        </div>
+                    </td>
+                </tr>
+                <tr height="30%">
+                <td>
+                <div class="mid_down" onclick="clickNext1()" style="cursor:pointer;">
+	                <span class="titStyle" id="titStyle">
+	            	信息资源服务效率Top10
+	            	</span>
+	            	
+	            	<div id="mid2">
+	            	</div>
+                </div>
+                </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--左侧统计-->
+        <div class="index_left fadeInLeft animated">
+            <div class="index_left_top" onclick="clickNext1()">
+            <hr class="titColor"/>
+            <span class="titStyle">
+            	信息资源开放度
+            </span>
+	            
+                <!--各委办局使用量-->
+                <div id="cuser1">
+                </div>
+                <div id="cuser2">
+                </div>
+            </div>
+
+            <div class="index_left_middle" onclick="clickNext(1)">
+             <hr class="titColor"/>
+            <span class="titStyle">
+            	信息资源依赖度Top10
+            </span>
+                <div id="left3">
+                    
+                </div>          
+            </div>
+        </div>
+
+        <!--右侧图表-->
+        <div class="index_right fadeInRight animated">
+        
+        <div class="div3" onclick="clickNext(2)">
+        <hr class="titColor"/>
+            <span class="titStyle">
+            	资源影响度
+            </span>
+            <div id="right_ringChart" style="margin-left: -20%;" ></div>
+        </div>
+        <div class="div3">
+         <hr class="titColor"/>
+            <span class="titStyle">
+            	主题化信息资源
+            </span>
+            
+             <div id="right_stackBarChart" style="margin-left: -30%;margin-top: -10px;"></div>
+        </div>
+        <div class="div3" onclick="clickNext1()">
+        <hr class="titColor"/>
+            <span class="titStyle">
+            	信息资源存放
+            </span>
+            <div id="right3"></div>
+        </div>   
+        </div>
+
+        <!--页面跳转-->
+        <div class="common_page common_page_bg_index">
+            <a class="pageSelect" href="#">1</a>
+            <a href="pages/page_2/page.html">2</a>
+            <a href="pages/page_3/page.html">3</a>
+            <a href="pages/page_4/page.html">4</a>
+            <a href="pages/page_5/page.html">5</a>
+             <a href="page_6/page.html">6</a>
+        	<a href="page_7/page.html">7</a>
+        </div>
+    </div>
+    
+</body>
+</html>

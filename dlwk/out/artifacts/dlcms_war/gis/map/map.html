@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>地图展示</title>
+	<script type="text/javascript" src="http://10.6.10.55:8090/sgs/service/mapcontrol?key=bf73dd02ba1a867403de2c428d47b7aa"></script>
+</head>
+<body>
+	<div style="border-bottom: #1d9ceb 2px solid; border-left: #1d9ceb 2px solid; width: 770px; height: 520px; border-top: #1d9ceb 2px solid; border-right: #1d9ceb 2px solid" id="mapcontainer"></div>
+	<script type="text/javascript">
+		var oMap = new SuperMap.DC.MapControl();
+		oMap.mapDivId = "mapcontainer";
+		oMap.layerName = "";
+		oMap.layerType = "TiledDynamicRESTLayerExtend";
+		oMap.initialize(function(){});
+		function viewEntire(){
+			oMap.viewEntire(function(){});
+		}
+	</script>
+</body>
+</html>

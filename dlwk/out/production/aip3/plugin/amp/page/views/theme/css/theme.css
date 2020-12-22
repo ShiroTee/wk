@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+#theme-chart-box
+{
+	
+}
+.legendLabel
+{
+	font-size: 14px;
+/* 	color: #ffffff; */
+}
+.legend-theme-box
+{
+	margin-top:200px;
+	font-size: smaller; 
+	color: #545454l;
+}
+.legend-theme-box tr
+{
+	height: 30px;
+}

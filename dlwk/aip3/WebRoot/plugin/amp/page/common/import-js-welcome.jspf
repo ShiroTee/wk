@@ -1,0 +1,6 @@
+<script src="${ctx }/resources/ace1.3.2/js/bootstrap.min.js"></script>
+<script src="${ctx }/resources/ace1.3.2/js/ace.min.js"></script>
+<script src="${ctx }/resources/ace1.3.2/js/ace-elements.min.js"></script>
+<script src="${ctx }/plugin/amp/page/common/js/base.js"></script>
+<script src="${ctx }/plugin/amp/page/common/js/common.js"></script>
+

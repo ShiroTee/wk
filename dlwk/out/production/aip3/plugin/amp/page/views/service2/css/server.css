@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+#chartBox
+{
+  margin: 0 auto;
+  font-family: 'PT Serif', Georgia, Times, 'Times New Roman', serif;
+  line-height: 1.5em;
+  color: #333;
+  background: #fefefe;
+  position: relative;
+}
+#chartBox
+{
+	height: 500px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+svg path
+{
+	stroke: #fff;
+}
+svg .node
+{
+	cursor:pointer;
+}
+svg .node:FIRST-CHILD
+{
+	cursor:default;
+}
+svg text
+{
+	font-size: 14px;
+	color: #333;
+}
+
+#fullscreenBu {
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	z-index: 9999;
+	cursor: pointer;
+	font-size: 20px;
+}
+#fullscreenBu:HOVER 
+{
+	font-size: 22px;
+}

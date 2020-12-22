@@ -1,0 +1,29 @@
+@charset "utf-8";
+/*标题圆圈*/
+.title-circle {
+	background: #eee;
+}
+/*标题文字*/
+.title-p-primary {
+	color: #303030;
+}
+
+.title-p-small {
+	color: #303030;
+}
+
+.main-text-descript {
+	color: #303030;
+}
+
+.title-p-view {
+	color: #303030;
+}
+
+.back-bu {
+	color: #303030;
+}
+
+.back-bu:hover {
+	color: #303030;
+}

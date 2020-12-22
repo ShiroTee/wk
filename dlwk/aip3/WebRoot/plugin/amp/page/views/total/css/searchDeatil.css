@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+#container-fluid
+{
+	padding-top: 10px;
+	width: 94%;
+	border-radius:8px;
+	background: url(../../../common/images/vis-bg1.png);
+	/*filter: alpha(opacity=99);
+	-moz-opacity: 0.99;
+	-khtml-opacity: 0.99;
+	opacity: 0.99;
+	margin-left:100px;
+	margin-right:100px;*/
+	margin-bottom:100px;
+	color:#0043a7;
+}
+
+.search-detail-title
+{
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #AECDEA;
+	padding-bottom: 5px;
+	color:#333333;
+}
+.sdetail .row
+{
+	margin-top: 10px;
+	color:#0043a7;
+
+}
+.sdetail a
+{
+	text-decoration: underline;
+}
+.org-text
+{
+	color: red;
+}
+.org-text-tip
+{
+	color: red;
+	font-size: 14px;
+	font-weight:bold;
+}
+
+.back-bu
+{
+	display: none;
+}
+
+.caozuoshuoming
+{
+	display: none;
+}
+.detail-item-title
+{
+	font-size: 24px;
+	font-weight: bold;
+	border-bottom:dashed 1px #D3D3D3;
+}

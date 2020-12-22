@@ -1,0 +1,159 @@
+﻿/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace info "com.info.control.info.*";
+@namespace flare "flare.vis.operator.label.*";
+@namespace flash "flash.text.*";
+
+/***自定义样式***/
+.infoWindowLabelStyleName
+{
+	fontWeight:bold;
+	fontSize:14;
+}
+.closeButtonStyleName
+{
+/*	icon:Embed(source="assets/img/closeButtonOver.png");*/
+	skinClass:ClassReference("assets.skins.CloseButtonSkin");
+}
+info|InfoWindow
+{
+	background-alpha:0.7;
+}
+.flareStyle
+{
+	font-family:"微软雅黑";
+}
+
+/****系统控件样式****/
+mx|BarChart
+{
+	font-size:12;
+}
+
+mx|PieChart
+{
+	font-size:12;
+}
+mx|ColumnChart
+{
+	font-size:12;
+}
+s|Application
+{
+	font-family:"微软雅黑";
+}
+s|Group
+{
+	font-family:"微软雅黑";
+}
+mx|UIComponent
+{
+	font-family:"微软雅黑";
+}
+mx|MenuBar
+{
+	font-size:14;
+} 
+mx|ToolTip
+{
+	font-family:"微软雅黑";
+	font-size:13;
+}
+s|TextInput
+{
+	font-size:14;
+	font-weight:normal;
+	border-color:#cccccc;
+	border-visible:true;
+	border-alpha:1;
+	skin-class:ClassReference("assets.skins.DTextInputSkin");
+	width:150;
+}
+s|BorderContainer
+{
+	background-alpha:1;
+	background-color:#F6F9FE;
+	/*	content-background-alpha:1;
+	content-background-color:#ffffff;*/
+	border-visible:true;
+	border-alpha:1;
+	border-color:#CCCCCC;
+	corner-radius:5;
+}
+mx|TitleWindow
+{
+	border-visible:true;
+	border-alpha:1;
+	border-color:#CCCCCC;
+	background-alpha:1;
+	background-color:#FFFFFF;
+	/*	content-background-alpha:0.9;
+	content-background-color:#96A5B8;*/
+	corner-radius:8;
+	drop-shadow-visible:true;
+}
+mx|Grid
+{
+	left:2;
+	right:2;
+	top:2;
+	bottom:2;
+	horizontal-align:center;
+	vertical-align:middle;
+	horizontal-gap:1;
+	vertical-gap:7;
+}
+mx|DataGrid
+{
+	alternatingItemColors:#E3EDFA,#D9E7F8;
+	/*	content-background-alpha:1;*/
+	/*content-background-color:#9AA7BA;
+	contentBackgroundAlpha:0.79;
+	contentBackgroundColor:#BC1010;*/
+	borderColor:#99BBE8;
+	horizontalGridLineColor:#99BBE8;
+	verticalGridLineColor:#99BBE8;
+	horizontalGridLines:true;
+	verticalGridLines:true;
+	dropShadowVisible:false;
+	roll-over-color:#A8C6EE;
+	/*	headerColors:#D2E1F4,#BFD4F1;*/
+	header-style-name:dgHeaderStyle;
+}
+.dgHeaderStyle
+{
+	font-weight:bold;
+	roll-over-color:#D9E7F8;
+}
+
+/**
+*第三方控件
+**/
+
+flare|Labeler
+{
+	font-family:"微软雅黑";
+}
+flash|TextField
+{
+	font-family:"微软雅黑";
+}
+
+
+/**
+*嵌入设备字体
+**/
+@font-face
+{
+	embedAsCFF:false;
+	src: local("微软雅黑");  /**url(te.tff)**/
+	font-family: EmbeddedChartFont;
+} 
+/****字体倾斜*******/
+.chartStyle
+{
+	font-family:EmbeddedChartFont;
+	font-size:12;
+}
+

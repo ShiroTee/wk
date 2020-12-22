@@ -1,0 +1,56 @@
+/*----------------------------------------
+Name: servol.css
+Developed by: zhyg
+Date Created: 2013-03-05
+Last Updated: 2013-03-05
+Copyright: 
+note:“在线信息服务”栏目下页面样式    /lzcms/WebRoot/ap/servol/XXXXX.html
+----------------------------------------*/
+
+@charset "utf-8";
+
+/* zhyg */
+/* 按照身份证查询 */
+.font-size1{font-size: 24px; font-weight: bold; text-align: center;}
+.queryform{margin:40px auto 0;}
+.queryform #number{height:26px; width:280px !importrent; width:280px; font-size:16px; font-weight: bold; text-align: center; margin: 0 10px 0 242px;color: #445364;}
+.queryform #formmsg{color:red;}
+.queryform #querybtn{width:80px; height:28px; margin: 15px 345px;}
+
+/* 公民身份信息验证 */
+.checkform{margin:40px auto 0;}
+.fontw-bold{font-weight: bold;}
+.margin1{margin: 10px 0 0 240px;}
+.inputinfo{height:20px; width:220px !importrent; width:220px; font-size:14px; font-weight: bold; margin: 0 10px 0 0px; padding-left:5px; color: #445364; length:18;}
+.checkform #formmsg{color:red;}
+.checkform #resmsg{color:red; font-size: 14px; ont-weight: bold;}
+.checkform #querybtn{width:110px; height:28px; margin: 15px 100px;; display:block;}
+
+#resinfo{margin: 20px auto 0;}
+
+/* 人口详细信息TAB页 */
+.inf_content{width: 365px ;float: left ;}
+.inf_content dl, .remarks dl{margin-top: 20px;}
+.inf_content dt, .remarks dt{margin-left: 40px;font-weight: bold;display: inline-block;}
+.inf_content dd, .remarks dd{margin-left: 5px; display: inline-block;border-bottom:1px dotted gray;}
+.remarks{float: left ;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

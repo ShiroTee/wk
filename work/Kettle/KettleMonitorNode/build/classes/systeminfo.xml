@@ -1,0 +1,18 @@
+<systemCollect>
+	<system>
+		<name>提供</name>
+		<areaCode>support</areaCode>
+		<isSelf>true</isSelf>
+		<bindIp>172.16.123.2</bindIp>
+		<bindPort>6600</bindPort>
+		<service>IOwenServer</service>
+	</system>
+	<system>
+		<name>使用</name>
+		<areaCode>use</areaCode>
+		<isSelf>false</isSelf>
+		<bindIp>172.17.150.209</bindIp>
+		<bindPort>6600</bindPort>
+		<service>Communication</service>
+	</system>
+</systemCollect>

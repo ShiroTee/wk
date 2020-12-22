@@ -1,0 +1,8 @@
+解锁正式系统：
+http://1.10.4.194:6565/service/api/csdsc/userInfoHandler/unLockUser?loginName=development
+development 可以替换为用户名
+
+//生成数据月报
+http://localhost:6565/service/api/csdsc/dataOutComeHandler/createDataForSubmit?sjssq=2017-03
+
+http://1.10.4.194:6565/service/api/csdsc/dataOutComeHandler/createDataForSubmit?sjssq=2017-03

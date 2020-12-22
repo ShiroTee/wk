@@ -1,0 +1,501 @@
+/*!
+* Ext JS Library 4.0
+* Copyright(c) 2006-2011 Sencha Inc.
+* licensing@sencha.com
+* http://www.sencha.com/license
+*/
+
+#poweredby {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    z-index: 15000;
+
+    /* IE 5-7 */
+    filter: alpha(opacity=70);
+    /* Netscape */
+    -moz-opacity: 0.7;
+    /* Safari 1.x */
+    -khtml-opacity: 0.7;
+    /* Good browsers */
+    opacity: 0.7;
+}
+
+#poweredby div {
+    position: relative;
+    width: 150px;
+    height: 25px;
+    background-image: url(../images/powered-by-ext-js.png);
+    background-repeat: no-repeat;
+}
+
+/* The simple background image PNG does not work in IE6-8, but does in IE9 */
+.x-ie6 #poweredby div,
+.x-ie7 #poweredby div,
+.x-ie8 #poweredby div {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/powered-by-ext-js.png', sizingMethod='scale');
+}
+
+/*----------------------------------------------------
+    Start Button
+*/
+
+.ux-start-button-icon {
+    background-image: url(../images/taskbar/sencha.gif) !important;
+    background-color: transparent;
+}
+
+.ux-start-button .x-btn-arrow {
+    background-image: none;
+}
+
+.ux-taskbar {
+    padding-left: 4px !important;
+}
+
+/*
+    Start Button (Black)
+*/
+
+.ux-desktop-black .ux-start-button {
+    height: 28px;
+    padding: 0px;
+    display: block;
+}
+
+.ux-desktop-black .ux-start-button em {
+    margin-top: 5px;
+}
+
+.ux-desktop-black .ux-start-button .x-btn-inner {
+    color: black;
+    font-size:11px;
+    font-weight: bold;
+}
+
+.ux-desktop-black .ux-start-button {
+    background-image: -moz-linear-gradient(center top , #E4F3FF, #D9EDFF 48%, #C2D8F2 52%, #C6DCF6);
+    border-radius: 8px 8px 8px 8px;
+    border-color: #81A4D0;
+}
+
+/* zhyg */
+.ux-start-button-z{
+	width: 75px;
+	height:25px;
+	line-height:25px;
+	margin-left:40px;
+	background: #D7EBFE url(../images/taskbar/start-02.png) no-repeat !important;
+    border-color: #81A4D0;
+}
+
+/*----------------------------------------------------
+    Start Menu
+*/
+
+.ux-start-menu-toolbar .x-btn-inner {
+    text-align: left;
+}
+
+.ux-start-menu-toolbar {
+    padding: 4px !important;
+}
+
+/*----------------------------------------------------
+    TaskBar
+*/
+
+/* Use high specificity selector to override default styling*/
+div.ux-taskbar div.x-toolbar {
+    background: transparent none;
+    border: 0 none;
+    padding: 0;
+}
+
+.ux-desktop-windowbar .x-btn-inner,
+.x-nbr .ux-desktop-windowbar .x-btn-icon-text-left button {
+    text-align: left !important;
+}
+
+/*
+    TaskBar (Black)
+*/
+
+.ux-desktop-black .ux-taskbar {
+    background: transparent url('../images/taskbar/black/taskbar-start-panel-bg.gif') repeat-x left top;
+    border-color: transparent;
+    /*height: 30px;*/
+}
+
+.ux-desktop-black .ux-taskbar .x-splitter {
+    background: transparent url(../images/taskbar/black/taskbar-split-h.gif) no-repeat scroll 0 -2px;
+}
+
+.ux-desktop-black .ux-taskbar .x-toolbar-text {
+    color: white !important;
+}
+
+.ux-desktop-black .ux-taskbar .x-btn-default-toolbar-small-over {
+    background-color: yellow;
+}
+
+.ux-desktop-black .ux-taskbar .x-btn-inner {
+    color: white;
+}
+
+.ux-desktop-black .ux-taskbar .x-btn-pressed .x-btn-inner, .ux-taskbar .x-btn-over .x-btn-inner {
+    color: black;
+}
+
+/*----------------------------------------------------
+    Tray Clock
+*/
+
+.ux-desktop-trayclock {
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/*----------------------------------------------------
+    Desktop DataView
+*/
+
+.ux-wallpaper {
+    background-color: #3d71b8;
+}
+
+.ux-wallpaper-tiled {
+    background-repeat: repeat;
+}
+
+.ux-desktop-shortcut {
+    cursor: pointer;
+    text-align: center;
+    padding: 8px;
+    margin: 8px;
+    width: 64px;
+}
+
+.ux-desktop-shortcut-icon {
+    width:48px;
+    height:48px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.ux-desktop-shortcut-text {
+    font: normal 12px \5FAE\8F6F\96C5\9ED1 ,\5FAE\x8F6F\6B63\9ED1\4F53,\65B0\7EC6\660E\4F53,\7EC6\660E\4F53,\9ED1\4F53,\5FAE\8F6F\96C5\9ED1 ,\5FAE\x8F6F\6B63\9ED1\4F53,\65B0\7EC6\660E\4F53,\7EC6\660E\4F53,\9ED1\4F53,verdana,helvetica;
+    text-decoration: none;
+    padding-top: 5px;
+    color: white;
+}
+
+.x-view-over .ux-desktop-shortcut-text {
+    text-decoration: underline;
+}
+
+/**
+add icons  class by lifei
+*/
+
+/*----------------------------------------------------
+    Various icon classes
+*/
+
+.accordion-shortcut {
+    background-image: url(../images/im48x48.png);
+}
+
+.cpu-shortcut {
+    background-image: url(../images/statusLarge.png);
+}
+
+.grid-shortcut {
+    background-image: url(../images/grid48x48.png);
+}
+
+.notepad-shortcut {
+    background-image: url(../images/notepadLarge.png);
+    /*
+    width: 46px;
+    height: 46px;
+    */
+}
+
+.x-ie6 .accordion-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/im48x48.png', sizingMethod='scale');
+}
+
+.x-ie6 .cpu-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/statusLarge.png', sizingMethod='scale');
+}
+
+.x-ie6 .grid-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/grid48x48.png', sizingMethod='scale');
+}
+
+.x-ie6 .notepad-shortcut {
+    background-image: none;
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/notepadLarge.png', sizingMethod='scale');
+}
+
+.video {
+    background-image: url(../images/gears.gif);
+}
+
+.bogus {
+    background-image: url( ../images/bogus.png ) !important;
+}
+
+.notepad {
+    background-image: url( ../images/bogus.png ) !important;
+}
+
+.logout {
+    background-image: url( ../images/exit.png ) !important;
+}
+
+.settings {
+    background-image: url( ../images/gears.gif ) !important;
+}
+.defalutSystemIcon{
+    background-image: url( ../images/systemManageBigIcon.png ) !important;
+}
+.desktopAddApp{
+    background-image: url( ../images/myuseadd.png ) !important;
+}
+.defaultDesktopIcon{
+    background-image: url( ../images/defaultDesktopIcon.png ) !important;
+}
+.usermanager {
+    background-image: url( ../images/im48x48.png ) !important;
+}
+.data-statistics{
+    background-image: url( ../images/stats.png ) !important;
+}
+
+.service-catalogue{
+    background-image: url( ../images/catalogue.png ) !important;
+}
+.icon-grid {
+    background-image:url( ../images/grid.png ) !important;
+}
+.system-manager {
+    background-image:url( ../images/service_manager.png ) !important;
+}
+.service-manager {
+    background-image:url( ../images/web_database.png ) !important;
+}
+.data-monitor {
+    background-image:url( ../images/activity_monitor.png ) !important;
+}
+.data-manager {
+    background-image:url( ../images/data_manager.png ) !important;
+}
+.data-source {
+    background-image:url( ../images/database.png ) !important;
+}
+
+.app-install {
+    background-image:url( ../images/app_install.png ) !important;
+}
+.add {
+    background-image:url(../images/icons/fam/add.gif) !important;
+}
+.option {
+    background-image:url(../images/icons/fam/plugin.gif) !important;
+}
+.user-group {
+    background-image:url(../images/user_group.png) !important;
+}
+.resource-manager {
+    background-image:url(../images/menu.png) !important;
+}
+.remove {
+    background-image:url(../images/icons/fam/delete.gif) !important;
+}
+.save {
+    background-image:url(../images/icons/save.gif) !important;
+}
+.accordion {
+    background-image:url(../images/accordian.gif) !important;
+}
+.tabs {
+    background-image:url(../images/tabs.gif) !important;
+}
+
+/*----------------------------------------------------
+    IM window icons
+*/
+
+.user {
+    background-image:url( ../images/icons/fam/user.gif ) !important;
+}
+
+.user-add {
+    background-image:url(../images/icons/fam/user_add.gif) !important;
+}
+
+.user-delete {
+    background-image:url(../images/icons/fam/user_delete.gif) !important;
+}
+
+.connect {
+    background-image:url(../images/icons/fam/connect.gif) !important;
+}
+
+.user-girl {
+    background-image:url(../images/icons/fam/user_female.gif) !important;
+}
+
+.user-kid {
+    background-image:url(../images/icons/fam/user_green.gif) !important;
+}
+
+.user-suit {
+    background-image:url(../images/icons/fam/user_suit.gif) !important;
+}
+/*.................*/
+.file {
+    background-image:url(../images/file.png) !important;
+}
+.per-file {
+    background-image:url(../images/per-file.png) !important;
+}
+.working {
+    background-image:url(../images/working.png) !important;
+}
+.transition {
+    background-image:url(../images/transition.png) !important;
+}
+.monitoring-system {
+    background-image:url(../images/monitoring-system.png) !important;
+}
+.date-system {
+    background-image:url(../images/date-system.png) !important;
+}
+.take-part-in {
+    background-image:url(../images/take-part-in.png) !important;
+}
+.details {
+    background-image:url(../images/details.png) !important;
+}
+.serve {
+    background-image:url(../images/serve.png) !important;
+}
+.date {
+    background-image:url(../images/date.png) !important;
+}
+.unusual {
+    background-image:url(../images/unusual.png) !important;
+}
+.extract {
+    background-image:url(../images/extract.png) !important;
+}
+.original-date {
+    background-image:url(../images/original-date.png) !important;
+}
+.date-wash {
+    background-image:url(../images/date-wash.png) !important;
+}
+.account {
+    background-image:url(../images/account.png) !important;
+}
+.deploy {
+    background-image:url(../images/deploy.png) !important;
+}
+.load {
+    background-image:url(../images/load.png) !important;
+}
+.monitoring {
+    background-image:url(../images/monitoring.png) !important;
+}
+.rotundity-statistics{
+    background-image:url(../images/rotundity-statistics.png) !important;
+}
+.rule {
+    background-image:url(../images/rule.png) !important;
+}
+.tree-atatistics {
+    background-image:url(../images/tree-atatistics.png) !important;
+}
+.still {
+    background-image:url(../images/still.png) !important;
+}
+.track {
+    background-image:url(../images/track.png) !important;
+}
+.flow {
+    background-image:url(../images/flow.png) !important;
+}
+.file-statictics {
+    background-image:url(../images/file-statictics.png) !important;
+}
+.unusualsto {
+    background-image:url(../images/unusuals.png) !important;
+}
+.carry-out {
+    background-image:url(../images/carry-out.png) !important;
+}
+.gradation {
+    background-image:url(../images/gradation.png) !important;
+}
+.diagnosis {
+    background-image:url(../images/diagnosis.png) !important;
+}
+.compare {
+    background-image:url(../images/compare.png) !important;
+}
+
+
+.mszh1 {
+    background-image:url(../images/mszhi_011.jpg) !important;
+}
+.relogin {
+    background-image:url(../images/relogin.png) !important;
+}
+.updatePassword {
+    background-image:url(../images/reCarkey.png) !important;
+}
+.tree_eye {
+    background-image:url(../images/eye.png) !important;
+}
+.tree_icq{
+    background-image:url(../images/icq.png) !important;
+}
+.tree_folder_home{
+    background-image:url(../images/folder_home.png) !important;
+}
+.tree_dog{
+    background-image:url(../images/dog.png) !important;
+}
+.tree_people{
+    background-image:url(../images/people.png) !important;
+}
+.tree_wall_brick{
+    background-image:url(../images/wall_brick.png) !important;
+}
+.tree_gnome{
+    background-image:url(../images/gnome.png) !important;
+}
+.pds{
+    background-image:url(../images/pds.png) !important;
+}
+.dms{
+    background-image:url(../images/dms.png) !important;
+}
+.dmp{
+    background-image:url(../images/dmp.png) !important;
+}
+.sms{
+    background-image:url(../images/sms.png) !important;
+}
+.irc{
+    background-image:url(../images/irc.png) !important;
+}

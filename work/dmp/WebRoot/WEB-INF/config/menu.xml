@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 为根节点添加子节点 5个 -->
+<menus name="数据管理平台" iconCls="dmp" orderNumber="3">
+
+	<menu name="知识库" url="#" leaf="N" orderNumber="1">
+			<menu name="问题与解答" url="page/dataQuality/dataQuality.jsp?appCode=dmp"
+				leaf="Y" orderNumber="1" menuType="page"/>
+			<menu name="常见问题与解答" url="page/dataQuality/dataSolution.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" menuType="page"/>
+	</menu>
+
+<!-- 数据生产 8个 -->
+	<menu name="数据生产" url="#" leaf="N" orderNumber="2">
+		<menu name="委办局原始数据" url="page/dataproduce/pre-wbjdata.jsp?appCode=dmp"
+			leaf="Y" orderNumber="1" menuType="page"/>
+		<menu name="委办局原始文件" url="page/dataproduce/pre-wbjfile.jsp?appCode=dmp"
+			leaf="Y" orderNumber="2" menuType="page"/>
+		<menu name="数据抽取" url="page/dataproduce/pre-centerdata.jsp?appCode=dmp"
+			leaf="Y" orderNumber="3" menuType="page"/>
+		<menu name="数据清洗" url="page/dataproduce/dataCleanMan.jsp?appCode=dmp"
+			leaf="Y" orderNumber="4" menuType="page"/>
+		<menu name="数据转换" url="page/dataproduce/dataTransMan.jsp?appCode=dmp"
+			leaf="Y" orderNumber="5" menuType="page"/>
+		<menu name="数据比对" url="page/dataproduce/dataCompMan.jsp?appCode=dmp"
+			leaf="Y" orderNumber="6" menuType="page"/>
+		<menu name="基础库数据" url="page/dataproduce/basiclibary.jsp?appCode=dmp"
+			leaf="Y" orderNumber="7" menuType="page"/>
+	</menu>
+	
+	<!-- 数据对账 3个 -->
+	<menu name="数据对账" url="#" leaf="N" orderNumber="3">
+		<menu name="委办局前置与中心前置对账" url="page/datacheck/olapwbjqzzxqz.jsp?appCode=dmp"
+			leaf="Y" orderNumber="1" menuType="page"/>
+		<menu name="委办局前置与基础库对账" url="page/datacheck/olapwbjjckdz.jsp?appCode=dmp"
+			leaf="Y" orderNumber="2" menuType="page"/>
+		<menu name="中心前置与基础库对账" url="page/datacheck/comp-centerToBase.jsp?appCode=dmp"
+			leaf="Y" orderNumber="3" menuType="page"/>
+	</menu>
+	
+	<!-- 数据质量 4个-->
+	<menu name="数据质量" url="#" leaf="N" orderNumber="4">
+		<menu name="异常数据跟踪" url="page/dataQuality/trackErrorData.jsp?appCode=dmp"
+			leaf="Y" orderNumber="1" menuType="page"/>
+		<menu name="异常数据返还" url="page/dataQuality/ErrorDataReturn.jsp?appCode=dmp"
+			leaf="Y" orderNumber="2" menuType="page"/>
+		<menu name="数据质量报告" url="#" leaf="N" orderNumber="3">
+			<menu name="文件交换模式" url="page/dataQuality/DataReport.jsp?appCode=dmp"
+				leaf="Y" orderNumber="1" menuType="page"/>
+			<menu name="数据库交换模式" url="page/dataQuality/DataBaseReport.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" menuType="page"/>
+		</menu>
+		
+	</menu>
+	
+	<!--数据字典管理 4个  -->
+	<menu name="数据字典管理" url="#" leaf="N" orderNumber="5">
+		<menu name="异常规则代码管理" url="page/codemanage/exceptionCodeManager.jsp?appCode=dmp"
+			leaf="Y" orderNumber="1" menuType="page"/>
+		<menu name="委办局数据交换表配置" url="page/codemanage/wbjsjjh.jsp?appCode=dmp"
+			leaf="Y" orderNumber="2" menuType="page"/>
+		<menu name="基础库数据表配置" url="page/codemanage/databasetable.jsp?appCode=dmp"
+			leaf="Y" orderNumber="3" menuType="page"/>
+		<menu name="委办局数据交换方式配置" url="page/codemanage/dmjhmode.jsp?appCode=dmp"
+			leaf="Y" orderNumber="4" menuType="page"/>
+	</menu>
+<!-- 统计分析 2个 -->
+	<menu name="统计分析" url="#" leaf="N" orderNumber="6">
+	<!-- 数据生产 6个 -->
+		<menu name='数据生产' url="#" leaf="N" orderNumber="1">
+			<menu name="委办局原始数据统计" url="page/statistics/statisticsbasedata.jsp?appCode=dmp"
+				leaf="Y"  iconCls="data-statistics" orderNumber="1" menuType="page"/>
+			<menu name="委办局原始文件统计" url="page/statistics/statisticsbasefile.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" menuType="page"/>
+			<menu name="数据抽取统计" url="page/statistics/datacq.jsp?appCode=dmp"
+				leaf="Y" orderNumber="3" menuType="page"/>
+			<menu name="数据清洗统计" url="page/statistics/dataclear.jsp?appCode=dmp"
+				leaf="Y" orderNumber="4" menuType="page"/>
+			<menu name="数据转换统计" url="page/statistics/datatrasition.jsp?appCode=dmp"
+				leaf="Y" orderNumber="5" menuType="page"/>
+			<menu name="基础库数据统计" url="page/statistics/database.jsp?appCode=dmp"
+				leaf="Y" orderNumber="6" menuType="page"/>
+		</menu>
+	<!-- 数据对账 3个 -->
+		<menu name='数据对账' url="#" leaf="N" orderNumber="2">
+			<menu name="中心前置与基础库对账统计" url="page/statistics/centertobase.jsp?appCode=dmp"
+				leaf="Y" orderNumber="1" menuType="page"/>
+			<menu name="委办局前置与中心前置对账统计" url="page/statistics/wbjtocenter.jsp?appCode=dmp"
+				leaf="Y" orderNumber="2" menuType="page"/>
+			<menu name="委办局前置与基础库对账统计" url="page/statistics/wbjtobase.jsp?appCode=dmp"
+				leaf="Y" orderNumber="3" menuType="page"/>
+		</menu>
+
+	</menu>
+</menus>

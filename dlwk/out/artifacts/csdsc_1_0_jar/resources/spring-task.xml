@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <task:annotation-driven/>
+
+    <bean id="statisticsTask" class="com.digitalchina.ldp.app.csdsc.task.StatisticsTask"/>
+    <bean id="submitTask" class="com.digitalchina.ldp.app.csdsc.task.SubmitDataTask"/>
+
+    <task:scheduled-tasks>
+        <!--每天秒执行一次-->
+        <task:scheduled ref="statisticsTask" method="wbjDataStatisticsService" cron="0 15 23 * * ?"/>
+
+        <task:scheduled ref="submitTask" method="submitDataTime" cron="0 15 1 * * ?"/>
+
+
+        <task:scheduled ref="submitTask" method="wbjDataYQService" cron="0 0 1 6 * ?"/>
+    </task:scheduled-tasks>
+</beans>

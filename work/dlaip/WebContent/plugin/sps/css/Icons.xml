@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="GBK"?>
+<icons>
+	<icon class="app-install" />
+	<icon class="data-source" />
+	<icon class="resource-manager" />
+	<icon class="usermanager" />
+	<icon class="user-group" />
+	
+	<icon class="file" />
+	<icon class="per-file" />
+	<icon class="working" />
+	<icon class="transition" />
+	<icon class="monitoring-system" />
+	
+	<icon class="date-system" />
+	<icon class="take-part-in" />
+	<icon class="details" />
+	<icon class="serve" />
+	<icon class="date" />
+	
+	<icon class="unusual" />
+	<icon class="extract" />
+	<icon class="original-date" />
+	<icon class="date-wash" />
+	<icon class="account" />
+	
+	<icon class="deploy" />
+	<icon class="load" />
+	<icon class="monitoring" />
+	<icon class="rotundity-statistics" />
+	<icon class="rule" />
+	
+	<icon class="tree-atatistics" />
+	<icon class="still" />
+	<icon class="track" />
+	<icon class="flow" />
+	<icon class="file-statictics" />
+	
+	
+	<icon class="unusualsto" />
+	<icon class="carry-out" />
+	<icon class="gradation" />
+	<icon class="diagnosis" />
+	<icon class="compare " />
+	
+	
+</icons>

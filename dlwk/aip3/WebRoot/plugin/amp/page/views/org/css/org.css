@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+ol li font{
+	cursor: pointer;
+	color:#6ca2cf;
+}
+
+ol li font:hover{
+	color:#142f56;
+}

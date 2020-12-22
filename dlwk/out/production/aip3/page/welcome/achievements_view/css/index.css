@@ -1,0 +1,77 @@
+html,body{
+	overflow: auto;
+}
+.left_nav{
+	width: 250px;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 20px;
+    min-height: 500px;
+    margin-left: 20px;
+    float: left;
+}
+.left_nav li{
+    width: 100%;
+}
+.left_nav li ul{
+	    text-indent: 30px;
+}
+.main_content{
+    margin-left: 290px;
+    display: table;
+    padding: 25px 0;
+}
+.card_item{
+    margin: 0 10px 10px 0;
+    text-align: left;
+    position: relative;
+}
+.card_item .title{
+    /* position: absolute; */
+    /* left: 0; */
+    /* bottom: 0; */
+    margin: 20px;
+    /* width: 100%; */
+    text-align: center;
+}
+.card_item span{
+	font-size: 12px;
+    line-height: 16px;
+    background: red;
+    color: #fff;
+    padding: 2px 5px;
+}
+.card_item i{
+	position: absolute;
+    bottom: 20px;
+}
+.card_item i:last-child{
+    right: 20px;
+    color:red;
+}
+.search_left {
+    height: 34px;
+}
+.card_item .todo{
+	display:none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 109px;
+    text-align: center;
+    background: rgba(51, 51, 51, 0.86);
+    color: #fff;   
+    padding: 0 20px; 
+    z-index: 1;
+}
+.card_item .todo div{
+	border-bottom:1px solid #fff;
+}
+.card_item .todo div:last-child{
+	border-bottom:0px solid #fff;
+}
+.card_item:hover .todo{
+	display:block;
+}

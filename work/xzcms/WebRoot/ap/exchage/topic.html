@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<title>咨询投诉 - ${site.name}</title>
+
+
+</head>
+<body>
+	<!--header_begin-->
+	[#include "../../WEB-INF/t/cms/www/red/include/页头顶栏.html"/]
+
+	<link href="/${res}/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/${res}/css/mode.css" rel="stylesheet">
+	<link href="/${res}/css/exchange.css" rel="stylesheet">
+
+
+	<div class="bo_wid kmnb_a">
+		<div style="padding: 10px 0px">您现在正在浏览： <a
+				href="/">首页</a> <span>></span> <a href="/zxts/index.jhtml">互动交流</a> <span>></span>咨询投诉
+		</div>
+
+			<!-- 帖子内容 -->
+			<div class="Communication3">
+				[#if topics??]
+				[#list topics.listBeans as ts]
+
+				<!-- 没有楼中楼的楼层包括楼主 -->
+				[#if (ts.getSubTopic()?size==0)]
+
+				<!-- 楼主 -->
+				[#if (ts.topicFloor=="1")]
+
+				<div class="one">
+					<table>
+						<tr>
+							<td width="20px;"><label class="f_i icon_name"></label></td><td class="hse" width="39px">楼主</td><td width="158">${ts.topicUser}</td><td width="471"><h2>${ts.topicName}</h2></td><td width="113px">
+							[#if user??]
+							<a  name="topic" href="javascript:void(0)" thisFloorTid="${ts.topicPId}" fromUser="${thisUser}" >回帖</a>
+							[#if (ts.topicDeleteBtn=="0")]
+							|
+							<a href="javascript:deleteTopic('${ts.topicId}');">删除</a>
+							[/#if]
+							[/#if]
+						</td><td width="162px" class="date">【${ts.topicAddDate } 】</td></tr>
+					</table>
+					<div class="con">
+						${ts.topicMsg}
+					</div>
+				</div>
+
+				<!-- 非楼主 -->
+				[#else]
+				<div class="one">
+					<table>
+						<tr>
+							<td width="20px;"><img src="${resSys}/Images/male1.jpg" /></td><td class="red" width="39px">${ts.topicFloor}楼</td><td width="158">${ts.topicUser}</td><td width="471"><strong></strong></td><td width="143px">
+							[#if user??]
+							<a   name="topic" href="javascript:void(0)" thisFloorTid="${ts.topicPId}" fromUser="${thisUser}" >回帖</a>
+							|
+							<a  name="reply" href="javascript:void(0)" thisFloorTid="${ts.topicId}" fromUser="${thisUser}" toUser="${ts.topicUser}">回复他</a>
+							[#if (ts.topicDeleteBtn=="0")]
+							|
+							<a href="javascript:deleteTopic('${ts.topicId}');">删除</a>
+							[/#if]
+							[/#if]
+						</td><td width="132px" class="date">[${ts.topicAddDate}]</td></tr>
+					</table>
+					<div class="con">
+						${ts.topicMsg}
+					</div>
+				</div>
+				[/#if]
+
+
+				<!-- 有楼中楼的楼层 -->
+				[#else]
+				<div class="one">
+					<table>
+						<tr>
+							<td width="20px;"><img src="${resSys}/Images/male1.jpg" /></td><td class="red" width="39px">${ts.topicFloor}楼</td><td width="158">${ts.topicUser}</td><td width="471"><strong></strong></td><td width="143px">
+							[#if user??]
+							<a   name="topic" href="javascript:void(0)" thisFloorTid="${ts.topicPId}" fromUser="${thisUser}" >回帖</a>
+							|
+							<a  name="reply" href="javascript:void(0)" thisFloorTid="${ts.topicId}" fromUser="${thisUser}" toUser="${ts.topicUser}">回复他</a>
+							[#if (ts.topicDeleteBtn=="0")]
+							|
+							<a href="javascript:deleteTopic('${ts.topicId}');">删除</a>
+							[/#if]
+							[/#if]
+						</td><td width="132px" class="date">[${ts.topicAddDate}]</td></tr>
+					</table>
+					<div class="con">
+						${ts.topicMsg}
+
+						[#list ts.getSubTopic() as sub]
+						<div class="return">
+							<table>
+								<tr><td width="595px"><span>${sub.topicFromUser}</span>对<span>${sub.topicToUser}</span>说：</td><td width="143px">
+									[#if user??]
+									<a  name="reply" href="javascript:void(0)" thisFloorTid="${sub.topicPId}" fromUser="${thisUser}" toUser="${sub.topicFromUser}">回复他</a>
+									[#if (sub.topicDeleteBtn=="0")]
+									|
+									<a href="javascript:deleteTopic('${sub.topicId}');">删除</a>
+									[/#if]
+									[/#if]
+								</td><td width="132px;" class="date">[${sub.topicAddDate}]</td></tr>
+							</table>
+							<div>
+								${sub.topicMsg}
+							</div>
+						</div>
+						[/#list]
+
+					</div>
+				</div>
+
+				[/#if]
+
+				[/#list]
+
+				[/#if]
+
+				<!-- 分页控件开始 -->
+				<div id="kkpager" style="margin-top: 8px;margin-bottom: 3px;float: right;margin-right: 20px;"></div>
+				<!-- 分页控件结束 -->
+
+
+	</div>
+
+
+	<div id="die_a" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<p><a data-dismiss="modal"><label class="f_i close_a"></label></a></p>
+		<h4 class="cen zb mt40"><div class="zc">回贴(回复<span id="tousertext"></span>)</div></h4>
+
+		<div class="form-horizontal zc fz12 from_poiu_a">
+
+			<div class="control-group">
+				<label class="control-label">内容:</label>
+				<div class="controls">
+					<textarea rows="6" class="poiu_a_q" maxlength="60" id="topicMsg"></textarea>
+					<label class="poiuy_a"> <span class="hs">*</span> 内容最多60个字</label>
+				</div>
+
+			</div>
+			<p class="cen mnb_a_o">
+				<a class="btn btn-primary" type="submit" onclick="submitReplyOrTopic()">提交</a>
+				<a class="btn ml50" id="resetB" type="reset">重置</a>
+			</p>
+		</div>
+
+
+
+	</div>
+
+
+
+</div>
+ <div class="clear"></div>
+ 
+	[#include "../../WEB-INF/t/cms/www/red/include/页脚信息栏.html"/]
+	
+<!--回帖弹出框开始-->
+  <div id="light_3" class="white_content" style="height: 300px;">
+  		<h1>回帖<span>(回复<label id=""></label>)</span><a href = "javascript:void(0);" class="close"><img src="${resSys}/Images/close.png" /></a></h1>
+    <div class="warp">
+  		<table class="fatie">
+            <tr>
+            	<td width="50px" class="one">内容：</td><td><textarea name="topicMsg" id=""></textarea></td>
+            </tr>
+            <tr>
+            	<td width="50px" class="one"></td><td><span>*</span> (内容最多60个字符)</td>
+            </tr>
+            <tr>
+            	<td width="50px" class="one"></td><td><input onclick="submitReplyOrTopic()" type="submit" value="提交" class="sbt" /><input id="resetB" type="reset" value="重置" class="res" /></td>
+            </tr>
+            <tr>
+            	<td width="50px" class="one"></td><td><span>*</span> 理性发言，尊重他人</td>
+            </tr>
+        </table>
+    </div>
+   </div>
+<!--回帖弹出框结束-->
+	<!-- 分页控件开始 -->
+	<script type="text/javascript" src="${resSys}/pager/js/kkpager.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="${resSys}/pager/css/kkpager.css" />
+
+
+	<script type="text/javascript">
+		function getParameter(name) {
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r!=null) return unescape(r[2]); return null;
+		}
+
+		//init
+		$(function(){
+			var totalPage = ${topics.allpage};
+			var totalRecords = ${topics.allcounts};
+			var pageNo = getParameter('pno');
+			if(!pageNo){
+				pageNo = 1;
+			}
+			//生成分页
+			//有些参数是可选的，比如lang，若不传有默认值
+			kkpager.generPageHtml({
+				pno : pageNo,
+				//总页码
+				total : totalPage,
+				//总数据条数
+				totalRecords : totalRecords,
+				//链接前部
+				hrefFormer : 'topic',
+				//链接尾部
+				hrefLatter : '.jhtml',
+				getLink : function(n){
+					return this.hrefFormer + "${topicId}" + this.hrefLatter + "?pno="+n;
+				},
+				lang : {
+					firstPageText : '首页',
+					lastPageText : '尾页',
+					prePageText : '上一页',
+					nextPageText : '下一页',
+					totalPageBeforeText : '共',
+					totalPageAfterText : '页',
+					totalRecordsAfterText : '条数据',
+					gopageBeforeText : '转到',
+					gopageButtonOkText : '确定',
+					gopageAfterText : '页',
+					buttonTipBeforeText : '第',
+					buttonTipAfterText : '页'
+				}
+				//,
+				//mode : 'click',//默认值是link，可选link或者click
+				//click : function(n){
+				//	this.selectPage(n);
+				//  return false;
+				//}
+			});
+
+		});
+
+		$(document).ready(function($){
+
+			$(".nav li").each(function(index){
+
+				$(this).find("a").removeClass("current");
+				if($(this).text().indexOf("互动交流")>-1)
+				{
+
+					$(this).find("a").addClass("current");
+
+				}
+			});
+		});
+
+	</script>
+
+	<!-- 分页控件代码结束 -->
+
+	<link href="${resSys}/Css/style.css" rel="stylesheet" type="text/css" />
+
+
+
+
+	<script type="text/javascript">
+		$(function() {
+			Cms.siteFlow("${base}", location.href, document.referrer);
+		});
+
+
+		//回帖弹出框
+		function showwin(i){
+			var obj = $("#light_"+i);
+			var x = ($(window).width()- obj.width())/2;
+			var y = ($(window).height()-obj.height())/2;
+			obj.css("top",y).css("left",x);
+			obj.show();
+			$("#fade").show();
+		}
+
+		//关闭
+		jQuery(function ($) {
+			$(".close").click(function(){
+				$(this).parent().parent().hide();
+				$("#fade").hide();
+			});
+
+			//点击回帖按钮
+			$("a[name='topic']").click(function(){
+				replyOrTopicFlag = '2';
+			//清空msg输入框
+				$("#topicMsg").val('');
+
+			//得到回复人（当前登录人）和被回复人
+				fromUser = $(this).attr("fromUser");
+				thisFloorTid = $(this).attr("thisFloorTid");
+				$("#tousertext").text("楼主");
+
+			//alert($("#topicMsg").val())
+			//alert(fromUser)
+
+			//回到顶点
+				window.scrollTo(0,0);
+
+				$("#die_a").modal("show");
+			});
+
+
+
+            //点击回复按钮
+			$('a[name="reply"]').click(function(){
+				replyOrTopicFlag = '1';
+                //清空msg输入框
+				$("#topicMsg").val('');
+
+                //得到回复人（当前登录人）和被回复人
+				fromUser = $(this).attr("fromUser");
+				toUser = $(this).attr("toUser");
+				thisFloorTid = $(this).attr("thisFloorTid");
+				$("#tousertext").text(toUser);
+
+                //alert($("#topicMsg").val())
+				//alert(fromUser+toUser)
+
+                //回到顶点
+				window.scrollTo(0,0);
+
+				$("#die_a").modal("show");
+			});
+
+		});
+
+
+	</script>
+
+	<script type="text/javascript">
+
+		//提交回复参数
+		//回复人（当前登录人）
+		var fromUser;
+		//被回复人
+		var toUser;
+		//回复内容
+		var tmsg;
+		//当前楼层id，作为楼中楼的父id
+		var thisFloorTid;
+		//时间，帖子类型，楼中楼的楼层在后台计算
+
+		//回复或者回帖标志1：回复 2：回帖
+		var replyOrTopicFlag;
+
+
+		$(document).ready(function(){
+
+			$("#resetB").click(function(){
+                //清空msg输入框
+				$("#topicMsg").val('');
+			});
+
+		});
+
+
+		//提交回复或者回帖
+		function submitReplyOrTopic()
+		{
+			tmsg = $("#topicMsg").val();
+
+			if(tmsg=="")
+			{
+				alert("有必填项！");
+			}
+			else if(tmsg.length>=60)
+			{
+				alert("内容最多60个字符！");
+			}
+			else
+			{
+
+				//回复
+				if(replyOrTopicFlag=='1')
+				{
+					var submitReplyUrl = "/submitReply.jhtml";
+
+					$.post(submitReplyUrl, {
+						"tmsg" : tmsg ,
+						"fromUser" : fromUser ,
+						"toUser" : toUser,
+						"thisFloorTid" : thisFloorTid
+					}, function(data) {
+						if (data.success) {
+//							alert("回复成功！");
+							window.location.reload(true);
+						} else {
+							alert("回复失败，请联系管理员！");
+						}
+					});
+				}
+				//回帖
+				if(replyOrTopicFlag=='2')
+				{
+					var submitReplyUrl = "/submitTopic.jhtml";
+					$.post(submitReplyUrl, {
+						"tmsg" : tmsg ,
+						"fromUser" : fromUser ,
+						"thisFloorTid" : thisFloorTid
+					}, function(data) {
+						if (data.success) {
+//							alert("回帖成功！");
+							window.location.reload(true);
+						} else {
+							alert("回帖失败，请联系管理员！");
+						}
+					});
+				}
+
+			}
+
+
+		}
+
+
+
+		//删帖，删回复，删跟帖
+		function deleteTopic(topicId)
+		{
+			if (confirm("确认删除？"))
+			{
+				var submitReplyUrl = "/deleteTopic.jhtml";
+				$.post(submitReplyUrl, {
+					"topicId" : topicId
+				}, function(data) {
+					if (data.success) {
+						alert("删除成功！");
+						window.location.reload(true);
+					} else {
+						alert("删除失败，请联系管理员！");
+					}
+				});
+			}
+
+		}
+
+	</script>
+	<script src="/${res}/js/bootstrap.min.js"></script>
+	<script>
+		$(".mnb_a li a").removeClass("pw");
+		$(".mnb_a li:nth-child(8) a").addClass("pw");
+		$(".close_a").on("click",function(){
+			$('#myModal').modal('hide')
+		})
+
+	</script>
+	</body>
+</html>

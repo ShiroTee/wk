@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>百度地图组件</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="assets/css/map.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/layerList.css"/> 
+		<script type="text/javascript" src="js/jquery/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/config.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/toolBar.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=81674962920dafb332cfccec027d1730"></script>
+		<script type="text/javascript" src="js/bmapLib/RectangleZoom.js"></script>
+		<script type="text/javascript" src="js/bmapLib/DistanceTool.js"></script>
+		<script type="text/javascript" src="js/bmapLib/DrawingManager.js"></script>
+		<script type="text/javascript" src="js/bmapLib/GeoUtils.js"></script>
+		<script type="text/javascript" src="js/tool/mapTool.js"></script>
+		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			initMap();
+			//设置输入框搜索信息
+	        setTextInputMatchSearch();
+		});
+		</script>
+	</head>
+	<body id="body" onresize="onBodyResizeHandler()" onload="onPageLoad(event)">
+		<!--		<div id="mapTools" align="center"></div>-->
+		<div id="box">
+			<div id="leftQryPanel" align="center">
+				 <div id="m_qryPanel">
+				 	 <div id="indexBox" align="left"  onclick="onIndexLabelClick(event)">
+				 	 	<a id="indexLabel" style="cursor: pointer;">
+					 	 	<span id="indexBuImg"></span><span style="margin-left: 10px;">首页</span>
+				 	 	</a>
+				 	 </div>
+					 <div id="m_qryBox" >
+						 <input id="m_searchTxt"  type="text"  placeholder="请输入关键字" />
+						 <div id="m_searchResultPanel"></div>
+						 <input id="m_qryBu" type="button" value="查询" title="关键字查询" onclick="selectQry(0)"/>
+						 <input id="m_qryRect" type="button" value=" " title="拉框空间查询" onclick="selectQry(1)"/>
+						 <input id="m_qryCircle" type="button" value=" " title="圆形空间查询" onclick="selectQry(2)"/>
+					 </div> 
+					<div id="m_divLine"></div>
+					<div id="m_keyBox" align="left">
+						<ul  id="cityBoxCon">
+							<li class="layerBoxStyle" id="repast"  data-name="餐饮" onclick="localSearch('餐饮')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">餐饮</a>
+							</li>
+							<li class="layerBoxStyle" id="beauty" data-name="丽人" onclick="localSearch('丽人')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">丽人</a>
+							</li>
+							<li class="layerBoxStyle"  id="caterorder" onclick="localSearch('餐厅')">
+								<a class="layerNameStyle"> <img src="assets/img/transparent.gif">餐厅</a>
+							</li>
+							<li class="layerBoxStyle" id="viewpoint" data-name="景点" onclick="localSearch('景点')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">景点</a>
+							</li>
+							<li class="layerBoxStyle" id="li_subway" data-name="地铁" onclick="localSearch('地铁')">
+								<a class="layerNameStyle">
+								<img id="subway" src="assets/img/transparent.gif"><b>地铁</b>
+								</a>
+							</li>
+							<li class="layerBoxStyle" id="shopping" data-name="购物" onclick="localSearch('购物')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">购物</a>
+							</li>
+							<li class="layerBoxStyle" id="atm" data-name="ATM" onclick="localSearch('ATM')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">ATM</a>
+							</li>
+							<li class="layerBoxStyle" id="internet" data-name="网吧" onclick="localSearch('网吧')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">网吧</a>
+							</li>
+							<li class="layerBoxStyle" id="coffee" data-name="咖啡厅" onclick="localSearch('咖啡厅')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">咖啡厅</a>
+							</li>
+							<li class="layerBoxStyle" id="carpark" data-name="停车场" onclick="localSearch('停车场')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">停车场</a>
+							</li>
+							<li class="layerBoxStyle" id="market" data-name="超市" onclick="localSearch('超市')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">超市</a>
+							</li>
+							<li class="layerBoxStyle" id="ktv" data-name="KTV" onclick="localSearch('KTV')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">KTV</a>
+							</li>
+							<li class="layerBoxStyle" id="bank" data-name="银行" onclick="localSearch('银行')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">银行</a>
+							</li>
+							<li class="layerBoxStyle" id="fillingstation" data-name="加油站" onclick="localSearch('加油站')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">加油站</a>
+							</li>
+							<li class="layerBoxStyle" id="hotelbar" data-name="酒吧" onclick="localSearch('酒吧')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">酒吧</a>
+							</li>
+							<li class="layerBoxStyle" id="school" data-name="学校" onclick="localSearch('学校')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">学校</a>
+							</li>
+							<li class="layerBoxStyle" id="hospital" data-name="医院" onclick="localSearch('医院')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">医院</a>
+							</li>
+							<li class="layerBoxStyle" id="bath" data-name="洗浴" onclick="localSearch('洗浴')">
+								<a class="layerNameStyle"><img src="assets/img/transparent.gif">洗浴</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="resultPanel"></div>
+			</div>
+			<div id="mapContainer">
+				<div id="loadTxt" >地图加载中...</div>
+			</div>
+		</div>
+	</body>
+</html>

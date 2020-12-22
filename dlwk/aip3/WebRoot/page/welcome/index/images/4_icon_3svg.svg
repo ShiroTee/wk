@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>4_icon_3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="升级改造首页-vol.3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-and-more" transform="translate(-210.000000, -60.000000)" stroke-width="2" stroke="#2096F3">
+            <g id="icon" transform="translate(210.000000, 60.000000)">
+                <polyline id="Shape" points="6.6 16.9 37 8 37 17.7"></polyline>
+                <path d="M33,28.1 C34.1,28.1 35,29 35,30.1 C35,31.2 34.1,32.1 33,32.1 C31.9,32.1 31,31.2 31,30.1 C31,29 31.9,28.1 33,28.1 L33,28.1 Z" id="Shape"></path>
+                <polyline id="Shape" points="43 25.3 43 18 7 18 7 42 43 42 43 34.7"></polyline>
+                <polygon id="Shape" points="26 30.1 29.9 35 45 35 45 25 29.5 25"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

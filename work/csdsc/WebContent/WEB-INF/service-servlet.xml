@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <context:component-scan base-package="com.digitalchina.ldp.app.csdsc" />
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean id="webServiceAction" class="com.digitalchina.ldp.action.WebServiceFacadeAction">
+		<property name="handlerContainer" ref="handlerContainer" />
+	</bean>
+	<bean id="controllerInterceptor" class="com.digitalchina.ldp.action.ServiceInterceptorAdapter">
+
+		<!-- 是否验证用户session信息，开发测试的时候可以设置为false -->
+<!--		<property name="checkSession" value="true" />-->
+		<!-- 是否开发日志审计 -->
+<!--		<property name="openlogWrite" value="false" />-->
+		<!-- 开发环境 -->
+
+		<property name="threadPoolTaskExecutor" ref="taskExecutor" />
+	</bean>
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="controllerInterceptor" />
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="/api/**">webServiceAction</prop>
+			</props>
+		</property>
+
+	</bean>
+</beans>
+

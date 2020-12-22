@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-family:"Microsoft YaHei","SimHei","Tahoma","Verdana", "Arial", "Helvetica", "sans-serif";
+	-webkit-text-size-adjust:none;
+}
+ul li{margin: 0;padding:0px;list-style:none; }
+
+img {
+	border: none;
+}
+
+.newPage { 
+	page-break-before: always; 
+}
+
+table {
+	border: none;
+	empty-cells: show;
+}
+
+th,td {
+	border: none;
+	text-align: left;
+	vertical-align: top;
+	font-weight: normal;
+}
+
+.clear {
+	clear:both;
+}
+
+.buttons {
+	cursor: pointer;	
+}
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-size:12px;
+	background-position:center middle;
+	background-size: 100% 100%;
+	}
+
+html, body {
+	height: 100%;
+	OVERFLOW:hidden;
+
+}
+
+a {
+	outline:0 none;
+	border:none;
+	text-decoration:none;
+}
+
+* :focus { outline: 0; }
+a:link{	color:#000;
+}
+a:visited{	color:#000;
+}
+a:active{
+	color:#000;
+}
+a:hover {
+	border:none;
+	text-decoration:none;
+	color:#f00;
+}
+
+ button{border:none;background:none;padding:0; margin:0;width:auto;overflow:visible;text-align:center; white-space:nowrap;height:34px;line-height:34px; margin:2px 0px -4px 4px; }
+ button span, button em{display:block;height:34px; line-height:34px; margin:0;padding:0;} 
+ button span{padding-left:10px;  background:url(../images/index/btn_bg.gif) no-repeat 0 4px;} 
+ button em{font-style:normal;padding-right:10px; background:url(../images/index/btn_bg.gif) no-repeat 100% 4px; cursor:pointer;}
+
+
+
+/*弹出层效果*/
+#basic-modal-content {display:none;}
+/* Overlay */
+#simplemodal-overlay {background-color:#000;overflow:hidden; }
+/* Container */
+#simplemodal-container {border:0px;overflow:hidden; padding:0px;}
+#simplemodal-container a.modalCloseImg {background:url(../../images/index/close.png) no-repeat; width:22px; height:22px; display:inline; z-index:3200; position:absolute; top:14px; right:15px; cursor:pointer;}
+
+

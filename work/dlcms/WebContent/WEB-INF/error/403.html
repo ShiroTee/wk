@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>没有管理平台访问权限</title>
+<script type="text/javascript">
+    function closeme() {
+        var browserName = navigator.appName;
+        if (browserName == "Netscape") {
+            window.open('', '_parent', '');
+            window.close();
+        } else if (browserName == "Microsoft Internet Explorer") {
+            window.opener = "whocares";
+            window.close();
+        }
+    }
+</script>
+<style type="text/css">
+html {
+	margin: 0px auto;
+	padding: 0px;
+	color: #3157A3;
+	background-color: #fff;
+	background: url(/r/cms/www/red/img/page/middle-bgs.jpg);
+}
+
+body {
+	margin: 0px auto;
+	padding: 0px;
+	font-size: 13px;
+	line-height: 23px;
+	width: 1002px;
+	background-color: #fff;
+	background: url(/r/cms/www/red/img/page/middle-bg.jpg);
+}
+/*无权限访问后台页面*/
+.quanxian {
+	width: 1002px;
+	height: 600px;
+	text-align: center;
+	padding-top: 250px;
+}
+input{background: url(/r/cms/www/red/img/page/xinzeng/close_btn.png) no-repeat}
+</style>
+</head>
+
+<body>
+	<div class="quanxian">
+		<img src="/r/cms/www/red/img/page/xinzeng/quanxian.png" />&nbsp;&nbsp;
+		<input style="border:none; vertical-align: 15px; width:64px; height:25px;" type="button" value="" onclick="closeme();"/>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿/* zhyg */
+.x-grid3-summary-row {
+	background: #F2F2F2;
+}
+
+.x-grid3-summary-row .x-grid3-cell-inner {
+	font-size: 12px;
+	font-weight: bold;
+	color: #6D6D6D;
+	height: 18px;
+}
+
+.x-grid3-summary-row td {
+	border-left: 1px solid #D6D6D6;
+	line-height:18px;
+}
+.div1 {
+	font-family : "微软雅黑"; BACKGROUND: url(../images/bg.jpg) no-repeat center top;
+	background : url(../images/line_bot.jpg) #fafaf9 repeat-x left bottom;
+    color : #464646;
+    font-size : 14px;
+    text-align : center;
+    padding-top : 18px;
+}
+.div-label{
+    padding-left : 15px;
+    display : inline-block;
+}
+.div-select{
+    border-bottom : #b5b8c8 1px solid;
+    border-left : #b5b8c8 1px solid;
+    height : 20px;
+    border-top : #b5b8c8 1px solid;
+    border-right : #b5b8c8 1px solid;
+    width : 100px;
+}
+.div-submit-btn{
+	cursor: pointer;
+	font-family: "微软雅黑";
+	margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border: none;
+	width : 70px;
+    background : url(../images/chaxun2.png) no-repeat;
+    height : 21px;
+    margin-left : 50px;
+    padding-bottom : 6px;
+}
+.div-reset-btn{
+	cursor: pointer;
+	font-family: "微软雅黑";
+    list-style: none;
+    border: none;
+	width : 70px;
+    background : url(../images/chongzhi2.png) no-repeat;
+    height : 21px;
+    margin-left : 10px;
+    padding-bottom : 6px;
+}
+

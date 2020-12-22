@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 注意：URL中传递参数时，参数之间的分隔符用&amp;代替& -->
+<lzcms>
+	<!-- GIS API 集成URL -->
+	<gisapi>
+		<url>http://10.6.10.55:8090/sgs/webpage/portalplat/devol/apis/ajax/ajax.jsp?moduleid=4041&amp;key=c1e7b8ef52c3db3f984c397893538f8e</url>
+	</gisapi>
+	<!-- 门户首页右侧“数据中心系统”入口域名地址 -->
+	<rdp>
+		<url>http://10.6.10.38:8888</url>
+	</rdp>
+	<!-- 门户首页“地图浏览”URL地址 -->
+	<mapview>
+		<url>gis/lzgis/main.html?module=showMap</url>
+	</mapview>
+</lzcms>

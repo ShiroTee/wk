@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="265px" height="265px" viewBox="0 0 265 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>3_jiankong</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="升级改造首页-vol.3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.200000003">
+        <g id="icon-and-more" transform="translate(-344.000000, -149.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="tech-64px-outline_webcam-38" transform="translate(344.000000, 149.000000)">
+                <path d="M64.6889326,169.608233 L28.9679448,230.0218 C24.3036074,237.7962 30.9760966,247.442633 39.8978663,245.8192 L133,223.4 L226.102134,245.8192 C235.023903,247.442633 241.696393,237.7962 237.032055,230.0218 L201.326138,169.608233" id="Shape"></path>
+                <ellipse id="Oval" stroke-linecap="square" cx="133" cy="110.4" rx="90.4233422" ry="90.4"></ellipse>
+                <ellipse id="Oval" stroke-linecap="square" cx="133" cy="117.933333" rx="52.7469496" ry="52.7333333"></ellipse>
+                <ellipse id="Oval" stroke-linecap="square" cx="133" cy="117.933333" rx="11.3029178" ry="11.3"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

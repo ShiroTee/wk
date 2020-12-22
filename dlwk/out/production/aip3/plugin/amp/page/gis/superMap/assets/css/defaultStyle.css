@@ -1,0 +1,318 @@
+﻿/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace supermap "http://www.supermap.com/iclient/2010";
+@namespace dataGridClasses "mx.controls.dataGridClasses.*";
+@namespace chartClasses "mx.charts.chartClasses.*";
+
+
+global
+{
+/*	vertical-align: middle;
+	selection-color: #b5d4f3;
+	roll-over-color: #B5D4F3;
+	text-selected-color:#1b51a7;
+	text-roll-over-color:#1b51a7;*/
+	borderColor:#495C7D;
+	/*	fontFamily:"Arial";*/
+	fontSize:14;
+	text-align: left;
+/*	focus-color: #1E6B92;*/
+	/*accent-color: #1f9edf;
+		content-background-color: #f2f5f8;*/
+	font-weight: normal;
+}
+mx|ToolTip
+{
+	background-color:#FFFFE1;
+	font-family:"幼圆";
+	font-size:12;
+}
+mx|Application
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+	corner-radius:4;
+}
+s|Application
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+/*	content-background-alpha:0.9;
+	content-background-color:#3E5A82;*/
+	corner-radius:4;
+}
+mx|Label
+{
+	font-size:14;
+	font-family:"幼圆";
+}
+mx|PopUpButton
+{
+	font-size:14;
+	font-family:"幼圆";
+}
+s|Label
+{
+	font-size:14;
+	font-family:"幼圆";
+}
+mx|Text
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+}
+mx|TextArea
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+}
+s|TextArea
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+}
+mx|TextInput
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+	border-color:#cccccc;
+	width:150;
+	
+}
+s|TextInput
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+	border-color:#cccccc;
+	border-visible:true;
+	border-alpha:1;
+	width:150;
+}
+s|Button
+{
+/*	skin-class:ClassReference("assets.skins.DButtonSkin");*/
+}
+mx|Button
+{
+/*	skin:Embed(source='assets/img/button_bg.png');*/
+/*	color:#ffffff;*/
+}
+
+s|BorderContainer
+{
+	background-alpha:1;
+	background-color:#F6F9FE;
+/*	content-background-alpha:1;
+	content-background-color:#ffffff;*/
+	border-visible:true;
+	border-alpha:1;
+	border-color:#CCCCCC;
+	corner-radius:5;
+	color:#0985B5;
+}
+mx|List
+{
+/*	alternatingItemColors:#EBEBFF,#FFFFFF;*/
+	border-visible:true;
+	border-alpha:1;
+	border-color:#CCCCCC;
+/*	content-background-alpha:0.8;
+	content-background-color:#F8F8F8;*/
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+}
+s|List
+{
+/*	alternatingItemColors:#EBEBFF,#FFFFFF;*/
+	border-visible:true;
+	border-alpha:1;
+	border-color:#475D82;
+/*	content-background-alpha:0.8;
+	content-background-color:#F8F8F8;*/
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+}
+mx|Tree
+{
+	font-size:14;
+	font-weight:normal;
+	font-family:"幼圆";
+/*	default-leaf-icon:Embed(source='assets/img/treeLeft.png');*/
+}
+mx|ComboBox
+{
+	width:150;
+}
+s|ComboBox
+{
+	width:150;
+}
+s|DropDownList
+{
+	width:150;
+}
+s|Panel
+{
+	border-visible:true;
+	border-alpha:1;
+	border-color:#D9E8FB;
+	background-alpha:1;
+/*	background-color:#D9E8FB;*/
+/*	alternating-item-colors:#FFFFFF,#D9E8FB;*/
+/*	content-background-alpha:0.9;
+	content-background-color:#96A5B8;*/
+	corner-radius:8;
+	skin-class:ClassReference("assets.skins.DPanelSkin");
+	drop-shadow-visible:true;
+	color:#0A82B3;
+}
+mx|Panel
+{
+	border-visible:true;
+	border-alpha:1;
+	border-color:#D9E8FB;
+	background-alpha:1;
+	background-color:#D9E8FB;
+/*	content-background-alpha:0.9;
+	content-background-color:#96A5B8;*/
+	corner-radius:8;
+	drop-shadow-visible:true;
+/*	title-background-skin:Embed(source='assets/img/button_bg.png');*/
+	color:#0985B5;
+}
+s|TitleWindow
+{
+	border-visible:true;
+	border-alpha:1;
+	border-color:#CCCCCC;
+	background-alpha:1;
+	background-color:#FFFFFF;
+	/*	content-background-alpha:0.9;
+	content-background-color:#96A5B8;*/
+	corner-radius:8;
+	skin-class:ClassReference("assets.skins.DTitleWindow");
+	drop-shadow-visible:true;
+}
+mx|TitleWindow
+{
+	border-visible:true;
+	border-alpha:1;
+	border-color:#CCCCCC;
+	background-alpha:1;
+	background-color:#FFFFFF;
+	/*	content-background-alpha:0.9;
+	content-background-color:#96A5B8;*/
+	corner-radius:8;
+	drop-shadow-visible:true;
+}
+mx|Grid
+{
+	left:2;
+	right:2;
+	top:2;
+	bottom:2;
+	horizontal-align:center;
+	vertical-align:middle;
+	horizontal-gap:1;
+	vertical-gap:7;
+}
+mx|DataGrid
+{
+	alternatingItemColors:#E3EDFA,#D9E7F8;
+/*	content-background-alpha:1;*/
+	/*content-background-color:#9AA7BA;
+		contentBackgroundAlpha:0.79;
+	contentBackgroundColor:#BC1010;*/
+	borderColor:#99BBE8;
+	horizontalGridLineColor:#99BBE8;
+	verticalGridLineColor:#99BBE8;
+	horizontalGridLines:true;
+	verticalGridLines:true;
+	dropShadowVisible:false;
+	header-background-skin:Embed(source='assets/img/table_top_bg.jpg');
+	header-separator-skin:Embed(source='assets/img/table_top_fenge.jpg');
+	roll-over-color:#A8C6EE;
+	
+	
+	color:#0A82B3;
+/*	headerColors:#D2E1F4,#BFD4F1;*/
+	header-style-name:dgHeaderStyle;
+}
+.dgHeaderStyle
+{
+	font-weight:bold;
+	roll-over-color:#D9E7F8;
+}
+
+s|HGroup
+{
+	horizontal-align:center;
+	vertical-align:middle;
+}
+s|VGroup
+{
+	horizontal-align:center;
+	vertical-align:middle;
+}
+/***
+*默认样式
+***/
+.defaultStyle
+{
+	
+}
+
+/***
+**flex3样式
+***/
+mx|HRule
+{
+	stroke-width:1;
+	stroke-color:#CCCCCC;
+}
+mx|VRule
+{
+	stroke-width:1;
+	stroke-color:#CCCCCC;
+}
+mx|TabNavigator
+{
+	border-color:#CCCCCC;
+	tab-style-name:dtabStyle;
+	vertical-gap:0;
+	padding-top:0;
+}
+
+.dtabStyle
+{
+	border-color:#CCCCCC;
+	horizontal-gap:0;
+}
+mx|TabBar
+{
+	horizontal-gap:0;
+}
+chartClasses|DataTip
+{
+	background-color:#FFFFFF;
+}
+
+/***
+*地图样式
+****/
+supermap|InfoWindow
+{
+	border-color:#cccccc;
+	background-color:#F6F9FE;
+	shadow-color:#F6F9FE;
+}

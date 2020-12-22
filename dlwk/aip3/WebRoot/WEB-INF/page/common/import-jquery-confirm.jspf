@@ -1,0 +1,3 @@
+<link rel="stylesheet" href="${ctx }/resources/jquery-confirm/jquery-confirm.css" />
+<script src="${ctx }/resources/jquery-confirm/jquery-confirm.js"></script>
+<script src="${ctx }/resources/jquery-confirm/customConfirm.js"></script>

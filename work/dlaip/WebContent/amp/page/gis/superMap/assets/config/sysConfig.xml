@@ -1,0 +1,33 @@
+<config>
+	<map>
+		<levevl>4</levevl><!-- 初始等级大小 -->
+		<centerLon>104.10</centerLon>
+		<centerLat>25.72</centerLat>
+		<baseLayers><!-- 底图用同一坐标系 WMTS -->
+			<layer name="矢量地图" url="http://10.6.10.25:8090/iserver/services/map-china400/wmts-china" layerName="China" resolutions="" 
+			  bounds="-180,-90,180,90" tileMatrixSet="custom_China" style="default" requestEncoding="KVP"/>   <!-- resolutions示例："1,2,3" -->
+			<layer name="世界地图" url="http://10.6.10.25:8090/iserver/services/map-world/wmts-china" layerName="World" resolutions=""
+			 bounds="-180,-90,180,90" tileMatrixSet="custom_World" style="default" requestEncoding="KVP"/>
+		</baseLayers>
+		<!-- 鹰眼地图rest方式  -->
+		<overView url="http://10.6.10.25:8090/iserver/services/map-world/rest/maps/World" type="rest"/> 
+		<!--鹰眼地图wmts方式   --> 
+<!--		<overView url="http://10.6.10.25:8090/iserver/services/map-china400/wmts-china" type="wmts"   -->
+<!--		 layerName="China" tileMatrixSet="custom_China" style="default" requestEncoding="KVP"/>   -->
+		<measureUrl>http://10.6.10.25:8090/iserver/services/map-world/rest/maps/World</measureUrl><!-- 测量地址 -->
+	</map>
+	<!-- 注意fields格式固定   serverType:wfs或rest-->
+	<layers>
+		<layer label="国家首都">
+			<layer label="首都" leaf="true" name="World:Capitals" spatialProperty="the_geom" likeField="CAPITAL" fields="COUNTRY:国家,CAPITAL:首都" maxCount="1000" serverType="wfs" url="http://10.6.10.25:8090/iserver/services/data-world/wfs100"/>
+			<layer label="国家" leaf="true" name="World:Countries" spatialProperty="the_geom" likeField="COUNTRY" fields="COUNTRY:国家,CONTINENT:大陆,CAPITAL:首都,SMAREA:面积(平方公里)" maxCount="1000" serverType="wfs" url="http://10.6.10.25:8090/iserver/services/data-world/wfs100"/>
+		</layer>
+		<layer label="海洋资源">
+			<layer label="湖泊" leaf="true" name="World:Lakes" spatialProperty="the_geom" likeField="NAME" fields="NAME:名称,DEPTH:深度(米)" maxCount="1000" serverType="wfs" url="http://10.6.10.25:8090/iserver/services/data-world/wfs100"/>
+			<layer label="江河" leaf="true" name="World:Rivers" spatialProperty="the_geom" likeField="NAME" fields="NAME:名称,KILOMETERS:长度(千米)" maxCount="1000" serverType="wfs" url="http://10.6.10.25:8090/iserver/services/data-world/wfs100"/>
+		</layer>
+		<layer label="首都REST">
+			<layer label="首都" leaf="true" name="Capitals@World"  likeField="CAPITAL" fields="COUNTRY:国家,CAPITAL:首都" maxCount="1000" serverType="rest" url="http://10.6.10.25:8090/iserver/services/map-world/rest/maps/World+Map"/>
+		</layer>
+	</layers>
+</config>

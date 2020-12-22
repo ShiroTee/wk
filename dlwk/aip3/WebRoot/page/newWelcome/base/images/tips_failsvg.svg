@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>tips_fail</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-4.7%" y="-46.9%" width="109.4%" height="206.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.249292346 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="aip-v4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="页面/加入购物车-Tips" transform="translate(-513.000000, -110.000000)" fill="#F56A00">
+            <g id="全局提示-Alert-基本型警告提示-小（成功）-Copy" filter="url(#filter-1)" transform="translate(503.000000, 106.000000)">
+                <g id="全局提示-Alert-基本型警告提示-小（成功）">
+                    <path d="M22,10 C18.6859375,10 16,12.6859375 16,16 C16,19.3140625 18.6859375,22 22,22 C25.3140625,22 28,19.3140625 28,16 C28,12.6859375 25.3140625,10 22,10 L22,10 Z M24.8242188,18.2417969 C24.971875,18.3871094 24.9742187,18.6238281 24.8300781,18.7726562 L24.8300781,18.7726562 C24.6847656,18.9203125 24.4480469,18.9226562 24.2992188,18.7785156 L22,16.525 L19.7007812,18.7773438 C19.553125,18.9226562 19.3152344,18.9203125 19.1699219,18.7714844 L19.1699219,18.7714844 C19.0246094,18.6238281 19.0269531,18.3859375 19.1757812,18.240625 L21.4644531,16 L19.1757812,13.7582031 C19.028125,13.6128906 19.0257813,13.3761719 19.1699219,13.2273437 L19.1699219,13.2273437 C19.3152344,13.0796875 19.5519531,13.0773437 19.7007812,13.2214844 L22,15.475 L24.2992188,13.2226562 C24.446875,13.0773438 24.6847656,13.0796875 24.8300781,13.2285156 L24.8300781,13.2285156 C24.9753906,13.3761719 24.9730469,13.6140625 24.8242188,13.759375 L22.5355469,16 L24.8242188,18.2417969 L24.8242188,18.2417969 Z" id="tips_fail"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

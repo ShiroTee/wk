@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+#categoryLabels
+{
+	border-bottom:dashed 1px #9499A3;
+	padding-bottom: 4px;
+}
+#categoryLabels label
+{
+	margin-left: 10px;
+	font-weight: bold;
+/* 	color: #142F56!important */
+}
+#chartBox 
+{
+	height: 600px;
+}
+#chartBox .chart {
+  display: block;
+  margin: auto;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+#chartBox rect {
+  stroke: #eee;
+  fill: #aaa;
+  fill-opacity: .8;
+}
+
+#chartBox rect.parent {
+  cursor: pointer;
+  fill: steelblue;
+}
+
+#chartBox text {
+  pointer-events: none;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.data.page4">
+	<!--left -->
+	<select id="getLeft" resultType="hashmap" parameterType="map">
+		select name,sum
+		from(SELECT b.zwbmmc name,COUNT(a.xxzybm) sum
+		FROM ztxx a
+		LEFT JOIN xxzy b ON a.xxzybm = b.xxzybm
+		WHERE
+		a.sfjck = '是'
+		AND a.ztkmc = #{names}
+		AND b.zwbmmc is NOT NULL
+		GROUP BY b.zwbmmc
+		ORDER BY sum DESC)
+		where rownum &lt; 6
+	</select>
+	<!--right -->
+	<select id="getRight1" resultType="hashmap">
+		SELECT ztkmc name,xxzysl val1,sjxsl val2,bxqxxzysl val3 FROM ztxxhz WHERE sfjck='是'
+	</select>
+	<select id="getRight2" resultType="hashmap">
+		select * from 
+		(SELECT a.zwbmmc name,
+		COUNT(a.xqxxzybm) sum,
+		COUNT(CASE WHEN b.ztkmc='人口信息' THEN b.ztkmc END) val1,
+		COUNT(CASE WHEN b.ztkmc='法人信息' THEN b.ztkmc END) val2,
+		COUNT(CASE WHEN b.ztkmc='电子证照信息' THEN b.ztkmc END) val3,
+		COUNT(CASE WHEN b.ztkmc='自然资源和空间地理信息' THEN b.ztkmc END) val4
+		FROM xxzyxqxx a
+		JOIN ztxx b ON a.xqxxzybm=b.xxzybm
+		WHERE b.sfjck = '是'
+		GROUP BY a.zwbmbm,a.zwbmmc ORDER BY sum DESC
+		)where rownum &lt;11
+	</select>
+
+	<!--mid -->
+	<select id="getMid1" resultType="hashmap">
+		select nvl(sum(sjxsl),0) total from ztxxhz
+	</select>
+	<select id="getMid2" resultType="hashmap">
+		SELECT
+		a.zwbmmc name,
+		COUNT(a.xxzybm) sum,
+		COUNT(CASE WHEN b.ztkmc='人口信息' THEN b.ztkmc END)
+		val1,
+		COUNT(CASE WHEN b.ztkmc='法人信息' THEN b.ztkmc END) val2,
+		COUNT(CASE
+		WHEN b.ztkmc='电子证照信息' THEN b.ztkmc END) val3,
+		COUNT(CASE WHEN
+		b.ztkmc='自然资源和空间地理信息' THEN b.ztkmc END) val4
+		FROM
+		xxzy a
+		JOIN ztxx b ON a.xxzybm = b.xxzybm
+		WHERE
+		b.sfjck = '是'
+		GROUP BY
+		a.zwbmbm,a.zwbmmc
+	</select>
+</mapper>

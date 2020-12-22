@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+	<services>
+		<service-include file-path="remoting-config.xml" />
+		<service-include file-path="proxy-config.xml" />
+		<default-channels>
+			<channel ref="my-amf" />
+			<channel ref="my-amf1" />
+		</default-channels>
+	</services>
+	<channels>
+
+		<channel-definition id="my-amf"
+			class="mx.messaging.channels.AMFChannel">
+			<endpoint
+				url="http://{server.name}:{server.port}/{context.root}/service/amf/ams/"
+				class="flex.messaging.endpoints.AMFEndpoint" />
+			<properties>
+				<polling-enabled>false</polling-enabled>
+			</properties>
+
+		</channel-definition>
+		<channel-definition id="my-amf1" class="mx.messaging.channels.AMFChannel"> 
+            <endpoint url="http://{server.name}:{server.port}/{context.root}/app/amf/amp/" class="flex.messaging.endpoints.AMFEndpoint" />
+            <properties> 
+                <polling-enabled>false</polling-enabled> 
+                
+            </properties> 
+          
+        </channel-definition>
+	</channels>
+
+
+
+
+
+
+
+
+
+	<logging>
+		<target class="flex.messaging.log.ConsoleTarget" level="info">
+			<properties>
+				<prefix>[BlazeDS] </prefix>
+				<includeDate>false</includeDate>
+				<includeTime>false</includeTime>
+				<includeLevel>true</includeLevel>
+				<includeCategory>false</includeCategory>
+			</properties>
+			<filters>
+				<pattern>Endpoint.*</pattern>
+				<pattern>Service.*</pattern>
+				<pattern>Configuration</pattern>
+			</filters>
+		</target>
+	</logging>
+
+</services-config>

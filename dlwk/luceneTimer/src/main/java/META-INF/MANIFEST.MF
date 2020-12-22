@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Class-Path: jakarta-regexp-1.4.jar commons-dbutils-1.5.jar lucene-anal
+ yzers-3.6.1.jar lucene-test-framework-3.6.1.jar lucene-queries-3.6.1.
+ jar commons-dbcp-1.4.jar commons-logging-1.1.3.jar hamcrest-core-1.1.
+ jar lucene-memory-3.6.1.jar lucene-queryparser-3.6.1.jar mmseg4j-anal
+ ysis-1.8.6.jar commons-pool-1.5.4.jar lucene-core-3.6.1.jar ant-launc
+ her-1.7.1.jar ant-junit-1.7.1.jar junit-4.10.jar lucene-highlighter-3
+ .6.1.jar ant-1.7.1.jar mmseg4j-core-1.8.6.jar commons-collections-3.2
+ .1.jar commons-lang-2.6.jar
+Main-Class: com.digitalchina.ldp.app.csdsc.lucene.LuceneUtil
+
