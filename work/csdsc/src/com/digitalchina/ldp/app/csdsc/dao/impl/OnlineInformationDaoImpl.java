@@ -344,7 +344,7 @@ public class OnlineInformationDaoImpl extends BaseDao implements
 	@Override
 	public List<Map<String, Object>> findPublicUtilities(
 			Map<String, Object> argMap, int type) {
-		StringBuilder sql = new StringBuilder();// 江苏常熟农村商业银行股份有限公司大义支行
+		StringBuilder sql = new StringBuilder();// 
 												// X3227479-4
 		if (type == 1) {
 			sql.append("select t.*,r.mc from xy_ggsyqfxxbgr t join rk_qfywzlmb r on t.rk_qfywzlmb_id = r.rk_qfywzlmb_id ");
@@ -418,7 +418,7 @@ public class OnlineInformationDaoImpl extends BaseDao implements
 	}
 
 	/*------------------------------------------------------------------------------------*/
-	/* 一下为常熟开发 */
+	/*  */
 
 	@Override
 	public ZzjgdmBean findZzjgdmDataInfo(Map<String, Object> argMap) {
